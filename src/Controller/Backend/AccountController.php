@@ -61,7 +61,7 @@ class AccountController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
         $biographyType = $this->createForm(BiographyType::class);
-        $user = $this->getDoctrine()->getRepository(User::class)->findUserByEmail($this->getUser()->getEmail());
+        $user = $userManager->getCurrentUser($user->$this->getUser()->getEmail());
         $biographyType->handleRequest($request);
         $account_type = $userManager->getRoleFR($user);
         if ($biographyType->isSubmitted() && $biographyType->isValid()) {

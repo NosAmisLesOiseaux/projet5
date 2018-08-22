@@ -125,7 +125,7 @@ class NAOCaptureManager
 		return $UserCapturesPerPage = $this->naoManager->getEm()->getRepository(Capture::class)->getUserCapturesPerPage($numberOfElementsPerPage, $firstEntrance, $id);
 	}
 
-	public function getLastCaptures()
+	public function getLastPublishedCaptures()
 	{
 		$numberElements = $this->naoPagination->getNbHomeCapturesPerPage();
 

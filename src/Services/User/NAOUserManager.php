@@ -4,6 +4,7 @@
 
 namespace App\Services\User;
 
+use App\Repository\UserRepository;
 use App\Services\NAOManager;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,10 +14,19 @@ class NAOUserManager extends NAOManager
 {
     private $container;
 
-    public function __construct(EntityManagerInterface $em, ContainerInterface $container)
+    private $userRepository;
+
+    public function __construct(EntityManagerInterface $em, ContainerInterface $container, UserRepository $userRepository)
     {
         parent::__construct($em);
         $this->container = $container;
+        $this->userRepository = $userRepository;
+    }
+
+    public function getCurrentUser(string $username)
+    {
+        $current_user = $this->userRepository->loadUserByUsername($username);
+        return $current_user;
     }
 
     /**

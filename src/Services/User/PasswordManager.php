@@ -25,26 +25,28 @@ class PasswordManager
 
     private $session;
 
-    public function __construct(UserPasswordEncoderInterface $encoder, Mailer $mailer, SessionInterface $session)
+    private $naoManager;
+
+    public function __construct(UserPasswordEncoderInterface $encoder, Mailer $mailer, SessionInterface $session, NAOManager $naoManager)
     {
         $this->encoder = $encoder;
         $this->mailer = $mailer;
         $this->session = $session;
+        $this->naoManager = $naoManager;
     }
 
     /**
      * @param User $user
      * @param string $password
-     * @param NAOManager $manager
      * @return bool
      */
-    public function changePassword(User $user, string $password, NAOManager $manager)
+    public function changePassword(User $user, string $password)
     {
         /** @var User $user */
-        $user = $manager->getEm()->getRepository(User::class)->findUserByEmail($user->getEmail());
+        $user = $this->naoManager->getEm()->getRepository(User::class)->findUserByEmail($user->getEmail());
         $encoded = $this->encoder->encodePassword($user, $password);
         $user->setPassword($encoded);
-        $manager->addOrModifyEntity($user);
+        $this->naoManager->addOrModifyEntity($user);
         $this->mailer->sendConfirmationPasswordChanged($user);
         $this->session->getFlashBag()->add('success', "Votre mot de passe a été changé avec succès !");
         return true;

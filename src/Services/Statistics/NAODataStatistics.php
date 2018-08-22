@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class NAODataStatistics
 {
-    private $naoCounCaptures;
+    private $naoCountCaptures;
     private $naoCountBirds;
     private $naoBirdManager;
 
     public function __construct(NAOCountCaptures $naoCountCaptures, NAOCountBirds $naoCountBirds, NAOBirdManager $naoBirdManager)
     {
-        $this->naoCounCaptures = $naoCountCaptures;
+        $this->naoCountCaptures = $naoCountCaptures;
         $this->naoCountBirds = $naoCountBirds;
         $this->naoBirdManager = $naoBirdManager;
     }
@@ -35,7 +35,7 @@ class NAODataStatistics
 
 	public function formatBirdsByRegions($regions, $year)
 	{
-        $numberOfPublishedCaptures = $this->naoCounCaptures->countPublishedCapturesByYear($year);
+        $numberOfPublishedCaptures = $this->naoCountCaptures->countPublishedCapturesByYear($year);
 
         $regionsData = [];
         foreach ($regions as $region)

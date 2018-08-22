@@ -66,6 +66,7 @@ services:
             - '@security.user_password_encoder.generic'
             - '@app.nao.mailer'
             - '@session'
+            - '@app.nao_manager'
 
     app.nao_comment_manager:
         class: App\Services\Comment\NAOCommentManager
