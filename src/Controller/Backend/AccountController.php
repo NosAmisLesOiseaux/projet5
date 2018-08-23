@@ -67,13 +67,13 @@ class AccountController extends Controller
         $account_type = $userManager->getRoleFR($user);
         if ($biographyType->isSubmitted() && $biographyType->isValid()) {
             $userManager->changeBiography($user, $biographyType->getData()['biography']);
-            return $this->redirectToRoute('compteUtilisateur');
+            return $this->redirectToRoute('user_account');
         }
         $changePasswordType = $this->createForm(ChangePasswordType::class);
         $changePasswordType->handleRequest($request);
         if ($changePasswordType->isSubmitted() && $changePasswordType->isValid()) {
             $passwordManager->changePassword($user, $changePasswordType->getData()['new_password']);
-            return $this->redirectToRoute('compteUtilisateur');
+            return $this->redirectToRoute('user_account');
         }
         return $this->render(
             'account/account.html.twig',
@@ -112,7 +112,7 @@ class AccountController extends Controller
             $uploadedFile = $avatar_form->getData()['image'];
             $imageManager->addAvatarOnUser($uploadedFile, $user);
             $this->addFlash('success', "Votre avatar a bien été changé !");
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('user_account');
         }
         return $this->render(
             'account/change_avatar.html.twig',
@@ -132,6 +132,6 @@ class AccountController extends Controller
     {
         $user->addRole($role);
         $manager->addOrModifyEntity($user);
-        return $this->redirectToRoute('compteUtilisateur');
+        return $this->redirectToRoute('user_account');
     }
 }
