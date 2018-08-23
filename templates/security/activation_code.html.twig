@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Code validation</h1>
+
+    <form action="{{ path('activation_code') }}" method="post">
+        <input type="text" name="activation_code" placeholder="Code d'activation">
+        <button type="submit">Valider le code</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{# templates/AdminSpace/waitingCapturesModel.html.twig #}
+
+<h2>{% if numberOfWaitingforvalidationCaptures == 1 %}{{numberOfWaitingforvalidationCaptures}}  observation en attente : {% elseif numberOfWaitingforvalidationCaptures > 1 %}{{numberOfWaitingforvalidationCaptures}}  observations en attentes {% endif %}</h2>
+<div>
+	<ul>Observation
+		{% for waitingforvalidationcapture in waitingforvalidationcaptures %}
+			<a href="{{ path('validate_capture', {id:  waitingforvalidationcapture.id}) }}"><li>Observation {{ waitingforvalidationcapture.id }}</li></a>
+		{% endfor %}
+	</ul>
+	<ul>Date
+		{% for waitingforvalidationcapture in waitingforvalidationcaptures %}
+			<li>{{ waitingforvalidationcapture.createdDate|date('d/m/Y') }}</li>
+		{% endfor %}
+	</ul>
+	<ul>Auteur
+		{% for waitingforvalidationcapture in waitingforvalidationcaptures %}
+			<li>{{ waitingforvalidationcapture.user.firstname }} {{ waitingforvalidationcapture.user.lastname }}</li>
+		{% endfor %}
+	</ul>
+</div>

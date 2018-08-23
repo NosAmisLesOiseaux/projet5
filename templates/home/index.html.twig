@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block mapStylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+            height:200px;
+            width:200px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Nos amis les oiseaux</h1>
+    <section>
+        <h2>Les dernières observations</h2>
+        {% set i = 0 %}
+        {% for capture in captures %}
+            <div>
+                <p>{{capture.image}}</p>
+                <p><a href="{{ path('observation', {id: capture.id}) }}">{% if capture.bird.vernacularname == false %}{{ capture.bird.validname }} {% else %} {{ capture.bird.vernacularname }} - {{ capture.bird.validname }}{% endif %}</a></p>
+                <p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
+                <p>{{ capture.createdDate|date('d/m/Y') }}</p>
+                <div id="map{{i}}" class="map">
+                </div>
+                {% set i = i + 1 %}
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block mapJavascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('javascript/maps/showcapturemap.js') }}"></script>
+{% endblock %}

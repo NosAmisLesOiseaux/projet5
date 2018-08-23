@@ -3,28 +3,24 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -32,160 +28,234 @@ class User
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=254, unique=true)
      */
-    private $lastname;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
     private $active;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(name="roles", type="array")
      */
     private $roles;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="lastname", type="string")
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(name="firstname", type="string")
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(name="date_register", type="datetime")
      */
     private $date_register;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="token", type="string", unique=true, nullable=true)
      */
     private $token;
 
     /**
-     * One User has One Image
-     * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true)
+     */
+    private $activation_code;
+
+    /**
+     * @ORM\Column(name="account_type", type="string", nullable=true)
+     */
+    private $account_type;
+
+    /**
+     * One User has One avatar Image.
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"}, orphanRemoval=true)
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true)
      */
     private $avatar;
 
+    /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="App\Entity\Capture", mappedBy="user")
+     */
+    private $captures;
+
+    /**
+     * @ORM\Column(name="biography", type="text", nullable=true)
+     */
+    private $biography;
+
     public function __construct()
     {
         $this->active = false;
-        $this->roles = ["ROLE_USER"];
+        $this->roles = array("ROLE_USER");
         $this->date_register = new \DateTime('now');
+        $this->activation_code = md5(uniqid('code_', false));
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getUsername(): ?string
+    public function getUsername() :string
     {
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername($username) :void
     {
         $this->username = $username;
-
-        return $this;
     }
 
-    public function getEmail(): ?string
+    public function getSalt()
     {
-        return $this->email;
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
     }
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword($password)
     {
         $this->password = $password;
-
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getEmail()
     {
-        return $this->lastname;
+        return $this->email;
     }
 
-    public function setLastname(string $lastname): self
+    public function setEmail($email)
     {
-        $this->lastname = $lastname;
-
+        $this->email = $email;
         return $this;
     }
 
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getActive(): ?bool
+    public function getActive() :bool
     {
         return $this->active;
     }
 
-    public function setActive(bool $active): self
+    public function setActive($active) :void
     {
         $this->active = $active;
-
-        return $this;
     }
 
-    public function getRoles(): ?array
+    public function getRoles() :array
     {
         return $this->roles;
     }
 
-    public function setRoles(array $roles): self
+    public function setRole($role) :void
     {
-        $this->roles = $roles;
-
-        return $this;
+        if (!in_array($this->roles, $role)) {
+            $this->roles[] = $role;
+        }
     }
 
-    public function getDateRegister(): ?\DateTimeInterface
+    public function addRole($role) :void
+    {
+        if (!in_array($role, $this->roles)) {
+            $this->roles[] = $role;
+        }
+    }
+
+    public function removeRole($role) :array
+    {
+        if (in_array($role, $this->roles)) {
+            unset($role);
+            return $this->roles;
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateRegister()
     {
         return $this->date_register;
     }
 
-    public function setDateRegister(\DateTimeInterface $date_register): self
+    /**
+     * @param mixed $date_register
+     */
+    public function setDateRegister($date_register): void
     {
         $this->date_register = $date_register;
-
-        return $this;
     }
 
-    public function getToken(): ?string
+    /**
+     * @return mixed
+     */
+    public function getToken()
     {
         return $this->token;
     }
 
-    public function setToken(?string $token): self
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token): void
     {
         $this->token = $token;
+    }
 
-        return $this;
+    public function getActivationCode() :string
+    {
+        return $this->activation_code;
+    }
+
+    public function setActivationCode($activation_code) :void
+    {
+        $this->activation_code = $activation_code;
+    }
+
+    public function getAccountType()
+    {
+        return $this->account_type;
+    }
+
+    public function setAccountType($account_type) :void
+    {
+        $this->account_type = $account_type;
     }
 
     /**
@@ -202,5 +272,47 @@ class User
     public function setAvatar($avatar): void
     {
         $this->avatar = $avatar;
+    }/**
+ * @return mixed
+ */
+    public function getBiography()
+    {
+        return $this->biography;
+    }
+
+    /**
+     * @param mixed $biography
+     */
+    public function setBiography($biography): void
+    {
+        $this->biography = $biography;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized, array('allowed_classes' => false));
     }
 }

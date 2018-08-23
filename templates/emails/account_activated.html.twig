@@ -1,0 +1,14 @@
+{% extends "base_email.html.twig" %}
+{% block email_subject %}Compte activé{% endblock %}
+{% block email_style %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/email/activation_compte.css')) }}">
+{% endblock %}
+{% block email_body %}
+    <div class="row center">
+        <h2>Votre compte a été activé avec succès !</h2>
+        <p class="darken-1">Vous pouvez désormais y accéder en entrant le couple e-mail/mot de passe choisi durant votre inscription.</p>
+    </div>
+    <div class="row center">
+        <a href="http://localhost:8000/login" target="_blank" id="download-button" class="btn-large waves-effect waves-light green">Accéder à mon compte</a>
+    </div>
+{% endblock %}

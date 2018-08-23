@@ -1,0 +1,71 @@
+{# templates/Capture/showCapture.html.twig #}
+
+{% extends "layout.html.twig" %}
+
+{% block title %} Répertoire {% endblock %}
+
+{% block body %}
+	<h1>Répertoire</h1>
+	<section>
+		{% set repositoryLetter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] %}
+		<p>
+			<a href="{{ path('repertory') }}">All</a> {% for i in 0..25 %} | <a href="{{ path('repertory_by_letter', {letter: repositoryLetter[i]}) }}">{{repositoryLetter[i]}}</a> {% endfor %}
+		</p>
+		<form action="{{ path('repertory') }}" method="post">
+		<select name="region" id="region">
+			<option disabled selected value="">Région</option>
+            {% for region in regions %}
+				<option value="{{ region.nom|lower }}">{{ region.nom }}</option>
+            {% endfor %}
+		</select>
+		<button type="submit">Rechercher</button>
+	</form>
+	</section>
+	{% for bird in birds %}
+		<div>
+			<p>{{ bird.image }}</p>
+			<p><a href="{{ path('bird', {id: bird.id}) }}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}</a>{% endif %}</p>
+		</div>
+	{% endfor %}
+		<div>
+			<ul>
+				{% if nbRepertoryPages  > 1 %}
+					{% if previousPage > 0 %}
+					<p> 
+						{% if letter is defined %}
+							<a href="/repertoire/{{letter}}/{{previousPage}}"> << </a> 
+						{% elseif region is defined  %}
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{previousPage}}"> << </a> 
+						{% else %}
+							<a href="/repertoire/{{previousPage}}"> << </a> 
+						{% endif %}
+					</p>
+				{% endif %}
+				{% for i in 1..nbRepertoryPages %}
+					<li {% if page == i %} class="active" {% endif %}>
+						{% if letter is defined %}
+   							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
+   						{% elseif region is defined  %}
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a> 
+   						{% else %}
+							<a href="/repertoire/{{i}}"> {{i}} </a> 
+						{% endif %}
+	   				</li>
+	   			{% endfor %}
+	    		<p>
+	    			{% if nextPage <= nbRepertoryPages %}
+	    				{% if letter is defined %}
+	    					<a href="/repertoire/{{letter}}/{{nextPage}}"> >> </a>
+	    					{% elseif region is defined  %}
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{nextPage}}"> >> </a> 
+    					{% else %}
+							<a href="/repertoire/{{nextPage}}"> >> </a> 
+						{% endif %}
+	   				{% endif %}
+	   			</p> 
+	   		{% endif %}
+		</ul>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

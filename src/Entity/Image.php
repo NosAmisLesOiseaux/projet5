@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
@@ -17,34 +18,39 @@ class Image
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
      */
     private $path;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="file_name", type="string", length=255)
      */
-    private $name;
+    private $file_name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="extension", type="string", length=255)
      */
     private $extension;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="mime_type", type="string", length=255)
      */
     private $mime_type;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(name="size", type="float")
      */
-    private $weight;
+    private $size;
+
+    /**
+     * @ORM\Column(name="alt", type="string", nullable=true)
+     */
+    private $alt;
 
     public function getId()
     {
@@ -63,15 +69,14 @@ class Image
         return $this;
     }
 
-    public function getName(): ?string
+    public function getFileName() :string
     {
-        return $this->name;
+        return $this->file_name;
     }
 
-    public function setName(string $name): self
+    public function setFileName(string $file_name): self
     {
-        $this->name = $name;
-
+        $this->file_name = $file_name;
         return $this;
     }
 
@@ -111,15 +116,31 @@ class Image
         return $this;
     }
 
-    public function getWeight(): ?float
+    public function getSize(): ?float
     {
-        return $this->weight;
+        return $this->size;
     }
 
-    public function setWeight(float $weight): self
+    public function setSize(float $size): self
     {
-        $this->weight = $weight;
+        $this->size = $size;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAlt()
+    {
+        return $this->alt;
+    }
+
+    /**
+     * @param mixed $alt
+     */
+    public function setAlt($alt): void
+    {
+        $this->alt = $alt;
     }
 }

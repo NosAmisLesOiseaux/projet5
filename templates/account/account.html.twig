@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Mon compte {{ account_type }}</h1>
+    <section>
+        <div>
+            <h2>Observations partagées</h2>
+            <ul>
+                <p>Observation </p>
+                {% for capture in captures %}
+                    {% if capture.status == 'published' or capture.status == 'validated' %}
+                        <a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
+                    {% elseif capture.status == 'draft' %}
+                        <a href="{{ path('add_capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
+                    {% else %}
+                        <li>Observation {{ capture.id }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                <p>Date</p>
+                {% for capture in captures %}
+                    <li>{{ capture.createdDate|date('d/m/Y') }}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                <p>Statut</p>
+                {% for capture in captures %}
+                    <li>{{ capture.status }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <ul>
+                {% if nbCapturesPages > 1 %}
+                    {% if previousPage > 1 %}
+                        <p>
+                            <a href="{{ path('user_account', {page: previousPage}) }}"> << </a>
+                        </p>
+                    {% endif %}
+                    {% for i in 1..nbCapturesPages %}
+                        <li {% if page == i %} class="active" {% endif %}>
+                            <a href="{{ path('user_account', {page: i}) }}"> {{i}} </a>
+                        </li>
+                    {% endfor %}
+                    <p>
+                        {% if nextPage <= nbCapturesPages %}
+                            <a href="{{ path('user_account', {page: nextPage}) }}"> >> </a>
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+
+    {% if app.user.avatar == null %}
+        <img src="{{ asset('default/avatar.svg') }}" alt="" height="150">
+    {% else %}
+        <img src="{{ asset('uploads/avatar/' ~ app.user.avatar.filename ) }}" alt="" height="150">
+    {% endif %}
+    <h2>{{ app.user.firstname }}</h2>
+    <p>
+        {{ app.user.biography }}
+    </p>
+
+    <a href="{{ path('change_avatar') }}">Change avatar</a>
+    {% include "account/biography_form.html.twig" %}
+    {% include "password/change_password.html.twig" %}
+{% endblock %}
