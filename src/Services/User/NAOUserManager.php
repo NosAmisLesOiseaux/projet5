@@ -37,11 +37,11 @@ class NAOUserManager extends NAOManager
 	{
 		$roles = $user->getRoles();
 		if (in_array('ROLE_ADMIN', $roles)) {
-		    return "Administrateur";
+		    return "administrateur";
         } elseif (in_array('ROLE_NATURALIST', $roles)) {
-		    return "Naturaliste";
+		    return "naturaliste";
         } else {
-		    return "Particulier";
+		    return "particulier";
         }
 	}
 

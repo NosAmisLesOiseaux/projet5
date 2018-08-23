@@ -146,4 +146,23 @@ class CaptureController extends Controller
                 'resultats' => $resultats
             ));
     }
+
+     /**
+     * @Route("/signaler-commentaire/{id}", requirements={"id" = "\d+"}, name="reported_comment")
+     * @param $id
+     * @param NAOManager $naoManager
+     * @param NAOCommentManager $naoCommentManager
+     * @return Response
+     */
+    public function reportCommentAction($id, NAOManager $naoManager, NAOCommentManager $naoCommentManager)
+    {
+        $comment = $this->naoManager->getEm()->getRepository(Comment::class)->findOneById($id);
+
+        $capture = $comment->getCapture()->getId();
+
+        $naoCommentManager->reportComment($comment);
+        $naoManager->addOrModifyEntity($comment);
+
+        return $this->redirectToRoute('capture', array('id' => $capture));
+    }
 }
