@@ -13,6 +13,7 @@ use App\Services\Comment\NAOCountComments;
 use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -209,19 +210,18 @@ class AdminSpaceController extends Controller
         $comment = $this->getDoctrine()->getRepository(Comment::class)->findOneById($id);
         $naoCommentManager->ignoreReportedComment($comment);
         $naoManager->addOrModifyEntity($comment);
-        return $this->redirectToRoute('espaceAdministration');
+        return $this->redirectToRoute('admin_space');
     }
 
     /**
      * @Route("/supprimer-commentaire/{id}", name="remove_comment", requirements={"id" = "\d+"})
-     * @param $id
+     * @ParamConverter("comment", class="App\Entity\Comment")
      * @param NAOManager $naoManager
      * @return Response
      */
-    public function removeCommentAction($id, NAOManager $naoManager)
+    public function removeCommentAction(Comment $comment, NAOManager $naoManager)
     {
-        $comment = $this->getDoctrine()->getRepository(Comment::class)->findOneById($id);
         $naoManager->removeEntity($comment);
-        return $this->redirectToRoute('espaceAdministration');
+        return $this->redirectToRoute('admin_space');
     }
 }
