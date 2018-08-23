@@ -6,12 +6,11 @@
         <div>
             <h2>Observations partagées</h2>
             <ul>
-                <p>Observation </p>
                 {% for capture in captures %}
                     {% if capture.status == 'published' or capture.status == 'validated' %}
                         <a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
                     {% elseif capture.status == 'draft' %}
-                        <a href="{{ path('add_capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
+                        <a href="{{ path('validate_capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
                     {% else %}
                         <li>Observation {{ capture.id }}</li>
                     {% endif %}

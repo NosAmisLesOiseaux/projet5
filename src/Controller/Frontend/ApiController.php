@@ -51,15 +51,13 @@ class ApiController extends Controller
 
     /**
      * @Route(path="/api/lastcaptures", name="app_lastcaptures_list", methods={"GET"})
+     * @param NAOCaptureManager $naoCaptureManager
      * @param NAOShowMap $naoShowMap
-     * @param NAOPagination $naoPagination
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getLastCapturesData(NAOShowMap $naoShowMap, NAOPagination $naoPagination)
+    public function showLastCapturesAction(NAOCaptureManager $naoCaptureManager, NAOShowMap $naoShowMap)
     {
-        $numberCaptures = $naoPagination->getNbHomeCapturesPerPage();
-        $em = $this->getDoctrine()->getManager();
-        $lastCaptures = $em->getRepository(Capture::class)->getLastPublishedCaptures($numberCaptures);
-
+        $lastCaptures = $naoCaptureManager->getLastPublishedCaptures();
         return $naoShowMap->formatPublishedCaptures($lastCaptures);
     }
 
@@ -68,6 +66,7 @@ class ApiController extends Controller
      * @param $id
      * @param NAOShowComments $naoShowComments
      * @param NAOCommentManager $naoCommentManager
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function getCapturePublichedComments($id, NAOShowComments $naoShowComments, NAOCommentManager $naoCommentManager)
     {

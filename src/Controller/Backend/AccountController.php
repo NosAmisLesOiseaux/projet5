@@ -13,6 +13,7 @@ use App\Entity\User;
 use App\Entity\Capture;
 use App\Entity\Comment;
 use App\Form\Image\AvatarType;
+use App\Form\Image\ImageType;
 use App\Form\User\BiographyType;
 use App\Form\Password\ChangePasswordType;
 use App\Services\Image\FileUploader;
@@ -61,7 +62,7 @@ class AccountController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
         $biographyType = $this->createForm(BiographyType::class);
-        $user = $userManager->getCurrentUser($user->$this->getUser()->getEmail());
+        $user = $userManager->getCurrentUser($this->getUser()->getEmail());
         $biographyType->handleRequest($request);
         $account_type = $userManager->getRoleFR($user);
         if ($biographyType->isSubmitted() && $biographyType->isValid()) {
@@ -101,14 +102,14 @@ class AccountController extends Controller
     {
         $current_user = $this->getUser();
         $user = $userManager->getCurrentUser($current_user->getUsername());
-        $avatar_form = $this->createForm(AvatarType::class);
+        $avatar_form = $this->createForm(ImageType::class);
         $avatar_form->handleRequest($request);
         if ($avatar_form->isSubmitted() && $avatar_form->isValid()) {
             if ($user->getAvatar() !== null) {
                 $imageManager->removeCurrentAvatar($this->getUser()->getUsername());
             }
             /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $avatar_form->getData()['avatar'];
+            $uploadedFile = $avatar_form->getData()['image'];
             $imageManager->addAvatarOnUser($uploadedFile, $user);
             $this->addFlash('success', "Votre avatar a bien été changé !");
             return $this->redirectToRoute('account');

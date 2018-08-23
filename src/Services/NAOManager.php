@@ -17,8 +17,8 @@ class NAOManager
 
 	public function addOrModifyEntity($entity)
 	{
- 		$this->em->persist($entity);
-		$this->em->flush();
+ 		$this->getEm()->persist($entity);
+		$this->getEm()->flush();
 	}
 
 	public function removeEntity($entity)

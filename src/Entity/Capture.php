@@ -68,7 +68,7 @@ class Capture
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Choice(
-     *     choices = { "draft", "published", "validated", "waiting for validation" }
+     *     choices = { "draft", "published", "validated", "waiting_for_validation" }
      * )
      */
     private $status;
@@ -102,14 +102,14 @@ class Capture
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User")
+     * Many Captures are validated by One User.
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="captures")
      */
     private $validated_by;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
-     * @Assert\Image()
      */
     private $image;
 
@@ -177,7 +177,11 @@ class Capture
         return $this->complement;
     }
 
-    public function setComplement(string $complement): self
+    /**
+     * @param string|null $complement
+     * @return Capture
+     */
+    public function setComplement(string $complement = null): self
     {
         $this->complement = $complement;
 
@@ -213,7 +217,11 @@ class Capture
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    /**
+     * @param string|null $city
+     * @return Capture
+     */
+    public function setCity(string $city = null): self
     {
         $this->city = $city;
 
@@ -331,5 +339,10 @@ class Capture
     public function getImage()
     {
         return $this->image;
+    }
+
+    public function removeImage()
+    {
+        $this->image = null;
     }
 }

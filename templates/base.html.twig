@@ -20,10 +20,11 @@
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('repertory') }}">Répertoire</a></li>
             <li><a href="{{ path('captures') }}">Observations</a></li>
+            <li><a href="{{ path('add_capture') }}">Ajouter une observation</a></li>
             <li><a href="{{ path('statistics') }}">Quelques données</a></li>
             <li><a href="{{ path('contact') }}">Contact</a></li>
             {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('administration') }}">Administration</a></li>
+                <li><a href="{{ path('admin_space') }}">Administration</a></li>
                 <li><a href="{{ path('user_account') }}">Mon compte</a></li>
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             {% elseif is_granted('ROLE_USER') %}
@@ -36,6 +37,7 @@
             {% endif %}
         </ul>
     </nav>
+    {% block jquery %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

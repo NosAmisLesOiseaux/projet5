@@ -46,8 +46,8 @@ services:
         autowire: true
         public: true
         arguments:
-            - '@app.nao_manager'
-            - '@security.user.provider.concrete.nao_app'
+            - '@App\Services\User\NAOUserManager'
+            - '@app.nao_user_manager'
             - '@service_container'
             - '@app.nao.file_uploader'
 

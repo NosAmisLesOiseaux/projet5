@@ -1,5 +1,4 @@
 <?php
-// src/Form/Capture/ParticularCaptureType.php
 
 namespace App\Form\Capture;
 
@@ -23,7 +22,8 @@ class ParticularCaptureType extends AbstractType
         $builder
             ->add(
                 'bird',
-                EntityType::class, array(
+                EntityType::class,
+                array(
                     'class' => Bird::class,
                     'query_builder' => function (BirdRepository $er) {
                         return $er->createQueryBuilder('u')
@@ -33,62 +33,91 @@ class ParticularCaptureType extends AbstractType
                 'choice_label' => function (Bird $bird) {if (!empty($bird->getVernacularname())) { return $bird->getVernacularname() . ' - ' . $bird->getValidname();} else {return $bird->getValidname();}},
                 'label' => ' ',
                 'placeholder' => 'Sélectionner un oiseau',
-            ))
-            ->add('image',            FileType::class, array(
-                'label' => 'Ajouter une image :',
-                'required'   => false,
-            ))
-            ->add('content',            TextareaType::class, array(
-                'label' => 'Observation :',
-            ))
-            ->add('latitude',   NumberType::class, array(
-                'label' => 'Latitude'
-            ))
-            ->add('longitude',      NumberType::class, array(
-                'label' =>  'Longitude',
-            ))
-            ->add('address', TextType::class, array(
-                'label' => ' ',
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => 'Adresse',
+                    )
+            )
+            ->add(
+                'content',
+                TextareaType::class,
+                array(
+                    'label' => 'Observation :'
                 )
-            ))
-            ->add('complement', TextType::class, array(
-                'label' => ' ',
-                'required'   => false,
-                'attr' => array(
-                    'placeholder' => 'Complément d\'adresse',
+            )
+            ->add(
+                'latitude',
+                NumberType::class,
+                array(
+                    'label' => 'Latitude'
                 )
-            ))
-            ->add('zipcode', NumberType::class, array(
-                'label' => ' ',
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => 'Code postal',
+            )
+            ->add(
+                'longitude',
+                NumberType::class,
+                array(
+                    'label' =>  'Longitude'
                 )
-            ))
-            ->add('city',        TextType::class, array(
-                'label' => ' ',
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => 'Ville',
+            )
+            ->add(
+                'address',
+                TextType::class,
+                array(
+                    'label' => ' ',
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Adresse',
+                    )
                 )
-            ))
-            ->add('region', TextType::class, array(
-                'label' => ' ',
-                'required' => false,
-                'attr' => array(
-                    'placeholder' => 'Région',
+            )
+            ->add(
+                'complement',
+                TextType::class,
+                array(
+                    'label' => ' ',
+                    'required'   => false,
+                    'attr' => array(
+                        'placeholder' => "Complément d'adresse",
+                    )
                 )
-            ))
+            )
+            ->add(
+                'zipcode',
+                TextType::class,
+                array(
+                    'label' => ' ',
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Code postal',
+                    )
+                )
+            )
+            ->add(
+                'city',
+                TextType::class,
+                array(
+                    'label' => ' ',
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Ville',
+                    )
+                )
+            )
+            ->add(
+                'region',
+                TextType::class,
+                array(
+                    'label' => ' ',
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Région',
+                    )
+                )
+            )
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => null
+            'data_class' => Capture::class
         ));
     }
 }

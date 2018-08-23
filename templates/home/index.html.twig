@@ -19,8 +19,10 @@
         {% set i = 0 %}
         {% for capture in captures %}
             <div>
-                <p>{{capture.image}}</p>
-                <p><a href="{{ path('observation', {id: capture.id}) }}">{% if capture.bird.vernacularname == false %}{{ capture.bird.validname }} {% else %} {{ capture.bird.vernacularname }} - {{ capture.bird.validname }}{% endif %}</a></p>
+                {% if capture.image is not null %}
+                    <img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% endif %}
+                <p><a href="{{ path('capture', {id: capture.id}) }}">{% if capture.bird.vernacularname == false %}{{ capture.bird.validname }} {% else %} {{ capture.bird.vernacularname }} - {{ capture.bird.validname }}{% endif %}</a></p>
                 <p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
                 <p>{{ capture.createdDate|date('d/m/Y') }}</p>
                 <div id="map{{i}}" class="map">

@@ -40,7 +40,7 @@ class Comment
     private $published;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Capture")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Capture", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $capture;

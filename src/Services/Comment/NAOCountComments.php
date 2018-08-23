@@ -30,7 +30,7 @@ class NAOCountComments
 
 	public function countReportedComments()
 	{
-		return $numberOfReportedComments = $this->naoManager->getEm()->getRepository(Comment::class)->countPublishedOrReportedComments($this->reportedStatuss);
+		return $numberOfReportedComments = $this->naoManager->getEm()->getRepository(Comment::class)->countPublishedOrReportedComments($this->reportedStatus);
 	} 
 
 	public function countCapturePublishedComments($capture)

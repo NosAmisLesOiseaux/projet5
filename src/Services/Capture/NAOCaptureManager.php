@@ -58,7 +58,7 @@ class NAOCaptureManager
      */
 	public function buildCapture(array $data, string $directory): Capture
     {
-        $bird_image = $this->container->get('app.avatar_service')->buildImage($data['image'], $directory);
+        $bird_image = $this->container->get('app.image_manager')->buildImage($data['image'], $directory);
         $capture = new Capture();
         $capture->setBird($data['bird']);
         $capture->setImage($bird_image);
@@ -70,6 +70,15 @@ class NAOCaptureManager
         $capture->setZipcode($data['zipcode']);
         $capture->setCity($data['address']);
         $capture->setRegion($data['region']);
+        return $capture;
+    }
+
+    public function setStatusOnCapture(Capture $capture, User $user, string $role)
+    {
+        if ($role === "particular") {
+            $this->setWaitingStatus($capture);
+        }
+        $capture->setUser($user);
         return $capture;
     }
 

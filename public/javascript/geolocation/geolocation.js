@@ -13,10 +13,12 @@ $( function() {
 		$('#'+ roles +'_capture_longitude').val(position.coords.longitude);
 
 		//Ajout de l'adresse à partir de la latitude et de la longitude
-		$.getJSON('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '', function( data ) {
+		//$.getJSON('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '', function( data ) {
+		$.getJSON('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=49.588633599999994&lon=1.3508608', function( data ) {
+			console.log(data.address);
 			var address = data.address.house_number + ' ' + data.address.road;
 			var zipcode = data.address.postcode;
-			var town = data.address.town;
+			var town = town ? data.address.town : data.address.village;
 			var region = data.address.state;
 			$('#'+ roles +'_capture_address').val(address);
 			$('#'+ roles +'_capture_zipcode').val(zipcode);

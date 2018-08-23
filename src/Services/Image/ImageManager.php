@@ -12,12 +12,10 @@ namespace App\Services\Image;
 use App\Entity\Capture;
 use App\Entity\Image;
 use App\Entity\User;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Doctrine\Security\User\EntityUserProvider;
+use App\Services\NAOManager;
+use App\Services\User\NAOUserManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
 
 class ImageManager
 {
@@ -29,7 +27,7 @@ class ImageManager
 
     private $fileUploader;
 
-    public function __construct(NAOManager $manager, EntityUserProvider $user, ContainerInterface $container, FileUploader $fileUploader)
+    public function __construct(NAOManager $manager, NAOUserManager $user, ContainerInterface $container, FileUploader $fileUploader)
     {
         $this->manager = $manager;
         $this->user = $user;
@@ -45,7 +43,7 @@ class ImageManager
     public function removeCurrentAvatar(string $username): bool
     {
         // get current avatar form database
-        $user = $this->getUser()->loadUserByUsername($username);
+        $user = $this->user->getCurrentUser($username);
         $current_image = $this->manager->getEm()->getRepository(Image::class)->findOneBy(['id' => $user->getAvatar()]);
         if ($current_image instanceof Image) {
             $current_image_filename = $current_image->getFilename();
