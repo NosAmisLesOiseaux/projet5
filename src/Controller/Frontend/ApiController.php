@@ -51,14 +51,12 @@ class ApiController extends Controller
 
     /**
      * @Route(path="/api/lastcaptures", name="app_lastcaptures_list", methods={"GET"})
+     * @param NAOCaptureManager $naoCaptureManager
      * @param NAOShowMap $naoShowMap
-     * @param NAOPagination $naoPagination
      */
-    public function getLastCapturesData(NAOShowMap $naoShowMap, NAOPagination $naoPagination)
+    public function getLastCapturesData(NAOCaptureManager $naoCaptureManager, NAOShowMap $naoShowMap)
     {
-        $numberCaptures = $naoPagination->getNbHomeCapturesPerPage();
-        $em = $this->getDoctrine()->getManager();
-        $lastCaptures = $em->getRepository(Capture::class)->getLastPublishedCaptures($numberCaptures);
+        $lastCaptures = $naoCaptureManager->getLastPublishedCaptures();
 
         return $naoShowMap->formatPublishedCaptures($lastCaptures);
     }

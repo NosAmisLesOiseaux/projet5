@@ -206,7 +206,7 @@ class AdminSpaceController extends Controller
      */
     public function ignoreReportedCommentAction($id, NAOCommentManager $naoCommentManager, NAOManager $naoManager)
     {
-        $comment = $this->getDoctrine()->getRepository(Comment::class)->findOneById($id);
+        $comment = $naoManager->getEm()->getRepository(Comment::class)->findOneById($id);
         $naoCommentManager->ignoreReportedComment($comment);
         $naoManager->addOrModifyEntity($comment);
         return $this->redirectToRoute('espaceAdministration');
@@ -220,7 +220,7 @@ class AdminSpaceController extends Controller
      */
     public function removeCommentAction($id, NAOManager $naoManager)
     {
-        $comment = $this->getDoctrine()->getRepository(Comment::class)->findOneById($id);
+        $comment = $naoManager->getEm()->getRepository(Comment::class)->findOneById($id);
         $naoManager->removeEntity($comment);
         return $this->redirectToRoute('espaceAdministration');
     }

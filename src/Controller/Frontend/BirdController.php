@@ -118,12 +118,12 @@ class BirdController extends Controller
     /**
      * @Route("oiseau/{id}", requirements={"id" = "\d+"}, name="bird")
      * @param $id
+     * @param NAOManager $naoManager
      * @return Response
      */
-    public function showBird($id)
+    public function showBird($id, NAOManager $naoManager)
     {
-        $em = $this->getDoctrine()->getManager();
-        $bird = $em->getRepository(Bird::class)->findOneById($id);
+        $bird = $naoManager->getEm()->getRepository(Bird::class)->findOneById($id);
 
         return $this->render('Bird\bird.html.twig', array('bird' => $bird,));      
     }

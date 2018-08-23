@@ -105,8 +105,7 @@ class CaptureController extends Controller
      */
     public function validateCaptureAction(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-        $capture = $em->getRepository(Capture::class)->findOneById($id);
+        $capture = $naoManager->getEm()->getRepository(Capture::class)->findOneById($id);
 
         $form = $this->get('form.factory')->create(validateCaptureType::class, $capture);
 
@@ -163,8 +162,7 @@ class CaptureController extends Controller
      */
     public function modifyCaptureAction(Request $request, NAOManager $naoManager, NAOUserManager $naoUserManager, $capture)
     {
-        $em = $this->getDoctrine()->getManager();
-        $capture = $em->getRepository(Capture::class)->find($capture); 
+        $capture = $naoManager->getEm()->getRepository(Capture::class)->find($capture); 
         $form = $this->createForm(NaturalistCaptureType::class, $capture);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) 

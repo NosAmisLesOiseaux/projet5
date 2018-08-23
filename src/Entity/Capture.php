@@ -68,7 +68,7 @@ class Capture
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Choice(
-     *     choices = { "draft", "published", "validated", "waiting for validation" }
+     *     choices = { "draft", "published", "validated", "waiting_for_validation" }
      * )
      */
     private $status;
