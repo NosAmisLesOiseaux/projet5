@@ -1,9 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <form action="{{ path('register') }}" method="post">
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-        <button type="submit">Inscription</button>
-    </form>
+    <h1>Register</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_label(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Créer mon compte</button>
+    {{ form_end(form) }}
 {% endblock %}

@@ -1,0 +1,39 @@
+{# templates/AdminSpace/reportedComments.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Commentaires signalés {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1>Espace administration</h1>
+	<h2>Commentaires signalés</h2>
+
+	<section>
+		{{ include('AdminSpace/reportedCommentsModel.html.twig')}}
+		<div>
+			<ul>
+				{% if nbReportedCommentsPages > 1 %}
+					<p> 
+						<a href="{{ path('admin_space') }}"> Retour </a> 
+					</p>
+					{% if previousPage > 1 %}
+					<p> 
+						<a href="{{ path('admin_space_reported_comments', {page: previousPage}) }}"> << </a> 
+					</p>
+					{% endif %}
+					{% for i in 2..nbReportedCommentsPages %}
+						<li {% if page == i %} class="active" {% endif %}>
+   							<a href="{{ path('admin_space_reported_comments', {page: i}) }}"> {{i}} </a>
+   						</li>
+   					{% endfor %}
+    				<p>
+    					{% if nextPage <= nbReportedCommentsPages %}
+    						<a href="{{ path('admin_space_reported_comments', {page: nextPage}) }}"> >> </a>
+    					{% endif %}
+    				</p> 
+    			{% endif %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+{% block javascripts %} {% endblock %}

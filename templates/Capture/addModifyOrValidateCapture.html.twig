@@ -1,0 +1,16 @@
+{# templates/Capture/addModifyOrValidate.html.twig #}
+
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ titre }} - Compte {{ userRole }} {% endblock %}
+
+{% block body %}
+	<h1>{{ titre }}</h1>
+    <h2 id="userRole" data-userrole={{ role }}> Compte {{ userRole }}</h2>
+    {{ form(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('javascript/geolocation/geolocation.js') }}"></script>
+{% endblock %}
+   
