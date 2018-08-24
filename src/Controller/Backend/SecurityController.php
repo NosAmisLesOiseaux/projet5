@@ -75,7 +75,8 @@ class SecurityController extends Controller
     /**
      * @Route("/activation-code", name="activation_code")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param NAOManager $manager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function activationCode(Request $request, NAOManager $manager)
     {

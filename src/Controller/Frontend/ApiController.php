@@ -18,6 +18,7 @@ class ApiController extends Controller
      * @Route("/api/publishedcaptures", name="app_publishedcaptures_list", methods={"GET"})
      * @param NAOCaptureManager $naoCaptureManager
      * @param NAOShowMap $naoShowMap
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function getPublishedCapturesData(NAOCaptureManager $naoCaptureManager, NAOShowMap $naoShowMap)
     {
@@ -31,6 +32,7 @@ class ApiController extends Controller
      * @param $id
      * @param NAOCaptureManager $naoCaptureManager
      * @param NAOShowMap $naoShowMap
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function getBirdPublishedCapturesData($id, NAOCaptureManager $naoCaptureManager, NAOShowMap $naoShowMap)
     {
@@ -43,6 +45,7 @@ class ApiController extends Controller
      * @Route(path="/api/latloncapture/{id}", name="app_publishedcapture", requirements={"id" = "\d+"}, methods={"GET"})
      * @param $id
      * @param NAOShowMap $naoShowMap
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function getLatitudeLongitudeCapture($id, NAOShowMap $naoShowMap)
     {
@@ -68,7 +71,7 @@ class ApiController extends Controller
      * @param NAOCommentManager $naoCommentManager
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getCapturePublichedComments($id, NAOShowComments $naoShowComments, NAOCommentManager $naoCommentManager)
+    public function getCapturePublishedComments($id, NAOShowComments $naoShowComments, NAOCommentManager $naoCommentManager)
     {
         $comments = $naoCommentManager->getCapturePublishedComments($id);
 
@@ -79,6 +82,7 @@ class ApiController extends Controller
      * @Route(path="/api/datastatistics/{year}", name="app_data_statistics", methods={"GET"})
      * @param NAODataStatistics $naoDataStatistics
      * @param $year
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function showDataStatics(NAODataStatistics $naoDataStatistics, $year)
     {

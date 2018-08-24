@@ -84,7 +84,6 @@ class BirdController extends Controller
 
     /**
      * @Route("resultat-recherche-oiseaux/{region}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="result_search_birds")
-     * @param Request $request
      * @param NAOBirdManager $naoBirdManager
      * @param NAOPagination $naoPagination
      * @param NAOCountBirds $naoCountBirds
@@ -92,7 +91,7 @@ class BirdController extends Controller
      * @param $region
      * @return Response
      */
-    public function showBirdsByRegionAction(Request $request, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page, $region)
+    public function showBirdsByRegionAction(NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page, $region)
     {
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
         $numberOfSearchBirds = $naoCountBirds->countSearchBirdsByRegion($region);

@@ -30,10 +30,10 @@ class AdminSpaceController extends Controller
      * @Route("/", name="admin_space")
      * @param NAOCaptureManager $naoCaptureManager
      * @param NAOCommentManager $naoCommentManager
+     * @param NAOCountCaptures $naoCountCaptures
      * @param NAOCountComments $naoCountComments
      * @param NAOPagination $naoPagination
      * @param NAOUserManager $naoUserManager
-     * @param Request $request
      * @return Response
      */
     public function showAdminSpaceAction(NAOCaptureManager $naoCaptureManager, NAOCommentManager $naoCommentManager, NAOCountCaptures $naoCountCaptures, NAOCountComments $naoCountComments, NAOPagination $naoPagination, NAOUserManager $naoUserManager)
@@ -73,11 +73,8 @@ class AdminSpaceController extends Controller
      * @Route("/observations-publiees/{page}", defaults={"page"=1}, name="admin_space_published_captures", requirements={"page" = "\d+"})
      * @param $page
      * @param NAOCaptureManager $naoCaptureManager
-     * @param NAOCommentManager $naoCommentManager
      * @param NAOCountCaptures $naoCountCaptures
-     * @param NAOCountComments $naoCountComments
      * @param NAOPagination $naoPagination
-     * @param Request $request
      * @return Response
      */
     public function showNextPublishedCapturesAction($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
@@ -106,11 +103,8 @@ class AdminSpaceController extends Controller
      * @Route("/observations-en-attente/{page}", defaults={"page"=1}, name="admin_space_waiting_captures", requirements={"page" = "\d+"})
      * @param $page
      * @param NAOCaptureManager $naoCaptureManager
-     * @param NAOCommentManager $naoCommentManager
      * @param NAOCountCaptures $naoCountCaptures
-     * @param NAOCountComments $naoCountComments
      * @param NAOPagination $naoPagination
-     * @param Request $request
      * @return Response
      */
     public function showNextWaitingCapturesAction($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
@@ -137,12 +131,9 @@ class AdminSpaceController extends Controller
     /**
      * @Route("/commentaires-publies/{page}", defaults={"page"=1}, name="admin_space_published_comments", requirements={"page" = "\d+"})
      * @param $page
-     * @param NAOCaptureManager $naoCaptureManager
      * @param NAOCommentManager $naoCommentManager
-     * @param NAOCountCaptures $naoCountCaptures
      * @param NAOCountComments $naoCountComments
      * @param NAOPagination $naoPagination
-     * @param Request $request
      * @return Response
      */
     public function showNextPublishedCommentsAction($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
@@ -169,12 +160,9 @@ class AdminSpaceController extends Controller
     /**
      * @Route("/commentaires-signales/{page}", defaults={"page"=1},  name="admin_space_reported_comments", requirements={"page" = "\d+"})
      * @param $page
-     * @param NAOCaptureManager $naoCaptureManager
      * @param NAOCommentManager $naoCommentManager
-     * @param NAOCountCaptures $naoCountCaptures
      * @param NAOCountComments $naoCountComments
      * @param NAOPagination $naoPagination
-     * @param Request $request
      * @return Response
      */
     public function showNextReportedCommentsAction($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
@@ -203,7 +191,7 @@ class AdminSpaceController extends Controller
      * @param $id
      * @param NAOCommentManager $naoCommentManager
      * @param NAOManager $naoManager
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function ignoreReportedCommentAction($id, NAOCommentManager $naoCommentManager, NAOManager $naoManager)
     {
@@ -216,6 +204,7 @@ class AdminSpaceController extends Controller
     /**
      * @Route("/supprimer-commentaire/{id}", name="remove_comment", requirements={"id" = "\d+"})
      * @ParamConverter("comment", class="App\Entity\Comment")
+     * @param Comment $comment
      * @param NAOManager $naoManager
      * @return Response
      */

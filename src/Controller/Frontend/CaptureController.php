@@ -32,9 +32,10 @@ class CaptureController extends Controller
      * @param NAOManager $naoManager
      * @param NAOCaptureManager $naoCaptureManager
      * @param NAOCountComments $naoCountComments
-     * @return Response
+     * @param ValidatorInterface $validator
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function showCaptureAction($id, Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOCountComments $naoCountComments, ValidatorInterface $validator, NAOCommentManager $commentManager)
+    public function showCaptureAction($id, Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOCountComments $naoCountComments, ValidatorInterface $validator)
     {
         $capture = $naoCaptureManager->getPublishedCapture($id);
         if ($capture === null) {
@@ -70,12 +71,12 @@ class CaptureController extends Controller
     /**
      * @Route("/observations/{pageNumber}", requirements={"pageNumber" = "\d+"}, defaults={"pageNumber"=1}, name="captures")
      * @param Request $request
-     * @param NAOCaptureManager $naoCaptureManager
+     * @param NAOCaptureManager $nAOCaptureManager
      * @param NAOCountCaptures $naoCountCaptures
      * @param NAOPagination $naoPagination
      * @param NAOBirdManager $naoBirdManager
      * @param $pageNumber
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function showCapturesAction(Request $request, NAOCaptureManager $nAOCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination, NAOBirdManager $naoBirdManager, $pageNumber)
     {
@@ -114,8 +115,9 @@ class CaptureController extends Controller
     /**
      * @Route("/resultat-recherche-observations/{pageNumber}", requirements={"pageNumber" = "\d+"}, defaults={"pageNumber"=1}, name="result_search_captures")
      * @param Request $request
-     * @param NAOCaptureManager $naoCaptureManager
+     * @param NAOCaptureManager $nAOCaptureManager
      * @param NAOCountCaptures $naoCountCaptures
+     * @param NAOPagination $naoPagination
      * @param $pageNumber
      * @return Response
      */
@@ -148,12 +150,14 @@ class CaptureController extends Controller
             ));
     }
 
-     /**
+    /**
      * @Route("/signaler-commentaire/{comment}", requirements={"id" = "\d+"}, name="reported_comment")
      * @ParamConverter("comment", class="App\Entity\Comment")
+     * @param Comment $comment
      * @param NAOManager $naoManager
      * @param NAOCommentManager $naoCommentManager
-     * @return Response
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function reportCommentAction(Comment $comment, NAOManager $naoManager, NAOCommentManager $naoCommentManager, Request $request)
     {

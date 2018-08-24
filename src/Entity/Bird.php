@@ -69,16 +69,26 @@ class Bird
         $this->captures = new ArrayCollection();
     }
 
+    /**
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getReign(): ?string
     {
         return $this->reign;
     }
 
+    /**
+     * @param string $reign
+     * @return Bird
+     */
     public function setReign(string $reign): self
     {
         $this->reign = $reign;
@@ -86,11 +96,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getPhylum(): ?string
     {
         return $this->phylum;
     }
 
+    /**
+     * @param string $phylum
+     * @return Bird
+     */
     public function setPhylum(string $phylum): self
     {
         $this->phylum = $phylum;
@@ -98,11 +115,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getClass(): ?string
     {
         return $this->class;
     }
 
+    /**
+     * @param string $class
+     * @return Bird
+     */
     public function setClass(string $class): self
     {
         $this->class = $class;
@@ -110,11 +134,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getBirdOrder(): ?string
     {
         return $this->bird_order;
     }
 
+    /**
+     * @param string $bird_order
+     * @return Bird
+     */
     public function setBirdOrder(string $bird_order): self
     {
         $this->bird_order = $bird_order;
@@ -122,11 +153,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getFamily(): ?string
     {
         return $this->family;
     }
 
+    /**
+     * @param string $family
+     * @return Bird
+     */
     public function setFamily(string $family): self
     {
         $this->family = $family;
@@ -134,11 +172,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getVernacularname(): ?string
     {
         return $this->vernacularname;
     }
 
+    /**
+     * @param string $vernacularname
+     * @return Bird
+     */
     public function setVernacularname(string $vernacularname): self
     {
         $this->vernacularname = $vernacularname;
@@ -146,11 +191,18 @@ class Bird
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getValidname(): ?string
     {
         return $this->validname;
     }
 
+    /**
+     * @param string $validname
+     * @return Bird
+     */
     public function setValidname(string $validname): self
     {
         $this->validname = $validname;
@@ -158,11 +210,17 @@ class Bird
         return $this;
     }
 
+    /**
+     * @param Image|null $image
+     */
     public function setImage(Image $image = null)
     {
         $this->image = $image;
     }
 
+    /**
+     * @return mixed
+     */
     public function getImage()
     {
         return $this->image;
@@ -176,6 +234,10 @@ class Bird
         return $this->captures;
     }
 
+    /**
+     * @param Capture $capture
+     * @return Bird
+     */
     public function addCapture(Capture $capture): self
     {
         $this->captures[] = $capture;
@@ -185,6 +247,10 @@ class Bird
         return $this;
     }
 
+    /**
+     * @param Capture $capture
+     * @return Bird
+     */
     public function removeCapture(Capture $capture): self
     {
         $this->captures->removeElement($capture);

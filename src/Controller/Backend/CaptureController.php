@@ -79,8 +79,10 @@ class CaptureController extends Controller
      * @param NAOManager $naoManager
      * @param NAOCaptureManager $naoCaptureManager
      * @param NAOUserManager $naoUserManager
-     * @param $id
-     * @return Response
+     * @param Capture $capture
+     * @param ValidatorInterface $validator
+     * @param Session $session
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function validateCaptureAction(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
     {
@@ -126,11 +128,14 @@ class CaptureController extends Controller
 
     /**
      * @Route("/modifier-observation/{id}", name="modify_capture")
+     * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Request $request
      * @param NAOManager $naoManager
      * @param NAOUserManager $naoUserManager
-     * @ParamConverter("capture", class="App\Entity\Capture")
-     * @return Response
+     * @param Capture $capture
+     * @param ValidatorInterface $validator
+     * @param Session $session
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function modifyCaptureAction(Request $request, NAOManager $naoManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
     {
@@ -165,10 +170,11 @@ class CaptureController extends Controller
 
     /**
      * @Route(path="ajout-image-observation/{id}", name="add_image_on_capture")
+     * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Request $request
      * @param Capture $capture
      * @param ImageManager $imageManager
-     * @ParamConverter("capture", class="App\Entity\Capture")
+     * @param Session $session
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function addImageOnCapture(Request $request, Capture $capture, ImageManager $imageManager, Session $session)
@@ -196,7 +202,7 @@ class CaptureController extends Controller
     /**
      * @Route(path="delete-capture-image", name="delete_capture_image")
      * @param Request $request
-     * @param NAOManager $manager
+     * @param ImageManager $imageManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteCaptureImage(Request $request, ImageManager $imageManager)

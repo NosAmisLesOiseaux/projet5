@@ -64,7 +64,9 @@ class PasswordController extends Controller
      * @Route("/password-reinitialisation/{token}", name="password_reinitialisation")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
-     * @return Response
+     * @param NAOManager $NAOManager
+     * @param Mailer $mailer
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function reinitialisationPassword(Request $request, UserPasswordEncoderInterface $encoder, NAOManager $NAOManager, Mailer $mailer)
     {

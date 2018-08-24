@@ -126,6 +126,8 @@ class AccountController extends Controller
      * @Route(path="/upgrade/{username}/{role}", name="upgrade")
      * @ParamConverter("user", class="App\Entity\User")
      * @param User $user
+     * @param string $role
+     * @param NAOManager $manager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function upgrade(User $user, string $role, NAOManager $manager)

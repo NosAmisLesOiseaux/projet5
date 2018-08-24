@@ -118,16 +118,26 @@ class Capture
         $this->comments = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * @param string $content
+     * @return Capture
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -135,11 +145,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getLatitude(): ?float
     {
         return $this->latitude;
     }
 
+    /**
+     * @param float $latitude
+     * @return Capture
+     */
     public function setLatitude(float $latitude): self
     {
         $this->latitude = $latitude;
@@ -147,11 +164,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getLongitude(): ?float
     {
         return $this->longitude;
     }
 
+    /**
+     * @param float $longitude
+     * @return Capture
+     */
     public function setLongitude(float $longitude): self
     {
         $this->longitude = $longitude;
@@ -159,11 +183,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
+    /**
+     * @param string $address
+     * @return Capture
+     */
     public function setAddress(string $address): self
     {
         $this->address = $address;
@@ -171,6 +202,9 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getComplement(): ?string
     {
         return $this->complement;
@@ -187,11 +221,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getRegion(): ?string
     {
         return $this->region;
     }
 
+    /**
+     * @param string $region
+     * @return Capture
+     */
     public function setRegion(string $region): self
     {
         $this->region = $region;
@@ -199,11 +240,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getZipcode(): ?string
     {
         return $this->zipcode;
     }
 
+    /**
+     * @param string $zipcode
+     * @return Capture
+     */
     public function setZipcode(string $zipcode): self
     {
         $this->zipcode = $zipcode;
@@ -211,6 +259,9 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getCity(): ?string
     {
         return $this->city;
@@ -227,11 +278,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
+    /**
+     * @param null|string $status
+     * @return Capture
+     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -239,11 +297,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedDate(): ?\DateTimeInterface
     {
         return $this->created_date;
     }
 
+    /**
+     * @param \DateTimeInterface $created_date
+     * @return Capture
+     */
     public function setCreatedDate(\DateTimeInterface $created_date): self
     {
         $this->created_date = $created_date;
@@ -259,6 +324,10 @@ class Capture
         return $this->comments;
     }
 
+    /**
+     * @param Comment $comment
+     * @return Capture
+     */
     public function addComment(Comment $comment): self
     {
         if (!$this->comments->contains($comment)) {
@@ -269,6 +338,10 @@ class Capture
         return $this;
     }
 
+    /**
+     * @param Comment $comment
+     * @return Capture
+     */
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->contains($comment)) {
@@ -282,11 +355,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getNaturalistComment(): ?string
     {
         return $this->naturalist_comment;
     }
 
+    /**
+     * @param null|string $naturalist_comment
+     * @return Capture
+     */
     public function setNaturalistComment(?string $naturalist_comment): self
     {
         $this->naturalist_comment = $naturalist_comment;
@@ -294,11 +374,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return Bird|null
+     */
     public function getBird(): ?Bird
     {
         return $this->bird;
     }
 
+    /**
+     * @param Bird|null $bird
+     * @return Capture
+     */
     public function setBird(?Bird $bird): self
     {
         $this->bird = $bird;
@@ -306,26 +393,43 @@ class Capture
         return $this;
     }
 
+    /**
+     * @param Image|null $image
+     */
     public function setImage(Image $image = null)
     {
         $this->image = $image;
     }
 
+    /**
+     * @return mixed
+     */
     public function getImage()
     {
         return $this->image;
     }
 
+    /**
+     * @return $this
+     */
     public function removeImage()
     {
         $this->image = null;
+        return $this;
     }
 
+    /**
+     * @return User|null
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
+    /**
+     * @param User|null $user
+     * @return Capture
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -333,11 +437,18 @@ class Capture
         return $this;
     }
 
+    /**
+     * @return User|null
+     */
     public function getValidatedBy(): ?User
     {
         return $this->validated_by;
     }
 
+    /**
+     * @param User|null $validated_by
+     * @return Capture
+     */
     public function setValidatedBy(?User $validated_by): self
     {
         $this->validated_by = $validated_by;
