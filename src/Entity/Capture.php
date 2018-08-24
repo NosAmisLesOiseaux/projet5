@@ -96,22 +96,21 @@ class Capture
     private $bird;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", orphanRemoval=true, cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $image;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="captures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * Many Captures are validated by One User.
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="captures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
     private $validated_by;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", orphanRemoval=true, cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $image;
 
     public function __construct()
     {
@@ -307,6 +306,21 @@ class Capture
         return $this;
     }
 
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function removeImage()
+    {
+        $this->image = null;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -329,20 +343,5 @@ class Capture
         $this->validated_by = $validated_by;
 
         return $this;
-    }
-
-    public function setImage(Image $image = null)
-    {
-        $this->image = $image;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function removeImage()
-    {
-        $this->image = null;
     }
 }
