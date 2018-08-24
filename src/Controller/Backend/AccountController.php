@@ -67,6 +67,7 @@ class AccountController extends Controller
         $account_type = $userManager->getRoleFR($user);
         if ($biographyType->isSubmitted() && $biographyType->isValid()) {
             $userManager->changeBiography($user, $biographyType->getData()['biography']);
+            $this->addFlash('success', "Votre biographie a été changée avec succès !");
             return $this->redirectToRoute('user_account');
         }
         $changePasswordType = $this->createForm(ChangePasswordType::class);

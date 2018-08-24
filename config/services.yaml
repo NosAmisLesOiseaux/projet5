@@ -112,6 +112,11 @@ services:
         class: App\Services\User\NAOUserManager
         autowire: true
         public: true
+        arguments:
+            - "@container"
+            - "@App\Repository\UserRepository"
+            - "@App\Services\NAOManager"
+            - "@session"
 
     app.nao_statistics:
         class: App\Services\Statistics\NAODataStatistics

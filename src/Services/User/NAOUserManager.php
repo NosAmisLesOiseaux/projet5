@@ -9,6 +9,7 @@ use App\Services\NAOManager;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class NAOUserManager extends NAOManager
 {
@@ -16,11 +17,17 @@ class NAOUserManager extends NAOManager
 
     private $userRepository;
 
-    public function __construct(EntityManagerInterface $em, ContainerInterface $container, UserRepository $userRepository)
+    private $manager;
+
+    private $session;
+
+    public function __construct(EntityManagerInterface $em, ContainerInterface $container, UserRepository $userRepository, NAOManager $manager, SessionInterface $session)
     {
         parent::__construct($em);
         $this->container = $container;
         $this->userRepository = $userRepository;
+        $this->manager = $manager;
+        $this->session = $session;
     }
 
     public function getCurrentUser(string $username)
@@ -48,12 +55,13 @@ class NAOUserManager extends NAOManager
     /**
      * @param User $user
      * @param $biography
+     * @return bool
      */
 	public function changeBiography(User $user, $biography)
     {
         $user->setBiography($biography);
-        $this->getContainer()->get('app.nao_manager')->addOrModifyEntity($user);
-        $this->getContainer()->get('session')->getFlashBag()->add('success', "Votre biographie a été changée avec succès !");
+        $this->manager->addOrModifyEntity($user);
+        return true;
     }
 
     /**
