@@ -12,7 +12,6 @@ use App\Entity\Image;
 use App\Entity\User;
 use App\Entity\Capture;
 use App\Entity\Comment;
-use App\Form\Image\AvatarType;
 use App\Form\Image\ImageType;
 use App\Form\User\BiographyType;
 use App\Form\Password\ChangePasswordType;
@@ -25,6 +24,8 @@ use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
 use App\Services\User\PasswordManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -38,8 +39,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * Class AccountController
  * @package App\Controller\Backend
  * @Route("/mon-compte")
+ * @Security("has_role('ROLE_USER')")
  */
-class AccountController extends Controller
+class AccountController extends AbstractController
 {
     /**
      * @Route("/profil/{page}", defaults={"page" = 1}, name="user_account")
@@ -67,6 +69,7 @@ class AccountController extends Controller
         $account_type = $userManager->getRoleFR($user);
         if ($biographyType->isSubmitted() && $biographyType->isValid()) {
             $userManager->changeBiography($user, $biographyType->getData()['biography']);
+            $this->addFlash('success', "Votre biographie a été changée avec succès !");
             return $this->redirectToRoute('user_account');
         }
         $changePasswordType = $this->createForm(ChangePasswordType::class);

@@ -20,28 +20,7 @@ class ValidateCaptureType extends AbstractType
                     'required'   => false,
                     'attr' => array(
                         'placeholder' => 'Ecrire un commentaire ...',
-                        )
-                )
-            )
-            ->add(
-                'validate',
-                SubmitType::class,
-                array(
-                    'label' => 'Valider'
-                )
-            )
-            ->add(
-                'waitingForValidation',
-                SubmitType::class,
-                array(
-                    'label' => 'En attente'
-                )
-            )
-            ->add(
-                'remove',
-                SubmitType::class,
-                array(
-                    'label' => 'Supprimer'
+                    )
                 )
             )
         ;

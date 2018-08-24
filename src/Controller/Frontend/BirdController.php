@@ -9,6 +9,7 @@ use App\Services\Bird\NAOCountBirds;
 use App\Services\Pagination\NAOPagination;
 use App\Services\Capture\NAOCaptureManager;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,7 +36,7 @@ class BirdController extends Controller
         $previousPage = $naoPagination->getPreviousPage($page);
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
 
-        return $this->render('Bird\repertory.html.twig', 
+        return $this->render('bird\repertory.html.twig',
             array(
                 'birds' => $birds, 
                 'nbRepertoryPages' => $nbRepertoryPages, 
@@ -71,7 +72,7 @@ class BirdController extends Controller
             return $this->redirectToRoute('result_search_birds', array('region' => $region,));
         }
 
-        return $this->render('Bird\repertory.html.twig', 
+        return $this->render('bird\repertory.html.twig',
             array(
                 'birds' => $birds, 
                 'nbRepertoryPages' => $nbRepertoryPages, 
@@ -101,7 +102,7 @@ class BirdController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
 
-        return $this->render('Bird\repertory.html.twig', 
+        return $this->render('bird\repertory.html.twig',
             array
             (
                 'birds' => $birds, 
@@ -116,14 +117,16 @@ class BirdController extends Controller
 
     /**
      * @Route("oiseau/{id}", requirements={"id" = "\d+"}, name="bird")
-     * @param $id
+     * @ParamConverter("bird", class="App\Entity\Bird")
+     * @param $bird
      * @return Response
      */
-    public function showBird($id)
+    public function showBird(Bird $bird)
     {
-        $em = $this->getDoctrine()->getManager();
-        $bird = $em->getRepository(Bird::class)->findOneById($id);
+        if (!$bird) {
+            throw $this->createNotFoundException("Oiseau non trouvé...");
+        }
 
-        return $this->render('Bird\bird.html.twig', array('bird' => $bird));
+        return $this->render('bird\bird.html.twig', array('bird' => $bird));
     }
 }

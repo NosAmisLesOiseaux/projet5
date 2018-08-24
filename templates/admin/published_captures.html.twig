@@ -1,4 +1,4 @@
-{# templates/AdminSpace/publishedCaptures.html.twig #}
+{# templates/admin/published_captures.html.twig #}
 
 {% extends "base.html.twig" %}
 
@@ -9,7 +9,7 @@
 	<h2>Observations publiées</h2>
 
 	<section>
-		{{ include('AdminSpace/publishedCapturesModel.html.twig')}}
+		{{ include('admin/publishedCapturesModel.html.twig')}}
 		<div>
 			<ul>
 				{% if nbPublishedCapturesPages > 1 %}

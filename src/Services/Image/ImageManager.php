@@ -47,7 +47,7 @@ class ImageManager
         $current_image = $this->manager->getEm()->getRepository(Image::class)->findOneBy(['id' => $user->getAvatar()]);
         if ($current_image instanceof Image) {
             $current_image_filename = $current_image->getFilename();
-            $current_avatar = $this->getContainer()->getParameter('avatar_directory').'/'.$current_image_filename;
+            $current_avatar = $this->getContainer()->getParameter('nao.avatar_dir').'/'.$current_image_filename;
             self::deleteFile($current_avatar);
             $user->setAvatar(null);
             $this->getManager()->addOrModifyEntity($user);
@@ -65,7 +65,7 @@ class ImageManager
     public function removeCaptureImage(Capture $capture, Image $image): bool
     {
         $capture->removeImage();
-        $current_image = $this->container->getParameter('bird_directory').'/'.$image->getFileName();
+        $current_image = $this->container->getParameter('nao.bird_dir').'/'.$image->getFileName();
         self::deleteFile($current_image);
         $this->manager->removeEntity($image);
         $this->manager->addOrModifyEntity($capture);
@@ -93,8 +93,8 @@ class ImageManager
      */
     public function addImageOnCapture(UploadedFile $uploadedFile, Capture $capture)
     {
-        $image = $this->buildImage($uploadedFile, $this->container->getParameter('bird_directory'));
-        $file_name = $this->fileUploader->upload($uploadedFile, $this->container->getParameter('bird_directory'));
+        $image = $this->buildImage($uploadedFile, $this->container->getParameter('nao.bird_dir'));
+        $file_name = $this->fileUploader->upload($uploadedFile, $this->container->getParameter('nao.bird_dir'));
         $image->setFileName($file_name);
         $capture->setImage($image);
         $this->getManager()->addOrModifyEntity($capture);
@@ -106,8 +106,8 @@ class ImageManager
      */
     public function addAvatarOnUser(UploadedFile $uploadedFile, User $user)
     {
-        $image = $this->buildImage($uploadedFile, $this->container->getParameter('avatar_directory'));
-        $file_name = $this->fileUploader->upload($uploadedFile, $this->container->getParameter('avatar_directory'));
+        $image = $this->buildImage($uploadedFile, $this->container->getParameter('nao.avatar_dir'));
+        $file_name = $this->fileUploader->upload($uploadedFile, $this->container->getParameter('nao.avatar_dir'));
         $image->setFileName($file_name);
         $user->setAvatar($image);
         $this->getManager()->addOrModifyEntity($user);

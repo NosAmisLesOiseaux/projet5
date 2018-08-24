@@ -14,6 +14,7 @@ use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,6 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class AdminSpaceController
  * @package App\Controller\Backend
  * @Route("/espace-administration")
+ * @Security("has_role('ROLE_NATURALIST')")
  */
 class AdminSpaceController extends Controller
 {
@@ -51,7 +53,7 @@ class AdminSpaceController extends Controller
         $numberOfReportedComments  = $naoCountComments->countReportedComments();
         $reportedComments = $naoCommentManager->getReportedCommentsPerPage($page, $numberOfReportedComments, $numberOfElementsPerPage);
         return $this->render(
-            'AdminSpace\adminspace.html.twig',
+            'admin/admin_space.html.twig',
             array(
                 'userRole' => $userRole,
                 'user' => $user,
@@ -87,7 +89,7 @@ class AdminSpaceController extends Controller
         $previousPage = $naoPagination->getPreviousPage($page);
 
         return $this->render(
-            'AdminSpace\publishedCaptures.html.twig',
+            'admin/published_captures.html.twig',
             array(
                 'publishedcaptures' => $publishedCaptures,
                 'numberOfPublishedCaptures' => $numberOfPublishedCaptures,
@@ -116,7 +118,7 @@ class AdminSpaceController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
         return $this->render(
-            'AdminSpace\waitingCaptures.html.twig',
+            'admin\waiting_captures.html.twig',
             array(
                 'waitingforvalidationcaptures' => $waitingForValidationCaptures,
                 'numberOfWaitingforvalidationCaptures' => $numberOfWaitingForValidationCaptures,
@@ -145,7 +147,7 @@ class AdminSpaceController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
         return $this->render(
-            'AdminSpace\publishedComments.html.twig',
+            'admin\published_comments.html.twig',
             array(
                 'publishedcomments' => $publishedComments,
                 'numberOfPublishedComments' => $numberOfPublishedComments,
@@ -174,7 +176,7 @@ class AdminSpaceController extends Controller
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
         return $this->render(
-            'AdminSpace\reportedComments.html.twig',
+            'admin\reported_comments.html.twig',
             array(
                 'reportedcomments' => $reportedComments,
                 'numberOfReportedComments' => $numberOfReportedComments,

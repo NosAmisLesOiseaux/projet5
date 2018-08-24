@@ -1,4 +1,4 @@
-{# templates/AdminSpace/adminspace.html.twig #}
+{# templates/admin/admin_space.html.twig #}
 
 {% extends "base.html.twig" %}
 
@@ -9,7 +9,7 @@
 	<p>Compte {{ userRole }}</p>
 
 	<section>
-		{{ include('AdminSpace/publishedCapturesModel.html.twig')}}
+		{{ include('admin/_published_captures_model.html.twig')}}
 		<div>
 			{% if numberOfPublishedCaptures > numberOfElementsPerPage %}
 				<p> 
@@ -20,7 +20,7 @@
 	</section>
 
 	<section>
-		{{ include('AdminSpace/waitingCapturesModel.html.twig')}}
+		{{ include('admin/_waiting_captures_model.html.twig')}}
 		<div>
 			{% if numberOfWaitingforvalidationCaptures > numberOfElementsPerPage %}
 				<p> 
@@ -32,7 +32,7 @@
 
 	{% if is_granted('ROLE_ADMIN') %}
 		<section>
-		{{ include('AdminSpace/publishedCommentsModel.html.twig')}}
+		{{ include('admin/_published_comments_model.html.twig')}}
 		<div>
 			{% if numberOfPublishedComments > numberOfElementsPerPage %}
 				<p> 
@@ -43,7 +43,7 @@
 		</section>
 
 		<section>
-			{{ include('AdminSpace/reportedCommentsModel.html.twig')}}
+			{{ include('admin/_reported_comments_model.html.twig')}}
 			<div>
 				{% if numberOfReportedComments > numberOfElementsPerPage %}
 					<p> 

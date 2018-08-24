@@ -14,8 +14,6 @@ use App\Services\Capture\NAOCountCaptures;
 use App\Services\Pagination\NAOPagination;
 use App\Services\Bird\NAOBirdManager;
 use App\Form\Comment\CommentType;
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,7 +42,8 @@ class CaptureController extends Controller
         $numberOfCaptureComments = $naoCountComments->countCapturePublishedComments($capture);
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
         {
             $user = $this->getUser();
             $comment->setAuthor($user);
@@ -58,7 +57,7 @@ class CaptureController extends Controller
                 return $this->redirectToRoute('capture', ['id' => $capture->getId()]);
             }
         }
-        return $this->render('Capture\showCapture.html.twig', 
+        return $this->render('capture\show_capture.html.twig',
             array
             (
                 'capture' => $capture,
@@ -99,7 +98,7 @@ class CaptureController extends Controller
             return $this->redirectToRoute('result_search_captures');
         }
 
-        return $this->render('Capture\showCaptures.html.twig', 
+        return $this->render('capture\show_captures.html.twig',
             array
             (
                 'captures' => $captures, 
@@ -136,7 +135,7 @@ class CaptureController extends Controller
         $nextPage = $naoPagination->getNextPage($pageNumber);
         $previousPage = $naoPagination->getPreviousPage($pageNumber);
 
-        return $this->render('Capture\showCaptures.html.twig', 
+        return $this->render('capture\show_captures.html.twig',
             array
             (
                 'captures' => $capturesSearch, 

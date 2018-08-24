@@ -46,6 +46,9 @@ class SecurityController extends Controller
      * @param NAOManager $manager
      * @param Mailer $mailer
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder, NAOManager $manager, Mailer $mailer)
     {
@@ -77,6 +80,8 @@ class SecurityController extends Controller
      * @param Request $request
      * @param NAOManager $manager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function activationCode(Request $request, NAOManager $manager)
     {

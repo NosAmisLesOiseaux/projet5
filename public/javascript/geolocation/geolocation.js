@@ -60,9 +60,8 @@ $( function() {
 	}
 
 	// Ajout de la latitude et de la latitude à partir de l'adresse
-	$('#'+ roles +'_capture_save').click(function(e)
+	$('#'+ roles +'_capture_save').click(function()
 	{
-		e.preventDefault();
 		if ($('#'+ roles +'_capture_latitude').val() == 0)
 		{
 			var address = $('#'+ roles +'_capture_address').val();
@@ -73,9 +72,8 @@ $( function() {
 				var longitude = data[0].lon;
 				$('#'+ roles +'_capture_latitude').val(latitude);
 				$('#'+ roles +'_capture_longitude').val(longitude);
-				console.log('ok');
-				$("form").submit();
-			});
-		}
+            });
+            $("form").submit();
+        }
 	})
 });

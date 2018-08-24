@@ -18,6 +18,11 @@
     {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_widget(form) }}
+    <fieldset>
+        <button type="submit" name="validate">Valider</button>
+        <button type="submit" name="waiting_for_validation">En attente</button>
+        <button type="submit" name="remove">Supprimer</button>
+    </fieldset>
     {{ form_end(form) }}
 {% endblock %}
 

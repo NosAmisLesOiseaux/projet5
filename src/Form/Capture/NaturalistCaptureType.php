@@ -16,11 +16,11 @@ class NaturalistCaptureType extends AbstractType
             ->add('status',
                 ChoiceType::class,
                 array(
-                    'label' => 'Enregistrer l\'observation :',
+                    'label' => "Enregistrer l'observation :",
                     'choices' => array(
                         'Brouillon' => 'draft',
                         'Publié' => 'published',
-                        ),
+                    ),
                     'expanded' => true,
                 )
             )

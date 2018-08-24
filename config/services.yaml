@@ -35,7 +35,7 @@ services:
     nao.image_manager:
         class: App\Services\Image\ImageManager
         autowire: true
-        public: true
+        public: false
         arguments:
             - '@App\Services\NAOManager'
             - '@App\Services\User\NAOUserManager'
