@@ -42,7 +42,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class AccountController extends Controller
 {
     /**
-     * @Route("/{page}", defaults={"page" = 1}, name="user_account")
+     * @Route("/profil/{page}", defaults={"page" = 1}, name="user_account")
      * @param $page
      * @param NAOPagination $naoPagination
      * @param NAOCaptureManager $naoCaptureManager
@@ -128,7 +128,7 @@ class AccountController extends Controller
      * @param User $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function upgrade(User $user, $role, NAOManager $manager)
+    public function upgrade(User $user, string $role, NAOManager $manager)
     {
         $user->addRole($role);
         $manager->addOrModifyEntity($user);
