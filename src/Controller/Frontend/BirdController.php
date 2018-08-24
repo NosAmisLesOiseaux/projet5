@@ -125,6 +125,6 @@ class BirdController extends Controller
         $em = $this->getDoctrine()->getManager();
         $bird = $em->getRepository(Bird::class)->findOneById($id);
 
-        return $this->render('Bird\bird.html.twig', array('bird' => $bird,));      
+        return $this->render('Bird\bird.html.twig', array('bird' => $bird));
     }
 }

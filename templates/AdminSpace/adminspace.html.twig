@@ -30,7 +30,7 @@
 		</div>
 	</section>
 
-	{% if 'administrator' in user.roles %}
+	{% if is_granted('ROLE_ADMIN') %}
 		<section>
 		{{ include('AdminSpace/publishedCommentsModel.html.twig')}}
 		<div>

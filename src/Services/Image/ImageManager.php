@@ -129,14 +129,6 @@ class ImageManager
     }
 
     /**
-     * @return EntityUserProvider
-     */
-    public function getUser(): EntityUserProvider
-    {
-        return $this->user;
-    }
-
-    /**
      * @return ContainerInterface
      */
     public function getContainer(): ContainerInterface

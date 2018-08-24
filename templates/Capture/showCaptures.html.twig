@@ -1,5 +1,3 @@
-{# templates/Capture/showCaptures.html.twig #}
-
 {% extends "layout.html.twig" %}
 
 {% block title %} Observations {% endblock %}
@@ -33,8 +31,19 @@
     <section>
 		{% for capture in captures %}
 			<div>
-				<p>{{capture.image}}</p>
-				<p><a href="{{ path('capture', {id: capture.id}) }}">{% if capture.bird.vernacularname == false %}{{ capture.bird.validname }} {% else %} {{ capture.bird.vernacularname }}</a>{% endif %}</p>
+                {% if capture.image is not null %}
+					<img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% else %}
+					Image par défaut
+                {% endif %}
+				<p>
+					<a href="{{ path('capture', {id: capture.id}) }}">
+						{% if capture.bird.vernacularname == false %}
+						{{ capture.bird.validname }}
+						{% else %}
+						{{ capture.bird.vernacularname }}
+					</a>{% endif %}
+				</p>
 				<p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
 				<p>{{ capture.createdDate|date('d/m/Y') }}</p>
 			</div>

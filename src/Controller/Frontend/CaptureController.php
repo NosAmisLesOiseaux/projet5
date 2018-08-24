@@ -16,6 +16,7 @@ use App\Services\Bird\NAOBirdManager;
 use App\Form\Comment\CommentType;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -148,21 +149,18 @@ class CaptureController extends Controller
     }
 
      /**
-     * @Route("/signaler-commentaire/{id}", requirements={"id" = "\d+"}, name="reported_comment")
-     * @param $id
+     * @Route("/signaler-commentaire/{capture}/{comment}", requirements={"id" = "\d+"}, name="reported_comment")
+     * @ParamConverter("capture", class="App\Entity\Capture")
+     * @ParamConverter("comment", class="App\Entity\Comment")
      * @param NAOManager $naoManager
      * @param NAOCommentManager $naoCommentManager
      * @return Response
      */
-    public function reportCommentAction($id, NAOManager $naoManager, NAOCommentManager $naoCommentManager)
+    public function reportCommentAction(Capture $capture, Comment $comment, NAOManager $naoManager, NAOCommentManager $naoCommentManager)
     {
-        $comment = $this->naoManager->getEm()->getRepository(Comment::class)->findOneById($id);
-
-        $capture = $comment->getCapture()->getId();
-
         $naoCommentManager->reportComment($comment);
         $naoManager->addOrModifyEntity($comment);
 
-        return $this->redirectToRoute('capture', array('id' => $capture));
+        return $this->redirectToRoute('capture', array('id' => $capture->getId()));
     }
 }

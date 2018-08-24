@@ -1,22 +1,25 @@
-{# templates/AdminSpace/publishedCapturesModel.html.twig #}
 
 <h2>
-	{% if numberOfPublishedCaptures == 1 %}{{numberOfPublishedCaptures}} observation publiée : {% elseif numberOfPublishedCaptures > 1 %}{{numberOfPublishedCaptures}} observations publiées : {% endif %}
+	{% if numberOfPublishedCaptures == 1 %}
+		{{numberOfPublishedCaptures}} observation publiée :
+	{% elseif numberOfPublishedCaptures > 1 %}
+		{{numberOfPublishedCaptures}} observations publiées :
+	{% endif %}
 </h2>
 <div>
 	<ul>Observation
-		{% for publishedcapture in publishedcaptures %}
-			<a href="{{ path('capture', {id: publishedcapture.id}) }}"><li>Observation {{ publishedcapture.id }}</li></a>
+		{% for capture in publishedcaptures %}
+			<a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
 		{% endfor %}
 	</ul>
 	<ul>Date
-		{% for publishedcapture in publishedcaptures %}
-			<li>{{ publishedcapture.createdDate|date('d/m/Y') }}</li>
+		{% for capture in publishedcaptures %}
+			<li>{{ capture.createdDate|date('d/m/Y') }}</li>
 		{% endfor %}
 	</ul>
 	<ul>Auteur
-		{% for publishedcapture in publishedcaptures %}
-			<li>{{ publishedcapture.user.firstname }} {{ publishedcapture.user.lastname }}</li>
+		{% for capture in publishedcaptures %}
+			<li>{{ capture.user.firstname }} {{ capture.user.lastname }}</li>
 		{% endfor %}
 	</ul>
 </div>
