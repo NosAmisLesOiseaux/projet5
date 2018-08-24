@@ -27,7 +27,7 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/mon-compte, roles: ROLE_USER }
-        - { path: ^/espace-administration, roles: ROLE_ADMIN }
+        - { path: ^/espace-administration, roles: ROLE_NATURALIST }
 
     role_hierarchy:
         ROLE_NATURALIST: ROLE_USER

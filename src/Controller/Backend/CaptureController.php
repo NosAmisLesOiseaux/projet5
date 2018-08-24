@@ -21,10 +21,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * Class CaptureController
+ * @package App\Controller\Backend
+ * @Route("/observations")
+ */
 class CaptureController extends Controller
 {
     /**
-     * @Route("/ajouter-observation", name="add_capture")
+     * @Route("/ajouter", name="add_capture")
      * @param Request $request
      * @param NAOManager $naoManager
      * @param NAOCaptureManager $naoCaptureManager
@@ -33,7 +38,7 @@ class CaptureController extends Controller
      * @param FormManager $formManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function addCaptureAction(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, ValidatorInterface $validator, FormManager $formManager)
+    public function addCapture(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, ValidatorInterface $validator, FormManager $formManager)
     {
         $capture = new Capture();
         $current_user = $this->getUser();
@@ -69,7 +74,7 @@ class CaptureController extends Controller
     }
 
     /**
-     * @Route("/valider-observation/{id}", name="validate_capture", requirements={"id" = "\d+"})
+     * @Route("/valider/{id}", name="validate_capture", requirements={"id" = "\d+"})
      * @Security("has_role('ROLE_NATURALIST')")
      * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Request $request
@@ -81,7 +86,7 @@ class CaptureController extends Controller
      * @param Session $session
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function validateCaptureAction(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
+    public function validateCapture(Request $request, NAOManager $naoManager, NAOCaptureManager $naoCaptureManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
     {
         $form = $this->createForm(ValidateCaptureType::class, $capture);
         $form->handleRequest($request);
@@ -125,7 +130,7 @@ class CaptureController extends Controller
     }
 
     /**
-     * @Route("/modifier-observation/{id}", name="modify_capture")
+     * @Route("/modifier/{id}", name="modify_capture")
      * @Security("has_role('ROLE_NATURALIST')")
      * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Request $request
@@ -136,7 +141,7 @@ class CaptureController extends Controller
      * @param Session $session
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function modifyCaptureAction(Request $request, NAOManager $naoManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
+    public function modifyCapture(Request $request, NAOManager $naoManager, NAOUserManager $naoUserManager, Capture $capture, ValidatorInterface $validator, Session $session)
     {
         $form = $this->createForm(NaturalistCaptureType::class, $capture);
         $form->handleRequest($request);
@@ -169,7 +174,7 @@ class CaptureController extends Controller
     }
 
     /**
-     * @Route(path="ajout-image-observation/{id}", name="add_image_on_capture")
+     * @Route(path="ajout-image/{id}", name="add_image_on_capture")
      * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Request $request
      * @param Capture $capture
@@ -200,7 +205,7 @@ class CaptureController extends Controller
     }
 
     /**
-     * @Route(path="supprimer-observation/{id}", name="delete_capture")
+     * @Route(path="supprimer/{id}", name="delete_capture")
      * @ParamConverter("capture", class="App\Entity\Capture")
      * @param Capture $capture
      * @param NAOManager $manager
@@ -217,7 +222,7 @@ class CaptureController extends Controller
     }
 
     /**
-     * @Route(path="delete-capture-image", name="delete_capture_image")
+     * @Route(path="supprimer-image", name="delete_capture_image")
      * @param Request $request
      * @param ImageManager $imageManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse

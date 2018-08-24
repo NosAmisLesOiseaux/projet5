@@ -37,8 +37,8 @@ class RegisterType extends AbstractType
                 ChoiceType::class,
                 array(
                     'choices' => array(
-                        "Compte particulier" => 'particular',
-                        "Compte naturaliste" => 'naturalist'
+                        "Je suis un passionné" => 'particular',
+                        "Je suis ornithologue" => 'naturalist'
                     )
                 )
             )

@@ -8,14 +8,10 @@
 
 namespace App\Controller\Backend;
 
-use App\Entity\Image;
 use App\Entity\User;
-use App\Entity\Capture;
-use App\Entity\Comment;
 use App\Form\Image\ImageType;
 use App\Form\User\BiographyType;
 use App\Form\Password\ChangePasswordType;
-use App\Services\Image\FileUploader;
 use App\Services\Image\ImageManager;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
@@ -26,14 +22,10 @@ use App\Services\User\PasswordManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class AccountController
@@ -94,7 +86,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/change-avatar", name="change_avatar")
+     * @Route("/changer-avatar", name="change_avatar")
      * @param Request $request
      * @param ImageManager $imageManager
      * @param NAOUserManager $userManager

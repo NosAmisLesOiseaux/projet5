@@ -67,12 +67,11 @@
 		<ul id="comment">
 		</ul>
 	</section>
-	{#<ul>
-        {% for comment in capture.comments %}
-            <li>{{ comment.author.username }} - {{ comment.content }}</li> <a href="{{ path('reported_comment', {'capture': capture.id, 'comment': comment.id}) }}">Signaler</a>
-        {% endfor %}
-	</ul>#}
-	{{ form(form) }}
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+	{{ form_widget(form) }}
+	<button type="submit">Commenter</button>
+	{{ form_end(form) }}
 {% endblock %}
 
 {% block mapJavascripts %}

@@ -3,12 +3,9 @@
 namespace App\Controller\Frontend;
 
 use App\Entity\Bird;
-use App\Services\NAOManager;
 use App\Services\Bird\NAOBirdManager;
 use App\Services\Bird\NAOCountBirds;
 use App\Services\Pagination\NAOPagination;
-use App\Services\Capture\NAOCaptureManager;
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +23,7 @@ class BirdController extends Controller
      * @param $page
      * @return Response
      */
-    public function showRepertoryByLetterAction($letter, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
+    public function showRepertoryByLetter($letter, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
     {
         $numberOfBirds = $naoCountBirds->countBirdsByLetter($letter);
         $numberOfBirdsPerPage = $naoPagination->getNbBirdsPerPage();
@@ -57,7 +54,7 @@ class BirdController extends Controller
      * @param $page
      * @return Response
      */
-    public function showRepertoryAction(Request $request, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
+    public function showRepertory(Request $request, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
     {
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
 
@@ -92,7 +89,7 @@ class BirdController extends Controller
      * @param $region
      * @return Response
      */
-    public function showBirdsByRegionAction(NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page, $region)
+    public function showBirdsByRegion(NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page, $region)
     {
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
         $numberOfSearchBirds = $naoCountBirds->countSearchBirdsByRegion($region);

@@ -23,6 +23,27 @@ class ValidateCaptureType extends AbstractType
                     )
                 )
             )
+            ->add(
+                'validate',
+                SubmitType::class,
+                array(
+                    'label' => 'Valider'
+                )
+            )
+            ->add(
+                'waiting_for_validation',
+                SubmitType::class,
+                array(
+                    'label' => 'En attente'
+                )
+            )
+            ->add(
+                'remove',
+                SubmitType::class,
+                array(
+                    'label' => 'Supprimer'
+                )
+            )
         ;
     }
 

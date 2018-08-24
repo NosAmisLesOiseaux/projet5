@@ -3,8 +3,6 @@
 namespace App\Controller\Backend;
 
 use App\Entity\User;
-use App\Form\Password\ChangePassword;
-use App\Form\Password\ChangePasswordType;
 use App\Form\Password\LostPasswordType;
 use App\Form\Password\ReinitialisationPasswordType;
 use App\Services\Mail\Mailer;
@@ -16,14 +14,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class PasswordController
+ * @package App\Controller\Backend
+ * @Route("/mot-de-passe")
+ */
 class PasswordController extends Controller
 {
     /**
-     * @Route("/mot-de-passe-oublie", name="lost_password")
+     * @Route("/oublie", name="lost_password")
      * @param Request $request
      * @param Mailer $mailer
      * @param NAOManager $NAOManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function lostPassword(Request $request, Mailer $mailer, NAOManager $NAOManager)
     {
@@ -61,12 +69,17 @@ class PasswordController extends Controller
     }
 
     /**
-     * @Route("/password-reinitialisation/{token}", name="password_reinitialisation")
+     * @Route("/reinitialisation/{token}", name="password_reinitialisation")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
      * @param NAOManager $NAOManager
      * @param Mailer $mailer
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function reinitialisationPassword(Request $request, UserPasswordEncoderInterface $encoder, NAOManager $NAOManager, Mailer $mailer)
     {

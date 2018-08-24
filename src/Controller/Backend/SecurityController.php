@@ -4,10 +4,8 @@ namespace App\Controller\Backend;
 
 use App\Entity\User;
 use App\Form\Security\RegisterType;
-use App\Repository\UserRepository;
 use App\Services\Mail\Mailer;
 use App\Services\NAOManager;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

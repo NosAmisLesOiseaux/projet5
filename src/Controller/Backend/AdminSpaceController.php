@@ -2,9 +2,7 @@
 
 namespace App\Controller\Backend;
 
-use App\Entity\Capture;
 use App\Entity\Comment;
-use App\Entity\User;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
 use App\Services\Comment\NAOCommentManager;
@@ -12,13 +10,11 @@ use App\Services\Capture\NAOCountCaptures;
 use App\Services\Comment\NAOCountComments;
 use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class AdminSpaceController
@@ -38,7 +34,7 @@ class AdminSpaceController extends Controller
      * @param NAOUserManager $naoUserManager
      * @return Response
      */
-    public function showAdminSpaceAction(NAOCaptureManager $naoCaptureManager, NAOCommentManager $naoCommentManager, NAOCountCaptures $naoCountCaptures, NAOCountComments $naoCountComments, NAOPagination $naoPagination, NAOUserManager $naoUserManager)
+    public function showAdminSpace(NAOCaptureManager $naoCaptureManager, NAOCommentManager $naoCommentManager, NAOCountCaptures $naoCountCaptures, NAOCountComments $naoCountComments, NAOPagination $naoPagination, NAOUserManager $naoUserManager)
     {
         $user = $this->getUser();
         $userRole = $naoUserManager->getRoleFR($user);
@@ -79,7 +75,7 @@ class AdminSpaceController extends Controller
      * @param NAOPagination $naoPagination
      * @return Response
      */
-    public function showNextPublishedCapturesAction($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
+    public function showNextPublishedCaptures($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
     {
         $numberOfElementsPerPage = $naoPagination->getNbElementsPerPage();
         $numberOfPublishedCaptures = $naoCountCaptures->countPublishedCaptures();
@@ -109,7 +105,7 @@ class AdminSpaceController extends Controller
      * @param NAOPagination $naoPagination
      * @return Response
      */
-    public function showNextWaitingCapturesAction($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
+    public function showNextWaitingCaptures($page, NAOCaptureManager $naoCaptureManager, NAOCountCaptures $naoCountCaptures, NAOPagination $naoPagination)
     {
         $numberOfElementsPerPage = $naoPagination->getNbElementsPerPage();
         $numberOfWaitingForValidationCaptures = $naoCountCaptures->countWaitingForValidationCaptures();
@@ -138,7 +134,7 @@ class AdminSpaceController extends Controller
      * @param NAOPagination $naoPagination
      * @return Response
      */
-    public function showNextPublishedCommentsAction($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
+    public function showNextPublishedComments($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
     {
         $numberOfElementsPerPage = $naoPagination->getNbElementsPerPage();
         $numberOfPublishedComments = $naoCountComments->countPublishedComments();
@@ -167,7 +163,7 @@ class AdminSpaceController extends Controller
      * @param NAOPagination $naoPagination
      * @return Response
      */
-    public function showNextReportedCommentsAction($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
+    public function showNextReportedComments($page, NAOCommentManager $naoCommentManager, NAOCountComments $naoCountComments, NAOPagination $naoPagination)
     {
         $numberOfElementsPerPage = $naoPagination->getNbElementsPerPage();
         $numberOfReportedComments  = $naoCountComments->countReportedComments();
@@ -195,7 +191,7 @@ class AdminSpaceController extends Controller
      * @param NAOManager $naoManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function ignoreReportedCommentAction($id, NAOCommentManager $naoCommentManager, NAOManager $naoManager)
+    public function ignoreReportedComment($id, NAOCommentManager $naoCommentManager, NAOManager $naoManager)
     {
         $comment = $this->getDoctrine()->getRepository(Comment::class)->findOneById($id);
         $naoCommentManager->ignoreReportedComment($comment);
@@ -210,7 +206,7 @@ class AdminSpaceController extends Controller
      * @param NAOManager $naoManager
      * @return Response
      */
-    public function removeCommentAction(Comment $comment, NAOManager $naoManager)
+    public function removeComment(Comment $comment, NAOManager $naoManager)
     {
         $naoManager->removeEntity($comment);
         return $this->redirectToRoute('admin_space');

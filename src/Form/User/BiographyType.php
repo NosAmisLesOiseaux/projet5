@@ -21,7 +21,10 @@ class BiographyType extends AbstractType
         $builder
             ->add(
                 'biography',
-                TextareaType::class
+                TextareaType::class,
+                array(
+                    'label' => "Mon résumé"
+                )
             );
     }
 
