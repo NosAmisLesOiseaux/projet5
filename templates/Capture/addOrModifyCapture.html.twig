@@ -20,7 +20,7 @@
     {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_widget(form) }}
-    <button type="submit" name="submit">{{ titre }}</button>
+    <button type="submit" name="submit" id="{{ role }}_capture_save">{{ titre }}</button>
     {{ form_end(form) }}
 {% endblock %}
 

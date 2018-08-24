@@ -15,7 +15,7 @@ $( function() {
     },
         callback: function(data, pagination) {
             var currentPage = $('#comments').data('pagination').model.pageNumber;
-            var pageSize = $('#comments').data('pagination').model.pageSize
+            var pageSize = $('#comments').data('pagination').model.pageSize;
             var start = (currentPage * pageSize) - pageSize;
             var limit = start + pageSize;
             var totalPage = Math.ceil(numberComments / pageSize);

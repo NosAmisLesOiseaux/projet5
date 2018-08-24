@@ -67,11 +67,11 @@
 		<ul id="comment">
 		</ul>
 	</section>
-	<ul>
+	{#<ul>
         {% for comment in capture.comments %}
             <li>{{ comment.author.username }} - {{ comment.content }}</li> <a href="{{ path('reported_comment', {'capture': capture.id, 'comment': comment.id}) }}">Signaler</a>
         {% endfor %}
-	</ul>
+	</ul>#}
 	{{ form(form) }}
 {% endblock %}
 
@@ -81,7 +81,6 @@
 {% endblock %}
 {% block paginationJavascripts %}
 	{{ parent() }}
-	<script type="text/javascript" src="{{ asset('javascript/comments/commentspagination.js') }}">
-	</script>
+	<script type="text/javascript" src="{{ asset('javascript/comments/commentspagination.js') }}"></script>
 {% endblock %}
    

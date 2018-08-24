@@ -149,18 +149,17 @@ class CaptureController extends Controller
     }
 
      /**
-     * @Route("/signaler-commentaire/{capture}/{comment}", requirements={"id" = "\d+"}, name="reported_comment")
-     * @ParamConverter("capture", class="App\Entity\Capture")
+     * @Route("/signaler-commentaire/{comment}", requirements={"id" = "\d+"}, name="reported_comment")
      * @ParamConverter("comment", class="App\Entity\Comment")
      * @param NAOManager $naoManager
      * @param NAOCommentManager $naoCommentManager
      * @return Response
      */
-    public function reportCommentAction(Capture $capture, Comment $comment, NAOManager $naoManager, NAOCommentManager $naoCommentManager)
+    public function reportCommentAction(Comment $comment, NAOManager $naoManager, NAOCommentManager $naoCommentManager, Request $request)
     {
+        $referer = $request->headers->get('referer');
         $naoCommentManager->reportComment($comment);
         $naoManager->addOrModifyEntity($comment);
-
-        return $this->redirectToRoute('capture', array('id' => $capture->getId()));
+        return $this->redirect($referer);
     }
 }

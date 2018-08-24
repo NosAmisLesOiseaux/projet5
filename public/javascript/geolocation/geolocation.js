@@ -60,7 +60,7 @@ $( function() {
 	}
 
 	// Ajout de la latitude et de la latitude à partir de l'adresse
-	$('#'+ roles +'_capture_Enregistrer').click(function()
+	$('#'+ roles +'_capture_save').click(function()
 	{
 		if ($('#'+ roles +'_capture_latitude').val() == 0)
 		{
