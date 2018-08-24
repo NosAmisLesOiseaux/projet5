@@ -48,6 +48,12 @@ class BirdRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param $letter
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @return mixed
+     */
     public function getBirdsByFirstLetter($letter, $elementsPerPage, $firstEntrance)
     {
         return $this->createQueryBuilder('b')
@@ -60,6 +66,11 @@ class BirdRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @return mixed
+     */
     public function getBirdsPerPage($elementsPerPage, $firstEntrance)
     {
         return $this->createQueryBuilder('b')
@@ -72,6 +83,9 @@ class BirdRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return mixed
+     */
     public function getBirdsByOrderAsc()
     {
         return $this->createQueryBuilder('b')
@@ -82,6 +96,10 @@ class BirdRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countBirds()
     {
         $qb = $this->createQueryBuilder('b');
@@ -90,6 +108,11 @@ class BirdRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $letter
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countBirdsByLetter($letter)
     {
         $qb = $this->createQueryBuilder('b');
@@ -99,6 +122,13 @@ class BirdRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countSearchBirdsByRegion($region, $draftStatus, $waitingStatus)
     {
         $qb = $this->createQueryBuilder('b');
@@ -114,6 +144,14 @@ class BirdRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @param $date
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countSearchBirdsByRegionAndDate($region, $draftStatus, $waitingStatus, $date)
     {
         $qb = $this->createQueryBuilder('b');
@@ -130,6 +168,14 @@ class BirdRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $region
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
     public function searchBirdsByRegionPerPage($region, $elementsPerPage, $firstEntrance, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('b')
@@ -147,6 +193,13 @@ class BirdRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @param $date
+     * @return mixed
+     */
     public function searchBirdsByRegionAndDate($region, $draftStatus, $waitingStatus, $date)
     {
         return $this->createQueryBuilder('b')

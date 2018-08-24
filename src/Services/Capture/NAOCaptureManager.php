@@ -31,21 +31,33 @@ class NAOCaptureManager
 		$this->publishedStatus = 'published';
 	}
 
+    /**
+     * @return string
+     */
 	public function getValidatedStatus()
 	{
 		return $this->validatedStatus;
 	}
 
+    /**
+     * @return string
+     */
 	public function getWaitingStatus()
 	{
 		return $this->waitingStatus;
 	}
 
+    /**
+     * @return string
+     */
 	public function getDraftStatus()
 	{
 		return $this->draftStatus;
 	}
 
+    /**
+     * @return string
+     */
 	public function getPublishedStatus()
 	{
 		return $this->publishedStatus;
@@ -73,6 +85,12 @@ class NAOCaptureManager
         return $capture;
     }
 
+    /**
+     * @param Capture $capture
+     * @param User $user
+     * @param string $role
+     * @return Capture
+     */
     public function setStatusOnCapture(Capture $capture, User $user, string $role)
     {
         if ($role === "particular") {
@@ -82,11 +100,20 @@ class NAOCaptureManager
         return $capture;
     }
 
+    /**
+     * @return mixed
+     */
 	public function getPublishedCaptures()
 	{
 		return $publishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->getPublishedCaptures($this->publishedStatus, $this->validatedStatus);
 	}
 
+    /**
+     * @param $page
+     * @param $numberOfPublishedCaptures
+     * @param $numberOfElementsPerPage
+     * @return mixed
+     */
 	public function getPublishedCapturesPerPage($page, $numberOfPublishedCaptures, $numberOfElementsPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($page, $numberOfPublishedCaptures, $numberOfElementsPerPage);
@@ -94,16 +121,29 @@ class NAOCaptureManager
 		return $publishedCapturesPerPage = $this->naoManager->getEm()->getRepository(Capture::class)->getPublishedCapturesPerPage($numberOfElementsPerPage, $firstEntrance, $this->publishedStatus, $this->validatedStatus);
 	}
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 	public function getPublishedCapture($id)
 	{
 		return $publishedCapture = $this->naoManager->getEm()->getRepository(Capture::class)->getPublishedCapture($id, $this->draftStatus, $this->waitingStatus);
 	}
 
+    /**
+     * @return mixed
+     */
 	public function getWaintingForValidationCaptures()
 	{
 		return $waintingForValidationCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->getCapturesByStatus($this->waitingStatus);
 	}
 
+    /**
+     * @param $page
+     * @param $numberOfWaitingForValidationCaptures
+     * @param $numberOfElementsPerPage
+     * @return mixed
+     */
 	public function getWaintingForValidationCapturesPerPage($page, $numberOfWaitingForValidationCaptures, $numberOfElementsPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($page, $numberOfWaitingForValidationCaptures, $numberOfElementsPerPage);
@@ -111,22 +151,40 @@ class NAOCaptureManager
 		return $waintingForValidationCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->getCapturesByStatusPerPage($this->waitingStatus, $numberOfElementsPerPage, $firstEntrance);
 	}
 
+    /**
+     * @param Capture $capture
+     * @param $naturalist
+     */
 	public function validateCapture(Capture $capture, $naturalist)
 	{
 		$capture->setStatus($this->validatedStatus);
 		$capture->setValidatedBy($naturalist);
 	}
 
+    /**
+     * @param Capture $capture
+     */
 	public function setWaitingStatus(Capture $capture)
 	{
 		$capture->setStatus($this->waitingStatus);
 	}
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 	public function getBirdPublishedCaptures($id)
 	{
 		return $birdCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->getBirdPublishedCaptures($id, $this->draftStatus, $this->waitingStatus);
 	}
 
+    /**
+     * @param $page
+     * @param $numberOfUserCaptures
+     * @param $numberOfElementsPerPage
+     * @param $id
+     * @return mixed
+     */
 	public function getUserCapturesPerPage($page, $numberOfUserCaptures, $numberOfElementsPerPage, $id)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($page, $numberOfUserCaptures, $numberOfElementsPerPage);
@@ -134,6 +192,9 @@ class NAOCaptureManager
 		return $UserCapturesPerPage = $this->naoManager->getEm()->getRepository(Capture::class)->getUserCapturesPerPage($numberOfElementsPerPage, $firstEntrance, $id);
 	}
 
+    /**
+     * @return mixed
+     */
 	public function getLastPublishedCaptures()
 	{
 		$numberElements = $this->naoPagination->getNbHomeCapturesPerPage();
@@ -141,6 +202,14 @@ class NAOCaptureManager
 		return $lastCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->getLastPublishedCaptures($numberElements, $this->publishedStatus, $this->validatedStatus);
 	}
 
+    /**
+     * @param $bird
+     * @param $region
+     * @param $pageNumber
+     * @param $numberOfSearchCaptures
+     * @param $numberOfPublishedCapturesPerPage
+     * @return mixed
+     */
 	public function searchCapturesByBirdAndRegionPerPage($bird, $region, $pageNumber, $numberOfSearchCaptures, $numberOfPublishedCapturesPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($pageNumber, $numberOfSearchCaptures, $numberOfPublishedCapturesPerPage);

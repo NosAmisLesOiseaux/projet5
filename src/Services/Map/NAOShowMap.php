@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class NAOShowMap extends NAOManager
 {
+    /**
+     * @param $captures
+     * @return JsonResponse
+     */
 	public function formatPublishedCaptures($captures)
 	{
         $formatted = [];
@@ -28,8 +32,12 @@ class NAOShowMap extends NAOManager
         }
 
         return new JsonResponse($formatted);
-	}	
+	}
 
+    /**
+     * @param $id
+     * @return JsonResponse
+     */
 	public function formatCapture($id)
 	{
 		$capture = $this->em->getRepository(Capture::class)->findOneById($id);

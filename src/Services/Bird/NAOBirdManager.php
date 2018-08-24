@@ -1,7 +1,5 @@
 <?php
 
-// src/Services/Bird/NAOBirdManager.php
-
 namespace App\Services\Bird;
 
 use App\Services\Pagination\NAOPagination;
@@ -26,6 +24,12 @@ class NAOBirdManager
 		$this->draftStatus = $this->naoCaptureManager->getDraftStatus();
 	}
 
+    /**
+     * @param $page
+     * @param $numberOfBirds
+     * @param $numberOfBirdsPerPage
+     * @return mixed
+     */
 	public function getBirdsPerPage($page, $numberOfBirds, $numberOfBirdsPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($page, $numberOfBirds, $numberOfBirdsPerPage);
@@ -33,6 +37,13 @@ class NAOBirdManager
 		return $publishedCapturesPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->getBirdsPerPage($numberOfBirdsPerPage, $firstEntrance);
 	}
 
+    /**
+     * @param $letter
+     * @param $page
+     * @param $numberOfBirds
+     * @param $numberOfBirdsPerPage
+     * @return mixed
+     */
 	public function getBirdsByLetter($letter, $page, $numberOfBirds, $numberOfBirdsPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($page, $numberOfBirds, $numberOfBirdsPerPage);
@@ -40,6 +51,13 @@ class NAOBirdManager
 		return $birds = $this->naoManager->getEm()->getRepository(Bird::class)->getBirdsByFirstLetter($letter, $numberOfBirdsPerPage, $firstEntrance);
 	}
 
+    /**
+     * @param $region
+     * @param $pageNumber
+     * @param $numberOfSearchBirds
+     * @param $numberOfBirdsPerPage
+     * @return mixed
+     */
 	public function searchBirdsByRegionPerPage($region, $pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage)
 	{
 		$firstEntrance = $this->naoPagination->getFirstEntrance($pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage);
@@ -47,11 +65,20 @@ class NAOBirdManager
 		return $searchBirdsByRegionPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionPerPage($region, $numberOfBirdsPerPage, $firstEntrance, $this->draftStatus, $this->waitingStatus);
 	}
 
+    /**
+     * @param $region
+     * @param $date
+     * @return mixed
+     */
 	public function searchBirdsByRegionAndDate($region, $date)
 	{
 		return $searchBirdsByRegion = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionAndDate($region, $this->draftStatus, $this->waitingStatus, $date);
 	}
 
+    /**
+     * @param $birdName
+     * @return mixed
+     */
 	public function getBirdByVernacularOrValidName($birdName)
 	{
 		$bird = $this->naoManager->getEm()->getRepository(Bird::class)->findOneByVernacularname($birdName);

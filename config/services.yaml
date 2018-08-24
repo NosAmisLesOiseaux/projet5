@@ -5,8 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr'
-    avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
-    bird_directory: '%kernel.project_dir%/public/uploads/bird'
+    nao.avatar_dir: '%kernel.project_dir%/public/uploads/avatar'
+    nao.bird_dir: '%kernel.project_dir%/public/uploads/bird'
 
 services:
     # default configuration for services in *this* file
@@ -31,124 +31,30 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    app.nao.file_uploader:
-        class: App\Services\Image\FileUploader
-        autowire: true
-        public: true
 
-    app.nao_manager:
-        class: App\Services\NAOManager
-        autowire: true
-        public: true
-
-    app.image_manager:
+    nao.image_manager:
         class: App\Services\Image\ImageManager
         autowire: true
         public: true
         arguments:
+            - '@App\Services\NAOManager'
             - '@App\Services\User\NAOUserManager'
-            - '@app.nao_user_manager'
             - '@service_container'
-            - '@app.nao.file_uploader'
+            - '@App\Services\Image\FileUploader'
 
-    app.nao.mailer:
+    nao.mailer:
         class: App\Services\Mail\Mailer
         autowire: true
         public: true
         arguments:
             - '@mailer'
 
-    app.nao_password_manager:
+    nao.password_manager:
         class: App\Services\User\PasswordManager
         autowire: true
         public: true
         arguments:
             - '@security.user_password_encoder.generic'
-            - '@app.nao.mailer'
+            - '@App\Services\Mail\Mailer'
             - '@session'
-            - '@app.nao_manager'
-
-    app.nao_comment_manager:
-        class: App\Services\Comment\NAOCommentManager
-        autowire: true
-        public: true
-
-    app.nao_count_comments:
-        class: App\Services\Comment\NAOCountComments
-        autowire: true
-        public: true
-
-    app.nao_capture_manager:
-        class: App\Services\Capture\NAOCaptureManager
-        autowire: true
-        public: true
-
-    app.nao_count_captures:
-        class: App\Services\Capture\NAOCountCaptures
-        autowire: true
-        public: true
-
-    app.nao_bird_manager:
-        class: App\Services\Bird\NAOBirdManager
-        autowire: true
-        public: true
-
-    app.nao_count_birds:
-        class: App\Services\Bird\NAOCountBirds
-        autowire: true
-        public: true
-
-    app.nao_show_map:
-        class: App\Services\Map\NAOShowMap
-        autowire: true
-        public: true
-
-    app.nao_pagination:
-        class: App\Services\Pagination\NAOPagination
-        autowire: true
-        public: true
-
-    app.nao_user_manager:
-        class: App\Services\User\NAOUserManager
-        autowire: true
-        public: true
-
-    app.nao_statistics:
-        class: App\Services\Statistics\NAODataStatistics
-        autowire: true
-        public: true
-
-    app.nao_frontend_bird_controller:
-        class: App\Controller\Frontend\BirdController
-        autowire: true
-        public: true
-
-    app.nao_frontend_capture_controller:
-        class: App\Controller\Frontend\CaptureController
-        autowire: true
-        public: true
-
-    app.nao_frontend_home_controller:
-        class: App\Controller\Frontend\HomeController
-        autowire: true
-        public: true
-
-    app.nao_backend_capture_controller:
-        class: App\Controller\Backend\CaptureController
-        autowire: true
-        public: true
-
-    app.nao_backend_adminspace_controller:
-        class: App\Controller\Backend\AdminSpaceController
-        autowire: true
-        public: true
-
-    app.nao_backend_useraccount_controller:
-        class: App\Controller\Backend\AccountController
-        autowire: true
-        public: true
-
-    app.nao_backend_password_controller:
-        class: App\Controller\Backend\PasswordController
-        autowire: true
-        public: true
+            - '@App\Services\NAOManager'

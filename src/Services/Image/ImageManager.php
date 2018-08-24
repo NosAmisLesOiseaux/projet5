@@ -87,6 +87,10 @@ class ImageManager
         return $image;
     }
 
+    /**
+     * @param UploadedFile $uploadedFile
+     * @param Capture $capture
+     */
     public function addImageOnCapture(UploadedFile $uploadedFile, Capture $capture)
     {
         $image = $this->buildImage($uploadedFile, $this->container->getParameter('bird_directory'));
@@ -96,7 +100,10 @@ class ImageManager
         $this->getManager()->addOrModifyEntity($capture);
     }
 
-
+    /**
+     * @param UploadedFile $uploadedFile
+     * @param User $user
+     */
     public function addAvatarOnUser(UploadedFile $uploadedFile, User $user)
     {
         $image = $this->buildImage($uploadedFile, $this->container->getParameter('avatar_directory'));

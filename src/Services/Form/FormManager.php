@@ -23,6 +23,11 @@ class FormManager
         $this->formFactory = $formFactory;
     }
 
+    /**
+     * @param string $role
+     * @param Capture $capture
+     * @return bool|\Symfony\Component\Form\FormInterface
+     */
     public function getCaptureForm(string $role, Capture $capture)
     {
         if ($role === 'particulier')

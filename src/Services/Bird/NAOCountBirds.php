@@ -1,7 +1,5 @@
 <?php
 
-// src/Services/Bird/NAOBirdManager.php
-
 namespace App\Services\Bird;
 
 use App\Services\NAOManager;
@@ -23,21 +21,37 @@ class NAOCountBirds
 		$this->draftStatus = $this->naoCaptureManager->getDraftStatus();
 	}
 
+    /**
+     * @return mixed
+     */
 	public function countBirds()
 	{
 		return $numberOfBirds = $this->naoManager->getEm()->getRepository(Bird::class)->countBirds();
 	}
 
+    /**
+     * @param $letter
+     * @return mixed
+     */
 	public function countBirdsByLetter($letter)
 	{
 		return $numberBirdsLetter = $this->naoManager->getEm()->getRepository(Bird::class)->countBirdsByLetter($letter);
 	}
 
+    /**
+     * @param $region
+     * @return mixed
+     */
 	public function countSearchBirdsByRegion($region)
 	{
 		return $numberSearchBirdsByRegion = $this->naoManager->getEm()->getRepository(Bird::class)->countSearchBirdsByRegion($region, $this->draftStatus, $this->waitingStatus);
 	}
 
+    /**
+     * @param $region
+     * @param $date
+     * @return mixed
+     */
 	public function countSearchBirdsByRegionAndDate($region, $date)
 	{
 		return $numberSearchBirdsByRegion = $this->naoManager->getEm()->getRepository(Bird::class)->countSearchBirdsByRegionAndDate($region, $this->draftStatus, $this->waitingStatus, $date);

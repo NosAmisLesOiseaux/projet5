@@ -48,6 +48,11 @@ class CaptureRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param $publishedStatus
+     * @param $validatedStatus
+     * @return mixed
+     */
     public function getPublishedCaptures($publishedStatus, $validatedStatus)
     {
         return $this->createQueryBuilder('c')
@@ -60,6 +65,13 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @param $publishedStatus
+     * @param $validatedStatus
+     * @return mixed
+     */
     public function getPublishedCapturesPerPage($elementsPerPage, $firstEntrance, $publishedStatus, $validatedStatus)
     {
         return $this->createQueryBuilder('c')
@@ -74,6 +86,12 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $numberElements
+     * @param $publishedStatus
+     * @param $validatedStatus
+     * @return mixed
+     */
     public function getLastPublishedCaptures($numberElements, $publishedStatus, $validatedStatus)
     {
         return $this->createQueryBuilder('c')
@@ -88,6 +106,13 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $id
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function getPublishedCapture($id, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('c')
@@ -102,6 +127,10 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $status
+     * @return mixed
+     */
     public function getCapturesByStatus($status)
     {
         return $this->createQueryBuilder('c')
@@ -112,6 +141,12 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $status
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @return mixed
+     */
     public function getCapturesByStatusPerPage($status, $elementsPerPage, $firstEntrance)
     {
         return $this->createQueryBuilder('c')
@@ -124,6 +159,12 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $bird
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
     public function getBirdPublishedCaptures($bird, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('c')
@@ -138,6 +179,12 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $numberOfElementsPerPage
+     * @param $firstEntrance
+     * @param $id
+     * @return mixed
+     */
     public function getUserCapturesPerPage($numberOfElementsPerPage, $firstEntrance, $id)
     {
         return $this->createQueryBuilder('c')
@@ -150,6 +197,11 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $status
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countByStatus($status)
     {
         $qb = $this->createQueryBuilder('t');
@@ -160,6 +212,12 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $publishedStatus
+     * @param $validatedStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countPublishedCaptures($publishedStatus, $validatedStatus)
     {
         $qb = $this->createQueryBuilder('t');
@@ -172,6 +230,13 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $publishedStatus
+     * @param $validatedStatus
+     * @param $date
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countPublishedCapturesByYear($publishedStatus, $validatedStatus, $date)
     {
         $qb = $this->createQueryBuilder('c');
@@ -185,6 +250,12 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $status
+     * @param $author
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countByStatusAndAuthor($status, $author)
     {
         $qb = $this->createQueryBuilder('t');
@@ -197,6 +268,11 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countAuthorCaptures($id)
     {
         $qb = $this->createQueryBuilder('c');
@@ -207,6 +283,14 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $bird
+     * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countSearchCapturesByBirdAndRegion($bird, $region, $draftStatus, $waitingStatus)
     {
         $qb = $this->createQueryBuilder('c');
@@ -223,6 +307,13 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $bird
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countSearchCapturesByBird($bird, $draftStatus, $waitingStatus)
     {
         $qb = $this->createQueryBuilder('c');
@@ -237,6 +328,13 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countSearchCapturesByRegion($region, $draftStatus, $waitingStatus)
     {
         $qb = $this->createQueryBuilder('c');
@@ -251,6 +349,15 @@ class CaptureRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $bird
+     * @param $region
+     * @param $numberOfElementsPerPage
+     * @param $firstEntrance
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
     public function searchCapturesByBirdAndRegionPerPage($bird, $region, $numberOfElementsPerPage, $firstEntrance, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('c')
@@ -269,6 +376,14 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $bird
+     * @param $numberOfElementsPerPage
+     * @param $firstEntrance
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
     public function searchCapturesByBirdPerPage($bird, $numberOfElementsPerPage, $firstEntrance, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('c')
@@ -285,6 +400,14 @@ class CaptureRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $region
+     * @param $numberOfElementsPerPage
+     * @param $firstEntrance
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
     public function searchCapturesByRegionPerPage($region, $numberOfElementsPerPage, $firstEntrance, $draftStatus, $waitingStatus)
     {
         return $this->createQueryBuilder('c')

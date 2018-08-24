@@ -37,8 +37,10 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     /**
-     * @param string $email
-     * @return User Returns a User object
+     * @param $email
+     * @return User|null
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findUserByEmail($email): ?User
     {
@@ -50,8 +52,10 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     /**
-     * @param string $activation_code
-     * @return User Returns a User Object
+     * @param $activation_code
+     * @return User|null
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function findByActivationCode($activation_code): ?User
     {

@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class NAOShowComments extends NAOManager
 {
+    /**
+     * @param $comments
+     * @return JsonResponse
+     */
 	public function formatCapturePublishedComments($comments)
 	{
         $formatted = [];

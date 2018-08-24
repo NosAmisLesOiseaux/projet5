@@ -13,6 +13,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
+    /**
+     * @param UploadedFile $file
+     * @param $targetDirectory
+     * @return string
+     */
     public function upload(UploadedFile $file, $targetDirectory): string
     {
         $file_name = md5(uniqid()).'.'.$file->guessExtension();

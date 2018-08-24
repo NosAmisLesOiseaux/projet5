@@ -116,11 +116,17 @@ class User implements UserInterface, \Serializable
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getUsername() :string
     {
         return $this->username;
     }
 
+    /**
+     * @param $username
+     */
     public function setUsername($username) :void
     {
         $this->username = $username;
@@ -133,43 +139,69 @@ class User implements UserInterface, \Serializable
         return null;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @param $password
+     * @return $this
+     */
     public function setPassword($password)
     {
         $this->password = $password;
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * @param $email
+     * @return $this
+     */
     public function setEmail($email)
     {
         $this->email = $email;
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getActive() :bool
     {
         return $this->active;
     }
 
+    /**
+     * @param $active
+     */
     public function setActive($active) :void
     {
         $this->active = $active;
     }
 
+    /**
+     * @return array
+     */
     public function getRoles() :array
     {
         return $this->roles;
     }
 
+    /**
+     * @param $roles
+     */
     public function setRoles($roles) :void
     {
         $this->roles[] = $roles;
@@ -263,16 +295,25 @@ class User implements UserInterface, \Serializable
         $this->token = $token;
     }
 
+    /**
+     * @return string
+     */
     public function getActivationCode() :string
     {
         return $this->activation_code;
     }
 
+    /**
+     * @param $activation_code
+     */
     public function setActivationCode($activation_code) :void
     {
         $this->activation_code = $activation_code;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAccountType()
     {
         return $this->account_type;
@@ -351,6 +392,10 @@ class User implements UserInterface, \Serializable
         return $this->captures;
     }
 
+    /**
+     * @param Capture $capture
+     * @return User
+     */
     public function addCapture(Capture $capture): self
     {
         if (!$this->captures->contains($capture)) {
@@ -361,6 +406,10 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    /**
+     * @param Capture $capture
+     * @return User
+     */
     public function removeCapture(Capture $capture): self
     {
         if ($this->captures->contains($capture)) {

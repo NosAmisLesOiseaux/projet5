@@ -24,6 +24,14 @@ class Mailer
         $this->container = $container;
     }
 
+    /**
+     * @param User $user
+     * @param string $code
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendConfirmationEmail(User $user, string $code)
     {
         $message = (new \Swift_Message("Activation de votre compte NAO"))
@@ -36,6 +44,13 @@ class Mailer
         return true;
     }
 
+    /**
+     * @param User $user
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendConfirmationPasswordChanged(User $user)
     {
         $message = (new \Swift_Message("Changement de votre mot de passe"))
@@ -48,6 +63,13 @@ class Mailer
         return true;
     }
 
+    /**
+     * @param User $user
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendLostPasswordEmail(User $user)
     {
         $message = (new \Swift_Message("Réinitialisation de votre mot de passe"))
@@ -60,6 +82,13 @@ class Mailer
         return true;
     }
 
+    /**
+     * @param User $user
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function sendPasswordReinitialisationSuccessEmail(User $user)
     {
         $message = (new \Swift_Message("Mot de passe réinitialisé avec succès !"))

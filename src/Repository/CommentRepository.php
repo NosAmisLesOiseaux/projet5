@@ -48,6 +48,12 @@ class CommentRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @param $status
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @return mixed
+     */
     public function getCommentsByStatusPerPage($status, $elementsPerPage, $firstEntrance)
     {
         return $this->createQueryBuilder('c')
@@ -60,6 +66,11 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $status
+     * @param $id
+     * @return mixed
+     */
     public function getCapturePublishedComments($status, $id)
     {
         return $this->createQueryBuilder('c')
@@ -73,6 +84,11 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @param $status
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countPublishedOrReportedComments($status)
     {
         $qb = $this->createQueryBuilder('c');
@@ -83,6 +99,11 @@ class CommentRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $capture
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countCaptureComments($capture)
     {
         $qb = $this->createQueryBuilder('c');
@@ -93,6 +114,12 @@ class CommentRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    /**
+     * @param $capture
+     * @param $status
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function countCaptureCommentsByStatus($capture, $status)
     {
         $qb = $this->createQueryBuilder('c');

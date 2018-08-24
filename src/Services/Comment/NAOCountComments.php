@@ -23,16 +23,26 @@ class NAOCountComments
 		$this->reportedStatus = $this->naoCommentManager->getReportedStatus();
 	}
 
+    /**
+     * @return mixed
+     */
 	public function countPublishedComments()
 	{
 		return $numberOfPublishedComments = $this->naoManager->getEm()->getRepository(Comment::class)->countPublishedOrReportedComments($this->publishedStatus);
 	}
 
+    /**
+     * @return mixed
+     */
 	public function countReportedComments()
 	{
 		return $numberOfReportedComments = $this->naoManager->getEm()->getRepository(Comment::class)->countPublishedOrReportedComments($this->reportedStatus);
-	} 
+	}
 
+    /**
+     * @param $capture
+     * @return mixed
+     */
 	public function countCapturePublishedComments($capture)
 	{
 		return $captureComments = $this->naoManager->getEm()->getRepository(Comment::class)->countCaptureCommentsByStatus($capture, $this->publishedStatus );

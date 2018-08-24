@@ -27,51 +27,89 @@ class NAOCountCaptures
 		$this->publishedStatus = $this->naoCaptureManager->getPublishedStatus();
 	}
 
+    /**
+     * @return mixed
+     */
 	public function countPublishedCaptures()
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countPublishedCaptures($this->publishedStatus, $this->validatedStatus);
 	}
 
+    /**
+     * @param $date
+     * @return mixed
+     */
 	public function countPublishedCapturesByYear($date)
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countPublishedCapturesByYear($this->publishedStatus, $this->validatedStatus, $date);
 	}
 
+    /**
+     * @return mixed
+     */
 	public function countDraftsCaptures()
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countByStatus($this->draftStatus);
-	} 
+	}
 
+    /**
+     * @return mixed
+     */
 	public function countWaitingForValidationCaptures()
 	{
 		return $numberOfWaitingForValidationCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countByStatus($this->waitingStatus);
 	}
 
+    /**
+     * @param $author
+     * @return mixed
+     */
 	public function countAuthorPublishedCaptures($author)
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countByStatusAndAuthor($this->publishedStatus, $author);
 	}
 
+    /**
+     * @param $author
+     * @return mixed
+     */
 	public function countAuthorDraftsCaptures($author)
 	{
 		return $numberOfPublishedCaptures = $this->em->getRepository(Capture::class)->countByStatusAndAuthor($this->draftStatus, $author);
 	}
 
+    /**
+     * @param $author
+     * @return mixed
+     */
 	public function countAuthorWaintingForValidationCaptures($author)
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countByStatusAndAuthor($this->waitingStatus, $author);
 	}
 
+    /**
+     * @param $author
+     * @return mixed
+     */
 	public function countAuthorValidatedCaptures($author)
 	{
 		return $numberOfPublishedCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countByStatusAndAuthor($this->validatedStatus, $author);
 	}
 
+    /**
+     * @param $id
+     * @return mixed
+     */
 	public function countUserCaptures($id)
 	{
 		return $numberOfCaptures = $this->naoManager->getEm()->getRepository(Capture::class)->countAuthorCaptures($id);
 	}
 
+    /**
+     * @param $bird
+     * @param $region
+     * @return mixed
+     */
 	public function countSearchCapturesByBirdAndRegion($bird, $region)
 	{
 		if (empty($bird))
