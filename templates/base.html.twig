@@ -25,6 +25,7 @@
 
         <ul id="menu">
         
+            {% include "menu/default.html.twig" %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li><a href="{{ path('change_password') }}">Change password</a></li>
             {% endif %}

@@ -1,8 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>CREER UN COMPTE UTILISATEUR</h1>
-    <div class="f-register">
+    <h1>Register</h1>
+
     {{ form_start(form) }}
 
     {{ form_label(form.firstname) }}
@@ -26,5 +26,4 @@
     {{ form_widget(form.email) }}
     <button type="submit">Créer mon compte</button>
     {{ form_end(form) }}
-    </div>
 {% endblock %}
