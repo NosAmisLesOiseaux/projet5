@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} {% endif %}{% endblock %}
+{% block mapStylesheets %} 
+	{{ parent() }}
+	<style type="text/css">
+			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+				height:400px;
+			}
+		</style>
+{% endblock %}
+
+{% block body %}
+	<div id="map" data-identifiant={{ bird.id }}>
+	</div>
+	<section>
+		<h1>{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</h1>
+		<p>{{ bird.image }}</p>
+		<p>Règne : {{ bird.reign }}</p>
+		<p>Classe : {{ bird.class }}</p>
+		<p>Ordre : {{ bird.birdOrder }}</p>
+		<p>Famille : {{ bird.family }}</p>
+	</section>
+{% endblock %}
+
+{% block mapJavascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('javascript/maps/showmap.js') }}"></script>
+{% endblock %}

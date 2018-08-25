@@ -1,0 +1,39 @@
+{# templates/admin/published_captures.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Observations publiées {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1>Espace administration</h1>
+	<h2>Observations publiées</h2>
+
+	<section>
+		{{ include('admin/publishedCapturesModel.html.twig')}}
+		<div>
+			<ul>
+				{% if nbPublishedCapturesPages > 1 %}
+					<p> 
+						<a href="{{ path('admin_space') }}"> Retour </a> 
+					</p>
+					{% if previousPage > 1 %}
+					<p> 
+						<a href="{{ path('admin_space_published_captures', {page: previousPage}) }}"> << </a> 
+					</p>
+					{% endif %}
+					{% for i in 2..nbPublishedCapturesPages %}
+						<li {% if page == i %} class="active" {% endif %}>
+   							<a href="{{ path('admin_space_published_captures', {page: i}) }}"> {{i}} </a>
+   						</li>
+   					{% endfor %}
+    				<p>
+    					{% if nextPage <= nbPublishedCapturesPages %}
+    						<a href="{{ path('admin_space_published_captures', {page: nextPage}) }}"> >> </a>
+    					{% endif %}
+    				</p> 
+    			{% endif %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+{% block javascripts %} {% endblock %}
