@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Nos Amis les Oiseaux - {% block title %}{% endblock %}</title>
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css-design/materialize-src/sass/materialize.scss') }}" />
+        <link rel="stylesheet" href="{{ asset('css-design/style.css') }}" />
+        <title>{% block title %}Nos Amis les Oiseaux{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        {% block mapStylesheets %}{% endblock %}
     </head>
     <body>
     {% for flashMessage in app.session.flashbag.get('error') %}
@@ -13,20 +15,26 @@
     {% for flashMessage in app.session.flashbag.get('success') %}
         {{ flashMessage }}
     {% endfor %}
-    <nav>
-        <ul>
-            <li><a href="{{ path('home') }}">Accueil</a></li>
-            <li><a href="{{ path('repertory') }}">Répertoire</a></li>
-            <li><a href="{{ path('captures') }}">Observations</a></li>
-            <li><a href="{{ path('add_capture') }}">Ajouter une observation</a></li>
-            <li><a href="{{ path('statistics') }}">Quelques données</a></li>
-            <li><a href="{{ path('contact') }}">Contact</a></li>
-            {% if is_granted('ROLE_NATURALIST') %}
-                <li><a href="{{ path('admin_space') }}">Administration</a></li>
-                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+
+    <nav role="navigation" class="navigation">
+        <div id="menuToggle">
+        <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+
+        <ul id="menu">
+        
+            {% include "menu/default.html.twig" %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><a href="{{ path('change_password') }}">Change password</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('administration') }}">Administration</a></li>
+                <li><a href="{{ path('account') }}">Mon compte</a></li>
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             {% elseif is_granted('ROLE_USER') %}
-                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+                <li><a href="{{ path('account') }}">Mon compte</a></li>
                 <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             {% else %}
                 <li><a href="{{ path('login') }}">Connexion</a></li>
@@ -34,11 +42,17 @@
                 <li><a href="{{ path('lost_password') }}">Mot de passe perdu</a></li>
             {% endif %}
         </ul>
+        </div>
+        <div class="image-logo">
+       <span ><a><img class="logo" src="{{ asset('photo/logo-classic-1.png') }}"></a></span>
+        </div>
+        <div class="icon-recherche">  <i class="large material-icons search">search</i>
+        </div> 
     </nav>
+    {% if is_granted('ROLE_USER') %}
+        {{ dump(app.user.roles) }}
+    {% endif %}
         {% block body %}{% endblock %}
-    {% block jquery %}{% endblock %}
-    {% block mapJavascripts %}{% endblock %}
-    {% block paginationJavascripts %}{% endblock %}
-    {% block javascripts %}{% endblock %}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
