@@ -68,8 +68,10 @@
 		</ul>
 	</section>
 	{{ form_start(form) }}
-	{{ form_errors(form) }}
-	{{ form_widget(form) }}
+
+	{{ form_label(form.content) }}
+	{{ form_errors(form.content) }}
+	{{ form_widget(form.content) }}
 	<button type="submit">Commenter</button>
 	{{ form_end(form) }}
 {% endblock %}

@@ -18,8 +18,48 @@
         {% endif %}
     {% endif %}
     {{ form_start(form) }}
-    {{ form_errors(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_label(form.bird) }}
+    {{ form_errors(form.bird)) }}
+    {{ form_widget(form.bird)) }}
+
+    {{ form_label(form.content) }}
+    {{ form_errors(form.content)) }}
+    {{ form_widget(form.content)) }}
+
+    {{ form_label(form.latitude) }}
+    {{ form_errors(form.latitude)) }}
+    {{ form_widget(form.latitude)) }}
+
+    {{ form_label(form.longitude) }}
+    {{ form_errors(form.longitude)) }}
+    {{ form_widget(form.longitude)) }}
+
+    {{ form_label(form.address) }}
+    {{ form_errors(form.address)) }}
+    {{ form_widget(form.address)) }}
+
+    {{ form_label(form.complement) }}
+    {{ form_errors(form.complement)) }}
+    {{ form_widget(form.complement)) }}
+
+    {{ form_label(form.zipcode) }}
+    {{ form_errors(form.zipcode)) }}
+    {{ form_widget(form.zipcode)) }}
+
+    {{ form_label(form.city) }}
+    {{ form_errors(form.city)) }}
+    {{ form_widget(form.city)) }}
+
+    {{ form_label(form.region) }}
+    {{ form_errors(form.region)) }}
+    {{ form_widget(form.region)) }}
+
+    {% if is_granted('ROLE_NATURALIST') %}
+        {{ form_label(form.status) }}
+        {{ form_errors(form.status)) }}
+        {{ form_widget(form.status)) }}
+    {% endif %}
     <button type="submit" name="submit" id="{{ role }}_capture_save">{{ titre }}</button>
     {{ form_end(form) }}
 {% endblock %}

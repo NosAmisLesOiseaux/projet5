@@ -4,9 +4,27 @@
     <h1>Register</h1>
 
     {{ form_start(form) }}
-    {{ form_errors(form) }}
-    {{ form_label(form) }}
-    {{ form_widget(form) }}
+
+    {{ form_label(form.firstname) }}
+    {{ form_errors(form.firstname) }}
+    {{ form_widget(form.firstname) }}
+
+    {{ form_label(form.lastname) }}
+    {{ form_errors(form.lastname) }}
+    {{ form_widget(form.lastname) }}
+
+    {{ form_label(form.account_type) }}
+    {{ form_errors(form.account_type) }}
+    {{ form_widget(form.account_type) }}
+
+    {{ form_label(form.email) }}
+    {{ form_errors(form.email) }}
+    {{ form_widget(form.email) }}
+
+    {{ form_label(form.email) }}
+    {{ form_errors(form.email) }}
+    {{ form_widget(form.email) }}
+
     <button type="submit">Créer mon compte</button>
     {{ form_end(form) }}
 {% endblock %}
