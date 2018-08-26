@@ -13,14 +13,12 @@
     	<h2>Années</h2>
     	{% for year in years %}
     		<ul>
-    			<li><a href="{{ path('statistics', {year: year}) }}">{{year}}</a></li>
+				<a href="{{ path('statistics', {'year': year}) }}"><h3 id="year" data-year="{{ year }}">{{ year }}</h3></a>
+				<p>Nombre total d'observations publiées : {{ nbOfYearPublishedCaptures }}</p>
     		</ul>
     	{% endfor %}
     </section>
     <section>
-    	<h3 id="year" data-year="{{year}}">{{year}}</h3>
-    	<p> Nombre total d'observations publiées : {{nbOfYearPublishedCaptures}}</p>
-    	<h2>Régions</h2>
     </section>
     <section id="statisticsByYear">
     	<div id="statisticsData"></div>
