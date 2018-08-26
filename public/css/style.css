@@ -1,0 +1,249 @@
+@charset "UTF-8";
+/* ------------- */
+/* == _style.scss */
+/* --------------*/
+/* ----------------------------- */
+/* == _atomes.scss           	 */
+/* ----------------------------- */
+/* -----COULEURS-----*/
+/* -----TYPOGRAPHIE-----*/
+/* -----BOUTONS-----*/
+/* ----------------------------- */
+/* == _reset.scss 				 */
+/* ----------------------------- */
+/* switching box model for all elements */
+html {
+  box-sizing: border-box; }
+
+* {
+  box-sizing: inherit; }
+
+body {
+  overflow-x: hidden; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+ul,
+ol {
+  padding-left: 2em; }
+
+ul.unstyled {
+  list-style: none; }
+
+img {
+  vertical-align: middle;
+  border: 0; }
+
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+/* fixer une largeur maximale  de 100 % aux éléments potentiellement problématiques */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+iframe,
+object,
+embed,
+video {
+  max-width: 100%; }
+
+/* conserver le ratio des images et empêcher les débordements de boîtes dûs aux border ou padding */
+img {
+  height: auto; }
+
+/* TYPOGRAPHIE */
+/* base font-size corresponds to 10px and is adapted to rem unit */
+html {
+  /* set base font-size to equiv "10px", which is adapted to rem unit */
+  font-size: 62.5%;
+  /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+  /* thanks to @guardian, @victorbritopro and @eQRoeil */
+  font-size: calc(1em * .625);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+body {
+  font-size: 1.4em;
+  /* equiv 14px */
+  line-height: 1.5;
+  /* adapt to your design */ }
+
+/* preserves vertical-rythm, thanks to http://soqr.fr/vertical-rhythm/ */
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure {
+  margin: .75em 0 0;
+  line-height: 1.5; }
+
+h1,
+.h1-like {
+  margin: 0.6563em 0 0 0;
+  font-size: 2.2857em;
+  /* equiv 32px */
+  line-height: 1.3126; }
+
+h2,
+.h2-like {
+  margin: 0.75em 0 0 0;
+  font-size: 2em;
+  /* equiv 28px */
+  line-height: 1.5; }
+
+h3,
+.h3-like {
+  margin: 0.875em 0 0 0;
+  font-size: 1.7143em;
+  /* equiv 24px */
+  line-height: 1.75; }
+
+h4,
+.h4-like {
+  margin: 1.05em 0 0 0;
+  font-size: 1.4286em;
+  /* equiv 20px */
+  line-height: 1.05; }
+
+h5,
+.h5-like {
+  margin: 1.1667em 0 0 0;
+  font-size: 1.2857em;
+  /* equiv 18px */
+  line-height: 1.1667; }
+
+h6,
+.h6-like {
+  margin: 1.3125em 0 0 0;
+  font-size: 1.1429em;
+  /* equiv 16px */
+  line-height: 1.3125; }
+
+/* gestion des mots longs */
+textarea,
+table,
+td,
+th,
+code,
+pre,
+samp {
+  word-wrap: break-word;
+  /* passage à la ligne forcé */
+  -webkit-hyphens: auto;
+  /* césure propre */
+  -moz-hyphens: auto;
+  hyphens: auto; }
+
+code,
+pre,
+samp {
+  white-space: pre-wrap;
+  /* passage à la ligne spécifique pour les éléments à châsse fixe */ }
+
+/* ----------------------------- */
+/* == _molecules.scss            */
+/* ----------------------------- */
+/* -------------------------------------------------*/
+/* == _mobile.scss (des smartphones aux phablettes) */
+/* -----GENERAL-----*/
+@-webkit-viewport {
+  width: device-width;
+  zoom: 1.0; }
+@-moz-viewport {
+  width: device-width;
+  zoom: 1.0; }
+@-ms-viewport {
+  width: device-width;
+  zoom: 1.0; }
+@-o-viewport {
+  width: device-width;
+  zoom: 1.0; }
+@viewport {
+  width: device-width;
+  zoom: 1.0; }
+::selection {
+  background: #e7c791;
+  /* Webkit */ }
+
+::-moz-selection {
+  background: #e7c791;
+  /* Firefox */ }
+
+::-webkit-input-placeholder {
+  color: #000000; }
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #000000; }
+
+a {
+  color: #000000; }
+
+mark {
+  background: #ff0; }
+
+/* j'ai oublié l'attribut 'alt' */
+img:not([alt]) {
+  border: 5px dashed red; }
+
+/* -----BOUTONS-----*/
+/* -----LAYOUT-----*/
+/* -----MOBILE-----*/
+body:before {
+  color: #000000;
+  width: 100%;
+  display: block;
+  text-align: center;
+  content: "Version mobile"; }
+
+/* Fin de @media (min-width: 20em) = min-width 320px */
+/* @media query optionnelle (max-width: 640px)*/
+/* Fin de @media query optionnelle (max-width: 640px)*/
+/* ----------------------------------------------------------------- */
+/* == _tablet.scss (des tablettes aux ordinateurs portables/laptops) */
+/* ----------------------------------------------------------------- */
+@media (min-width: 40.063em) {
+  body:before {
+    color: #000000;
+    width: 100%;
+    display: block;
+    text-align: center;
+    content: "Version tablette"; } }
+/* Fin de @media (min-width: 40.063em)/* = min-width 641px */
+/* -------------------------------- */
+/* == _desktop.scss (grands écrans) */
+/* -------------------------------- */
+@media (min-width: 64.063em) {
+  body:before {
+    color: #000000;
+    width: 100%;
+    display: block;
+    text-align: center;
+    content: "Version Ordinateur"; } }
+/* Fin de @media (max-width: 64.063em) /* = min-width 1025px */
+
+/*# sourceMappingURL=style.css.map */
