@@ -155,7 +155,7 @@ a:hover
 }
 
 #menu li a:hover {
-  color: rgb(204, 255, 207)
+  font-weight: bold;
 }
 /*
  * And let's slide it in from the left
@@ -177,7 +177,10 @@ html {
   box-sizing: inherit; }
 
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-family: Roboto;
+}
+
 
 html,
 body {
