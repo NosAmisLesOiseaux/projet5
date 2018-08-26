@@ -228,6 +228,9 @@ a:hover
   padding-top: 4%;
   color: #80BA83;
   font-size: 30px;
+  margin: 0;
+  border: white solid 1px;
+  box-shadow: 0 -5px 5px -5px #333;
 }
 
 .s-t-index{
@@ -550,7 +553,6 @@ body:before {
       padding-top: 69px;
     }
     
-
   }
   @media (min-width: 1400px){
     .s-t-index{
