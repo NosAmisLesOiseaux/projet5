@@ -16,8 +16,13 @@
     {% for flashMessage in app.session.flashbag.get('success') %}
         {{ flashMessage }}
     {% endfor %}
-    <nav>
-        <ul>
+    <nav role="navigation" class="navigation">
+        <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('repertory') }}">Répertoire</a></li>
             <li><a href="{{ path('captures') }}">Observations</a></li>
@@ -37,6 +42,7 @@
                 <li><a href="{{ path('lost_password') }}">Mot de passe perdu</a></li>
             {% endif %}
         </ul>
+        </div>
     </nav>
         {% block body %}{% endblock %}
     {% block jquery %}{% endblock %}

@@ -30,7 +30,7 @@ a:hover
 {
   display: block;
   position: relative;
-  top: 50px;
+  top: 31px;
   left: 50px;
   
   z-index: 1;
@@ -67,7 +67,7 @@ a:hover
   margin-bottom: 5px;
   position: relative;
   
-  background: #cdcdcd;
+  background: white;
   border-radius: 3px;
   
   z-index: 1;
@@ -97,7 +97,7 @@ a:hover
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: white;
 }
 
 /*
@@ -123,19 +123,22 @@ a:hover
  */
 #menu
 {
-  position: absolute;
+  position: fixed;
   width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
+  margin: -100px 0 0 -70px;
+  padding: 20px;
+  height: 100%;
+  padding-left: 70px;
   padding-top: 125px;
   
-  background: #ededed;
+  background:  #80BA83;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
   
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
+  box-shadow: 5px 5px 5px 0px #70707059;
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
@@ -144,8 +147,16 @@ a:hover
 {
   padding: 10px 0;
   font-size: 22px;
+  color: white;
 }
 
+#menu li a{
+  color: white;
+}
+
+#menu li a:hover {
+  color: rgb(204, 255, 207)
+}
 /*
  * And let's slide it in from the left
  */
@@ -154,6 +165,10 @@ a:hover
   transform: none;
 }
 
+.navigation{
+  background-color: #80BA83;
+  height: 77px;
+}
 
 html {
   box-sizing: border-box; }
