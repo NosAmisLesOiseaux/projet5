@@ -196,7 +196,7 @@ a:hover
 }
 
 .parallax{
-    background-image: url('https://imageshack.com/a/img922/6636/3p7GTK.jpg');
+    background-image: url('https://imageshack.com/a/img921/1533/WTRpND.jpg');
     height: 383px; 
     background-repeat: no-repeat;
     background-size: cover;
@@ -209,6 +209,26 @@ a:hover
     font-size: 37px;
     color: white;
     font-weight: bold;
+}
+
+.t-index{
+  text-align: center;
+  padding-top: 4%;
+  color: #80BA83;
+  font-size: 30px;
+}
+
+.s-t-index{
+  display: inline-block;
+    width: 63%;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #80BA83;
+    border-radius: 3px;
+    z-index: 1;
+    left: 17%;
+    margin-top: 10px;
 }
 
 html {
@@ -480,6 +500,23 @@ body:before {
   .nao-flottant{
     padding-top:168px;
   }
+  .t-index{
+    font-size: 37px;
+    padding-top: 2%;
+    
+  }
+  .s-t-index{
+    width: 51%;
+    left: 25%
+  }
+  }
+
+  @media (min-width: 1400px){
+    .s-t-index{
+      width: 39%;
+      left: 31%;
+    }
+
   }
 /* Fin de @media (max-width: 64.063em) /* = min-width 1025px */
 
