@@ -166,11 +166,14 @@ a:hover
 }
 
 .navigation{
+  position: relative;
   background-color: #80BA83;
   height: 77px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: #80BA83;
+  box-shadow: 0px 10px 5px 0px #00000057;
 }
 
 .logo{
@@ -189,17 +192,23 @@ a:hover
 .icon-recherche .material-icons{
   font-size: 40px !important;
   color: white;
-  padding-top: 40%;
+  padding-top: 48% !important;
 }
 
 .parallax{
-    background-image: url('image-accueil.jpg');
-    height: 220px; 
-    background-attachment: fixed;
-    background-position: center;
+    background-image: url('https://imageshack.com/a/img922/6636/3p7GTK.jpg');
+    height: 383px; 
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: -108px;
+}
 
+.nao-flottant{
+  padding-top: 49px;
+    text-align: center;
+    font-size: 37px;
+    color: white;
+    font-weight: bold;
 }
 
 html {
@@ -406,6 +415,34 @@ img:not([alt]) {
 /* -----BOUTONS-----*/
 /* -----LAYOUT-----*/
 /* -----MOBILE-----*/
+@media (min-width: 393px) {
+  .nao-flottant{
+    padding-top: 38px;
+    font-size: 40px;}
+}
+@media (max-width: 425px) {
+  .nao-flottant{
+    padding-top: 166px;
+    font-size: 40px;}
+}
+
+@media (max-width: 1100px) { 
+  .nao-flottant{
+    padding-top: 67px !important;
+    font-size: 40px;}
+ .parallax {
+  height: 248px;
+  margin-top: 0;
+ }
+}
+
+@media (max-width: 400px) {
+  .nao-flottant{
+    padding-top: 61px !important;
+  }
+}
+
+
 body:before {
   color: #000000;
   width: 100%;
@@ -425,7 +462,10 @@ body:before {
     width: 100%;
     display: block;
     text-align: center;
-    content: "Version tablette"; } }
+    content: "Version tablette"; } 
+    
+  }
+
 /* Fin de @media (min-width: 40.063em)/* = min-width 641px */
 /* -------------------------------- */
 /* == _desktop.scss (grands écrans) */
@@ -436,7 +476,11 @@ body:before {
     width: 100%;
     display: block;
     text-align: center;
-    content: "Version Ordinateur"; } }
+    content: "Version Ordinateur"; } 
+  .nao-flottant{
+    padding-top:168px;
+  }
+  }
 /* Fin de @media (max-width: 64.063em) /* = min-width 1025px */
 
 /*# sourceMappingURL=style.css.map */
