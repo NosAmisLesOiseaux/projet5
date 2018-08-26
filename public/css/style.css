@@ -168,6 +168,28 @@ a:hover
 .navigation{
   background-color: #80BA83;
   height: 77px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo{
+  width: 103px;
+  margin-left: 7%
+}
+
+.logo img{
+  padding-top: 8%;
+}
+
+.icon-recherche{
+  padding-right: 3% !important;
+}
+
+.icon-recherche .material-icons{
+  font-size: 40px !important;
+  color: white;
+  padding-top: 40%;
 }
 
 html {
@@ -369,7 +391,7 @@ mark {
 
 /* j'ai oublié l'attribut 'alt' */
 img:not([alt]) {
-  border: 5px dashed red; }
+  ; }
 
 /* -----BOUTONS-----*/
 /* -----LAYOUT-----*/
