@@ -13,7 +13,7 @@ $( function() {
                 dataContainer.html('Loading data from flickr.com ...');
             }
         },
-        callback: function(data, pagination) {
+        callback: function(data) {
             var currentPage = $('#comments').data('pagination').model.pageNumber;
             var pageSize = $('#comments').data('pagination').model.pageSize;
             var start = (currentPage * pageSize) - pageSize;
