@@ -17,13 +17,13 @@ class BirdController extends Controller
     /**
      * @Route("repertoire/{letter}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory_by_letter")
      * @param $letter
+     * @param $page
      * @param NAOBirdManager $naoBirdManager
      * @param NAOPagination $naoPagination
      * @param NAOCountBirds $naoCountBirds
-     * @param $page
      * @return Response
      */
-    public function showRepertoryByLetter($letter, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
+    public function showRepertoryByLetter($letter, $page, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds)
     {
         $numberOfBirds = $naoCountBirds->countBirdsByLetter($letter);
         $numberOfBirdsPerPage = $naoPagination->getNbBirdsPerPage();
@@ -38,8 +38,8 @@ class BirdController extends Controller
                 'birds' => $birds, 
                 'nbRepertoryPages' => $nbRepertoryPages, 
                 'nextPage' => $nextPage, 
-                'previousPage' => $previousPage, '
-                page' => $page, 
+                'previousPage' => $previousPage,
+                'page' => $page,
                 'letter' => $letter, 
                 'regions' => $regions,
             )); 
