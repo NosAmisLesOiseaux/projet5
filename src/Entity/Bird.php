@@ -64,6 +64,11 @@ class Bird
      */
     private $captures;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $cd_name;
+
     public function __construct()
     {
         $this->captures = new ArrayCollection();
@@ -254,5 +259,17 @@ class Bird
     public function removeCapture(Capture $capture): self
     {
         $this->captures->removeElement($capture);
+    }
+
+    public function getCdName(): ?int
+    {
+        return $this->cd_name;
+    }
+
+    public function setCdName(int $cd_name): self
+    {
+        $this->cd_name = $cd_name;
+
+        return $this;
     }
 }
