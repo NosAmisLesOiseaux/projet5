@@ -5,9 +5,10 @@
 {% block body %}
 	<h1>Répertoire</h1>
 	<section>
-		{% set repositoryLetter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] %}
+		{#{% set repositoryLetter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] %}#}
 		<p>
-			<a href="{{ path('repertory') }}">All</a> {% for i in 0..25 %} | <a href="{{ path('repertory_by_letter', {letter: repositoryLetter[i]}) }}">{{repositoryLetter[i]}}</a> {% endfor %}
+			{#<a href="{{ path('repertory') }}">All</a> {% for i in 0..25 %} | <a href="{{ path('repertory_by_letter', {letter: repositoryLetter[i]}) }}">{{repositoryLetter[i]}}</a> {% endfor %}#}
+			<a href="{{ path('repertory') }}">All</a> {% for l in 'a'..'z' %} | <a href="{{ path('repertory_by_letter', {'letter': l}) }}">{{l}}</a> {% endfor %}
 		</p>
 		<form action="{{ path('repertory') }}" method="post">
 		<select name="region" id="region">
@@ -19,12 +20,14 @@
 		<button type="submit">Rechercher</button>
 	</form>
 	</section>
-	{% for bird in birds %}
-		<div>
-			<p>{{ bird.image }}</p>
-			<p><a href="{{ path('bird', {id: bird.id}) }}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}</a>{% endif %}</p>
-		</div>
-	{% endfor %}
+    {% if birds is defined %}
+        {% for bird in birds %}
+			<div>
+                {{ dump(bird.image) }}
+				<p><a href="{{ path('bird', {id: bird.id}) }}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}</a>{% endif %}</p>
+			</div>
+        {% endfor %}
+    {% endif %}
 		<div>
 			<ul>
 				{% if nbRepertoryPages  > 1 %}
