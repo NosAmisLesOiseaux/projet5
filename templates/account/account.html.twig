@@ -1,12 +1,29 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Mon compte {{ account_type }}</h1>
+    <div class="parti1-ob-partage">
+    <h1 class="t-index-4">Mon compte {{ account_type }}</h1>
+    <span class="s-t-index-4"></span>
+    <div class="container-profil">
+    <div class="fiche-profil">
+     {% if app.user.avatar == null %}
+        <img src="{{ asset('default/avatar.svg') }}" alt="" height="150">
+    {% else %}
+        <img src="{{ asset('uploads/avatar/' ~ app.user.avatar.filename ) }}" alt="" height="150">
+    {% endif %}
+    <h2>{{ app.user.firstname }}</h2>
+    <p>
+        {{ app.user.biography }}
+    </p>
+    </div> 
+    </div>
+
     <section>
-        <div>
-            <h2>Observations partagées</h2>
-            <table>
-                <thead>
+        <div  class="container-ob-partage">
+            <div class="fiche-ob-partage">
+            <h2 class="h2-ob-partage">Observations partagées</h2>
+            <table class="tb-ob-partage">
+                <thead class="thead-ob-partage">
                 <tr>
                     <th>Observation</th>
                     <th>Date</th>
@@ -26,7 +43,7 @@
                                 En attente de validation
                             {% endif %}
                         </td>
-                        <td>
+                        <td class="v-m-s-ob-partage">
                             {% if is_granted('ROLE_NATURALIST') %}
                                 {% if capture.status == 'published' or capture.status == 'validated' %}
                                     <a href="{{ path('modify_capture', {id: capture.id}) }}">Modifier l'observation {{ capture.id }}</a>
@@ -41,6 +58,7 @@
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
         </div>
 
         <div>
@@ -65,18 +83,17 @@
             </ul>
         </div>
     </section>
-
-    {% if app.user.avatar == null %}
-        <img src="{{ asset('default/avatar.svg') }}" alt="" height="150">
-    {% else %}
-        <img src="{{ asset('uploads/avatar/' ~ app.user.avatar.filename ) }}" alt="" height="150">
-    {% endif %}
-    <h2>{{ app.user.firstname }}</h2>
-    <p>
-        {{ app.user.biography }}
-    </p>
-
-    <a href="{{ path('change_avatar') }}">Change avatar</a>
-    {% include "account/biography_form.html.twig" %}
+    </div>
+    <div class="partie2-ob-partage">
+    <h4>Paramètres de compte</h4>
+    <div class="parametre-de-compte">
+    <a href="{{ path('change_avatar') }}">Changer ma photo de profil</a>
+    <div class="password-ob-partage">
+    <h5>Changer de mot de passe</h5>
     {% include "password/change_password.html.twig" %}
+    </div>
+    <h5>Biographie/Informations</h5>
+    {% include "account/biography_form.html.twig" %}
+    </div>
+    </div>
 {% endblock %}
