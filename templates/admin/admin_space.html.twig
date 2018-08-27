@@ -6,6 +6,8 @@
 	<h1>Espace administration</h1>
 	<p>Compte {{ userRole }}</p>
 
+	<a href="{{ path('add_csv_file') }}">Ajout fichier Aves</a>
+
 	<section>
 		{{ include('admin/_published_captures_model.html.twig')}}
 		<div>
