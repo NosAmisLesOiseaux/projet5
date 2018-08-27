@@ -77,7 +77,7 @@ class NAOBirdManager
 
     /**
      * @param $birdName
-     * @return mixed
+     * @return Bird $bird
      */
 	public function getBirdByVernacularOrValidName($birdName)
 	{
