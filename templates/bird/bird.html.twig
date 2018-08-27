@@ -14,8 +14,14 @@
 	<div id="map" data-identifiant={{ bird.id }}>
 	</div>
 	<section>
-		<h1>{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</h1>
-		<p>{{ bird.image }}</p>
+		<h1>
+			{% if bird.vernacularname == false %}
+				{{ bird.validname }}
+			{% else %}
+				{{ bird.vernacularname }} - {{ bird.validname }}
+			{% endif %}
+		</h1>
+		<img src="{{ bird.imageUrl }}" alt="">
 		<p>Règne : {{ bird.reign }}</p>
 		<p>Classe : {{ bird.class }}</p>
 		<p>Ordre : {{ bird.birdOrder }}</p>
