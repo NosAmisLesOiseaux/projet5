@@ -4,6 +4,7 @@
     <div class="parti1-ob-partage">
     <h1 class="t-index-4">Mon compte {{ account_type }}</h1>
     <span class="s-t-index-4"></span>
+    <div class="desktop-profil-ob">
     <div class="container-profil">
     <div class="fiche-profil">
      {% if app.user.avatar == null %}
@@ -17,7 +18,8 @@
     </p>
     </div> 
     </div>
-
+    
+    <div>
     <section>
         <div  class="container-ob-partage">
             <div class="fiche-ob-partage">
@@ -60,6 +62,7 @@
             </table>
         </div>
         </div>
+        </div>
 
         <div>
             <ul>
@@ -84,6 +87,7 @@
         </div>
     </section>
     </div>
+    </div>
     <div class="partie2-ob-partage">
     <h4>Paramètres de compte</h4>
     <div class="parametre-de-compte">
@@ -92,8 +96,11 @@
     <h5>Changer de mot de passe</h5>
     {% include "password/change_password.html.twig" %}
     </div>
-    <h5>Biographie/Informations</h5>
+    
+    <h5 class="h5-bio">Biographie/Informations</h5>
+    <div class="bio">
     {% include "account/biography_form.html.twig" %}
+    </div>
     </div>
     </div>
 {% endblock %}
