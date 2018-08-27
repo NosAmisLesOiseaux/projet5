@@ -90,4 +90,31 @@ class NAOBirdManager
 
 		return $bird;
 	}
+
+	/**
+     * @param $region
+     * @param $letter
+     * @param $pageNumber
+     * @param $numberOfSearchBirds
+     * @param $numberOfBirdsPerPage
+     * @return mixed
+     */
+	public function searchBirdsByRegionAndLetterPerPage($region, $letter, $pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage)
+	{
+		$firstEntrance = $this->naoPagination->getFirstEntrance($pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage);
+
+		if (empty($region))
+		{
+			return $searchBirdsByLetterPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->getBirdsByFirstLetter($letter, $numberOfBirdsPerPage, $firstEntrance);
+		}
+
+		if (empty($letter))
+		{
+			return $searchBirdsByRegionPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionPerPage($region, $numberOfBirdsPerPage, $firstEntrance, $this->draftStatus, $this->waitingStatus);
+		}
+		else
+		{
+			return $searchBirdsByRegionAndLetterPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionAndLetterPerPage($region, $letter, $numberOfBirdsPerPage, $firstEntrance, $this->draftStatus, $this->waitingStatus);
+		}
+	}
 }
