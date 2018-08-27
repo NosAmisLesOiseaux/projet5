@@ -2,7 +2,9 @@
 
 namespace App\Controller\Backend;
 
+use App\Entity\Bird;
 use App\Entity\Comment;
+use App\Form\Image\ImageType;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
 use App\Services\Comment\NAOCommentManager;
@@ -12,6 +14,7 @@ use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -210,5 +213,43 @@ class AdminSpaceController extends Controller
     {
         $naoManager->removeEntity($comment);
         return $this->redirectToRoute('admin_space');
+    }
+
+    /**
+     * @Route(path="add-csv-file", name="add_csv_file")
+     * @param Request $request
+     * @param NAOManager $manager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function addCsvFile(Request $request, NAOManager $manager)
+    {
+        $form = $this->createForm(ImageType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            dump($form->getData()['image']);
+            $data = file_get_contents(utf8_decode($form->getData()['image']));
+            $line = explode("\n", $data);
+            $em = $this->getDoctrine()->getManager();
+            for ($i=1;$i<count($line);$i++)
+            {
+                $values = explode(";", $line[$i]);
+                $bird = new Bird();
+                $bird->setBirdOrder($values[3]);
+                $bird->setFamily($values[4]);
+                $bird->setCdName($values[5]);
+                $bird->setValidname($values[9]);
+                $bird->setVernacularname($values[13]);
+                $em->persist($bird);
+            }
+            $em->flush();
+            $this->addFlash('success', "Fichier Aves.csv mis en base de données avec succès !");
+            return $this->redirectToRoute('repertory');
+        }
+        return $this->render(
+            'admin/add_csv_file.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 }
