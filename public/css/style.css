@@ -23,7 +23,7 @@ a
 
 a:hover
 {
-  color: tomato;
+  color: #80BA83;
 }
 
 #menuToggle
@@ -252,7 +252,7 @@ a:hover
   text-align: center;
   padding-top: 4%;
   color: #80BA83;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   border: white solid 1px;
   box-shadow: 0 -5px 5px -5px #333;
@@ -313,6 +313,58 @@ a:hover
     font-size: 16px;
   
 }
+
+.h2-qd{
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  padding-left: 9%;
+}
+
+.container-qd{
+  padding-top: 20px;
+}
+
+.form-qd1{
+  border: solid 1px #80BA83;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  padding:10px 10px 20px 20px;
+  margin-right: 9%;
+  margin-left: 9%;
+  
+}
+.form-qd2{
+  border: solid 1px #80BA83;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  padding:10px 10px 20px 20px;
+  margin-right: 9%;
+  margin-top: 10px;
+  
+}
+
+#year{
+  font-size: 14px;
+  color: #80BA83;
+  
+}
+
+.container-year{
+  padding-left: 9%;
+}
+
+.h3-year{
+    padding-top: 11px;
+    
+}
+
+
+.ul-year{
+  padding-left: 11%;
+}
+
 
 html {
   box-sizing: border-box; }
@@ -590,6 +642,14 @@ body:before {
       width: 49%;
       left: 26%;
     }
+    .container-year{
+      margin-left: 0;
+    }
+
+    .s-t-index-2{
+      width: 33%;
+      left: 33%;
+    }
     
   }
 
@@ -611,13 +671,13 @@ body:before {
     padding-top:168px;
   }
   .t-index{
-    font-size: 37px;
+    font-size: 26px;
     padding-top: 2%;
     
   }
   .s-t-index{
-    width: 51%;
-    left: 25%
+    width: 47%;
+    left: 27%;
   }
   .t-index-2{
     font-size: 37px;
