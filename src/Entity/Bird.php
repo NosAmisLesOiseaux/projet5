@@ -60,6 +60,16 @@ class Bird
      */
     private $cd_name;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image_url;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image_thumbnail;
+
     public function __construct()
     {
         $this->captures = new ArrayCollection();
@@ -227,6 +237,30 @@ class Bird
     public function setCdName(string $cd_name): self
     {
         $this->cd_name = $cd_name;
+
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->image_url;
+    }
+
+    public function setImageUrl(?string $image_url): self
+    {
+        $this->image_url = $image_url;
+
+        return $this;
+    }
+
+    public function getImageThumbnail(): ?string
+    {
+        return $this->image_thumbnail;
+    }
+
+    public function setImageThumbnail(?string $image_thumbnail): self
+    {
+        $this->image_thumbnail = $image_thumbnail;
 
         return $this;
     }

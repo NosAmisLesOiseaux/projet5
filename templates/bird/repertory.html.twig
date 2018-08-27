@@ -22,9 +22,18 @@
 	</section>
     {% if birds is defined %}
         {% for bird in birds %}
+			{{ dump(bird) }}
 			<div>
-                {{ dump(bird.image) }}
-				<p><a href="{{ path('bird', {id: bird.id}) }}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}</a>{% endif %}</p>
+				<a href="{{ path('bird', {id: bird.id}) }}">
+                    {% if bird.vernacularname == false %}
+                        {{ bird.validname|convert_encoding('UTF-8', 'iso-2022-jp') }}
+                    {% else %}
+                        {{ bird.vernacularname|convert_encoding('UTF-8', 'iso-2022-jp') }} - {{ bird.validname }}
+                    {% endif %}
+				</a>
+				<p>
+					{{ bird.bird_order }}
+				</p>
 			</div>
         {% endfor %}
     {% endif %}

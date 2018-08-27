@@ -216,7 +216,7 @@ class AdminSpaceController extends Controller
     }
 
     /**
-     * @Route(path="add-csv-file", name="add_csv_file")
+     * @Route(path="/add-csv-file", name="add_csv_file")
      * @param Request $request
      * @param NAOManager $manager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
@@ -228,8 +228,8 @@ class AdminSpaceController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             dump($form->getData()['image']);
             $data = file_get_contents(utf8_decode($form->getData()['image']));
-            $line = explode("\n", $data);
             $em = $this->getDoctrine()->getManager();
+            $line = explode("\n", $data);
             for ($i=1;$i<count($line);$i++)
             {
                 $values = explode(";", $line[$i]);
