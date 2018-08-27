@@ -18,20 +18,11 @@ class Bird
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $reign;
+    const BIRD_REIGN = "Animalia";
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $phylum;
+    const BIRD_PHYLUM = "Chordata";
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $class;
+    const BIRD_CLASS = "Aves";
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -65,7 +56,7 @@ class Bird
     private $captures;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
     private $cd_name;
 
@@ -87,18 +78,7 @@ class Bird
      */
     public function getReign(): ?string
     {
-        return $this->reign;
-    }
-
-    /**
-     * @param string $reign
-     * @return Bird
-     */
-    public function setReign(string $reign): self
-    {
-        $this->reign = $reign;
-
-        return $this;
+        return self::BIRD_REIGN;
     }
 
     /**
@@ -106,18 +86,7 @@ class Bird
      */
     public function getPhylum(): ?string
     {
-        return $this->phylum;
-    }
-
-    /**
-     * @param string $phylum
-     * @return Bird
-     */
-    public function setPhylum(string $phylum): self
-    {
-        $this->phylum = $phylum;
-
-        return $this;
+        return self::BIRD_PHYLUM;
     }
 
     /**
@@ -125,18 +94,7 @@ class Bird
      */
     public function getClass(): ?string
     {
-        return $this->class;
-    }
-
-    /**
-     * @param string $class
-     * @return Bird
-     */
-    public function setClass(string $class): self
-    {
-        $this->class = $class;
-
-        return $this;
+        return self::BIRD_CLASS;
     }
 
     /**
@@ -261,12 +219,12 @@ class Bird
         $this->captures->removeElement($capture);
     }
 
-    public function getCdName(): ?int
+    public function getCdName(): ?string
     {
         return $this->cd_name;
     }
 
-    public function setCdName(int $cd_name): self
+    public function setCdName(string $cd_name): self
     {
         $this->cd_name = $cd_name;
 
