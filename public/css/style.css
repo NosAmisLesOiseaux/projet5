@@ -294,6 +294,29 @@ a:hover
     margin-top: 10px;
 }
 
+.t-index-4{
+  text-align: center;
+  padding-top: 4%;
+  color: #80BA83;
+  font-size: 25px;
+  margin: 0;
+  border: white solid 1px;
+  box-shadow: 0 -5px 5px -5px #333;
+}
+
+.s-t-index-4{
+  display: inline-block;
+    width: 63%;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #80BA83;
+    border-radius: 3px;
+    z-index: 1;
+    left: 17%;
+    margin-top: 10px;
+}
+
 .f-observation-m{
  
   display: flex;
@@ -454,6 +477,24 @@ a:hover
   min-height: 120px;
 }
 
+.form-login{
+  border: #eee solid 1px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  width: 80%;
+  padding: 20px;
+
+}
+
+.container-f-login{
+  display: flex;
+  justify-content: center;
+  padding-top: 59px;
+}
+
+
+
+
+/* LIMITE*/
 html {
   box-sizing: border-box; }
 
@@ -742,6 +783,10 @@ body:before {
       width: 33%;
       left: 33%;
     }
+    .s-t-index-4{
+      width: 42%;
+      left: 28%;
+    }
 
     .s-t-index-3{
       width: 28%;
@@ -776,6 +821,15 @@ body:before {
     left: 27%;
   }
   .t-index-2{
+    font-size: 37px;
+    padding-top: 2%;
+    
+  }
+  .s-t-index-4{
+    width: 40%;
+    left: 30%;
+  }
+  .t-index-4{
     font-size: 37px;
     padding-top: 2%;
     
@@ -878,6 +932,10 @@ body:before {
       left: 31%;
     }
     .s-t-index-2{
+      width: 29%;
+    left: 35%;
+    }
+    .s-t-index-4{
       width: 29%;
     left: 35%;
     }
