@@ -5,30 +5,42 @@
     <section>
         <div>
             <h2>Observations partagées</h2>
-            <ul>
-                <p>Observation </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Observation</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
                 {% for capture in captures %}
-                    {% if capture.status == 'published' or capture.status == 'validated' %}
-                        <a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
-                    {% elseif capture.status == 'draft' %}
-                        <a href="{{ path('add_capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
-                    {% else %}
-                        <li>Observation {{ capture.id }}</li>
-                    {% endif %}
+                    <tr>
+                        <td>Observation {{ capture.id }}</td>
+                        <td>{{ capture.createdDate|date('d/m/Y') }}</td>
+                        <td>
+                            {% if capture.status == 'published' or capture.status == 'validated' %}
+                                Validée
+                            {% elseif capture.status == 'waiting_for_validation' %}
+                                En attente de validation
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if is_granted('ROLE_NATURALIST') %}
+                                {% if capture.status == 'published' or capture.status == 'validated' %}
+                                    <a href="{{ path('modify_capture', {id: capture.id}) }}">Modifier l'observation {{ capture.id }}</a>
+                                {% elseif capture.status == 'waiting_for_validation' %}
+                                    <a href="{{ path('validate_capture', {id: capture.id}) }}">Valider l'observation {{ capture.id }}</a>
+                                {% endif %}
+                            {% else %}
+                                <a href="{{ path('delete_capture', {'id': capture.id}) }}">Supprimer l'observation</a>
+                            {% endif %}
+                        </td>
+                    </tr>
                 {% endfor %}
-            </ul>
-            <ul>
-                <p>Date</p>
-                {% for capture in captures %}
-                    <li>{{ capture.createdDate|date('d/m/Y') }}</li>
-                {% endfor %}
-            </ul>
-            <ul>
-                <p>Statut</p>
-                {% for capture in captures %}
-                    <li>{{ capture.status }}</li>
-                {% endfor %}
-            </ul>
+                </tbody>
+            </table>
         </div>
 
         <div>
