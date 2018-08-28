@@ -40,7 +40,7 @@ a:hover
 #menuToggle input
 {
   display: block;
-  width: 40px;
+  width: 44px;
   height: 32px;
   position: absolute;
   top: -7px;
@@ -118,7 +118,7 @@ a:hover
 #menu
 {
   position: fixed;
-  width: 300px;
+  width: 219px;
   border: 1px solid transparent;
   border-radius: 38px; 
   margin: -80px 0 0 -70px;
@@ -764,7 +764,7 @@ a:hover
     padding: 4px;
     text-align: center;
     width: 215px;
-    height: 32px;
+    height: 26px;
 }
 
 .leaflet-touch .leaflet-bar a{
@@ -849,7 +849,7 @@ a:hover
     border: solid 1px #80BA83;
     border-radius: 7px;
     color: white;
-    width: 240px;
+    width: 2;
     height: 44px;
     box-shadow: 0px 5px 5px 0px #00000038;
     align-self: center;
@@ -870,11 +870,7 @@ a:hover
   font-size: 20px;
 }
 
-.compte-ajout{
-  font-size: 10px;
-  margin-top: 0;
-    text-align: center;
-}
+
 
 #particular_capture{
   margin-top: 20px;
@@ -1001,6 +997,108 @@ a:hover
 }
 
 /*fin page*/
+
+/*page ajouter une observation*/
+
+.form-2-ajout{
+  display: initial !important;
+}
+
+.compte-ajout{
+  font-size: 16px;
+  margin-top: 0;
+    text-align: center;
+}
+
+.form-ajout{
+  border: rgb(126, 126, 126) solid 1px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  width: 80%;
+  padding: 27px;
+  margin-top: 69px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin-bottom: 10%;
+}
+
+.container-ajout{
+  display: flex;
+  justify-content: center ;
+}
+
+.h4-ajout{
+  margin-top: -;
+  background-color: white;
+  width: 133px;
+  padding-left: 10px;
+}
+
+.container-partie #geolocation, #naturalist_capture_bird{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+}
+
+
+.container-partie input, #naturalist_capture_content{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: inset 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+}
+
+#naturalist_capture_content{
+  height: 100px;
+}
+
+.btn-ajout{
+  background-color: #80BA83;
+    border: solid 1px #80BA83;
+    border-radius: 7px;
+    color: white;
+    width: 228px;
+    height: 38px;
+    box-shadow: 0px 5px 5px 0px #00000038;
+    align-self: center;
+    margin-top: 12px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.btn-ajout:active{
+  box-shadow: none;
+}
+
+#naturalist_capture_status{
+  padding-top: 20px
+}
+
+#naturalist_capture_status label{
+  padding-right: 10px;
+}
+
+.container-partie{
+  padding-top: ;
+}
+
+.f-ajout{
+  display: flex;
+    flex-direction: column-reverse;
+}
+}
+/*fin de la page*/
 
 
 
@@ -1220,10 +1318,10 @@ img:not([alt]) {
 @media (min-width: 393px) {
   .nao-flottant{
     padding-top: 38px;
-    font-size: 40px;}
+    font-size: ;}
    .nao-flottant-2{
     padding-top: 38px;
-    font-size: 40px;}
+    font-size: ;}
     .s-t-index-3{
       width: 41%;
       left: 30%;
@@ -1232,16 +1330,16 @@ img:not([alt]) {
 @media (max-width: 425px) {
   .nao-flottant{
     padding-top: 166px;
-    font-size: 40px;}
+    font-size: ;}
   .nao-flottant-2{
     padding-top: 166px;
-    font-size: 40px;}
+    font-size: ;}
 }
 
 @media (max-width: 1100px) { 
   .nao-flottant{
     padding-top: 121px !important;
-    font-size: 40px;}
+    font-size: ;}
  .parallax {
   height: 250px;
   margin-top: -78px;
@@ -1273,8 +1371,8 @@ body:before {
   content: "Version mobile"; }
 
 /* Fin de @media (min-width: 20em) = min-width 320px */
-/* @media query optionnelle (max-width: 640px)*/
-/* Fin de @media query optionnelle (max-width: 640px)*/
+/* @media query optionnelle (max-width: 6)*/
+/* Fin de @media query optionnelle (max-width: 6)*/
 /* ----------------------------------------------------------------- */
 /* == _tablet.scss (des tablettes aux ordinateurs portables/laptops) */
 /* ----------------------------------------------------------------- */
@@ -1307,7 +1405,7 @@ body:before {
     }
 
     .fiche-profil{
-      margin-left: 55px;
+      margin-left: 22px;
     }
 
     .partie2-ob-partage{
@@ -1322,7 +1420,7 @@ body:before {
     .container-year{
       margin-left: 0;
     }
-    .c-contact{
+    .c-contact,{
       padding-left: 20%;
     padding-right: 20%;
     }
@@ -1450,7 +1548,7 @@ body:before {
     }
     .nao-flottant-2{
       padding-top: 69px;
-      font-size: 40px;
+      font-size: ;
     }
     #bird{
       width: 13%;;
@@ -1461,8 +1559,33 @@ body:before {
     .f-observation-m{
       padding-left: 10%;
     padding-right: 10%;
-}
+    }
+    .container-partie{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      padding-top: 58px;
+    }
+    .partie1-ajout{
+      width: 40%;
+    }
+    .partie2-ajout{
+      width: 50%;
+      margin-top: -31px;
+    }
 
+    #naturalist_capture_content{
+      height: 524px;
+    }
+    .h4-ajout{
+      margin-top: -44px;
+      
+    }
+
+    .container-ajout{
+      padding-left: 10%;
+      padding-right: 10%;
+    }
 
     }
   }
@@ -1537,7 +1660,7 @@ body:before {
   padding-right: 30%;
   }
 
-  .container-f-login{
+  .container-f-login,{
     padding-left: 20%;
   padding-right: 20%;
   }
