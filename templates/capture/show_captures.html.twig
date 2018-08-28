@@ -5,7 +5,8 @@
 	{{ parent() }}
 	<style type="text/css">
 			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:400px;
+				height:250px;
+				position: sticky !important;
 			}
 		</style>
 {% endblock %}
@@ -13,9 +14,9 @@
 {% block body %}
 	<div id="map">
 	</div>
-    <form action="{{ path('captures') }}" method="post">
-		<select name="bird" id="">
-			<option disabled selected value="">Oiseau</option>
+    <form action="{{ path('captures') }}" method="post" class="f-observation-m">
+		<select name="bird" id="bird">
+			<option disabled selected value="" class="bird">Oiseau</option>
             {% for bird in birds %}
 				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</option>
             {% endfor %}
@@ -26,7 +27,7 @@
 				<option value="{{ region.nom|lower }}">{{ region.nom }}</option>
             {% endfor %}
 		</select>
-		<button type="submit">Rechercher</button>
+		<button type="submit" class="btn-r-observation">Rechercher</button>
 	</form>
     <section>
 		{% for capture in captures %}

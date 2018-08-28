@@ -1,6 +1,7 @@
 {{ form_start(biography_form) }}
-    {{ form_label(biography_form.biography) }}
-    {{ form_errors(biography_form.biography) }}
-    {{ form_widget(biography_form.biography) }}
-<button type="submit">Mettre à jour ma biographie</button>
+    {{ form_errors(biography_form) }}
+    {{ form_widget(biography_form) }}
+<div class="div-bio-btn">
+    <button type="submit" class="bio-btn">Mettre à jour ma biographie</button>
+</div>
 {{ form_end(biography_form) }}

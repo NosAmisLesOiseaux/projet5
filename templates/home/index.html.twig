@@ -13,9 +13,14 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Nos amis les oiseaux</h1>
+    <div class="parallax">
+    <div></div>
+    <div class="nao-flottant"><p>NOS AMIS LES OISEAUX</p></div>
+    <div></div>
+    </div>
     <section>
-        <h2>Les dernières observations</h2>
+        <h2 class="t-index">Les dernières observations</h2>
+        <span class="s-t-index"></span>
         {% set i = 0 %}
         {% for capture in captures %}
             <div>

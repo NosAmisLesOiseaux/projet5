@@ -3,30 +3,42 @@
 {% block title %}Statistiques{% endblock %}
 
 {% block body %}
-	<h1>Quelques données</h1>
-	<section>
-		<h2>En général</h2>
-    	<p>Nombre d'oiseaux : {{numberOfBirds}}</p>
-    	<p>Nombre total d'observations publiées : {{numberOfPublishedCaptures}}</p>
-    </section>
-    <section>
-    	<h2>Années</h2>
-    	{% for year in years %}
-    		<ul>
-				<a href="{{ path('statistics', {'year': year}) }}"><h3 id="year" data-year="{{ year }}">{{ year }}</h3></a>
-				<p>Nombre total d'observations publiées : {{ nbOfYearPublishedCaptures }}</p>
-    		</ul>
-    	{% endfor %}
-    </section>
-    <section>
-    </section>
-    <section id="statisticsByYear">
-    	<div id="statisticsData"></div>
-    	<div id="statisticsBirds"></div>
-    </section>
+	<h1 class="t-index-2">QUELQUES DONNEES</h1>
+	<span class="s-t-index-2"></span>
+	<div class="container-qd">
+		<section>
+			<h2 class="h2-qd">En général</h2>
+			<div class="form-qd1">
+				<p>Nombre d'oiseaux : {{numberOfBirds}}</p>
+				<p>Nombre total d'observations publiées : {{numberOfPublishedCaptures}}</p>
+			</div>
+		</section>
+		<section>
+			<h2 class="h2-qd">Années</h2>
+            {% for year in years %}
+				<ul class="ul-year">
+					<a href="{{ path('statistics', {'year': year}) }}"><h3 id="year" data-year="{{ year }}">{{ year }}</h3></a>
+					<p>Nombre total d'observations publiées : {{ nbOfYearPublishedCaptures }}</p>
+				</ul>
+            {% endfor %}
+		</section>
+		<section class="container-year">
+			<div class="h3-year">
+				<h3 id="year" data-year="{{year}}">{{year}} |</h3>
+			</div>
+			<div class="form-qd2">
+				<p> Nombre total d'observations publiées : {{nbOfYearPublishedCaptures}}</p>
+			</div>
+		</section>
+		<h2 class="h2-qd">Régions</h2>
+		<section id="statisticsByYear">
+			<div id="statisticsData"></div>
+			<div id="statisticsBirds"></div>
+		</section>
+	</div>
 {% endblock %}
 
 {% block paginationJavascripts %}
-	{{ parent() }}
+    {{ parent() }}
 	<script type="text/javascript" src="{{ asset('javascript/statistics/statistics.js') }}" ></script>
 {% endblock %}

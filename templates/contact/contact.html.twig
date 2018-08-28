@@ -4,29 +4,16 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <h1>Contact</h1>
-    <form action="{{ path('contact') }}" method="post">
-
-       {{ form_label(form.firstname) }}
-       {{ form_errors(form.firstname) }}
-       {{ form_widget(form.firstname) }}
-
-       {{ form_label(form.lastname) }}
-       {{ form_errors(form.lastname) }}
-       {{ form_widget(form.lastname) }}
-
-       {{ form_label(form.email) }}
-       {{ form_errors(form.email) }}
-       {{ form_widget(form.email) }}
-
-       {{ form_label(form.subject) }}
-       {{ form_errors(form.subject) }}
-       {{ form_widget(form.subject) }}
-
-       {{ form_label(form.message) }}
-       {{ form_errors(form.message) }}
-       {{ form_widget(form.message) }}
-
-        <button type="submit">Envoyer</button>
-    </form>
+    <h1 class="t-index-3">CONTACT</h1>
+    <span class="s-t-index-3"></span>
+    <div class="c-contact">
+        <div class="b-f-contact">
+            <h3 class="t-contact">Formulaire de contact</h3>
+            <form action="{{ path('contact') }}" method="post" class="form-contact">
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn-contact">Envoyer</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}
