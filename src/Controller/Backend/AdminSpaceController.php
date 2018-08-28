@@ -5,6 +5,7 @@ namespace App\Controller\Backend;
 use App\Entity\Bird;
 use App\Entity\Comment;
 use App\Form\Image\ImageType;
+use App\Services\Bird\NAOBirdManager;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
 use App\Services\Comment\NAOCommentManager;
@@ -218,30 +219,15 @@ class AdminSpaceController extends Controller
     /**
      * @Route(path="/add-csv-file", name="add_csv_file")
      * @param Request $request
-     * @param NAOManager $manager
+     * @param NAOBirdManager $birdManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function addCsvFile(Request $request, NAOManager $manager)
+    public function addCsvFile(Request $request, NAOBirdManager $birdManager)
     {
         $form = $this->createForm(ImageType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($form->getData()['image']);
-            $data = file_get_contents(utf8_decode($form->getData()['image']));
-            $em = $this->getDoctrine()->getManager();
-            $line = explode("\n", $data);
-            for ($i=1;$i<count($line);$i++)
-            {
-                $values = explode(";", $line[$i]);
-                $bird = new Bird();
-                $bird->setBirdOrder($values[3]);
-                $bird->setFamily($values[4]);
-                $bird->setCdName($values[5]);
-                $bird->setValidname($values[9]);
-                $bird->setVernacularname($values[13]);
-                $em->persist($bird);
-            }
-            $em->flush();
+            $birdManager->uploadBirdCsv($form->getData());
             $this->addFlash('success', "Fichier Aves.csv mis en base de données avec succès !");
             return $this->redirectToRoute('repertory');
         }
