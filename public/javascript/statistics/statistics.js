@@ -39,7 +39,6 @@ $( function() {
             		{
                 		birds += '<li>';
 						birds += region.birds[t];
-						console.log(region.birds[t]);
 						birds += '</li>';
             		}
             		birds += '</ul>';
