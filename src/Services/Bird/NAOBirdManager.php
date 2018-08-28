@@ -90,4 +90,22 @@ class NAOBirdManager
 
 		return $bird;
 	}
+
+	public function uploadBirdCsv(array $form_data)
+    {
+        $data = file_get_contents(utf8_decode($form_data['image']));
+        $line = explode("\n", $data);
+        for ($i=1;$i<count($line);$i++)
+        {
+            $values = explode(";", $line[$i]);
+            $bird = new Bird();
+            $bird->setBirdOrder($values[3]);
+            $bird->setFamily($values[4]);
+            $bird->setCdName($values[5]);
+            $bird->setValidname($values[9]);
+            $bird->setVernacularname($values[13]);
+            $this->naoManager->getEm()->persist($bird);
+        }
+        $this->naoManager->getEm()->flush();
+    }
 }
