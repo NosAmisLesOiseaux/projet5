@@ -56,4 +56,14 @@ class NAOCountBirds
 	{
 		return $numberSearchBirdsByRegion = $this->naoManager->getEm()->getRepository(Bird::class)->countSearchBirdsByRegionAndDate($region, $this->draftStatus, $this->waitingStatus, $date);
 	}
+
+	/**
+     * @param $region
+     * @param $letter
+     * @return mixed
+     */
+	public function countSearchBirdsByRegionAndLetter($region, $letter)
+	{
+		return $numberSearchBirdsByRegionAndLetter = $this->naoManager->getEm()->getRepository(Bird::class)->countSearchBirdsByRegionAndLetter($region, $this->draftStatus, $this->waitingStatus, $letter);
+	}
 }
