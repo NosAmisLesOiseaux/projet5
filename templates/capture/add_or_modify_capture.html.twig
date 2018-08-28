@@ -3,8 +3,9 @@
 {% block title %}{{ titre }} - Compte {{ userRole }} {% endblock %}
 
 {% block body %}
-	<h1>{{ titre }}</h1>
-    <h2 id="userRole" data-userrole={{ role }}> Compte {{ userRole }}</h2>
+	<h1 class="t-index-2">{{ titre }}</h1>
+    <span class="s-t-index-2"></span>
+    <h2 class="compte-ajout" id="userRole" data-userrole={{ role }}> Compte {{ userRole }}</h2>
     {% if capture is defined %}
         {% if capture.image is not null %}
             <img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
