@@ -1,0 +1,14 @@
+{% extends "base_email.html.twig" %}
+{% block email_subject %}Réinitialisation de mot de passe confirmée{% endblock %}
+{% block email_style %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/email/activation_compte.css')) }}">
+{% endblock %}
+{% block email_body %}
+    <div class="row center">
+        <h2>La réinitialisation de votre mot de passe s'est correctement déroulée !</h2>
+        <p class="darken-1">Vous pouvez désormais vous connecter à votre compte en profitant de votre nouveau mot de passe.</p>
+    </div>
+    <div class="row center">
+        <a href="http://localhost:8000/login" target="_blank" id="download-button" class="btn-large waves-effect waves-light green">Me connecter !</a>
+    </div>
+{% endblock %}

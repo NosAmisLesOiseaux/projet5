@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ titre }} - Compte {{ userRole }} {% endblock %}
+
+{% block body %}
+    <h1>{{ titre }}</h1>
+    <h2 id="userRole" data-userrole={{ role }}> Compte {{ userRole }}</h2>
+    {% if capture.image is not null %}
+        <img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+        <form action="{{ path('delete_capture_image') }}" method="post">
+            <input type="hidden" name="capture" value="{{ capture.id }}">
+            <input type="hidden" name="image" value="{{ capture.image.id }}">
+            <button type="submit">Supprimer l'image</button>
+        </form>
+    {% else %}
+        <a href="{{ path('add_image_on_capture', {'id': capture.id}) }}">Ajouter une image</a>
+    {% endif %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('javascript/geolocation/geolocation.js') }}"></script>
+{% endblock %}

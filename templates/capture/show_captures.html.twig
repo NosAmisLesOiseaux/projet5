@@ -1,0 +1,91 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} Observations {% endblock %}
+{% block mapStylesheets %} 
+	{{ parent() }}
+	<style type="text/css">
+			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+				height:250px;
+				position: sticky !important;
+			}
+		</style>
+{% endblock %}
+
+{% block body %}
+	<div id="map">
+	</div>
+    <form action="{{ path('captures') }}" method="post" class="f-observation-m">
+		<select name="bird" id="bird">
+			<option disabled selected value="" class="bird">Oiseau</option>
+            {% for bird in birds %}
+				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</option>
+            {% endfor %}
+		</select>
+		<select name="region" id="region">
+			<option disabled selected value="">Région</option>
+            {% for region in regions %}
+				<option value="{{ region.nom|lower }}">{{ region.nom }}</option>
+            {% endfor %}
+		</select>
+		<button type="submit" class="btn-r-observation">Rechercher</button>
+	</form>
+    <section>
+		{% for capture in captures %}
+			<div>
+                {% if capture.image is not null %}
+					<img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% else %}
+					Image par défaut
+                {% endif %}
+				<p>
+					<a href="{{ path('capture', {id: capture.id}) }}">
+						{% if capture.bird.vernacularname == false %}
+						{{ capture.bird.validname }}
+						{% else %}
+						{{ capture.bird.vernacularname }}
+					</a>{% endif %}
+				</p>
+				<p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
+				<p>{{ capture.createdDate|date('d/m/Y') }}</p>
+			</div>
+		{% endfor %}
+		<div>
+			<ul>
+				{% if nbCapturesPages > 1 %}
+					{% if previousPage > 0 %}
+					<p> {% if resultats is defined  %}
+							<a href="{{ path('result_search_captures', {pageNumber: previousPage}) }}"> << </a> 
+						{% else %}
+							<a href="{{ path('captures', {pageNumber: previousPage}) }}"> << </a> 
+						{% endif %}
+					</p>
+					{% endif %}
+					{% for i in 1..nbCapturesPages %}
+						<li {% if pageNumber == i %} class="active" {% endif %}>
+							{% if resultats is defined  %}
+								<a href="{{ path('result_search_captures', {pageNumber: i}) }}"> {{i}} </a>
+   							{% else %}
+   								<a href="{{ path('captures', {pageNumber: i}) }}"> {{i}} </a>
+   							{% endif %}
+   						</li>
+   					{% endfor %}
+    				<p>
+    					{% if nextPage <= nbCapturesPages %}
+    						{% if resultats is defined  %}
+    							<a href="{{ path('result_search_captures', {pageNumber: nextPage}) }}"> >> </a>
+    						{% else %}
+    							<a href="{{ path('captures', {pageNumber: nextPage}) }}"> >> </a>
+    						{% endif %}
+    					{% endif %}
+    				</p> 
+    			{% endif %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+
+{% block mapJavascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('javascript/maps/showmap.js') }}"></script>
+{% endblock %}
+   

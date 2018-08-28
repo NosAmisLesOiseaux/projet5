@@ -1,0 +1,57 @@
+{# templates/admin/admin_space.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %} Espace d'administration {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1>Espace administration</h1>
+	<p>Compte {{ userRole }}</p>
+
+	<section>
+		{{ include('admin/_published_captures_model.html.twig')}}
+		<div>
+			{% if numberOfPublishedCaptures > numberOfElementsPerPage %}
+				<p> 
+					<a href="{{ path('admin_space_published_captures', {page: 2}) }}"> >> </a> 
+				</p>
+    		{% endif %}
+		</div>
+	</section>
+
+	<section>
+		{{ include('admin/_waiting_captures_model.html.twig')}}
+		<div>
+			{% if numberOfWaitingforvalidationCaptures > numberOfElementsPerPage %}
+				<p> 
+					<a href="{{ path('admin_space_waiting_captures', {page: 2}) }}"> >> </a> 
+				</p>
+    		{% endif %}
+		</div>
+	</section>
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<section>
+		{{ include('admin/_published_comments_model.html.twig')}}
+		<div>
+			{% if numberOfPublishedComments > numberOfElementsPerPage %}
+				<p> 
+					<a href="{{ path('admin_space_published_comments', {page: 2}) }}"> >> </a> 
+				</p>
+    		{% endif %}
+		</div>
+		</section>
+
+		<section>
+			{{ include('admin/_reported_comments_model.html.twig')}}
+			<div>
+				{% if numberOfReportedComments > numberOfElementsPerPage %}
+					<p> 
+						<a href="{{ path('admin_space_reported_comments', {page: 2}) }}"> >> </a> 
+					</p>
+	    		{% endif %}
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}
+{% block javascripts %} {% endblock %}
