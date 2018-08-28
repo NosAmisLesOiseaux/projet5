@@ -17,6 +17,7 @@ class BirdController extends Controller
     /**
      * @Route("repertoire/{letter}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory_by_letter")
      * @param $letter
+     * @param $page
      * @param NAOBirdManager $naoBirdManager
      * @param NAOPagination $naoPagination
      * @param NAOCountBirds $naoCountBirds
@@ -38,8 +39,8 @@ class BirdController extends Controller
                 'birds' => $birds, 
                 'nbRepertoryPages' => $nbRepertoryPages, 
                 'nextPage' => $nextPage, 
-                'previousPage' => $previousPage, '
-                page' => $page, 
+                'previousPage' => $previousPage,
+                'page' => $page,
                 'letter' => $letter, 
                 'regions' => $regions,
             )); 
@@ -66,7 +67,11 @@ class BirdController extends Controller
         $previousPage = $naoPagination->getPreviousPage($page);
         if ($request->isMethod('POST')) {
             $region = $request->get('region');
-            return $this->redirectToRoute('result_search_birds', array('region' => $region,));
+            $letter = $request->get('letter');
+            $session = $request->getSession();
+            $session->set('region', $region);
+            $session->set('letter', $letter);
+            return $this->redirectToRoute('result_search_birds');
         }
 
         return $this->render('bird\repertory.html.twig',

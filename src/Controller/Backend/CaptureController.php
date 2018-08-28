@@ -30,6 +30,7 @@ class CaptureController extends Controller
 {
     /**
      * @Route("/ajouter", name="add_capture")
+     * @Security("has_role('ROLE_USER')")
      * @param Request $request
      * @param NAOManager $naoManager
      * @param NAOCaptureManager $naoCaptureManager
