@@ -5,8 +5,9 @@
 {% block title %} Espace d'administration {% endblock %}
 {% block stylesheets %} {% endblock %}
 {% block body %} 
-	<h1>Espace administration</h1>
-	<p>Compte {{ userRole }}</p>
+	<h1 class="t-index-2">Espace administration</h1>
+	<span class="s-t-index-2"></span>
+	<p class="admin-compte">Compte {{ userRole }}</p>
 
 	<section>
 		{{ include('admin/_published_captures_model.html.twig')}}
