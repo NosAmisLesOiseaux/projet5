@@ -60,14 +60,14 @@ a:hover
 #menuToggle span
 {
   display: block;
-    width: 35px;
-    height: 3px;
+    width: 28px;
+    height: 2px;
     margin-bottom: 7px;
     position: relative;
     background: white;
     border-radius: 3px;
     z-index: 1;
-    transform-origin: 4px 0px;
+    transform-origin: 0px 0px;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
  opacity 0.55s ease;
