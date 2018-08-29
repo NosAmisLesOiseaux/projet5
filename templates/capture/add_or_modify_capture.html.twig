@@ -25,8 +25,7 @@
             <a href="{{ path('add_image_on_capture', {'id': capture.id}) }}">Ajouter une image</a>
         {% endif %}
     {% endif %}
-    <form class="form-2-ajout">
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'class': "form-2-ajout"}}) }}
 
 
     {{ form_label(form.bird) }}
@@ -73,7 +72,6 @@
     <button type="submit" name="submit" id="{{ role }}_capture_save" class="btn-ajout">{{ titre }}</button>
     {{ form_end(form) }}
     </div>
-    </form>
     </div>
     </div>
 
