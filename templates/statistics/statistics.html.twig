@@ -15,9 +15,9 @@
     </section>
     <section>
         <h2 class="h2-qd">Années</h2>
-        {% for year in years %}
-            <ul class="ul-year">
-                <li><a href="{{ path('statistics', {year: year}) }}">{{year}}</a></li>
+        {% for yearY in years %}
+            <ul class="ul-year stats">
+                <li><a href="{{ path('statistics', {year: yearY}) }}" {% if yearY == year %} class="active" {% endif %}>{{yearY}}</a></li>
             </ul>
         {% endfor %}
     </section>
@@ -32,8 +32,8 @@
     <h2 class="h2-qd">Régions</h2>
     {% set i = 0 %}
     {% for region in regions %}
-        <section id="statisticsByRegion{{i}}" class="form-qd1">
-           <h3>{{ region.nom }}</h3>
+        <section id="statisticsByRegion{{i}}" class="regionStats">
+           <h3 class="h3-stats">{{ region.nom }}</h3>
            <div id="data{{i}}"></div>
         </section>
         {% set i = i + 1 %}
@@ -43,5 +43,5 @@
 
 {% block paginationJavascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="{{ asset('javascript/statistics/statistics.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('javascript/statistics.js') }}" ></script>
 {% endblock %}

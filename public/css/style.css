@@ -373,7 +373,7 @@ a:hover
   padding-top: 20px;
 }
 
-.form-qd1{
+.form-qd1, .regionStats {
   border: solid 1px #80BA83;
   border-radius: 10px;
   box-shadow: 0px 5px 5px 0px #00000038;
@@ -383,6 +383,7 @@ a:hover
   font-size: 16px;
   
 }
+
 .form-qd2{
   border: solid 1px #80BA83;
   border-radius: 10px;
@@ -786,6 +787,32 @@ a:hover
   font-size: 16px;
 }
 
+/* --------------- STATISTICS PAGE ------------*/
+
+.regionStats {
+  margin-bottom: 20px;
+}
+
+.h3-stats{
+  font-size: 16px;
+}
+
+.stats, .paginationjs ul {
+  list-style-type: none; 
+  display: inline-flex;
+}
+
+.stats li, .paginationjs ul li{
+  margin-right:5px;
+}
+
+.paginationjs-pages ul .active a {
+  color: #80BA83;
+}
+
+.ul-year .active {
+  color: #80BA83;
+}
 
 
 /* LIMITE*/
