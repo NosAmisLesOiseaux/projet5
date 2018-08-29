@@ -8,10 +8,6 @@ $( function() {
         totalNumber: numberComments,
         autoHidePrevious: true,
         autoHideNext: true,   
-        ajax: {
-            beforeSend: function() {
-                dataContainer.html('Loading data from flickr.com ...');
-        }
     },
         callback: function(data, pagination) {
             var currentPage = $('#comments').data('pagination').model.pageNumber;
