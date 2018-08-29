@@ -37,13 +37,9 @@ class RegisterType extends AbstractType
                 ChoiceType::class,
                 array(
                     'choices' => array(
-<<<<<<< HEAD:src/Form/RegisterType.php
                         "Compte particulier" => 'particular',
                         "Compte naturaliste" => 'naturalist'
-=======
-                        "Je suis un passionné" => 'particular',
-                        "Je suis ornithologue" => 'naturalist'
->>>>>>> pre_prod_annotations:src/Form/Security/RegisterType.php
+
                     )
                 )
             )
