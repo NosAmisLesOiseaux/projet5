@@ -8,7 +8,9 @@
 <div>
 	<ul>Observation
 		{% for capture in publishedcaptures %}
-			<a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
+			<a href="{{ path('capture', {id: capture.id}) }}">
+				<li>Observation {{ capture.id }}</li>
+			</a>
 		{% endfor %}
 	</ul>
 	<ul>Date

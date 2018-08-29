@@ -1,15 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block title %} Observations {% endblock %}
-{% block mapStylesheets %} 
-	{{ parent() }}
-	<style type="text/css">
-			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:250px;
-				position: sticky !important;
-			}
-		</style>
-{% endblock %}
+{% block mapStylesheets %} {% endblock %}
 
 {% block body %}
 	<div id="map">
@@ -18,7 +10,13 @@
 		<select name="bird" id="bird">
 			<option disabled selected value="" class="bird">Oiseau</option>
             {% for bird in birds %}
-				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</option>
+				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">
+					{% if bird.vernacularname == false %}
+						{{ bird.validname }} 
+					{% else %} 
+						{{ bird.vernacularname }} - {{ bird.validname }}
+					{% endif %}
+				</option>
             {% endfor %}
 		</select>
 		<select name="region" id="region">
@@ -40,10 +38,11 @@
 				<p>
 					<a href="{{ path('capture', {id: capture.id}) }}">
 						{% if capture.bird.vernacularname == false %}
-						{{ capture.bird.validname }}
+							{{ capture.bird.validname }}
 						{% else %}
-						{{ capture.bird.vernacularname }}
-					</a>{% endif %}
+							{{ capture.bird.vernacularname }}
+						{% endif %}
+					</a>
 				</p>
 				<p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
 				<p>{{ capture.createdDate|date('d/m/Y') }}</p>

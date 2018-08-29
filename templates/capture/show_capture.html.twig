@@ -2,14 +2,7 @@
 
 {% block title %}Observation numéro {{ capture.id }} {% endblock %}
 
-{% block mapStylesheets %}
-	{{ parent() }}
-	<style type="text/css">
-			.capturemap{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:400px;
-			}
-		</style>
-{% endblock %}
+{% block mapStylesheets %}{% endblock %}
 
 {% block body %}
 	<div id="map0" class="capturemap" data-identifiant={{ capture.id }}>

@@ -3,18 +3,13 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} {% endif %}{% endblock %}
-{% block mapStylesheets %} 
-	{{ parent() }}
-	<style type="text/css">
-			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:400px;
-			}
-		</style>
-{% endblock %}
+{% block mapStylesheets %}{% endblock %}
 
 {% block body %}
-	<div id="map" data-identifiant={{ bird.id }}>
-	</div>
+	<section id="map-bird" >
+		<div id="map" data-identifiant={{ bird.id }}>
+		</div>
+	</section>
 	<section>
 		<h1>{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</h1>
 		<p>{{ bird.image }}</p>

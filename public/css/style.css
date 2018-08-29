@@ -787,7 +787,7 @@ a:hover
   font-size: 16px;
 }
 
-/* --------------- STATISTICS PAGE ------------*/
+/* ----------- Statistics page / pagination stats and comments ------------*/
 
 .regionStats {
   margin-bottom: 20px;
@@ -813,6 +813,27 @@ a:hover
 .ul-year .active {
   color: #80BA83;
 }
+
+/* -------------------------- Maps ---------------------------*/
+
+.capturemap, #map{ 
+  /* The map must have a height to be displayed */
+  height:250px;
+  position: sticky !important;
+}
+
+#map-bird #map{
+  /* The map must have a height to be displayed */
+  height:400px;
+  position: sticky !important;
+}
+
+.forme-observation-home .map{
+  /* The map must have a height to be displayed */
+  height:200px;
+  width:200px;
+}
+
 
 
 /* LIMITE*/

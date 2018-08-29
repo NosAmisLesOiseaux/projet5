@@ -17,9 +17,9 @@
 						<a href="{{ path('admin_space') }}"> Retour </a> 
 					</p>
 					{% if previousPage > 1 %}
-					<p> 
-						<a href="{{ path('admin_space_waiting_captures', {page: previousPage}) }}"> << </a> 
-					</p>
+						<p> 
+							<a href="{{ path('admin_space_waiting_captures', {page: previousPage}) }}"> << </a> 
+						</p>
 					{% endif %}
 					{% for i in 2..nbWaitingForValidationCapturesPages %}
 						<li {% if page == i %} class="active" {% endif %}>
