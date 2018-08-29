@@ -15,7 +15,7 @@ doctrine:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
 
-        url: '%env(resolve:DATABASE_URL)%'
+        url: 'mysql://app_nao:app_nao@127.0.0.1:3306/app_nao'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
