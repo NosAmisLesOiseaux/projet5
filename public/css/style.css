@@ -1024,6 +1024,7 @@ a:hover
   flex-direction: row;
   justify-content: center;
   font-size: 16px;
+  list-style-type: none;
 }
 
 .page-div{
@@ -1399,8 +1400,15 @@ a:hover
   font-size: 16px;
 }
 
-
 /*Fin de la page*/
+
+/*Page recherche observation*/
+
+.observation-recherche{
+  padding-top: 70px;
+}
+
+/*fin de la page*/
 
 
 /* LIMITE*/
