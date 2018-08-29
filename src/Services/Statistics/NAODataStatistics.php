@@ -1,8 +1,8 @@
 <?php
 
-// src/Services/Statistics/DataStatistics.php
+// src/Services/DataStatistics.php
 
-namespace App\Services\Statistics;
+namespace App\Services;
 
 use App\Services\Capture\NAOCountCaptures;
 use App\Services\Bird\NAOCountBirds;
@@ -11,15 +11,17 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class NAODataStatistics
 {
-    private $naoCountCaptures;
+    private $naoCounCaptures;
     private $naoCountBirds;
     private $naoBirdManager;
+    private $regions;
 
     public function __construct(NAOCountCaptures $naoCountCaptures, NAOCountBirds $naoCountBirds, NAOBirdManager $naoBirdManager)
     {
         $this->naoCountCaptures = $naoCountCaptures;
         $this->naoCountBirds = $naoCountBirds;
         $this->naoBirdManager = $naoBirdManager;
+        $this->regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
     }
 
     public function getYears()
@@ -33,9 +35,15 @@ class NAODataStatistics
         return $years;
     }
 
-	public function formatBirdsByRegions($regions, $year)
+    public function getRegions()
+    {
+        return $this->regions;
+    }
+
+	public function formatBirdsByRegions($year)
 	{
         $numberOfPublishedCaptures = $this->naoCountCaptures->countPublishedCapturesByYear($year);
+        $regions = $this->regions;
 
         $regionsData = [];
         foreach ($regions as $region)
@@ -55,22 +63,21 @@ class NAODataStatistics
                     $birdsName[] = $bird->getValidname();
                 }
             }
-
-            if ($numberOfBirds >= 1)
-            {
-                $regionsData[] = [
-                    'region' => $regionName,
-                    'numberOfBirds' => $numberOfBirds,
-                    'birds' => $birdsName
-                ];
         
-                $formatted[] = [
-                    'year' => $year,
-                    'numberOfCaptures' => $numberOfPublishedCaptures,
-                    'regions' => $regionsData,
-                ];
-            }
+            
+            $regionsData[] = [
+                'region' => $regionName,
+                'numberOfBirds' => $numberOfBirds,
+                'birds' => $birdsName
+            ];
         }
+        
+        $formatted = [];
+        $formatted[] = [
+            'year' => $year,
+            'numberOfCaptures' => $numberOfPublishedCaptures,
+            'regions' => $regionsData,
+        ];
 
         return new JsonResponse($formatted);
 	}

@@ -3,41 +3,45 @@
 {% block title %}Statistiques{% endblock %}
 
 {% block body %}
-	<h1 class="t-index-2">QUELQUES DONNEES</h1>
-	<span class="s-t-index-2"></span>
-	<div class="container-qd">
-	<section>
-		<h2 class="h2-qd">En général</h2>
-		<div class="form-qd1">
-    	<p>Nombre d'oiseaux : {{numberOfBirds}}</p>
-    	<p>Nombre total d'observations publiées : {{numberOfPublishedCaptures}}</p>
-		</div>
+    <h1 class="t-index-2">QUELQUES DONNEES</h1>
+    <span class="s-t-index-2"></span>
+    <div class="container-qd">
+    <section>
+        <h2 class="h2-qd">En général</h2>
+        <div class="form-qd1">
+        <p>Nombre d'oiseaux : {{numberOfBirds}}</p>
+        <p>Nombre total d'observations publiées : {{numberOfPublishedCaptures}}</p>
+        </div>
     </section>
     <section>
-    	<h2 class="h2-qd">Années</h2>
-    	{% for year in years %}
-    		<ul class="ul-year">
-    			<li><a href="{{ path('statistics', {year: year}) }}">{{year}}</a></li>
-    		</ul>
-    	{% endfor %}
+        <h2 class="h2-qd">Années</h2>
+        {% for year in years %}
+            <ul class="ul-year">
+                <li><a href="{{ path('statistics', {year: year}) }}">{{year}}</a></li>
+            </ul>
+        {% endfor %}
     </section>
     <section class="container-year">
-		<div class="h3-year">
-    	<h3 id="year" data-year="{{year}}">{{year}} |</h3>
-		</div>
-		<div class="form-qd2">
-    	<p> Nombre total d'observations publiées : {{nbOfYearPublishedCaptures}}</p>
-		</div>
+        <div class="h3-year">
+           <h3 id="year" data-year="{{year}}">{{year}} |</h3>
+        </div>
+        <div class="form-qd2">
+           <p> Nombre total d'observations publiées : {{nbOfYearPublishedCaptures}}</p>
+        </div>
     </section>
-	<h2 class="h2-qd">Régions</h2>
-    <section id="statisticsByYear">
-    	<div id="statisticsData"></div>
-    	<div id="statisticsBirds"></div>
-    </section>
-	</div>
+    <h2 class="h2-qd">Régions</h2>
+    {% set i = 0 %}
+    {% for region in regions %}
+        <section id="statisticsByRegion{{i}}" class="form-qd1">
+           <h3>{{ region.nom }}</h3>
+           <div id="data{{i}}"></div>
+        </section>
+        {% set i = i + 1 %}
+    {% endfor %}
+    </div>
 {% endblock %}
 
 {% block paginationJavascripts %}
-	{{ parent() }}
-	<script type="text/javascript" src="{{ asset('javascript/statistics/statistics.js') }}" ></script>
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('javascript/statistics.js') }}" ></script>
 {% endblock %}
