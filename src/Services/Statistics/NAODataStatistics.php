@@ -1,8 +1,8 @@
 <?php
 
-// src/Services/DataStatistics.php
+// src/Services/Statistics/DataStatistics.php
 
-namespace App\Services;
+namespace App\Services\Statistics;
 
 use App\Services\Capture\NAOCountCaptures;
 use App\Services\Bird\NAOCountBirds;
