@@ -27,6 +27,9 @@ $( function() {
                 if (data[i].authorAvatar != null) {html += '<img src="'+ data[i].authorAvatar +'">';}
                 html += '<p>'+ data[i].authorFirstname + ' ' + data[i].authorLastname +'</p>';
                 html += '<p>'+ data[i].content +'</p>';
+                html += '<form action="/signaler-commentaire/' + data[i].id +'/" method="get">';
+                html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';
+                html += '</form>';
                 html += '</li>';
             }
             $('#comment').html(html);
