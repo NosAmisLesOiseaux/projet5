@@ -170,6 +170,30 @@ class BirdRepository extends ServiceEntityRepository
 
     /**
      * @param $region
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @param $letter
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countSearchBirdsByRegionAndLetter($region, $draftStatus, $waitingStatus, $letter)
+    {
+        $qb = $this->createQueryBuilder('b');
+        $qb->select('count(DISTINCT b.id)');
+        $qb->join('b.captures', 'c');
+        $qb->where('c.region = :region');
+        $qb->setParameter('region', $region);
+        $qb->andWhere('c.status != :status1');
+        $qb->setParameter('status1', $draftStatus);
+        $qb->andWhere('c.status != :status2');
+        $qb->setParameter('status2', $waitingStatus);
+        $qb->andWhere('b.vernacularname LIKE \''.$letter.'%\'');
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    /**
+     * @param $region
      * @param $elementsPerPage
      * @param $firstEntrance
      * @param $draftStatus
@@ -212,6 +236,34 @@ class BirdRepository extends ServiceEntityRepository
             ->setParameter('status2', $waitingStatus)
             ->andWhere('c.created_date LIKE \''.$date.'%\'')
             ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @param $region
+     * @param $letter
+     * @param $elementsPerPage
+     * @param $firstEntrance
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     */
+    public function searchBirdsByRegionAndLetterPerPage($region, $letter, $elementsPerPage, $firstEntrance, $draftStatus, $waitingStatus)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.captures', 'c')
+            ->andWhere('c.region = :region')
+            ->setParameter('region', $region)
+            ->andWhere('c.status != :status1')
+            ->setParameter('status1', $draftStatus)
+            ->andWhere('c.status != :status2')
+            ->setParameter('status2', $waitingStatus)
+            ->andWhere('b.vernacularname LIKE \''.$letter.'%\'')
+            ->orderBy('b.vernacularname', 'ASC')
+            ->getQuery()
+            ->setMaxResults($elementsPerPage)
+            ->setFirstResult($firstEntrance)
             ->getResult()
         ;
     }
