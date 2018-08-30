@@ -725,12 +725,12 @@ a:hover
   font-size: 16px;
   font-weight: bold;
 }
-.container-lost{
+.container-lost, .container-add{
   display: flex;
   justify-content: center;
 }
 
-.form-lost{
+.form-lost, .form-add{
   border: #eee solid 1px;
   box-shadow: 0px 5px 5px 0px #00000038;
   width: 80%;
@@ -1120,14 +1120,31 @@ a:hover
   justify-content: center ;
 }
 
+#naturalist_capture_content, #particular_capture_content{
+  height: 100px;
+}
+
 .h4-ajout{
   margin-top: -;
   background-color: white;
   width: 133px;
   padding-left: 10px;
+  margin-top: -40px;
 }
 
-.container-partie #geolocation, #naturalist_capture_bird{
+.container-partie #geolocation, #naturalist_capture_bird, #particular_capture_content{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+}
+
+.form-2-ajout select{
   border:#ddd 1px solid;
   border-radius: 6px;
   box-shadow: 0px 2px 0px 0px #ddd;
@@ -1140,7 +1157,7 @@ a:hover
 }
 
 
-.container-partie input, #naturalist_capture_content{
+.container-partie input, #naturalist_capture_content, #particular_capture_content{
   border:#ddd 1px solid;
   border-radius: 6px;
   box-shadow: inset 0px 2px 0px 0px #ddd;
@@ -1152,11 +1169,8 @@ a:hover
   font-size: 14px;
 }
 
-#naturalist_capture_content{
-  height: 500px;
-}
 
-.btn-ajout{
+.btn-ajout, .btn-add{
   background-color: #80BA83;
     border: solid 1px #80BA83;
     border-radius: 7px;
@@ -1174,7 +1188,7 @@ a:hover
   box-shadow: none;
 }
 
-#naturalist_capture_status{
+#naturalist_capture_status, #particular_capture_content{
   padding-top: 20px
 }
 
@@ -1183,13 +1197,43 @@ a:hover
 }
 
 .container-partie{
-  padding-top: ;
+  padding-top: 48px;
 }
 
 .f-ajout{
   display: flex;
     flex-direction: column-reverse;
 }
+
+/*fin de la page*/
+
+/*page ajout d'une photo*/
+
+.form-b-add{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.form-b-add a{
+  color:#fd744f;
+}
+
+.form-b-add label{
+  display: none;
+}
+
+.form-2-add{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-add{
+  align-self: center;
+  margin-top: 30px;
+}
+
+
 /*fin de la page*/
 
 /*Page admin*/
@@ -1702,7 +1746,7 @@ body:before {
       padding-left: 79px;
     }
 
-    .container-lost{
+    .container-lost, .container-add{
       padding-left: 15%;
     padding-right: 15%;
     }
@@ -1764,7 +1808,7 @@ body:before {
     padding-right: 15%;
     }
 
-    .form-lost{
+    .form-lost, .form-add{
       width: 67%;
     }
 
@@ -1845,7 +1889,7 @@ body:before {
   .form-register{
     width: 55%;
   }
-  .form-lost{
+  .form-lost, .form-add{
     width: 40%;
     padding: 43px;
   }
@@ -1901,6 +1945,9 @@ body:before {
     .h4-ajout{
       margin-top: -44px;
       
+    }
+    #naturalist_capture_content, #particular_capture_content{
+      height: 500px;
     }
 
     .container-ajout{
@@ -1982,7 +2029,7 @@ body:before {
     left: 39%;
   }
 
-  .container-lost{
+  .container-lost, .container-add{
     padding-left: 20%;
   padding-right: 20%;
   }
