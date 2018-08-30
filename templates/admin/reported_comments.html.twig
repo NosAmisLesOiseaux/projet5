@@ -1,38 +1,39 @@
-{# templates/admin/reportedComments.html.twig #}
+{# templates/AdminSpace/reportedComments.html.twig #}
 
-{% extends "base.html.twig" %}
+{% extends "layout.html.twig" %}
 
-{% block title %}Commentaires signalés {% endblock %}
+{% block title %} Espace d'administration - Commentaires signalés {% endblock %}
 {% block stylesheets %} {% endblock %}
 {% block body %} 
-	<h1>Espace administration</h1>
-	<h2>Commentaires signalés</h2>
+	<h1 class="t-index-4">Espace administration</h1>
+	<span class="s-t-index-4"></span>
+	<h2 class="subtitle-admin">Commentaires signalés</h2>
 
 	<section>
-		{{ include('admin/reportedCommentsModel.html.twig')}}
-		<div>
-			<ul>
-				{% if nbReportedCommentsPages > 1 %}
-					<p> 
-						<a href="{{ path('admin_space') }}"> Retour </a> 
-					</p>
-					{% if previousPage > 1 %}
-					<p> 
-						<a href="{{ path('admin_space_reported_comments', {page: previousPage}) }}"> << </a> 
-					</p>
-					{% endif %}
-					{% for i in 2..nbReportedCommentsPages %}
+		{{ include('AdminSpace/reportedCommentsModel.html.twig')}}
+		<div class="nav-content-admin">
+			{% if nbReportedCommentsPages > 1 %}
+				<p> 
+					<a href="{{ path('admin_space') }}"> Retour </a> 
+				</p>
+				{% if previousPage > 1 %}
+				<p> 
+					<a href="{{ path('admin_space_reported_comments', {page: previousPage}) }}"> << </a> 
+				</p>
+				{% endif %}
+				{% for i in 2..nbReportedCommentsPages %}
+					<ul>
 						<li {% if page == i %} class="active" {% endif %}>
    							<a href="{{ path('admin_space_reported_comments', {page: i}) }}"> {{i}} </a>
    						</li>
-   					{% endfor %}
-    				<p>
-    					{% if nextPage <= nbReportedCommentsPages %}
-    						<a href="{{ path('admin_space_reported_comments', {page: nextPage}) }}"> >> </a>
-    					{% endif %}
-    				</p> 
-    			{% endif %}
-			</ul>
+   					</ul>
+   				{% endfor %}
+    			<p>
+    				{% if nextPage <= nbReportedCommentsPages %}
+    					<a href="{{ path('admin_space_reported_comments', {page: nextPage}) }}"> >> </a>
+    				{% endif %}
+    			</p> 
+    		{% endif %}
 		</div>
 	</section>
 {% endblock %}

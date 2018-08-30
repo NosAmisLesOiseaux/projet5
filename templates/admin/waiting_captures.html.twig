@@ -5,34 +5,35 @@
 {% block title %} Observations en attente de validation {% endblock %}
 {% block stylesheets %} {% endblock %}
 {% block body %} 
-	<h1>Espace administration</h1>
-	<h2>Observations en attente de validation</h2>
+	<h1 class="t-index-4">Espace administration</h1>
+	<span class="s-t-index-4"></span>
+	<h2 class="subtitle-admin">Observations en attente de validation</h2>
 
 	<section>
-		{{ include('admin/waitingCapturesModel.html.twig')}}
-		<div>
-			<ul>
-				{% if nbWaitingForValidationCapturesPages > 1 %}
+		{{ include('admin/_waiting_captures_model.html.twig')}}
+		<div class="nav-content-admin">
+			{% if nbWaitingForValidationCapturesPages > 1 %}
+				<p> 
+					<a href="{{ path('admin_space') }}"> Retour </a> 
+				</p>
+				{% if previousPage > 1 %}
 					<p> 
-						<a href="{{ path('admin_space') }}"> Retour </a> 
+						<a href="{{ path('admin_space_waiting_captures', {page: previousPage}) }}"> << </a> 
 					</p>
-					{% if previousPage > 1 %}
-						<p> 
-							<a href="{{ path('admin_space_waiting_captures', {page: previousPage}) }}"> << </a> 
-						</p>
-					{% endif %}
-					{% for i in 2..nbWaitingForValidationCapturesPages %}
+				{% endif %}
+				{% for i in 2..nbWaitingForValidationCapturesPages %}
+					<ul>
 						<li {% if page == i %} class="active" {% endif %}>
    							<a href="{{ path('admin_space_waiting_captures', {page: i}) }}"> {{i}} </a>
    						</li>
-   					{% endfor %}
+   					</ul>
+   				{% endfor %}
+    			{% if nextPage <= nbWaitingForValidationCapturesPages %}
     				<p>
-    					{% if nextPage <= nbWaitingForValidationCapturesPages %}
-    						<a href="{{ path('admin_space_waiting_captures', {page: nextPage}) }}"> >> </a>
-    					{% endif %}
-    				</p> 
+    					<a href="{{ path('admin_space_waiting_captures', {page: nextPage}) }}"> >> </a>
+    				</p>
     			{% endif %}
-			</ul>
+    		{% endif %}
 		</div>
 	</section>
 {% endblock %}

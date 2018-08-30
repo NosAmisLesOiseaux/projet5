@@ -1,26 +1,31 @@
-<h2>
-	{% if numberOfPublishedCaptures == 1 %}
-		{{numberOfPublishedCaptures}} observation publiée :
-	{% elseif numberOfPublishedCaptures > 1 %}
-		{{numberOfPublishedCaptures}} observations publiées :
-	{% endif %}
-</h2>
-<div>
-	<ul>Observation
-		{% for capture in publishedcaptures %}
-			<a href="{{ path('capture', {id: capture.id}) }}">
-				<li>Observation {{ capture.id }}</li>
-			</a>
-		{% endfor %}
-	</ul>
-	<ul>Date
-		{% for capture in publishedcaptures %}
-			<li>{{ capture.createdDate|date('d/m/Y') }}</li>
-		{% endfor %}
-	</ul>
-	<ul>Auteur
-		{% for capture in publishedcaptures %}
-			<li>{{ capture.user.firstname }} {{ capture.user.lastname }}</li>
-		{% endfor %}
-	</ul>
-</div>
+{# templates/AdminSpace/publishedCapturesModel.html.twig #}
+
+<section class="content-shared-admin">
+    <h2 class="h2-ob-partage">
+        {% if numberOfPublishedCaptures == 1 %}
+        	{{numberOfPublishedCaptures}} observation publiée : 
+        {% elseif numberOfPublishedCaptures > 1 %}
+       		{{numberOfPublishedCaptures}} observations publiées : 
+       	{% endif %}
+    </h2>
+    <table class="tb-content-shared-admin">
+        <thead class="thead-content-shared-admin">
+        	<tr>
+                <th>Observation</th>
+                <th>Date</th>
+                <th>Auteur</th>
+            </tr>
+       	</thead>
+		<tbody class="tbody-content-shared-admin">
+			{% for publishedcapture in publishedcaptures %}
+				<tr>
+					<td>
+						<a href="{{ path('capture', {id: publishedcapture.id}) }}">Observation {{ publishedcapture.id }}</a>
+					</td>
+					<td>{{ publishedcapture.createdDate|date('d/m/Y') }}</td>
+					<td>{{ publishedcapture.user.firstname }} {{ publishedcapture.user.lastname }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</section>

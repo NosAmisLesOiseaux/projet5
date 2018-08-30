@@ -1,20 +1,32 @@
-<h2>
-    {% if numberOfPublishedComments == 1 %}
-        {{numberOfPublishedComments}}  commentaire publié :
-    {% elseif numberOfPublishedComments > 1 %}
-        {{numberOfPublishedComments}}  commentaires publiés :
-    {% endif %}
-</h2>
+{# templates/AdminSpace/publishedCommentsModel.html.twig #}
+
+<section class="content-shared-admin">
+    <h2 class="h2-comment-shared">
+    	{% if numberOfPublishedComments == 1 %} 
+    		{{numberOfPublishedComments}}  commentaire publié : 
+    	{% elseif numberOfPublishedComments > 1 %} 
+    		{{numberOfPublishedComments}}  commentaires publiés :
+    	{% endif %}
+    </h2>
+</section>
 {% for publishedcomment in publishedcomments %}
-	<div>
-		<p>{{ publishedcomment.content }}</p>
-		<a href="{{ path('capture', {id: publishedcomment.capture.id}) }}">
-            Observation {{ publishedcomment.capture.id }}
-        </a>
-		<p>{{ publishedcomment.createdDate|date('d/m/Y') }}</p>
-		<p>{{ publishedcomment.author.firstname }} {{ publishedcomment.author.lastname }}</p>
+	<section class="content-shared-admin">
+		<p class="comment-text-admin">{{ publishedcomment.content }}</p>
+		<ul class="comment-data-admin">
+			<li>
+				<a href="{{ path('capture', {id: publishedcomment.capture.id}) }}">Observation {{ publishedcomment.capture.id }}</a>
+			</li>
+			<li>
+				{{ publishedcomment.createdDate|date('d/m/Y') }}
+			</li>
+			<li>
+				{{ publishedcomment.author.firstname }} {{ publishedcomment.author.lastname }}
+			</li>
+		</ul>
+	</section>
+	<section>
 		<form action="{{ path('remove_comment', {id:  publishedcomment.id}) }}" method="get">
 			<button type="submit">Supprimer</button>
 		</form>
-	</div>
+	</section>
 {% endfor %}
