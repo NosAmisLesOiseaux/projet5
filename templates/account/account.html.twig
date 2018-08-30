@@ -48,12 +48,10 @@
                             {% endif %}
                         </td>
                         <td class="v-m-s-ob-partage">
-                            {% if is_granted('ROLE_NATURALIST') %}
-                                {% if capture.status == 'published' or capture.status == 'validated' %}
-                                    <a href="{{ path('modify_capture', {id: capture.id}) }}">Modifier l'observation {{ capture.id }}</a>
-                                {% elseif capture.status == 'waiting_for_validation' %}
-                                    <a href="{{ path('validate_capture', {id: capture.id}) }}">Valider l'observation {{ capture.id }}</a>
-                                {% endif %}
+                            {% if capture.status == 'published' or capture.status == 'validated' %}
+                                <a href="{{ path('capture', {id: capture.id}) }}">Voir l'observation {{ capture.id }}</a>
+                            {% elseif capture.status == 'draft' %}
+                                <a href="{{ path('modify_capture', {id: capture.id}) }}">Modifier l'observation {{ capture.id }}</a>
                             {% else %}
                                 <a href="{{ path('delete_capture', {'id': capture.id}) }}">Supprimer l'observation</a>
                             {% endif %}
