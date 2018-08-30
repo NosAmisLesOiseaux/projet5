@@ -1205,6 +1205,11 @@ a:hover
     flex-direction: column-reverse;
 }
 
+.partie2-ajout{
+  display: flex;
+  flex-direction: column;
+}
+
 /*fin de la page*/
 
 /*page ajout d'une photo*/
@@ -1451,6 +1456,99 @@ a:hover
 .observation-recherche{
   padding-top: 70px;
 }
+
+/*fin de la page*/
+
+/*Validation d'une observation*/
+
+#validate_capture_content{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: inset 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+}
+
+.partie1-ajout button {
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+  margin-top: 10px;
+  
+}
+.btn-v-w-r{
+  display: flex;
+  justify-content: space-around;
+}
+.btn-v-w-r button{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100px;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+  margin-top: 10px;
+
+}
+
+.supprimer-img-valider{
+  display: flex;
+  flex-direction: column;
+}
+
+.partie1-ajout img{
+  border-radius: 10px;
+  align-self: center;
+  width: 50%;
+    min-width: 200px;
+}
+
+#img-ajout{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-v-w-r #validate_capture_validate{
+ background-color: #80BA83;
+ color: white;
+
+}
+.btn-v-w-r #validate_capture_waiting_for_validation{
+  background-color: #EBB82A;
+ color: white;
+}
+
+.btn-v-w-r #validate_capture_remove{
+  background-color:#DB4437;
+ color: white;
+}
+
+
+#validate_capture_naturalist_comment{
+  border:#ddd 1px solid;
+  border-radius: 6px;
+  box-shadow: inset 0px 2px 0px 0px #ddd;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 17px;
+  min-height: 30px;
+  height: 35px;
+  font-size: 14px;
+}
+
 
 /*fin de la page*/
 
@@ -1937,6 +2035,7 @@ body:before {
     .partie2-ajout{
       width: 50%;
       margin-top: -31px;
+    
     }
 
     #naturalist_capture_content{
@@ -1946,7 +2045,7 @@ body:before {
       margin-top: -44px;
       
     }
-    #naturalist_capture_content, #particular_capture_content{
+    #naturalist_capture_content, #particular_capture_content, #validate_capture_content{
       height: 500px;
     }
 

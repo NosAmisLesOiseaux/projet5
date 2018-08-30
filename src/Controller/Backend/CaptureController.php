@@ -64,7 +64,7 @@ class CaptureController extends Controller
         $title = 'Ajouter une observation';
 
         return $this->render(
-            'capture\add_or_modify_capture.html.twig',
+            'capture\form_capture.html.twig',
             array(
                 'form' => $form->createView(),
                 'userRole' => $userRole,
@@ -118,7 +118,7 @@ class CaptureController extends Controller
         $title = 'Valider une observation';
         $session->set('status', "validating_capture");
 
-        return $this->render('capture\validate_capture.html.twig',
+        return $this->render('capture\form_capture.html.twig',
             array
             (
                 'form' => $form->createView(), 
@@ -163,7 +163,7 @@ class CaptureController extends Controller
         $title = 'Modifier une observation';
         $session->set('status', "modifying_capture");
 
-        return $this->render('capture\add_or_modify_capture.html.twig',
+        return $this->render('capture\form_capture.html.twig',
             array
             (
                 'form' => $form->createView(),
