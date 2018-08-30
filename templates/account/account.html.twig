@@ -37,8 +37,12 @@
                         <td>Observation {{ capture.id }}</td>
                         <td>{{ capture.createdDate|date('d/m/Y') }}</td>
                         <td>
-                            {% if capture.status == 'published' or capture.status == 'validated' %}
+                            {% if capture.status == 'published' %}
+                                Publiée
+                            {% elseif capture.status == 'validated' %}
                                 Validée
+                            {% elseif capture.status == 'draft' %}
+                                Brouillon
                             {% elseif capture.status == 'waiting_for_validation' %}
                                 En attente de validation
                             {% endif %}
