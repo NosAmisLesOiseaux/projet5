@@ -179,7 +179,7 @@ a:hover
 
 .logo{
   width: 92px;;
-  margin-left: 7%
+  margin-left: 3%
 }
 
 .logo img{
@@ -1097,7 +1097,7 @@ a:hover
   display: initial !important;
 }
 
-.compte-ajout{
+.compte-ajout, .compte-valider{
   font-size: 16px;
   margin-top: 0;
     text-align: center;
