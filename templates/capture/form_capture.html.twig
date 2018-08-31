@@ -69,7 +69,21 @@
 
     </div>
     <div class="f-ajout">
+    {% if titre == 'Valider une observation' %} 
+    <div class="btn-v-w-r">
+    {{ form_label(form.validate) }} 
+    {{ form_widget(form.validate) }}  
+
+    {{ form_label(form.waiting_for_validation) }} 
+    {{ form_widget(form.waiting_for_validation) }}
+
+    {{ form_label(form.remove) }} 
+    {{ form_widget(form.remove) }} 
+    </div>
+    {% endif %}
+    {% if titre != 'Valider une observation' %} 
     <button type="submit" name="submit" id="{{ role }}_capture_save" class="btn-ajout">{{ titre }}</button>
+    {% endif %}
     {{ form_end(form) }}
     </div>
     </div>
