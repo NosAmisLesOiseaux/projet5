@@ -23,12 +23,12 @@
 			</li>
 		</ul>
 	</section>
-	<section>
+	<section class="comment-admin-buttons">
 		<form action="{{ path('ignore_reported_comment', {id:  reportedcomment.id}) }}" method="get">
-			<button type="submit">Ignorer</button>
+			<button type="submit" class="orange-button">Ignorer</button>
 		</form>
 		<form action="{{ path('remove_comment', {id:  reportedcomment.id}) }}" method="get">
-			<button type="submit">Supprimer</button>
+			<button type="submit" class="red-button">Supprimer</button>
 		</form>
 	</section>
 {% endfor %}

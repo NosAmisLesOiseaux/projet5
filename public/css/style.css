@@ -848,7 +848,8 @@ a:hover
   color: #3B78E7;
 }
 
-.content-shared-admin a:hover, .content-shared-admin-space a:hover {
+.content-shared-admin a:hover, .content-shared-admin-space a:hover, .link-next-content-admin a:hover, .nav-content-admin ul .active a
+{
   color: #80BA83;
 }
 
@@ -871,6 +872,10 @@ a:hover
   font-size:18px;
   font-weight: bold;
   width:90%;
+}
+
+.link-next-content-admin a{
+  color:#000000;
 }
 
 .subtitle-admin{
@@ -897,13 +902,15 @@ a:hover
 }
 
 .nav-content-admin ul .active a{
-  color: #80BA83;
   pointer-events: none;
   cursor: default;
 }
 
-#space-comments-admin{
+#space-comments-admin, .comment-admin-buttons{
   width:95%;
+}
+
+#space-comments-admin{
   margin:auto;
   display:flex;
   justify-content: space-between;
@@ -930,6 +937,38 @@ a:hover
   display:flex;
   width:100%;
   justify-content: space-around;
+}
+
+.comment-admin-buttons{
+  display: flex;
+  justify-content: right;
+}
+
+.comment-admin-buttons button{
+  border-radius: 7px;
+  color: white;
+  width: 150px;
+  height: 38px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  align-self: center;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left:10px;
+}
+
+.comment-admin-buttons button:active {
+  box-shadow: none;
+}
+
+.red-button{
+  border: solid 1px #db4437;
+  background-color:#db4437;
+}
+
+.orange-button{
+  border:solid 1px #ff9f5a;
+  background-color:#ff9f5a;
 }
 
 
@@ -1190,6 +1229,16 @@ margin-top: 0;
   .nao-flottant-2{
     padding-top: 61px !important;
   }
+
+  .comment-admin-buttons button{
+    width: 100px;
+    height: 28px;
+  }
+
+  .comment-data-admin{
+    justify-content: space-between;
+    padding-left:0;
+  }
 }
 
 
@@ -1243,6 +1292,13 @@ body:before {
       width: 67%;
     }
   }
+
+@media (max-width: 800px)
+{
+  .content-shared-admin-space, #space-comments-admin{
+    width: 100%;
+  }
+}
 
 /* Fin de @media (min-width: 40.063em)/* = min-width 641px */
 /* -------------------------------- */

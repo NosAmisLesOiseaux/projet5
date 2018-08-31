@@ -24,9 +24,9 @@
 			</li>
 		</ul>
 	</section>
-	<section>
+	<section class="comment-admin-buttons">
 		<form action="{{ path('remove_comment', {id:  publishedcomment.id}) }}" method="get">
-			<button type="submit">Supprimer</button>
+			<button type="submit" class="red-button">Supprimer</button>
 		</form>
 	</section>
 {% endfor %}
