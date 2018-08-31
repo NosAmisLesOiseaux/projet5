@@ -1,33 +1,31 @@
-<h2>
-	{% if numberOfWaitingforvalidationCaptures == 1 %}
-		{{numberOfWaitingforvalidationCaptures}}  observation en attente :
-	{% elseif numberOfWaitingforvalidationCaptures > 1 %}
-		{{numberOfWaitingforvalidationCaptures}}  observations en attentes
-	{% endif %}
-</h2>
-<div>
-	<table>
-		<thead>
-		<tr>
-			<th>Observation</th>
-			<th>Date</th>
-			<th>Auteur</th>
-			<th>Actions</th>
-		</tr>
-		</thead>
-		<tbody>
-        {% for capture in waitingforvalidationcaptures %}
-			<tr>
-				<td>Observation {{ capture.id }}</td>
-				<td>{{ capture.createdDate|date('d/m/Y') }}</td>
-				<td>{{ capture.user.firstname }}</td>
-				<td>
-					<ul>
-						<li><a href="{{ path('validate_capture', {'id': capture.id}) }}">Validation</a></li>
-					</ul>
-				</td>
-			</tr>
-        {% endfor %}
-		</tbody>
-	</table>
-</div>
+{# templates/AdminSpace/waitingCapturesModel.html.twig #}
+
+<section class="content-shared-admin">
+	<h2 class="h2-ob-partage">
+		{% if numberOfWaitingforvalidationCaptures == 1 %}
+			{{numberOfWaitingforvalidationCaptures}}  observation en attente :
+		{% elseif numberOfWaitingforvalidationCaptures > 1 %}
+			{{numberOfWaitingforvalidationCaptures}}  observations en attentes
+		{% endif %}
+	</h2>
+	<div>
+		<table class="tb-content-shared-admin">
+			<thead class="thead-content-shared-admin">
+				<tr>
+					<th>Observation</th>
+					<th>Date</th>
+					<th>Auteur</th>
+				</tr>
+			</thead>
+			<tbody class="tbody-content-shared-admin">
+        		{% for capture in waitingforvalidationcaptures %}
+					<tr>
+						<td><a href="{{ path('validate_capture', {'id': capture.id}) }}">Observation {{ capture.id }}</a></td>
+						<td>{{ capture.createdDate|date('d/m/Y') }}</td>
+						<td>{{ capture.user.firstname }} {{ capture.user.lastname }}</td>
+					</tr>
+        		{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
