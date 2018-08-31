@@ -1550,8 +1550,195 @@ a:hover
   font-size: 14px;
 }
 
-
 /*fin de la page*/
+
+
+/* ----------- Statistics page / pagination stats and comments ------------*/
+
+.regionStats {
+  margin-bottom: 20px;
+}
+
+.h3-stats{
+  font-size: 16px;
+}
+
+.stats, .paginationjs ul {
+  list-style-type: none; 
+  display: inline-flex;
+}
+
+.stats li, .paginationjs ul li{
+  margin-right:5px;
+}
+
+.paginationjs-pages ul .active a {
+  color: #80BA83;
+}
+
+.ul-year .active {
+  color: #80BA83;
+}
+
+/* -------------------------- Maps ---------------------------*/
+
+.capturemap, #map{ 
+  /* The map must have a height to be displayed */
+  height:250px;
+  position: sticky !important;
+}
+
+#map-bird #map{
+  /* The map must have a height to be displayed */
+  height:400px;
+  position: sticky !important;
+}
+
+.forme-observation-home .map{
+  /* The map must have a height to be displayed */
+  height:200px;
+  width:200px;
+}
+
+/* --------------------------- Admin space ----------------------*/
+
+.content-shared-admin{
+  border: transparent solid 1px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  width: 90%;
+  margin:auto;
+  margin-top: 24px;
+}
+
+.content-shared-admin a, .content-shared-admin-space a {
+  color: #3B78E7;
+}
+
+.content-shared-admin a:hover, .content-shared-admin-space a:hover, .link-next-content-admin a:hover, .nav-content-admin ul .active a
+{
+  color: #80BA83;
+}
+
+.tb-content-shared-admin {
+  width: 100%;
+}
+
+.thead-content-shared-admin th {
+  width: 33%;
+}
+
+.tbody-content-shared-admin td{
+  text-align:center;
+}
+
+.link-next-content-admin{
+  text-align:right;
+  padding-right:20px;
+  padding-bottom:5px;
+  font-size:18px;
+  font-weight: bold;
+  width:90%;
+}
+
+.link-next-content-admin a{
+  color:#000000;
+}
+
+.subtitle-admin{
+  font-size: 16px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.nav-content-admin{
+  display:flex;
+  width:90%;
+  margin:auto;
+  text-align:right;
+  margin-top:10px;
+  justify-content: center;
+}
+
+.nav-content-admin p{
+  padding-left:10px;
+}
+
+.nav-content-admin ul, .comment-data-admin{
+  list-style-type:none;
+}
+
+.nav-content-admin ul .active a{
+  pointer-events: none;
+  cursor: default;
+}
+
+#space-comments-admin, .comment-admin-buttons{
+  width:95%;
+}
+
+#space-comments-admin{
+  margin:auto;
+  display:flex;
+  justify-content: space-between;
+}
+
+.content-shared-admin-space{
+  width: 50%;
+}
+
+.h2-comment-shared{
+  font-size: 16px;
+  margin-top: 0;
+  padding: 7px;
+  text-align: center;
+}
+
+.comment-text-admin{
+  width:90%;
+  margin:auto;
+  margin-bottom:10px;
+}
+
+.comment-data-admin{
+  display:flex;
+  width:100%;
+  justify-content: space-around;
+}
+
+.comment-admin-buttons{
+  display: flex;
+  justify-content: right;
+}
+
+.comment-admin-buttons button{
+  border-radius: 7px;
+  color: white;
+  width: 150px;
+  height: 38px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  align-self: center;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left:10px;
+}
+
+.comment-admin-buttons button:active {
+  box-shadow: none;
+}
+
+.red-button{
+  border: solid 1px #db4437;
+  background-color:#db4437;
+}
+
+.orange-button{
+  border:solid 1px #ff9f5a;
+  background-color:#ff9f5a;
+}
+
+
+
 
 
 /* LIMITE*/
