@@ -2004,6 +2004,16 @@ img:not([alt]) {
   .nao-flottant-2{
     padding-top: 61px !important;
   }
+  .comment-admin-buttons button{
+    width: 100px;
+    height: 28px;
+  }
+
+  .comment-data-admin{
+    justify-content: space-between;
+    padding-left:0;
+  }
+
 }
 
 
@@ -2103,6 +2113,14 @@ body:before {
     padding-right: 10%;
     }
   }
+
+  @media (max-width: 800px)
+  {
+    .content-shared-admin-space, #space-comments-admin{
+      width: 100%;
+    }
+  }
+
 
 /* Fin de @media (min-width: 40.063em)/* = min-width 641px */
 /* -------------------------------- */
