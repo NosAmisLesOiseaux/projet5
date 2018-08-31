@@ -20,6 +20,14 @@ class ParticularCaptureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+            ->add(
+                 'content',
+                 TextareaType::class,
+                array(
+                     'label' => 'Observation :'
+                )
+             )
             ->add(
                 'bird',
                 EntityType::class,
@@ -35,13 +43,7 @@ class ParticularCaptureType extends AbstractType
                 'placeholder' => 'Sélectionner un oiseau',
                     )
             )
-            ->add(
-                'content',
-                TextareaType::class,
-                array(
-                    'label' => 'Observation :'
-                )
-            )
+            
             ->add(
                 'latitude',
                 NumberType::class,
