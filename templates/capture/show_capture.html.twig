@@ -8,12 +8,16 @@
 			.capturemap{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
 				height:250px;
 				position: sticky !important;
+		
 			}
 		</style>
 {% endblock %}
 
 {% block body %}
 	<div id="map0" class="capturemap" data-identifiant={{ capture.id }}>
+	</div>
+	<div class="btn-container-retour">
+	<button class="btn-retour" type="submit" onclick="history.back()">Retour</button>
 	</div>
 	<div class="global-page-observation">
 	<div class="container-global">
