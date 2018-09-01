@@ -188,12 +188,18 @@ a:hover
 
 .icon-recherche{
   padding-right: 3% !important;
+    margin-top: 17px;
+}
 }
 
 .icon-recherche .material-icons{
   font-size: 35px !important;
   color: white;
   padding-top: 48% !important;
+}
+
+.fa-user{
+  color: white;
 }
  /*Fin du menu*/
 
@@ -1874,7 +1880,6 @@ a:hover
   background-color: white;
   font-size: 16px;
 }
-
 /*fin*/
 
 
