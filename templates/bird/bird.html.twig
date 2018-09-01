@@ -22,9 +22,13 @@
 	<section class="global-page-observation">
 		<div class="container-partie-1-2">
 		<div class="container-partie1">
-		<p class="image-bird">{{ bird.image }}</p>
+		<p class="image-bird">{% if bird.imageThumbnail is not null %}
+					<img src="{{ bird.imageThumbnail }}" alt="">
+                {% else %}
+					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+                {% endif %}</p>
 		</div>
-		<div class="container-partie-2">
+		<div class="container-partie-2 bird-2">
 		<h1>{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</h1>
 		<p>Règne : {{ bird.reign }}</p>
 		<p>Classe : {{ bird.class }}</p>

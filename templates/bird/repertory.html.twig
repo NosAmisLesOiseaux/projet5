@@ -10,28 +10,42 @@
     <div class="nao-flottant-2"><p>REPERTOIRE</p></div>
     <div></div>
     </div>
-	<section>
-		<a href="{{ path('repertory') }}">All</a> {% for l in 'a'..'z' %} | <a href="{{ path('repertory_by_letter', {'letter': l}) }}">{{l}}</a> {% endfor %}
+	<section class="repertoire-selection">
+		
+		<div class="al">
+		<a href="{{ path('repertory') }}" class="al">All</a> {% for l in 'a'..'z' %} | <a href="{{ path('repertory_by_letter', {'letter': l}) }}">{{l}}</a> {% endfor %}
+		</div>
 
-		<form action="{{ path('repertory') }}" method="post">
+		<form action="{{ path('repertory') }}" method="post" class="letter-region">
 			<select name="letter" id="letter">
 				<option disabled selected value="">Lettre</option>
             	{% for l in 'a'..'z' %}
 					<option value="{{ l }}">{{ l }}</option>
             	{% endfor %}
 			</select>
-			<select name="region" id="region">
+			<select name="region" id="region" class="repertoire-btn-region">
 				<option disabled selected value="">Région</option>
                 {% for region in regions %}
 					<option value="{{ region.nom|lower }}">{{ region.nom }}</option>
                 {% endfor %}
 			</select>
-			<button type="submit">Rechercher</button>
+			<button type="submit" class="btn-repertoire">Rechercher</button>
 		</form>
+		
 	</section>
     {% if birds is defined %}
+		<div class="container-repertoire">
         {% for bird in birds %}
-			<div>
+			
+			<div class="oiseau">
+				<div class="photo-oiseau-repertoire">
+				{% if bird.imageThumbnail is not null %}
+					<img src="{{ bird.imageThumbnail }}" alt="">
+                {% else %}
+					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+                {% endif %}
+				</div>
+				<div class="nom-oiseau">
 				<a href="{{ path('bird', {id: bird.id}) }}">
                     {% if bird.vernacularname == false %}
                         {{ bird.validname|convert_encoding('UTF-8', 'iso-2022-jp') }}
@@ -39,15 +53,14 @@
                         {{ bird.vernacularname|convert_encoding('UTF-8', 'iso-2022-jp') }} - {{ bird.validname }}
                     {% endif %}
 				</a>
-                {% if bird.imageThumbnail is not null %}
-					<img src="{{ bird.imageThumbnail }}" alt="">
-                {% else %}
-					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
-                {% endif %}
+                </div>
 			</div>
+			
         {% endfor %}
+		</div>
+
     {% endif %}
-		<div>
+		<div class="pagination-repertoire">
 			<ul>
 				{% if nbRepertoryPages  > 1 %}
 					{% if previousPage > 0 %}

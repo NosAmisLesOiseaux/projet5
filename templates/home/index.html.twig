@@ -28,6 +28,8 @@
                 <div>
                 {% if capture.image is not null %}
                     <img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% else %}
+				<img src="{{ asset('default/bird_default.jpg') }}" alt="">
                 {% endif %}
                 </div>
                 <div class="container-p-home">

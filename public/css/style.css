@@ -1290,6 +1290,12 @@ a:hover
   display: flex;
   flex-direction: column;
   
+  
+}
+
+.container1 img{
+  border-radius: 16%;
+  width: 470px;
 }
 
 .container-partie1{
@@ -1435,7 +1441,11 @@ a:hover
 
 /* Page bird*/
 
-.image-bird{
+.bird-2{
+  padding-top: 40px;
+}
+
+.image-bird img{
   border-radius: 64px;
     box-shadow: 0px 5px 5px 0px #00000038;
     width: 432px;
@@ -1881,6 +1891,124 @@ a:hover
   font-size: 16px;
 }
 /*fin*/
+
+/*page répertoire*/
+
+.repertoire-selection{
+  display: flex;
+    align-items: center;
+    padding-top: 40px;
+    justify-content: center;
+    padding-bottom: 71px;
+}
+
+.al{
+  font-weight: bold;
+    font-size: 18px;
+    display: none;
+}
+
+.letter-region{
+  display: flex;
+    justify-content: space-around;
+}
+
+#letter{
+  border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 3px;
+    box-shadow: 0px 5px 5px 0px #00000057;
+    width: 27%;
+    height: 39px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.btn-repertoire{
+  border: 1px solid #80ba83;
+    border-radius: 6px;
+    padding: 3px;
+    box-shadow: 0px 5px 5px 0px #00000057;
+    width: 100px;
+    height: 39px;
+    color: white;
+    margin-top: 5px;
+    background-color: #80ba83;
+    font-size: 16px;
+    margin-left: 59px;
+}
+
+.repertoire-btn-region{
+  border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 3px;
+    box-shadow: 0px 5px 5px 0px #00000057;
+    width: 27%;
+    height: 39px;
+    margin-top: 5px;
+    font-size: 16px;
+    display: none;
+}
+
+.photo-oiseau-repertoire{
+  align-self: center;
+}
+
+.photo-oiseau-repertoire img{
+  border-radius: 100%;
+  width: 230px;
+    height: 215px;
+
+}
+
+.container-repertoire{
+  display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.oiseau{
+  padding-bottom: 40px;
+  width: 366px;
+  display: flex;
+    flex-direction: column;
+}
+
+.nom-oiseau{
+  align-self: center;
+  font-size: 16px;
+    font-weight: bold;
+    padding-top: 16px;
+}
+
+.pagination-repertoire ul{
+  display: flex;
+    list-style-type: none;
+}
+
+.pagination-repertoire{
+  display: flex;
+    justify-content: center;
+}
+
+.pagination-repertoire ul li{
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination-repertoire ul p{
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+/*fin*/
+
+
 
 
 
@@ -2354,6 +2482,15 @@ body:before {
 
 
   @media (min-width: 900px) {
+    
+    .al{
+      display: initial;
+    }
+    #letter{
+      display: none;
+    }
+    
+    
     .parallax-2{
       height: 221px;
     margin-top: -38px;
