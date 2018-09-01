@@ -1750,7 +1750,7 @@ a:hover
   position: fixed;
 	width: 90px;
 	height: 90px;
-	background-color: #80BA83;
+	background-color: #fa5b35;
 	border-radius: 90px;
 	transition: width 0.7s;
 	overflow: hidden;
@@ -1781,7 +1781,7 @@ a:hover
 
 .nav {
   position: relative;
-	color: rgba(0,0,0,0.7);
+	color: white;
 	top: 45px;
 	left: 45px;
 	font-size: 0px;
@@ -1807,7 +1807,7 @@ a:hover
 }
 
 .container:hover {
-	width: 430px;
+	width: 294px;
 }
 
 .container:hover .anchor {
