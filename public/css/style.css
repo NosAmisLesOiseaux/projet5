@@ -1966,6 +1966,8 @@ a:hover
     flex-wrap: wrap;
     padding: 10px;
     justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .oiseau{
@@ -1973,6 +1975,7 @@ a:hover
   width: 366px;
   display: flex;
     flex-direction: column;
+    margin-right: 10px;
 }
 
 .nom-oiseau{
