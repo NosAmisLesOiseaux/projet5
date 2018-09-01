@@ -90,9 +90,10 @@ class BirdController extends Controller
      * @param NAOPagination $naoPagination
      * @param NAOCountBirds $naoCountBirds
      * @param $page
+     * @param Request $request
      * @return Response
      */
-    public function showBirdsByRegion(NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page)
+    public function showBirdsByRegion(NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds, $page, Request $request)
     {
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
         $session = $request->getSession();
