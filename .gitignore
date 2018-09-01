@@ -3,6 +3,7 @@
 /public/bundles/
 /var/
 /vendor/
+/Oiseaux
 ###< symfony/framework-bundle ###
 ###> symfony/web-server-bundle ###
 /.web-server-pid
