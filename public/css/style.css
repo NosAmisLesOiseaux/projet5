@@ -2288,12 +2288,7 @@ img:not([alt]) {
 }
 
 
-body:before {
-  color: #000000;
-  width: 100%;
-  display: block;
-  text-align: center;
-  content: "Version mobile"; }
+
 
 /* Fin de @media (min-width: 20em) = min-width 320px */
 /* @media query optionnelle (max-width: 6)*/
@@ -2302,12 +2297,7 @@ body:before {
 /* == _tablet.scss (des tablettes aux ordinateurs portables/laptops) */
 /* ----------------------------------------------------------------- */
 @media (min-width: 40.063em) {
-  body:before {
-    color: #000000;
-    width: 100%;
-    display: block;
-    text-align: center;
-    content: "Version tablette"; } 
+  
     #menu{
       width: 370px;;
       padding-left: 79px;
@@ -2398,12 +2388,7 @@ body:before {
 /* == _desktop.scss (grands écrans) */
 /* -------------------------------- */
 @media (min-width: 64.063em) {
-  body:before {
-    color: #000000;
-    width: 100%;
-    display: block;
-    text-align: center;
-    content: "Version Ordinateur"; } 
+  
   .nao-flottant{
     padding-top:168px;
   }
