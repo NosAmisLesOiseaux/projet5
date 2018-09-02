@@ -30,10 +30,14 @@
 		</div>
     </section>
 	<h2 class="h2-qd">Régions</h2>
-    <section id="statisticsByYear">
-    	<div id="statisticsData"></div>
-    	<div id="statisticsBirds"></div>
-    </section>
+   {% set i = 0 %}
+        {% for region in regions %}
+            <section id="statisticsByRegion{{i}}" class="regionStats">
+                <h3 class="h3-stats">{{ region.nom }}</h3>
+                <div id="data{{i}}"></div>
+            </section>
+            {% set i = i + 1 %}
+        {% endfor %}
 	</div>
 {% endblock %}
 
