@@ -704,7 +704,7 @@ a:hover
   border: solid 1px #80BA83;
   border-radius: 7px;
   color: white;
-  width: 260px;
+  width: 238px;
   height: 42px;
   box-shadow: 0px 5px 5px 0px #00000038;
   align-self: center;
@@ -2017,8 +2017,10 @@ footer{
   display: flex;
     justify-content: space-around;
     background-color: #80ba83;
-    padding: 20px;
+    padding: 20px; 
+    width:100%;
 }
+
 
 .réseaux-sociaux a{
   padding-left: 6px;
@@ -2033,6 +2035,7 @@ footer a:hover{
     color: white;
     }  
 
+ 
 
 /*fin*/
 

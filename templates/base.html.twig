@@ -54,13 +54,9 @@
         <a href="{{ path('user_account') }}"><i class=" one fa fa-user fa-2x"></i></a>
         </div>
     </nav>
-        {% block body %}{% endblock %}
-    {% block jquery %}{% endblock %}
-    {% block mapJavascripts %}{% endblock %}
-    {% block paginationJavascripts %}{% endblock %}
-    {% block javascripts %}{% endblock %}
-    </body>
+    {% block body %}{% endblock %}
      
+    </body>
     <footer>
         {% block footer %}
         <div class="mention"><a>Mentions Légales</a></div>
@@ -71,6 +67,11 @@
             <a><i class=" fa fa-envelope fa-2x"></i></a> 
         </div>
         {% endblock %}
-    </footer>    
+    </footer>     
+    {% block jquery %}{% endblock %}
+    {% block mapJavascripts %}{% endblock %}
+    {% block paginationJavascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+ 
     
 </html>
