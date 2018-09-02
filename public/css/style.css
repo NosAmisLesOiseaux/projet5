@@ -2011,6 +2011,30 @@ a:hover
 
 /*fin*/
 
+/* Footer*/
+
+footer{
+  display: flex;
+    justify-content: space-around;
+    background-color: #80ba83;
+    padding: 20px;
+}
+
+.réseaux-sociaux a{
+  padding-left: 6px;
+}
+
+footer a{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+footer a:hover{
+    color: white;
+    }  
+
+
+/*fin*/
 
 
 
