@@ -11,7 +11,8 @@
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="_password" />
-        <input type="hidden" name="_target_path" value="/mon-compte" />
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <input type="hidden" name="_target_path" value="/"/>
 
         {#
             If you want to control the URL the user

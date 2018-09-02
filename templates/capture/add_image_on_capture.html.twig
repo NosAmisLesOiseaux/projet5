@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Ajout d'une image sur l'observation {{ capture.id }}</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_label(form.image) }}
+    {{ form_errors(form.image)) }}
+    {{ form_widget(form.image)) }}
+
+    <button type="submit">Ajouter l'image</button>
+    {{ form_end(form) }}
+    <a href="{{ path('user_account') }}">Ne pas ajouter d'image</a>
+{% endblock %}

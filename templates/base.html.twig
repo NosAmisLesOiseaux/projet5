@@ -2,11 +2,43 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>Nos Amis les Oiseaux - {% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        {% block mapStylesheets %}{% endblock %}
     </head>
     <body>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {{ flashMessage }}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        {{ flashMessage }}
+    {% endfor %}
+    <nav>
+        <ul>
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            <li><a href="{{ path('repertory') }}">Répertoire</a></li>
+            <li><a href="{{ path('captures') }}">Observations</a></li>
+            <li><a href="{{ path('add_capture') }}">Ajouter une observation</a></li>
+            <li><a href="{{ path('statistics') }}">Quelques données</a></li>
+            <li><a href="{{ path('contact') }}">Contact</a></li>
+            {% if is_granted('ROLE_NATURALIST') %}
+                <li><a href="{{ path('admin_space') }}">Administration</a></li>
+                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% elseif is_granted('ROLE_USER') %}
+                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('login') }}">Connexion</a></li>
+                <li><a href="{{ path('register') }}">Inscription</a></li>
+                <li><a href="{{ path('lost_password') }}">Mot de passe perdu</a></li>
+            {% endif %}
+        </ul>
+    </nav>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block jquery %}{% endblock %}
+    {% block mapJavascripts %}{% endblock %}
+    {% block paginationJavascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}
     </body>
 </html>

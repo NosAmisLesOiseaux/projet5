@@ -46,16 +46,26 @@ class Message
      */
     private $subject;
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
+    /**
+     * @param string $firstname
+     * @return Message
+     */
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
@@ -63,11 +73,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
+    /**
+     * @param string $lastname
+     * @return Message
+     */
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
@@ -75,11 +92,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return Message
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -87,11 +111,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
+    /**
+     * @param string $message
+     * @return Message
+     */
     public function setMessage(string $message): self
     {
         $this->message = $message;
@@ -99,11 +130,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getSentAt(): ?\DateTimeInterface
     {
         return $this->sent_at;
     }
 
+    /**
+     * @param \DateTimeInterface $sent_at
+     * @return Message
+     */
     public function setSentAt(\DateTimeInterface $sent_at): self
     {
         $this->sent_at = $sent_at;
@@ -111,11 +149,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getSubject(): ?string
     {
         return $this->subject;
     }
 
+    /**
+     * @param string $subject
+     * @return Message
+     */
     public function setSubject(string $subject): self
     {
         $this->subject = $subject;

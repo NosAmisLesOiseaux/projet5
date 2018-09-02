@@ -1,0 +1,23 @@
+<h2>
+	{% if numberOfReportedComments == 1 %}
+		{{numberOfReportedComments}}  commentaire signalé :
+	{% elseif numberOfReportedComments > 1 %}
+		{{numberOfReportedComments}} commentaires signalés :
+	{% endif %}
+</h2>
+{% for reportedcomment in reportedcomments %}
+	<div>
+		<p>{{ reportedcomment.content }}</p>
+		<a href='{{ path('capture', {id: reportedcomment.capture.id}) }}'>
+			Observation {{ reportedcomment.capture.id }}
+		</a>
+		<p>{{ reportedcomment.createdDate|date('d/m/Y') }}</p>
+		<p>{{ reportedcomment.author.firstname }} {{ reportedcomment.author.lastname }}</p>
+		<form action="{{ path('ignore_reported_comment', {id:  reportedcomment.id}) }}" method="get">
+			<button type="submit">Ignorer</button>
+		</form>
+		<form action="{{ path('remove_comment', {id:  reportedcomment.id}) }}" method="get">
+			<button type="submit">Supprimer</button>
+		</form>
+	</div>
+{% endfor %}

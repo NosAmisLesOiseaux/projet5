@@ -1,0 +1,24 @@
+<h2>
+	{% if numberOfPublishedCaptures == 1 %}
+		{{numberOfPublishedCaptures}} observation publiée :
+	{% elseif numberOfPublishedCaptures > 1 %}
+		{{numberOfPublishedCaptures}} observations publiées :
+	{% endif %}
+</h2>
+<div>
+	<ul>Observation
+		{% for capture in publishedcaptures %}
+			<a href="{{ path('capture', {id: capture.id}) }}"><li>Observation {{ capture.id }}</li></a>
+		{% endfor %}
+	</ul>
+	<ul>Date
+		{% for capture in publishedcaptures %}
+			<li>{{ capture.createdDate|date('d/m/Y') }}</li>
+		{% endfor %}
+	</ul>
+	<ul>Auteur
+		{% for capture in publishedcaptures %}
+			<li>{{ capture.user.firstname }} {{ capture.user.lastname }}</li>
+		{% endfor %}
+	</ul>
+</div>

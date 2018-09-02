@@ -2,29 +2,27 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -32,160 +30,298 @@ class User
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=254, unique=true)
      */
-    private $lastname;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
     private $active;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(name="roles", type="array")
      */
     private $roles;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="lastname", type="string")
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(name="firstname", type="string")
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(name="date_register", type="datetime")
      */
     private $date_register;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="token", type="string", unique=true, nullable=true)
      */
     private $token;
 
     /**
-     * One User has One Image
-     * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true)
+     */
+    private $activation_code;
+
+    /**
+     * @ORM\Column(name="account_type", type="string", nullable=true)
+     */
+    private $account_type;
+
+    /**
+     * One User has One avatar Image.
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist"}, orphanRemoval=true)
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true)
      */
     private $avatar;
 
+    /**
+     * @ORM\Column(name="biography", type="text", nullable=true)
+     */
+    private $biography;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Capture", mappedBy="user")
+     */
+    private $captures;
+
     public function __construct()
     {
         $this->active = false;
-        $this->roles = ["ROLE_USER"];
+        $this->roles = array("ROLE_USER");
         $this->date_register = new \DateTime('now');
+        $this->activation_code = md5(uniqid('code_', false));
+        $this->captures = new ArrayCollection();
     }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    /**
+     * @return string
+     */
+    public function getUsername() :string
     {
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    /**
+     * @param $username
+     */
+    public function setUsername($username) :void
     {
         $this->username = $username;
-
-        return $this;
     }
 
-    public function getEmail(): ?string
+    public function getSalt()
     {
-        return $this->email;
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
     }
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
+    /**
+     * @return string
+     */
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    /**
+     * @param $password
+     * @return $this
+     */
+    public function setPassword($password)
     {
         $this->password = $password;
-
         return $this;
     }
 
-    public function getLastname(): ?string
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
-        return $this->lastname;
+        return $this->email;
     }
 
-    public function setLastname(string $lastname): self
+    /**
+     * @param $email
+     * @return $this
+     */
+    public function setEmail($email)
     {
-        $this->lastname = $lastname;
-
+        $this->email = $email;
         return $this;
     }
 
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getActive(): ?bool
+    /**
+     * @return bool
+     */
+    public function getActive() :bool
     {
         return $this->active;
     }
 
-    public function setActive(bool $active): self
+    /**
+     * @param $active
+     */
+    public function setActive($active) :void
     {
         $this->active = $active;
-
-        return $this;
     }
 
-    public function getRoles(): ?array
+    /**
+     * @return array
+     */
+    public function getRoles() :array
     {
         return $this->roles;
     }
 
-    public function setRoles(array $roles): self
+    /**
+     * @param $roles
+     */
+    public function setRoles($roles) :void
     {
-        $this->roles = $roles;
-
-        return $this;
+        $this->roles[] = $roles;
     }
 
-    public function getDateRegister(): ?\DateTimeInterface
+    /**
+     * @param string $role
+     * @return array
+     */
+    public function addRole(string $role) :array
+    {
+        if (!in_array($role, $this->roles)) {
+            $this->roles[] = $role;
+        }
+        return $this->roles;
+    }
+
+    /**
+     * @param string $role
+     * @return array
+     */
+    public function removeRole(string $role) :array
+    {
+        if (in_array($role, $this->roles)) {
+            unset($role);
+        }
+        return $this->roles;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateRegister()
     {
         return $this->date_register;
     }
 
-    public function setDateRegister(\DateTimeInterface $date_register): self
+    /**
+     * @param mixed $date_register
+     */
+    public function setDateRegister($date_register): void
     {
         $this->date_register = $date_register;
-
-        return $this;
     }
 
-    public function getToken(): ?string
+    /**
+     * @return mixed
+     */
+    public function getToken()
     {
         return $this->token;
     }
 
-    public function setToken(?string $token): self
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token): void
     {
         $this->token = $token;
+    }
 
-        return $this;
+    /**
+     * @return string
+     */
+    public function getActivationCode() :string
+    {
+        return $this->activation_code;
+    }
+
+    /**
+     * @param $activation_code
+     */
+    public function setActivationCode($activation_code) :void
+    {
+        $this->activation_code = $activation_code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccountType()
+    {
+        return $this->account_type;
+    }
+
+    public function setAccountType($account_type) :void
+    {
+        $this->account_type = $account_type;
     }
 
     /**
@@ -202,5 +338,88 @@ class User
     public function setAvatar($avatar): void
     {
         $this->avatar = $avatar;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBiography()
+    {
+        return $this->biography;
+    }
+
+    /**
+     * @param mixed $biography
+     */
+    public function setBiography($biography): void
+    {
+        $this->biography = $biography;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    /**
+     * @return Collection|Capture[]
+     */
+    public function getCaptures(): Collection
+    {
+        return $this->captures;
+    }
+
+    /**
+     * @param Capture $capture
+     * @return User
+     */
+    public function addCapture(Capture $capture): self
+    {
+        if (!$this->captures->contains($capture)) {
+            $this->captures[] = $capture;
+            $capture->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Capture $capture
+     * @return User
+     */
+    public function removeCapture(Capture $capture): self
+    {
+        if ($this->captures->contains($capture)) {
+            $this->captures->removeElement($capture);
+            // set the owning side to null (unless already changed)
+            if ($capture->getUser() === $this) {
+                $capture->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

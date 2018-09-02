@@ -1,0 +1,15 @@
+{% extends "base_email.html.twig" %}
+{% block email_subject %}Activation de votre compte{% endblock %}
+{% block email_style %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/email/activation_compte.css')) }}">
+{% endblock %}
+{% block email_body %}
+    <div class="row center">
+        <h2>Votre inscripion a bien été prise en compte, veuillez activer votre compte à l'aide du code présent dans cet e-mail.</h2>
+        <p class="dark">Attention, celui-ci est unique et n'est valable qu'une seule fois.</p>
+        <p class="header col s12 light">Code d'activation de votre compte</p>
+    </div>
+    <div class="row center">
+        <p class="s12 light">{{ code }}</p>
+    </div>
+{% endblock %}

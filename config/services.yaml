@@ -5,7 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr'
-    avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
+    nao.avatar_dir: '%kernel.project_dir%/public/uploads/avatar'
+    nao.bird_dir: '%kernel.project_dir%/public/uploads/bird'
 
 services:
     # default configuration for services in *this* file
@@ -30,6 +31,30 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Services\FileUploader:
+
+    nao.image_manager:
+        class: App\Services\Image\ImageManager
+        autowire: true
+        public: false
         arguments:
-            $targetDirectory: '%avatar_directory%'
+            - '@App\Services\NAOManager'
+            - '@App\Services\User\NAOUserManager'
+            - '@service_container'
+            - '@App\Services\Image\FileUploader'
+
+    nao.mailer:
+        class: App\Services\Mail\Mailer
+        autowire: true
+        public: true
+        arguments:
+            - '@mailer'
+
+    nao.password_manager:
+        class: App\Services\User\PasswordManager
+        autowire: true
+        public: true
+        arguments:
+            - '@security.user_password_encoder.generic'
+            - '@App\Services\Mail\Mailer'
+            - '@session'
+            - '@App\Services\NAOManager'
