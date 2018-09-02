@@ -125,29 +125,25 @@ a:hover
   position: fixed;
   width: 300px;
   border: 1px solid transparent;
-  border-radius: 38px; 
-  margin: -80px 0 0 -70px;
+  border-radius: 38px;
+  margin: -62px 0 0 -70px;
   padding: 20px;
   height: 103%;
-  padding-left: 70px;
-  padding-top: 127px;
-  
-  background:  #80BA83;
+  padding-left: 78px;
+  padding-top: 79px;
+  background: #80BA83;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   box-shadow: 5px 5px 5px 0px #70707059;
-  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 #menu li
 {
   padding: 10px 0;
-  font-size: 25px;;
+  font-size: 21px;;
   color: white;
 }
 
@@ -269,6 +265,7 @@ a:hover
   flex-direction: column;
   padding-left: 16px;
   padding-right: 10px;
+  margin-top: 24px;
 }
 
 .map-home{
@@ -285,11 +282,13 @@ a:hover
 
 .container-home{
   margin-top: 20px;
+  padding-bottom: 100px;
 }
 
 .p-home a{
   color: #80BA83;
   font-size: 18px;
+  
 }
 /*Fin Home*/
 
@@ -441,9 +440,10 @@ a:hover
   padding-top: 20px;
   padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 100px;
 }
 
-.form-qd1{
+.form-qd1, .regionStats{
   border: solid 1px #80BA83;
   border-radius: 10px;
   box-shadow: 0px 5px 5px 0px #00000038;
@@ -1761,7 +1761,7 @@ a:hover
 
 
 .container {
-  bottom: 50px;
+  bottom: 125px;;
 	right: 50px;
   position: fixed;
 	width: 90px;
@@ -1911,6 +1911,7 @@ a:hover
 .letter-region{
   display: flex;
     justify-content: space-around;
+    padding-left: 3px;
 }
 
 #letter{
@@ -1935,7 +1936,7 @@ a:hover
     margin-top: 5px;
     background-color: #80ba83;
     font-size: 16px;
-    margin-left: 59px;
+    margin-left: 6px;
 }
 
 .repertoire-btn-region{
@@ -1947,7 +1948,8 @@ a:hover
     height: 39px;
     margin-top: 5px;
     font-size: 16px;
-    display: none;
+    width: 100px !important;
+    margin-left: 12px;
 }
 
 .photo-oiseau-repertoire{
@@ -1993,6 +1995,7 @@ a:hover
 .pagination-repertoire{
   display: flex;
     justify-content: center;
+    padding-bottom: 100px;
 }
 
 .pagination-repertoire ul li{
@@ -2019,6 +2022,8 @@ footer{
     background-color: #80ba83;
     padding: 20px; 
     width:100%;
+    position: fixed;
+    bottom: 0;
 }
 
 
@@ -2028,7 +2033,7 @@ footer{
 
 footer a{
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 footer a:hover{
@@ -2302,6 +2307,7 @@ img:not([alt]) {
     padding-top: 130px !important;
     font-size: 20px;
   }
+  
   .nao-flottant-2{
     padding-top: 61px !important;
   }
@@ -2331,6 +2337,9 @@ img:not([alt]) {
     #menu{
       width: 370px;;
       padding-left: 79px;
+    }
+    #menu li {
+      font-size: 25px;
     }
 
     .container-lost, .container-add{
@@ -2459,6 +2468,7 @@ img:not([alt]) {
     padding-top: 10px;
     padding-left: 20%;
     padding-right: 20%;
+   
 
   .s-t-index-2{
     width: 40%;
@@ -2646,6 +2656,7 @@ img:not([alt]) {
   .partie2-ob-partage{
     padding-left: 30%;
   padding-right: 30%;
+  padding-bottom: 120px;
   }
 
   .container-f-login, .container-l-login, .c-contact {
