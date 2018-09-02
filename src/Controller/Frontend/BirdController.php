@@ -28,7 +28,7 @@ class BirdController extends Controller
         $numberOfBirds = $naoCountBirds->countBirdsByLetter($letter);
         $numberOfBirdsPerPage = $naoPagination->getNbBirdsPerPage();
         $birds = $naoBirdManager->getBirdsByLetter($letter, $page, $numberOfBirds, $numberOfBirdsPerPage);
-        /*$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         foreach ($birds as $bird) {
             $cd_name = (int)$bird->getCdName();
             $image = json_decode(file_get_contents("https://taxref.mnhn.fr/api/media/cdNom/".$cd_name.""));
@@ -38,7 +38,7 @@ class BirdController extends Controller
             }
             $em->persist($bird);
         }
-        $em->flush();*/
+        $em->flush();
         $nbRepertoryPages = $naoPagination->CountNbPages($numberOfBirds, $numberOfBirdsPerPage);
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
