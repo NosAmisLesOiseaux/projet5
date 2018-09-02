@@ -28,9 +28,9 @@
 			<div>
 				<a href="{{ path('bird', {id: bird.id}) }}">
                     {% if bird.vernacularname == false %}
-                        {{ bird.validname|convert_encoding('UTF-8', 'iso-2022-jp') }}
+                        {{ bird.validname }}
                     {% else %}
-                        {{ bird.vernacularname|convert_encoding('UTF-8', 'iso-2022-jp') }} - {{ bird.validname }}
+                        {{ bird.vernacularname }} - {{ bird.validname }}
                     {% endif %}
 				</a>
                 {% if bird.imageThumbnail is not null %}
