@@ -55,23 +55,19 @@
         </div>
     </nav>
     {% block body %}{% endblock %}
-     
-    </body>
+
     <footer>
-        {% block footer %}
         <div class="mention"><a>Mentions Légales</a></div>
         <div class="Copyrights"> <a> Copyrights </a></div>
         <div class="réseaux-sociaux">
             <a><i class=" fa fa-facebook fa-2x"></i></a>
             <a><i class=" fa fa-twitter fa-2x"></i></a>
-            <a><i class=" fa fa-envelope fa-2x"></i></a> 
+            <a><i class=" fa fa-envelope fa-2x"></i></a>
         </div>
-        {% endblock %}
-    </footer>     
+    </footer>
+    </body>
     {% block jquery %}{% endblock %}
     {% block mapJavascripts %}{% endblock %}
     {% block paginationJavascripts %}{% endblock %}
     {% block javascripts %}{% endblock %}
- 
-    
 </html>
