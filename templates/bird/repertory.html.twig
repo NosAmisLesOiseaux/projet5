@@ -34,6 +34,7 @@
                     {% endif %}
 				</a>
                 {% if bird.imageThumbnail is not null %}
+					{{ dump(bird.imageThumbnail|length) }}
 					<img src="{{ bird.imageThumbnail }}" alt="">
                 {% else %}
 					<img src="{{ asset('default/bird_default.jpg') }}" alt="">

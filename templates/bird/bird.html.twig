@@ -22,6 +22,7 @@
 			{% endif %}
 		</h1>
 		<img src="{{ bird.imageUrl }}" alt="">
+        {{ dump(bird.imageUrl|length) }}
 		<p>Règne : {{ bird.reign }}</p>
 		<p>Classe : {{ bird.class }}</p>
 		<p>Ordre : {{ bird.birdOrder }}</p>
