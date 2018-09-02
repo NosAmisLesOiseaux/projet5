@@ -13,39 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class BirdController extends Controller
-{   
+{
     /**
-     * @Route("repertoire/{letter}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory_by_letter")
-     * @param $letter
-     * @param $page
-     * @param NAOBirdManager $naoBirdManager
-     * @param NAOPagination $naoPagination
-     * @param NAOCountBirds $naoCountBirds
-     * @return Response
-     */
-    public function showRepertoryByLetter($letter, $page, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds)
-    {
-        $numberOfBirds = $naoCountBirds->countBirdsByLetter($letter);
-        $numberOfBirdsPerPage = $naoPagination->getNbBirdsPerPage();
-        $birds = $naoBirdManager->getBirdsByLetter($letter, $page, $numberOfBirds, $numberOfBirdsPerPage);
-        $nbRepertoryPages = $naoPagination->CountNbPages($numberOfBirds, $numberOfBirdsPerPage);
-        $nextPage = $naoPagination->getNextPage($page);
-        $previousPage = $naoPagination->getPreviousPage($page);
-        $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
-
-        return $this->render('bird\repertory.html.twig',
-            array(
-                'birds' => $birds, 
-                'nbRepertoryPages' => $nbRepertoryPages, 
-                'nextPage' => $nextPage, 
-                'previousPage' => $previousPage,
-                'page' => $page,
-                'letter' => $letter, 
-                'regions' => $regions,
-            )); 
-    }
-
-     /**
      * @Route("repertoire/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory")
      * @param Request $request
      * @param NAOBirdManager $naoBirdManager
@@ -80,6 +49,37 @@ class BirdController extends Controller
                 'nextPage' => $nextPage, 
                 'previousPage' => $previousPage, 
                 'page' => $page, 
+                'regions' => $regions,
+            )); 
+    }
+    
+    /**
+     * @Route("repertoire/{letter}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory_by_letter")
+     * @param $letter
+     * @param $page
+     * @param NAOBirdManager $naoBirdManager
+     * @param NAOPagination $naoPagination
+     * @param NAOCountBirds $naoCountBirds
+     * @return Response
+     */
+    public function showRepertoryByLetter($letter, $page, NAOBirdManager $naoBirdManager, NAOPagination $naoPagination, NAOCountBirds $naoCountBirds)
+    {
+        $numberOfBirds = $naoCountBirds->countBirdsByLetter($letter);
+        $numberOfBirdsPerPage = $naoPagination->getNbBirdsPerPage();
+        $birds = $naoBirdManager->getBirdsByLetter($letter, $page, $numberOfBirds, $numberOfBirdsPerPage);
+        $nbRepertoryPages = $naoPagination->CountNbPages($numberOfBirds, $numberOfBirdsPerPage);
+        $nextPage = $naoPagination->getNextPage($page);
+        $previousPage = $naoPagination->getPreviousPage($page);
+        $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
+
+        return $this->render('bird\repertory.html.twig',
+            array(
+                'birds' => $birds, 
+                'nbRepertoryPages' => $nbRepertoryPages, 
+                'nextPage' => $nextPage, 
+                'previousPage' => $previousPage,
+                'page' => $page,
+                'letter' => $letter, 
                 'regions' => $regions,
             )); 
     }
