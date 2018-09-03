@@ -61,7 +61,7 @@
 					{% endif %}
 					{% for i in 1..nbCapturesPages %}
 						{% if i == 1 or ((pageNumber - 5) < i and i < (pageNumber + 5)) or i == pageNumber %} 
-	   						{% if i == nbCapturesPages and pageNumber < (nbCapturesPages - 5) %} 
+	   						{% if i == nbCapturesPages and pageNumber < (nbCapturesPages - 5) %}
 	   							<p> ... </p>
 	   						{% endif %}
 							<li {% if pageNumber == i %} class="active" {% endif %}>

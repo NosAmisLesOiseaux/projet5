@@ -28,15 +28,15 @@
 			<div>
 				<a href="{{ path('bird', {id: bird.id}) }}">
                     {% if bird.vernacularname == false %}
-                        {{ bird.validname|convert_encoding('UTF-8', 'iso-2022-jp') }}
+                        {{ bird.validname }}
                     {% else %}
-                        {{ bird.vernacularname|convert_encoding('UTF-8', 'iso-2022-jp') }} - {{ bird.validname }}
+                        {{ bird.vernacularname }} - {{ bird.validname }}
                     {% endif %}
 				</a>
                 {% if bird.imageThumbnail is not null %}
-					<img src="{{ bird.imageThumbnail }}" alt="">
+					<img src="{{ bird.imageThumbnail }}" alt="" height="30">
                 {% else %}
-					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+					<img src="{{ asset('default/bird_default.jpg') }}" alt="" height="30">
                 {% endif %}
 			</div>
         {% endfor %}
@@ -69,7 +69,7 @@
 								<a href="/repertoire/{{i}}"> {{i}} </a> 
 							{% endif %}
 	   					</li>
-	   					{% if i == 1 and page > 6 %} 
+	   					{% if i == 1 and page > 6 %}
 	   						<p> ... </p>
 	   					{% endif %}
 	   				{% endif %}

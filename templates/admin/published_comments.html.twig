@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Commentaires publiés {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1>Espace administration</h1>
+	<h2>Commentaires publiés</h2>
+
+	<section>
+		{{ include('admin/_published_comments_model.html.twig')}}
+		<div>
+			<ul>
+				{% if nbPublishedCommentsPages > 1 %}
+					<p> 
+						<a href="{{ path('admin_space') }}"> Retour </a> 
+					</p>
+					{% if previousPage > 1 %}
+					<p> 
+						<a href="{{ path('admin_space_published_comments', {page: previousPage}) }}"> << </a> 
+					</p>
+					{% endif %}
+					{% for i in 2..nbPublishedCommentsPages %}
+						<li {% if page == i %} class="active" {% endif %}>
+   							<a href="{{ path('admin_space_published_comments', {page: i}) }}"> {{i}} </a>
+   						</li>
+   					{% endfor %}
+    				<p>
+    					{% if nextPage <= nbPublishedCommentsPages %}
+    						<a href="{{ path('admin_space_published_comments', {page: nextPage}) }}"> >> </a>
+    					{% endif %}
+    				</p> 
+    			{% endif %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+{% block javascripts %} {% endblock %}

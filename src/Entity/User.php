@@ -30,7 +30,7 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=254, unique=true)
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $email;
 
@@ -60,12 +60,12 @@ class User implements UserInterface, \Serializable
     private $date_register;
 
     /**
-     * @ORM\Column(name="token", type="string", unique=true, nullable=true)
+     * @ORM\Column(name="token", type="string", unique=true, nullable=true, length=50)
      */
     private $token;
 
     /**
-     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true)
+     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true, length=50)
      */
     private $activation_code;
 

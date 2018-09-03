@@ -91,6 +91,24 @@ class NAOBirdManager
 		return $bird;
 	}
 
+	public function uploadBirdCsv(array $form_data)
+    {
+        $data = file_get_contents(utf8_decode($form_data['image']));
+        $line = explode("\n", $data);
+        for ($i=1;$i<count($line);$i++)
+        {
+            $values = explode(";", $line[$i]);
+            $bird = new Bird();
+            $bird->setBirdOrder(utf8_encode($values[3]));
+            $bird->setFamily(utf8_encode($values[4]));
+            $bird->setCdName(utf8_encode($values[5]));
+            $bird->setValidname(utf8_encode($values[9]));
+            $bird->setVernacularname(utf8_encode($values[13]));
+            $this->naoManager->getEm()->persist($bird);
+        }
+        $this->naoManager->getEm()->flush();
+    }
+
 	/**
      * @param $region
      * @param $letter

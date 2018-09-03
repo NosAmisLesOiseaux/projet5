@@ -13,7 +13,7 @@ $( function() {
                     totalNumber: data[0].regions[i].numberOfBirds,
                     autoHidePrevious: true,
                     autoHideNext: true,  
-            
+                    autoHideNext: true,
                     callback: function(data, pagination) {
                         var numberOfBirds = data[0].regions[i].numberOfBirds;
                         var region = data[0].regions[i];
@@ -36,9 +36,8 @@ $( function() {
                         {
                             birds += '<p> Aucune espèce d\'oiseau observée</p>';
                         }
-                    
                         if (numberOfBirds > 0)
-                        {   
+                        {
                             birds += '<ul>';
                             for (t = start; t < limit; t++)
                             {
