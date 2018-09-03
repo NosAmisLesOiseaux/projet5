@@ -48,8 +48,8 @@
 				<p>{{ capture.createdDate|date('d/m/Y') }}</p>
 			</div>
 		{% endfor %}
-		<div>
-			<ul>
+		<div class="page-div">
+			<ul class="page-compte">
 				{% if nbCapturesPages > 1 %}
 					{% if previousPage > 0 %}
 					<p> {% if resultats is defined  %}
@@ -60,13 +60,21 @@
 					</p>
 					{% endif %}
 					{% for i in 1..nbCapturesPages %}
-						<li {% if pageNumber == i %} class="active" {% endif %}>
-							{% if resultats is defined  %}
-								<a href="{{ path('result_search_captures', {pageNumber: i}) }}"> {{i}} </a>
-   							{% else %}
-   								<a href="{{ path('captures', {pageNumber: i}) }}"> {{i}} </a>
+						{% if i == 1 or ((pageNumber - 5) < i and i < (pageNumber + 5)) or i == pageNumber %}
+	   						{% if i == nbCapturesPages and pageNumber < (nbCapturesPages - 5) %}
+	   							<p> ... </p>
+	   						{% endif %}
+							<li {% if pageNumber == i %} class="active" {% endif %}>
+								{% if resultats is defined  %}
+									<a href="{{ path('result_search_captures', {pageNumber: i}) }}"> {{i}} </a>
+   								{% else %}
+   									<a href="{{ path('captures', {pageNumber: i}) }}"> {{i}} </a>
+   								{% endif %}
+   							</li>
+   							{% if i == 1 and pageNumber > 6 %}
+   								<p> ... </p>
    							{% endif %}
-   						</li>
+	   					{% endif %}
    					{% endfor %}
     				<p>
     					{% if nextPage <= nbCapturesPages %}
