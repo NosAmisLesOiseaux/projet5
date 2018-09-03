@@ -12,7 +12,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/');
+        $crawler = $client->request('GET', '/espace-administration/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace administration")')->count() > 0);
@@ -22,7 +22,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/observations-publiees');
+        $crawler = $client->request('GET', '/espace-administration/observations-publiees');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -33,7 +33,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/observations-publiees/2');
+        $crawler = $client->request('GET', '/espace-administration/observations-publiees/2');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -44,7 +44,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/observations-en-attente');
+        $crawler = $client->request('GET', '/espace-administration/observations-en-attente');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -55,7 +55,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/observations-en-attente/2');
+        $crawler = $client->request('GET', '/espace-administration/observations-en-attente/2');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -66,7 +66,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/commentaires-publies');
+        $crawler = $client->request('GET', '/espace-administration/commentaires-publies');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -77,7 +77,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/commentaires-publies/2');
+        $crawler = $client->request('GET', '/espace-administration/commentaires-publies/2');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -88,7 +88,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/commentaires-signales');
+        $crawler = $client->request('GET', '/espace-administration/commentaires-signales');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
@@ -99,7 +99,7 @@ class AdminSpaceControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/espace-administration/commentaires-signales/2');
+        $crawler = $client->request('GET', '/espace-administration/commentaires-signales/2');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains("Espace d\'administration")')->count() > 0);
