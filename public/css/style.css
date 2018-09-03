@@ -1588,10 +1588,6 @@ a:hover
   margin-right:5px;
 }
 
-.paginationjs-pages ul .active a {
-  color: #80BA83;
-}
-
 .ul-year .active {
   color: #80BA83;
 }
@@ -1630,7 +1626,7 @@ a:hover
   color: #3B78E7;
 }
 
-.content-shared-admin a:hover, .content-shared-admin-space a:hover, .link-next-content-admin a:hover, .nav-content-admin ul .active a
+.content-shared-admin a:hover, .content-shared-admin-space a:hover, .link-next-content-admin a:hover, .nav-content-admin ul .active a, .pagination-repertoire .active a, .page-compte .active a
 {
   color: #80BA83;
 }
@@ -1683,7 +1679,7 @@ a:hover
   list-style-type:none;
 }
 
-.nav-content-admin ul .active a{
+.nav-content-admin ul .active a, .pagination-repertoire .active a, .page-compte .active a {
   pointer-events: none;
   cursor: default;
 }

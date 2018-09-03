@@ -41,7 +41,7 @@
 			</div>
         {% endfor %}
     {% endif %}
-		<div>
+		<div class="pagination-repertoire">
 			<ul>
 				{% if nbRepertoryPages  > 1 %}
 					{% if previousPage > 0 %}
@@ -57,7 +57,9 @@
 				{% endif %}
 				{% for i in 1..nbRepertoryPages %}
 					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %} 
-	   						{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} ... {% endif %}
+	   						{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} 
+	   							<p> ... </p>
+	   						{% endif %}
 							<li {% if page == i %} class="active" {% endif %}>
 							{% if letter is defined %}
    								<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
@@ -67,7 +69,9 @@
 								<a href="/repertoire/{{i}}"> {{i}} </a> 
 							{% endif %}
 	   					</li>
-	   					{% if i == 1 and page > 6 %} ... {% endif %}
+	   					{% if i == 1 and page > 6 %} 
+	   						<p> ... </p>
+	   					{% endif %}
 	   				{% endif %}
 				{% endfor %}
 	    		<p>
