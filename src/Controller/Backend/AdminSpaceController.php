@@ -238,7 +238,7 @@ class AdminSpaceController extends Controller
             ]
         );
     }
-
+	
     /**
      * @Route(path="/add-images-on-birds", name="add_images_on_birds")
      */

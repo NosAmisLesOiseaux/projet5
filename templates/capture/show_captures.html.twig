@@ -60,7 +60,7 @@
 					</p>
 					{% endif %}
 					{% for i in 1..nbCapturesPages %}
-						{% if i == 1 or ((pageNumber - 5) < i and i < (pageNumber + 5)) or i == pageNumber %}
+						{% if i == 1 or ((pageNumber - 5) < i and i < (pageNumber + 5)) or i == pageNumber %} 
 	   						{% if i == nbCapturesPages and pageNumber < (nbCapturesPages - 5) %}
 	   							<p> ... </p>
 	   						{% endif %}
@@ -71,7 +71,7 @@
    									<a href="{{ path('captures', {pageNumber: i}) }}"> {{i}} </a>
    								{% endif %}
    							</li>
-   							{% if i == 1 and pageNumber > 6 %}
+   							{% if i == 1 and pageNumber > 6 %} 
    								<p> ... </p>
    							{% endif %}
 	   					{% endif %}

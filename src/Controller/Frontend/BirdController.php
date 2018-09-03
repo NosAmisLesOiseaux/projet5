@@ -43,15 +43,15 @@ class BirdController extends Controller
 
         return $this->render('bird\repertory.html.twig',
             array(
-                'birds' => $birds,
-                'nbRepertoryPages' => $nbRepertoryPages,
-                'nextPage' => $nextPage,
-                'previousPage' => $previousPage,
-                'page' => $page,
+                'birds' => $birds, 
+                'nbRepertoryPages' => $nbRepertoryPages, 
+                'nextPage' => $nextPage, 
+                'previousPage' => $previousPage, 
+                'page' => $page, 
                 'regions' => $regions,
-            ));
+            )); 
     }
-
+	
     /**
      * @Route("repertoire/{letter}/{page}", defaults={"page"=1}, requirements={"page" = "\d+"}, name="repertory_by_letter")
      * @param $letter
@@ -73,12 +73,12 @@ class BirdController extends Controller
 
         return $this->render('bird\repertory.html.twig',
             array(
-                'birds' => $birds,
-                'nbRepertoryPages' => $nbRepertoryPages,
-                'nextPage' => $nextPage,
+                'birds' => $birds, 
+                'nbRepertoryPages' => $nbRepertoryPages, 
+                'nextPage' => $nextPage, 
                 'previousPage' => $previousPage,
                 'page' => $page,
-                'letter' => $letter,
+                'letter' => $letter, 
                 'regions' => $regions,
             ));
     }
@@ -108,12 +108,12 @@ class BirdController extends Controller
         return $this->render('bird\repertory.html.twig',
             array
             (
-                'birds' => $birds,
-                'nbRepertoryPages' => $nbRepertoryPages,
-                'nextPage' => $nextPage,
-                'previousPage' => $previousPage,
-                'page' => $page,
-                'regions' => $regions,
+                'birds' => $birds, 
+                'nbRepertoryPages' => $nbRepertoryPages, 
+                'nextPage' => $nextPage, 
+                'previousPage' => $previousPage, 
+                'page' => $page, 
+                'regions' => $regions, 
                 'region' => $region
             ));
     }
