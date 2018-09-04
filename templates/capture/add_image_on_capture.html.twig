@@ -1,12 +1,19 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Ajout d'une image sur l'observation {{ capture.id }}</h1>
+    <h1 class="t-index-4">Ajout d'une image sur l'observation {{ capture.id }}</h1>
+    <span class="s-t-index-4"></span>
 
-    {{ form_start(form) }}
+    <div class="container-add">
+    <div class="form-add">
+    <div class="form-b-add">
+    {{ form_start(form, {'attr': {'class': "form-2-add"}}) }}
     {{ form_errors(form) }}
     {{ form_widget(form) }}
-    <button type="submit">Ajouter l'image</button>
+    <button type="submit" class="btn-add">Ajouter l'image</button>
     {{ form_end(form) }}
     <a href="{{ path('user_account') }}">Ne pas ajouter d'image</a>
+    </div>
+    </div>
+    </div>
 {% endblock %}

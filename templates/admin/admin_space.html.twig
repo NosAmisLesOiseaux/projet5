@@ -56,5 +56,26 @@
 			</section>
 		{% endif %}
 	</section>
+
+
+	<div class="container">
+	<div class="container-items">
+	<div class="item">
+		<a href="{{ path('user_account') }}"><i class="nav one fa fa-user fa-2x"></i></a>
+		<div class="highlight"></div>
+	</div>
+	<div class="item">
+		<a href="{{ path('add_capture') }}"><i class="nav two fa fa-plus fa-2x"></i></a>
+		<div class="highlight"></div>
+	</div>
+	</div>
+	<div class="anchor">
+		<i class="fa fa-ellipsis-h fa-2x"></i>
+	</div>
+</div>
+
+
 {% endblock %}
-{% block javascripts %} {% endblock %}
+{% block javascripts %}
+ <script type="text/javascript" src="{{ asset('javacrispt/statistics/btn_page_admin.js')}}"></script>
+ {% endblock %}

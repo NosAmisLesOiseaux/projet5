@@ -97,8 +97,8 @@ class AdminSpaceController extends Controller
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
                 'nbElementsPages' => $nbPublishedCapturesPages,
-                'subtitle' => $subtitle, 
-                'template' => $template, 
+                'subtitle' => $subtitle,
+                'template' => $template,
                 'url' => $url
             )
         );
@@ -134,8 +134,8 @@ class AdminSpaceController extends Controller
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
                 'nbElementsPages' => $nbWaitingForValidationCapturesPages,
-                'subtitle' => $subtitle, 
-                'template' => $template, 
+                'subtitle' => $subtitle,
+                'template' => $template,
                 'url' => $url
             )
         );
@@ -171,8 +171,8 @@ class AdminSpaceController extends Controller
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
                 'nbElementsPages' => $nbPublishedCommentsPages,
-                'subtitle' => $subtitle, 
-                'template' => $template, 
+                'subtitle' => $subtitle,
+                'template' => $template,
                 'url' => $url
             )
         );
@@ -208,8 +208,8 @@ class AdminSpaceController extends Controller
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
                 'nbElementsPages' => $nbReportedCommentsPages,
-                'subtitle' => $subtitle, 
-                'template' => $template, 
+                'subtitle' => $subtitle,
+                'template' => $template,
                 'url' => $url
             )
         );
@@ -241,5 +241,28 @@ class AdminSpaceController extends Controller
     {
         $naoManager->removeEntity($comment);
         return $this->redirectToRoute('admin_space');
+    }
+
+    /**
+     * @Route(path="/add-csv-file", name="add_csv_file")
+     * @param Request $request
+     * @param NAOBirdManager $birdManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function addCsvFile(Request $request, NAOBirdManager $birdManager)
+    {
+        $form = $this->createForm(ImageType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $birdManager->uploadBirdCsv($form->getData());
+            $this->addFlash('success', "Fichier Aves.csv mis en base de données avec succès !");
+            return $this->redirectToRoute('repertory');
+        }
+        return $this->render(
+            'admin/add_csv_file.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 }

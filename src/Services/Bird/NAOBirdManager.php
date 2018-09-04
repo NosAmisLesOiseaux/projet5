@@ -77,7 +77,7 @@ class NAOBirdManager
 
     /**
      * @param $birdName
-     * @return mixed
+     * @return Bird $bird
      */
 	public function getBirdByVernacularOrValidName($birdName)
 	{
@@ -89,5 +89,50 @@ class NAOBirdManager
 		}
 
 		return $bird;
+	}
+
+	public function uploadBirdCsv(array $form_data)
+    {
+        $data = file_get_contents(utf8_decode($form_data['image']));
+        $line = explode("\n", $data);
+        for ($i=1;$i<count($line);$i++)
+        {
+            $values = explode(";", $line[$i]);
+            $bird = new Bird();
+            $bird->setBirdOrder($values[3]);
+            $bird->setFamily($values[4]);
+            $bird->setCdName($values[5]);
+            $bird->setValidname($values[9]);
+            $bird->setVernacularname($values[13]);
+            $this->naoManager->getEm()->persist($bird);
+        }
+        $this->naoManager->getEm()->flush();
+    }
+
+	/**
+     * @param $region
+     * @param $letter
+     * @param $pageNumber
+     * @param $numberOfSearchBirds
+     * @param $numberOfBirdsPerPage
+     * @return mixed
+     */
+	public function searchBirdsByRegionAndLetterPerPage($region, $letter, $pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage)
+	{
+		$firstEntrance = $this->naoPagination->getFirstEntrance($pageNumber, $numberOfSearchBirds, $numberOfBirdsPerPage);
+
+		if (empty($region))
+		{
+			return $searchBirdsByLetterPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->getBirdsByFirstLetter($letter, $numberOfBirdsPerPage, $firstEntrance);
+		}
+
+		if (empty($letter))
+		{
+			return $searchBirdsByRegionPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionPerPage($region, $numberOfBirdsPerPage, $firstEntrance, $this->draftStatus, $this->waitingStatus);
+		}
+		else
+		{
+			return $searchBirdsByRegionAndLetterPerPage = $this->naoManager->getEm()->getRepository(Bird::class)->searchBirdsByRegionAndLetterPerPage($region, $letter, $numberOfBirdsPerPage, $firstEntrance, $this->draftStatus, $this->waitingStatus);
+		}
 	}
 }
