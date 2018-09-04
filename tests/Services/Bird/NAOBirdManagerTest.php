@@ -2,7 +2,7 @@
 
 // tests/ServicesTests/Bird/NAOBirdManagerTest.php
 
-namespace App\Tests\ServicesTests\Bird;
+namespace App\Tests\Services\Bird;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

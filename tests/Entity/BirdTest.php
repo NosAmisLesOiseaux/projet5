@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\EntitiesTests;
+namespace App\Tests\Entity;
 
 use App\Entity\Bird;
 use PHPUnit\Framework\TestCase;

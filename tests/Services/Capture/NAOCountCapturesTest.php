@@ -2,7 +2,7 @@
 
 // tests/ServicesTests/Capture/NAOCountCapturesTest.php
 
-namespace App\Tests\ServicesTests\Capture;
+namespace App\Tests\Services\Capture;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

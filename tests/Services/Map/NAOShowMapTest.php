@@ -2,7 +2,7 @@
 
 // tests/ServicesTests/Map/NAOShowMapTest.php
 
-namespace App\Tests\ServicesTests\Map;
+namespace App\Tests\Services\Map;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
