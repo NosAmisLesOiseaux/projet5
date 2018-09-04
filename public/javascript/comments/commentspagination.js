@@ -28,6 +28,9 @@ $( function() {
                 html += '<p>'+ data[i].authorFirstname + ' ' + data[i].authorLastname +'</p>';
                 html += '<p>'+ data[i].content +'</p>';
                 html += '</li>';
+                html += '<form action="/signaler-commentaire/' + data[i].id +'/" method="get">';                 
+                html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';                 
+                html += '</form>';
             }
             $('#comment').html(html);
 

@@ -75,15 +75,19 @@
 					</p>
 				{% endif %}
 				{% for i in 1..nbRepertoryPages %}
-					<li {% if page == i %} class="active" {% endif %}>
-						{% if letter is defined %}
-   							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
-   						{% elseif region is defined  %}
-							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a> 
-   						{% else %}
-							<a href="/repertoire/{{i}}"> {{i}} </a> 
-						{% endif %}
-	   				</li>
+					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %}  	   						
+					{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} <p> ... </p> {% endif %} 							
+					<li {% if page == i %} class="active" {% endif %}> 							
+						{% if letter is defined %}    								
+							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>    							
+						{% elseif region is defined  %} 								
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a>     							
+						{% else %} 								
+							<a href="/repertoire/{{i}}"> {{i}} </a>
+						{% endif %} 	   					
+					</li> 	   					
+					{% if i == 1 and page > 6 %} <p>...</p> {% endif %} 	   				
+					{% endif %}
 	   			{% endfor %}
 	    		<p>
 	    			{% if nextPage <= nbRepertoryPages %}
