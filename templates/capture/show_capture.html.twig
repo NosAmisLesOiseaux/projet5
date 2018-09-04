@@ -2,7 +2,9 @@
 
 {% block title %}Observation numéro {{ capture.id }} {% endblock %}
 
-{% block mapStylesheets %}{% endblock %}
+{% block mapStylesheets %}
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
 	<div id="map0" class="capturemap" data-identifiant={{ capture.id }}>

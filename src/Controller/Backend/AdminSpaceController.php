@@ -3,6 +3,7 @@
 namespace App\Controller\Backend;
 
 use App\Entity\Comment;
+use App\Services\Bird\NAOBirdManager;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
 use App\Services\Comment\NAOCommentManager;
@@ -12,6 +13,7 @@ use App\Services\Pagination\NAOPagination;
 use App\Services\User\NAOUserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -197,7 +199,7 @@ class AdminSpaceController extends Controller
 
         $subtitle = 'Commentaires signalés';
         $template = 'admin/_reported_comments_model.html.twig';
-        $url = 'admin_space_reported_comments'
+        $url = 'admin_space_reported_comments';
 
         return $this->render(
             'admin/next_elements.html.twig',

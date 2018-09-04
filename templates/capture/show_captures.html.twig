@@ -1,7 +1,9 @@
 {% extends "layout.html.twig" %}
 
 {% block title %} Observations {% endblock %}
-{% block mapStylesheets %} {% endblock %}
+{% block mapStylesheets %}
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
 	<div id="map">
