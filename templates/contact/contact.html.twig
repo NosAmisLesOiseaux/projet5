@@ -5,7 +5,7 @@
 
 {% block body %}
     <h1>Contact</h1>
-    <form action="{{ path('contact') }}" method="post">
+    {{ form_start(form) }}
 
        {{ form_label(form.firstname) }}
        {{ form_errors(form.firstname) }}
@@ -28,5 +28,5 @@
        {{ form_widget(form.message) }}
 
         <button type="submit">Envoyer</button>
-    </form>
+    {{ form_end(form) }}
 {% endblock %}
