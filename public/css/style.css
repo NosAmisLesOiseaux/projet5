@@ -13,6 +13,10 @@
 /* ----------------------------- */
 /* switching box model for all elements */
 
+p{
+  font-weight: bold;
+}
+
 a
 {
   text-decoration: none;
@@ -26,23 +30,22 @@ a:hover
   color: #80BA83;
 }
 
+/*Menu*/
 #menuToggle
 {
   display: block;
-  position: relative;
-  top: 31px;
-  left: 32px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
+    position: relative;
+    top: 23px;
+    left: 32px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #menuToggle input
 {
   display: block;
-  width: 40px;
+  width: 50px ;
   height: 32px;
   position: absolute;
   top: -7px;
@@ -62,21 +65,17 @@ a:hover
 #menuToggle span
 {
   display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: white;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+    width: 28px;
+    height: 2px;
+    margin-bottom: 7px;
+    position: relative;
+    background: white;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 0px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+ background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+ opacity 0.55s ease;
 }
 
 #menuToggle span:first-child
@@ -126,29 +125,25 @@ a:hover
   position: fixed;
   width: 300px;
   border: 1px solid transparent;
-  border-radius: 38px; 
-  margin: -90px 0 0 -70px;
+  border-radius: 38px;
+  margin: -62px 0 0 -70px;
   padding: 20px;
   height: 103%;
-  padding-left: 70px;
-  padding-top: 125px;
-  
-  background:  #80BA83;
+  padding-left: 78px;
+  padding-top: 79px;
+  background: #80BA83;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   box-shadow: 5px 5px 5px 0px #70707059;
-  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 #menu li
 {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 21px;;
   color: white;
 }
 
