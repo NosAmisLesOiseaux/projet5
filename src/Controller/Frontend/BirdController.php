@@ -47,8 +47,8 @@ class BirdController extends Controller
                 'birds' => $birds, 
                 'nbRepertoryPages' => $nbRepertoryPages, 
                 'nextPage' => $nextPage, 
-                'previousPage' => $previousPage, 
-                'page' => $page, 
+                'previousPage' => $previousPage,
+                'page' => $page,
                 'regions' => $regions,
             )); 
     }
@@ -79,7 +79,7 @@ class BirdController extends Controller
                 'nextPage' => $nextPage, 
                 'previousPage' => $previousPage,
                 'page' => $page,
-                'letter' => $letter, 
+                'letter' => $letter,
                 'regions' => $regions,
             )); 
     }
@@ -118,7 +118,6 @@ class BirdController extends Controller
                 'region' => $region
             )); 
     }
-
 
     /**
      * @Route("oiseau/{id}", requirements={"id" = "\d+"}, name="bird")

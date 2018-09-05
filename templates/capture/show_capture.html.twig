@@ -4,13 +4,6 @@
 
 {% block mapStylesheets %}
 	{{ parent() }}
-	<style type="text/css">
-			.capturemap{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:250px;
-				position: sticky !important;
-		
-			}
-		</style>
 {% endblock %}
 
 {% block body %}
@@ -25,19 +18,19 @@
 	<div class="container-partie-1-2">
 	<div class="container-partie1">
 	<div class="container1">
-	
+
 		{% if capture.status == 'validated' %}
 		<p class="pastille-validé">
 			Validée
 		</p>
 		{% endif %}
-	
+
 	<div>
     {% if capture.image is not null %}
 		<img class="image-page-observation"src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
                 {% else %}
 					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
-               
+
     {% endif %}
 	</div>
 	</div>
@@ -54,7 +47,7 @@
 			{% endif %}
 		</a>
 	</h1>
-	
+
 	<p>{{ capture.createdDate|date('d/m/Y') }}</p>
 	<p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
 	<p class="information-page-ob">Informations :</p>

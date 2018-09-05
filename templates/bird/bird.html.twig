@@ -3,7 +3,7 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} {% endif %}{% endblock %}
-{% block mapStylesheets %} 
+{% block mapStylesheets %}
 	{{ parent() }}
 	<style type="text/css">
 			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */

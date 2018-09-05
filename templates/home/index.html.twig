@@ -2,15 +2,7 @@
 
 {% block title %}Accueil{% endblock %}
 {% block stylesheets %}{% endblock %}
-{% block mapStylesheets %}
-    {{ parent() }}
-    <style type="text/css">
-        .map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-            height:200px;
-            width:200px;
-        }
-    </style>
-{% endblock %}
+{% block mapStylesheets %}{% endblock %}
 
 {% block body %}
     <div class="parallax">

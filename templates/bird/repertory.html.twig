@@ -34,7 +34,7 @@
     {% if birds is defined %}
 		<div class="container-repertoire">
         {% for bird in birds %}
-			
+
 			<div class="oiseau">
 				<div class="photo-oiseau-repertoire">
 				{% if bird.imageThumbnail is not null %}
@@ -72,25 +72,25 @@
 					</p>
 				{% endif %}
 				{% for i in 1..nbRepertoryPages %}
-					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %}  	   						
-					{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} <p> ... </p> {% endif %} 							
-					<li {% if page == i %} class="active" {% endif %}> 							
-						{% if letter is defined %}    								
-							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>    							
-						{% elseif region is defined  %} 								
-							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a>     							
-						{% else %} 								
+					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %}
+					{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} <p> ... </p> {% endif %}
+					<li {% if page == i %} class="active" {% endif %}>
+						{% if letter is defined %}
+							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
+						{% elseif region is defined  %}
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a>
+						{% else %}
 							<a href="/repertoire/{{i}}"> {{i}} </a>
-						{% endif %} 	   					
-					</li> 	   					
-					{% if i == 1 and page > 6 %} <p>...</p> {% endif %} 	   				
+						{% endif %}
+					</li>
+					{% if i == 1 and page > 6 %} <p>...</p> {% endif %}
 					{% endif %}
 	   			{% endfor %}
 	    		<p>
 	    			{% if nextPage <= nbRepertoryPages %}
 	    				{% if letter is defined %}
 	    					<a href="/repertoire/{{letter}}/{{nextPage}}"> >> </a>
-	    					{% elseif region is defined  %}
+	    				{% elseif region is defined  %}
 							<a href="/resultat-recherche-oiseaux/{{region}}/{{nextPage}}"> >> </a> 
     					{% else %}
 							<a href="/repertoire/{{nextPage}}"> >> </a> 

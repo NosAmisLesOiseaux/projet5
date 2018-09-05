@@ -1,14 +1,8 @@
 {% extends "layout.html.twig" %}
 
 {% block title %} Observations {% endblock %}
-{% block mapStylesheets %} 
+{% block mapStylesheets %}
 	{{ parent() }}
-	<style type="text/css">
-			#map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-				height:250px;
-				position: sticky !important;
-			}
-		</style>
 {% endblock %}
 
 {% block body %}
@@ -18,7 +12,13 @@
 		<select name="bird" id="bird">
 			<option disabled selected value="" class="bird">Oiseau</option>
             {% for bird in birds %}
-				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">{% if bird.vernacularname == false %}{{ bird.validname }} {% else %} {{ bird.vernacularname }} - {{ bird.validname }}{% endif %}</option>
+				<option value="{% if bird.vernacularname == false %}{{ bird.validname|lower  }} {% else %} {{ bird.vernacularname|lower }}{% endif %}">
+					{% if bird.vernacularname == false %}
+						{{ bird.validname }}
+					{% else %}
+						{{ bird.vernacularname }} - {{ bird.validname }}
+					{% endif %}
+				</option>
             {% endfor %}
 		</select>
 		<select name="region" id="region">
@@ -31,10 +31,10 @@
 	</form>
     <section class="observation-recherche">
 		<div class="container-home">
-		
+
 		{% for capture in captures %}
 		<div class="forme-observation-home">
-			
+
 				<div>
                 {% if capture.image is not null %}
 					<img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
@@ -56,8 +56,8 @@
 				<p>{{ capture.createdDate|date('d/m/Y') }}</p>
 				</div>
 				</div>
-			
-		
+
+
 		{% endfor %}
 		</div>
 		</div>

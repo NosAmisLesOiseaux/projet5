@@ -217,7 +217,13 @@ a:hover
     color: white;
     font-weight: bold;
 }
-
+.nao-flottant-2{
+  padding-top: 49px;
+    text-align: center;
+    font-size: 37px;
+    color: white;
+    font-weight: bold;
+}
 .t-index{
   text-align: center;
   padding-top: 4%;
@@ -288,7 +294,7 @@ a:hover
 .p-home a{
   color: #80BA83;
   font-size: 18px;
-  
+
 }
 /*Fin Home*/
 
@@ -403,7 +409,7 @@ a:hover
     height: 39px;
     margin-top: 5px;
     font-size: 16px;
- 
+
 }
 
 #region{
@@ -453,6 +459,7 @@ a:hover
   font-size: 16px;
   
 }
+
 .form-qd2{
   border: solid 1px #80BA83;
   border-radius: 10px;
@@ -840,7 +847,7 @@ a:hover
   padding-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
-  
+
 }
 
 
@@ -914,6 +921,193 @@ a:hover
   display: flex;
   flex-direction: column;
   font-size: 16px;
+}
+
+/* ----------- Statistics page / pagination stats and comments ------------*/
+
+.regionStats {
+  margin-bottom: 20px;
+}
+
+.h3-stats{
+  font-size: 16px;
+}
+
+.stats, .paginationjs ul {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.stats li, .paginationjs ul li{
+  margin-right:5px;
+}
+
+.paginationjs-pages ul .active a {
+  color: #80BA83;
+}
+
+.ul-year .active {
+  color: #80BA83;
+}
+
+/* -------------------------- Maps ---------------------------*/
+
+.capturemap, #map{
+  /* The map must have a height to be displayed */
+  height:250px;
+  position: sticky !important;
+}
+
+#map-bird #map{
+  /* The map must have a height to be displayed */
+  height:400px;
+  position: sticky !important;
+}
+
+.forme-observation-home .map{
+  /* The map must have a height to be displayed */
+  height:200px;
+  width:200px;
+}
+
+/* --------------------------- Admin space ----------------------*/
+
+.content-shared-admin{
+  border: transparent solid 1px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  width: 90%;
+  margin:auto;
+  margin-top: 24px;
+}
+
+.content-shared-admin a, .content-shared-admin-space a {
+  color: #3B78E7;
+}
+
+.content-shared-admin a:hover, .content-shared-admin-space a:hover, .link-next-content-admin a:hover, .nav-content-admin ul .active a
+{
+  color: #80BA83;
+}
+
+.tb-content-shared-admin {
+  width: 100%;
+}
+
+.thead-content-shared-admin th {
+  width: 33%;
+}
+
+.tbody-content-shared-admin td{
+  text-align:center;
+}
+
+.link-next-content-admin{
+  text-align:right;
+  padding-right:20px;
+  padding-bottom:5px;
+  font-size:18px;
+  font-weight: bold;
+  width:90%;
+}
+
+.link-next-content-admin a{
+  color:#000000;
+}
+
+.subtitle-admin{
+  font-size: 16px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.nav-content-admin{
+  display:flex;
+  width:90%;
+  margin:auto;
+  text-align:right;
+  margin-top:10px;
+  justify-content: center;
+}
+
+.nav-content-admin p{
+  padding-left:10px;
+}
+
+.nav-content-admin ul, .comment-data-admin{
+  list-style-type:none;
+}
+
+.nav-content-admin ul .active a{
+  pointer-events: none;
+  cursor: default;
+}
+
+#space-comments-admin, .comment-admin-buttons{
+  width:95%;
+}
+
+#space-comments-admin{
+  margin:auto;
+  display:flex;
+  justify-content: space-between;
+}
+
+.content-shared-admin-space{
+  width: 50%;
+}
+
+.h2-comment-shared{
+  font-size: 16px;
+  margin-top: 0;
+  padding: 7px;
+  text-align: center;
+}
+
+.comment-text-admin{
+  width:90%;
+  margin:auto;
+  margin-bottom:10px;
+}
+
+.comment-data-admin{
+  display:flex;
+  width:100%;
+  justify-content: space-around;
+}
+
+.comment-admin-buttons{
+  display: flex;
+  justify-content: right;
+}
+
+.comment-admin-buttons button{
+  border-radius: 7px;
+  color: white;
+  width: 150px;
+  height: 38px;
+  box-shadow: 0px 5px 5px 0px #00000038;
+  align-self: center;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left:10px;
+}
+
+.comment-admin-buttons button:active {
+  box-shadow: none;
+}
+
+.red-button{
+  border: solid 1px #db4437;
+  background-color:#db4437;
+}
+
+.orange-button{
+  border:solid 1px #ff9f5a;
+  background-color:#ff9f5a;
+}
+
+
   font-weight: bold;
 }
 
@@ -1036,7 +1230,7 @@ a:hover
 
 .page-div{
   color: white;
- 
+
 }
 
 .page-compte .active {
@@ -1225,7 +1419,7 @@ a:hover
   display: flex;
   flex-direction: column;
   align-items: center;
-} 
+}
 
 .form-b-add a{
   color:#fd744f;
@@ -1289,8 +1483,8 @@ a:hover
 .container1{
   display: flex;
   flex-direction: column;
-  
-  
+
+
 }
 
 .container1 img{
@@ -1299,7 +1493,7 @@ a:hover
 }
 
 .container-partie1{
-  
+
   padding-top: 40px;
 }
 
@@ -1321,8 +1515,8 @@ a:hover
 
 .container-partie2{
   display: flex;
-  
-  
+
+
 }
 
 .information-page-ob{
@@ -1382,7 +1576,7 @@ a:hover
 
 #comment{
   padding: 0;
-  list-style-type: none; 
+  list-style-type: none;
 }
 
 #comment textarea{
@@ -1415,7 +1609,7 @@ a:hover
     font-size: 16px;
     margin-bottom: 30px;
 }
- 
+
 .form-page-observation{
   display: flex;
   flex-direction: column;
@@ -1423,7 +1617,7 @@ a:hover
 
 .container-partie-1-2{
   padding:1px;
-  
+
 }
 
 .C-C-p1-p2{
@@ -1454,7 +1648,7 @@ a:hover
 
 .container-partie-2{
   padding-left: 40px;
-  
+
 }
 
 .container-partie-2 h1{
@@ -1501,7 +1695,7 @@ a:hover
   height: 35px;
   font-size: 14px;
   margin-top: 10px;
-  
+
 }
 .btn-v-w-r{
   display: flex;
@@ -1580,7 +1774,7 @@ a:hover
 }
 
 .stats, .paginationjs ul {
-  list-style-type: none; 
+  list-style-type: none;
   display: inline-flex;
 }
 
@@ -1598,7 +1792,7 @@ a:hover
 
 /* -------------------------- Maps ---------------------------*/
 
-.capturemap, #map{ 
+.capturemap, #map{
   /* The map must have a height to be displayed */
   height:250px;
   position: sticky !important;
@@ -1879,7 +2073,7 @@ a:hover
     left: 83px;
 }
 .btn-retour{
- 
+
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 3px;
@@ -2020,7 +2214,7 @@ footer{
   display: flex;
     justify-content: space-around;
     background-color: #80ba83;
-    padding: 20px; 
+    padding: 20px;
     width:100%;
     position: fixed;
     bottom: 0;
@@ -2038,9 +2232,9 @@ footer a{
 
 footer a:hover{
     color: white;
-    }  
+    }
 
- 
+
 
 /*fin*/
 
@@ -2285,7 +2479,7 @@ img:not([alt]) {
   .container-home{
     padding-left: 15%;
     padding-right: 15%;
-     
+
   }
 }
 
@@ -2301,7 +2495,7 @@ img:not([alt]) {
   padding-top: 72px;
     font-size: 30px;
   }
-  
+
 
 }
 
@@ -2310,7 +2504,7 @@ img:not([alt]) {
     padding-top: 130px !important;
     font-size: 20px;
   }
-  
+
   .nao-flottant-2{
     padding-top: 61px !important;
   }
@@ -2336,7 +2530,7 @@ img:not([alt]) {
 /* == _tablet.scss (des tablettes aux ordinateurs portables/laptops) */
 /* ----------------------------------------------------------------- */
 @media (min-width: 40.063em) {
-  
+
     #menu{
       width: 370px;;
       padding-left: 79px;
@@ -2430,7 +2624,7 @@ img:not([alt]) {
 /* == _desktop.scss (grands écrans) */
 /* -------------------------------- */
 @media (min-width: 64.063em) {
-  
+
   .nao-flottant{
     padding-top:168px;
   }
@@ -2464,14 +2658,14 @@ img:not([alt]) {
   .t-index-4{
     font-size: 25px;
     padding-top: 2%;
-    
+
   }
 
   .container-qd {
     padding-top: 10px;
     padding-left: 20%;
     padding-right: 20%;
-   
+
 
   .s-t-index-2{
     width: 40%;
@@ -2510,15 +2704,15 @@ img:not([alt]) {
 
 
   @media (min-width: 900px) {
-    
+
     .al{
       display: initial;
     }
     #letter{
       display: none;
     }
-    
-    
+
+
     .parallax-2{
       height: 221px;
     margin-top: -38px;

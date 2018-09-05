@@ -43,7 +43,7 @@ class ParticularCaptureType extends AbstractType
                 'placeholder' => 'Sélectionner un oiseau',
                     )
             )
-            
+
             ->add(
                 'latitude',
                 NumberType::class,

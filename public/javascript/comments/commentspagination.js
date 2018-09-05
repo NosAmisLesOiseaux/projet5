@@ -7,12 +7,7 @@ $( function() {
         pageSize: 1,
         totalNumber: numberComments,
         autoHidePrevious: true,
-        autoHideNext: true,   
-        ajax: {
-            beforeSend: function() {
-                dataContainer.html('Loading data from flickr.com ...');
-        }
-    },
+        autoHideNext: true,
         callback: function(data, pagination) {
             var currentPage = $('#comments').data('pagination').model.pageNumber;
             var pageSize = $('#comments').data('pagination').model.pageSize;
@@ -28,8 +23,8 @@ $( function() {
                 html += '<p>'+ data[i].authorFirstname + ' ' + data[i].authorLastname +'</p>';
                 html += '<p>'+ data[i].content +'</p>';
                 html += '</li>';
-                html += '<form action="/signaler-commentaire/' + data[i].id +'/" method="get">';                 
-                html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';                 
+                html += '<form action="/signaler-commentaire/' + data[i].id +'/" method="get">';
+                html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';
                 html += '</form>';
             }
             $('#comment').html(html);
