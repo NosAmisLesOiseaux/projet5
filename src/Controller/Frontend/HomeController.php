@@ -24,7 +24,7 @@ class HomeController extends Controller
      * @param NAOCaptureManager $naoCaptureManager
      * @return Response
      */
-	public function showHomeAction(NAOCaptureManager $naoCaptureManager)
+	public function showHome(NAOCaptureManager $naoCaptureManager)
 	{
 		$captures = $naoCaptureManager->getLastPublishedCaptures();
 

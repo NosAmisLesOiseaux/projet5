@@ -2,55 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dba9c5fc-c2c8-4c57-868b-63d014df03aa" name="Default" comment="Add image form or add image link to validate capture">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/image-accueil.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo-classic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/javascript/statistics/btn_page_admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/bird/3d139e5981ba759a1ffe1a88f5784641.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/bird/5b9f3d107622c0e3f33138fbbdedb314.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/bird/910950ceb36e2c42d422563c8d035a2b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/bird/9d1451a185a2f13c701e086e5481a16b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/next_elements.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/capture/form_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/test/doctrine.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/Frontend/HomeControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/BirdTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/CaptureTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/CommentTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/ImageTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/MessageTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Entity/UserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180802142630.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180802143326.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180802144028.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180802151331.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180802165617.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180804145517.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180805133115.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180827112346.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Migrations/Version20180827144024.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Repository/BirdRepositoryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/phpunit.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascript/comments/commentspagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascript/comments/commentspagination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascript/statistics/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascript/statistics/statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Backend/CaptureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Backend/CaptureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CaptureFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CaptureFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/CaptureFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/CommentFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/UserFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Statistics/NAODataStatistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Statistics/NAODataStatistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/account.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/account.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/biography_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/biography_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/change_avatar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/change_avatar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_space.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_space.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bird/bird.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/bird.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bird/repertory.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/repertory.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/capture/show_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/capture/show_captures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_captures.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/password/lost_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/password/lost_password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/password/reinitialisation_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/password/reinitialisation_password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/activation_code.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/activation_code.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/statistics/statistics.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistics/statistics.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,42 +39,50 @@
     <session id="123087866">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="dist" value="4" />
-          <entry key="env" value="7" />
-          <entry key="gitignore" value="6" />
+          <entry key="dist" value="7" />
+          <entry key="env" value="10" />
+          <entry key="gitignore" value="7" />
           <entry key="js" value="3" />
-          <entry key="php" value="58" />
+          <entry key="php" value="79" />
           <entry key="twig" value="49" />
+          <entry key="xml" value="3" />
+          <entry key="yaml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="7" />
-          <entry key="Git file" value="6" />
+          <entry key=".env file" value="10" />
+          <entry key="Git file" value="7" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="58" />
+          <entry key="PHP" value="79" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Twig" value="49" />
+          <entry key="XML" value="6" />
+          <entry key="YAML" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="env" value="55" />
+          <entry key="env" value="71" />
           <entry key="gitignore" value="1" />
           <entry key="js" value="5" />
-          <entry key="php" value="1896" />
+          <entry key="php" value="4411" />
           <entry key="twig" value="1809" />
           <entry key="txt" value="277" />
+          <entry key="xml" value="16" />
+          <entry key="yaml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="55" />
+          <entry key=".env file" value="71" />
           <entry key="Git file" value="1" />
           <entry key="JavaScript" value="5" />
-          <entry key="PHP" value="1896" />
+          <entry key="PHP" value="4411" />
           <entry key="PLAIN_TEXT" value="277" />
           <entry key="Twig" value="1809" />
+          <entry key="XML" value="16" />
+          <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -115,13 +97,17 @@
       <usages-collector id="statistics.php.rename.constructor" />
       <usages-collector id="statistics.php.composer.actions" />
       <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="12" />
+        </counts>
+      </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.php.new.test" />
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.compare" value="1" />
-          <entry key="git.branch.delete.local" value="3" />
+          <entry key="git.branch.delete.local" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -182,7 +168,26 @@
     <favorites_list name="app" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Controller/Frontend/HomeControllerTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="19" column="47" lean-forward="true" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Repository/BirdRepositoryTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -206,22 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-        <option value="$PROJECT_DIR$/src/Services/Bird/NAOCountBirds.php" />
-        <option value="$PROJECT_DIR$/src/Services/Capture/NAOCaptureManager.php" />
-        <option value="$PROJECT_DIR$/src/Services/Capture/NAOCountCaptures.php" />
-        <option value="$PROJECT_DIR$/src/Services/Comment/NAOCommentManager.php" />
-        <option value="$PROJECT_DIR$/src/Services/Comment/NAOCountComments.php" />
-        <option value="$PROJECT_DIR$/src/Services/Comment/NAOShowComments.php" />
-        <option value="$PROJECT_DIR$/src/Services/Form/FormManager.php" />
-        <option value="$PROJECT_DIR$/src/Services/Image/FileUploader.php" />
-        <option value="$PROJECT_DIR$/src/Services/Mail/Mailer.php" />
-        <option value="$PROJECT_DIR$/src/Services/Map/NAOShowMap.php" />
-        <option value="$PROJECT_DIR$/src/Services/Pagination/NAOPagination.php" />
-        <option value="$PROJECT_DIR$/src/Services/User/NAOUserManager.php" />
-        <option value="$PROJECT_DIR$/src/Services/Image/ImageManager.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/config/routes.yaml" />
         <option value="$PROJECT_DIR$/templates/admin/admin_space.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" />
@@ -255,8 +244,24 @@
         <option value="$PROJECT_DIR$/templates/statistics/statistics.html.twig" />
         <option value="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
+        <option value="$PROJECT_DIR$/tests/Entity/BirdTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/CaptureTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/CommentTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/ImageTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/MessageTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/UserTest.php" />
+        <option value="$PROJECT_DIR$/config/packages/dev/routing.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/test/framework.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/test/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/tests/phpunit.xml" />
+        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
+        <option value="$PROJECT_DIR$/src/Controller/Frontend/HomeController.php" />
+        <option value="$PROJECT_DIR$/tests/Generic_Tests_DatabaseTestCase.php" />
+        <option value="$PROJECT_DIR$/tests/DatabaseTest.php" />
+        <option value="$PROJECT_DIR$/tests/Controller/Frontend/HomeControllerTest.php" />
+        <option value="$PROJECT_DIR$/tests/Repository/BirdRepositoryTest.php" />
       </list>
     </option>
   </component>
@@ -375,9 +380,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="665" />
-    <option name="width" value="1222" />
-    <option name="height" value="1038" />
+    <option name="x" value="-1" />
+    <option name="width" value="1917" />
+    <option name="height" value="1054" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -460,13 +465,36 @@
             <path>
               <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="capture" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Repository" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -516,13 +544,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="AbstractContro&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="PHPUnit_&#9;null&#9;null&#10;AbstractContro&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="/var/www/OC/NAO/app/.env&#10;true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/louvre" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../louvre" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/config/packages/test" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -550,7 +584,7 @@
       <workItem from="1535142701045" duration="8316000" />
       <workItem from="1535392064389" duration="5051000" />
       <workItem from="1535445726728" duration="11456000" />
-      <workItem from="1536152706448" duration="849000" />
+      <workItem from="1536152706448" duration="11723000" />
     </task>
     <task id="LOCAL-00001" summary="Fix relations to User -&gt; user &amp; validated_by">
       <created>1535109520779</created>
@@ -633,7 +667,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61044000" />
+    <option name="totallyTimeSpent" value="71918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -646,6 +680,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945712" visible="true" weight="0.17182498" />
       <window_info id="Structure" order="1" sideWeight="0.5005429" side_tool="true" weight="0.16862327" />
@@ -661,7 +696,7 @@
       <window_info anchor="bottom" id="NativeScript" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="RNConsole" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4994664" weight="0.4549403" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4994664" weight="0.669924" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053364" side_tool="true" weight="0.24919094" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32899022" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -716,151 +751,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add bird csv feature in admin" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="256" height="888" key="Git.Branch.Popup" />
-    <state width="256" height="888" key="Git.Branch.Popup/1920.1080" />
-    <state width="256" height="888" key="Git.Branch.Popup@1920.1080" />
+    <state width="266" height="1046" key="Git.Branch.Popup" />
+    <state width="266" height="1046" key="Git.Branch.Popup/1920.1080" />
+    <state width="266" height="1046" key="Git.Branch.Popup@1920.1080" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/routing.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/dev/debug.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/prod/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="8973" selection-start-line="8973" selection-end-line="8973" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/CaptureController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="88" column="69" lean-forward="true" selection-start-line="88" selection-start-column="69" selection-end-line="88" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Bird.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/geolocation/geolocation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-779">
-          <caret line="12" column="75" lean-forward="true" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1860" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/comments/commentspagination.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Capture/NaturalistCaptureType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bird/bird.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/BirdController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/BirdRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Backend/AccountController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1161">
@@ -976,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Capture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5122">
-          <caret line="292" column="20" selection-start-line="292" selection-start-column="20" selection-end-line="292" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/bird/repertory.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -1001,13 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1036,6 +917,202 @@
           <folding>
             <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Bird.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4529">
+          <caret line="259" lean-forward="true" selection-start-line="259" selection-end-line="259" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Capture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4991">
+          <caret line="292" column="20" selection-start-line="292" selection-start-column="20" selection-end-line="292" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/CommentTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#37#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/CaptureTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
+          <folding>
+            <element signature="e#37#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/ImageTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="100" selection-start-line="19" selection-start-column="100" selection-end-line="19" selection-end-column="100" />
+          <folding>
+            <element signature="e#37#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/MessageTets.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/MessageTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#37#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/UserTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="91" selection-start-line="19" selection-start-column="91" selection-end-line="19" selection-end-column="91" />
+          <folding>
+            <element signature="e#37#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/BirdTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="19" column="98" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
+          <folding>
+            <element signature="e#37#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/dev/routing.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Migrations/Version20180802142630.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Migrations/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/test/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="30" column="85" lean-forward="true" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/test/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="101" lean-forward="true" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="phar://$PROJECT_DIR$/vendor/bin/.phpunit/phpunit-6.5/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/phpunit-example-extension/TestCaseTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seed.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/.phpunit/phpunit-6.5/vendor/phpunit/phpunit-mock-objects/src/MockObject.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/DatabaseTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Generic_Tests_DatabaseTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding>
+            <element signature="e#26#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/RepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Controller/Frontend/HomeControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="47" lean-forward="true" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Repository/BirdRepositoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
         </state>
       </provider>
     </entry>
