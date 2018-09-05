@@ -34,7 +34,20 @@
         {% for region in regions %}
             <section id="statisticsByRegion{{i}}" class="regionStats">
                 <h3 class="h3-stats">{{ region.nom }}</h3>
-                <div id="data{{i}}"></div>
+                {% if numberOfBirdsRegions[i] == 1 %}
+                    <p>{{numberOfBirdsRegions[i]}} espèce d'oiseau observée</p>
+                {% elseif numberOfBirdsRegions[i] > 1 %}
+                    <p>{{numberOfBirdsRegions[i]}} espèces d'oiseaux observées</p>
+                {% else %}
+                    <p> Aucune espèce d'oiseau observée</p>
+                {% endif %}
+                {% if numberOfBirdsRegions[i] > 0 %}
+                    <div id="data{{i}}">
+                        <div class="containersButtons">
+                            <button type="button" id="dataBirds{{i}}" data-valbutton="{{ i }}" class="statisticsButtons">Détails</button>
+                        </div>
+                    </div>
+                {% endif %}
             </section>
             {% set i = i + 1 %}
         {% endfor %}

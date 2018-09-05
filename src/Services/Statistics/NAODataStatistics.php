@@ -1,8 +1,8 @@
 <?php
 
-// src/Services/Statistics/DataStatistics.php
+// src/Services/DataStatistics.php
 
-namespace App\Services\Statistics;
+namespace App\Services;
 
 use App\Services\Capture\NAOCountCaptures;
 use App\Services\Bird\NAOCountBirds;
@@ -40,8 +40,22 @@ class NAODataStatistics
         return $this->regions;
     }
 
-	public function formatBirdsByRegions($year)
-	{
+    public function getNumberOfBirdsByRegion($year)
+    {
+        $regions = $this->regions;
+
+        $numberOfBirdsRegions = [];
+        foreach ($regions as $region)
+        {
+            $regionName = $region['nom'];
+            $numberOfBirdsRegions[] = $this->naoCountBirds->countSearchBirdsByRegionAndDate($regionName, $year);
+        }
+
+        return $numberOfBirdsRegions;
+    }
+
+    public function formatBirdsByRegions($year)
+    {
         $numberOfPublishedCaptures = $this->naoCountCaptures->countPublishedCapturesByYear($year);
         $regions = $this->regions;
 
@@ -80,5 +94,5 @@ class NAODataStatistics
         ];
 
         return new JsonResponse($formatted);
-	}
+    }
 }
