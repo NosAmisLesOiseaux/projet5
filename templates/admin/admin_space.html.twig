@@ -1,0 +1,81 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Espace d'administration {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1 class="t-index-4">Espace administration</h1>
+	<span class="s-t-index-4"></span>
+	<p class="compte-ajout">Compte {{ userRole }}</p>
+
+	<a href="{{ path('add_csv_file') }}">Ajout CSV file</a>
+
+	<section>
+		{{ include('admin/_published_captures_model.html.twig')}}
+		<div class="link-next-content-admin">
+			{% if numberOfPublishedCaptures > numberOfElementsPerPage %}
+				<p> 
+					<a href="{{ path('admin_space_published_captures', {page: 2}) }}"> >> </a> 
+				</p>
+    		{% endif %}
+		</div>
+	</section>
+
+	<section>
+		{{ include('admin/_waiting_captures_model.html.twig')}}
+		<div class="link-next-content-admin">
+			{% if numberOfWaitingforvalidationCaptures > numberOfElementsPerPage %}
+				<p> 
+					<a href="{{ path('admin_space_waiting_captures', {page: 2}) }}"> >> </a> 
+				</p>
+    		{% endif %}
+		</div>
+	</section>
+
+	<section id="space-comments-admin">
+		{% if is_granted('ROLE_ADMIN') %}
+			<section class="content-shared-admin-space">
+				{{ include('admin/_published_comments_model.html.twig')}}
+				<div class="link-next-content-admin">
+					{% if numberOfPublishedComments > numberOfElementsPerPage %}
+						<p> 
+							<a href="{{ path('admin_space_published_comments', {page: 2}) }}"> >> </a> 
+						</p>
+    				{% endif %}
+				</div>
+			</section>
+
+			<section class="content-shared-admin-space">
+				{{ include('admin/_reported_comments_model.html.twig')}}
+				<div class="link-next-content-admin">
+					{% if numberOfReportedComments > numberOfElementsPerPage %}
+						<p> 
+							<a href="{{ path('admin_space_reported_comments', {page: 2}) }}"> >> </a> 
+						</p>
+	    			{% endif %}
+				</div>
+			</section>
+		{% endif %}
+	</section>
+	
+
+	<div class="container">
+	<div class="container-items">
+	<div class="item">
+		<a href="{{ path('user_account') }}"><i class="nav one fa fa-user fa-2x"></i></a>
+		<div class="highlight"></div>
+	</div>
+	<div class="item">
+		<a href="{{ path('add_capture') }}"><i class="nav two fa fa-plus fa-2x"></i></a>
+		<div class="highlight"></div>
+	</div>
+	</div>
+	<div class="anchor">
+		<i class="fa fa-ellipsis-h fa-2x"></i>
+	</div>
+</div>
+
+
+{% endblock %}
+{% block javascripts %}
+ <script type="text/javascript" src="{{ asset('javacrispt/statistics/btn_page_admin.js')}}"></script>
+ {% endblock %}

@@ -1,0 +1,34 @@
+{# templates/AdminSpace/reportedCommentsModel.html.twig #}
+
+<section class="content-shared-admin">
+    <h2 class="h2-comment-shared">
+	{% if numberOfReportedComments == 1 %}
+		{{numberOfReportedComments}}  commentaire signalé : 
+	{% elseif numberOfReportedComments > 1 %}
+		{{numberOfReportedComments}} commentaires signalés :
+	{% endif %}
+	</h2>
+</section>
+{% for reportedcomment in reportedcomments %}
+	<section class="content-shared-admin">
+		<p class="comment-text-admin">{{ reportedcomment.content }}</p>
+		<ul class="comment-data-admin">
+			<li>
+				<a href='{{ path('capture', {id: reportedcomment.capture.id}) }}'>Observation {{ reportedcomment.capture.id }}</a>
+			<li>
+				{{ reportedcomment.createdDate|date('d/m/Y') }}
+			</li>
+			<li>
+				{{ reportedcomment.author.firstname }} {{ reportedcomment.author.lastname }}
+			</li>
+		</ul>
+	</section>
+	<section class="comment-admin-buttons">
+		<form action="{{ path('ignore_reported_comment', {id:  reportedcomment.id}) }}" method="get">
+			<button type="submit" class="orange-button">Ignorer</button>
+		</form>
+		<form action="{{ path('remove_comment', {id:  reportedcomment.id}) }}" method="get">
+			<button type="submit" class="red-button">Supprimer</button>
+		</form>
+	</section>
+{% endfor %}

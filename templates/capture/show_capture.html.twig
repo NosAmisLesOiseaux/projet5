@@ -1,0 +1,125 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Observation numéro {{ capture.id }} {% endblock %}
+
+{% block mapStylesheets %}
+	{{ parent() }}
+	<style type="text/css">
+			.capturemap{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+				height:250px;
+				position: sticky !important;
+
+			}
+		</style>
+{% endblock %}
+
+{% block body %}
+	<div id="map0" class="capturemap" data-identifiant={{ capture.id }}>
+	</div>
+	<div class="btn-container-retour">
+	<button class="btn-retour" type="submit" onclick="history.back()">Retour</button>
+	</div>
+	<div class="global-page-observation">
+	<div class="container-global">
+	<div class="C-C-p1-p2">
+	<div class="container-partie-1-2">
+	<div class="container-partie1">
+	<div class="container1">
+
+		{% if capture.status == 'validated' %}
+		<p class="pastille-validé">
+			Validée
+		</p>
+		{% endif %}
+
+	<div>
+    {% if capture.image is not null %}
+		<img class="image-page-observation"src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% else %}
+					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+
+    {% endif %}
+	</div>
+	</div>
+	</div>
+
+	<div class="container-partie2">
+	<div class="container2">
+	<h1>
+		<a href="{{ path('bird', {id: capture.bird.id}) }}">
+			{% if capture.bird.vernacularname == false %}
+				{{ capture.bird.validname }}
+			{% else %}
+				{{ capture.bird.vernacularname }} - {{ capture.bird.validname }}
+			{% endif %}
+		</a>
+	</h1>
+    {% if capture.image is not null %}
+		<img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+    {% endif %}
+	<p>
+		{% if capture.status == 'validated' %}
+			Validé
+		{% endif %}
+	</p>
+	<p>{{ capture.createdDate|date('d/m/Y') }}</p>
+	<p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
+	<p class="information-page-ob">Informations :</p>
+	<p class="message-observation">{{ capture.content }}</p>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<div class="container-partie3">
+	<p>
+		Publié par :
+		{% if capture.user.avatar == null %}
+			{{ capture.user.username }}
+		{% else %}
+			<img src="{{ asset('uploads/avatar/' ~ capture.user.avatar.filename ) }}" alt="" height="80">
+		{% endif %}
+	</p>
+	{% if 'particular' in capture.user.roles %}
+		<p>Validé par :
+			{% if capture.validatedBy.avatar == null %}
+				{{ capture.validatedBy.username }}
+			{% else %}
+                {{ capture.validatedBy.username }}
+				<img src="{{ asset('uploads/avatar/' ~ capture.validated_by.avatar.filename) }}" alt="" height="80">
+			{% endif %}
+		</p>
+	{% endif %}
+
+	<p id="numbercomments" data-number={{ numberOfCaptureComments }}>
+		{% if numberOfCaptureComments == 1 %}
+			Commentaire :
+		{% elseif numberOfCaptureComments > 1 %}
+			Commentaires :
+		{% else %}
+			Soyez le premier à commenter !
+		{% endif %}
+	</p>
+	<section id="comments">
+		<ul id="comment">
+		</ul>
+	</section>
+	{{ form_start(form, {'attr': {'class': "form-page-observation"}}) }}
+	{{ form_errors(form) }}
+	{{ form_widget(form) }}
+	<button type="submit">Commenter</button>
+	{{ form_end(form) }}
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+{% block mapJavascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('javascript/maps/showcapturemap.js') }}"></script>
+{% endblock %}
+{% block paginationJavascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('javascript/comments/commentspagination.js') }}"></script>
+{% endblock %}
+   

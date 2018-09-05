@@ -1,0 +1,55 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block mapStylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+            height:200px;
+            width:200px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="parallax">
+    <div></div>
+    <div class="nao-flottant"><p>NOS AMIS LES OISEAUX</p></div>
+    <div></div>
+    </div>
+    <section>
+        <h2 class="t-index">Les dernières observations</h2>
+        <span class="s-t-index"></span>
+        <div class="container-home">
+        {% set i = 0 %}
+        {% for capture in captures %}
+            <div class="forme-observation-home">
+                <div>
+                {% if capture.image is not null %}
+                    <img src="{{ asset('uploads/bird/' ~ capture.image.filename) }}" alt="" height="150">
+                {% else %}
+				<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+                {% endif %}
+                </div>
+                <div class="container-p-home">
+                <div class="p-home">
+                <p><a href="{{ path('capture', {id: capture.id}) }}">{% if capture.bird.vernacularname == false %}{{ capture.bird.validname }} {% else %} {{ capture.bird.vernacularname }} - {{ capture.bird.validname }}{% endif %}</a></p>
+                <p>{{ capture.address }}, {{ capture.zipcode }}, {{ capture.city }}</p>
+                <p>{{ capture.createdDate|date('d/m/Y') }}</p>
+                </div>
+                <div id="map{{i}}" class="map map-home">
+                </div>
+                {% set i = i + 1 %}
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block mapJavascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('javascript/maps/showcapturemap.js') }}"></script>
+{% endblock %}

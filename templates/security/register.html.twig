@@ -1,9 +1,36 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <form action="{{ path('register') }}" method="post">
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-        <button type="submit">Inscription</button>
-    </form>
+    <h1 class="t-index-3">INSCRIPTION</h1>
+    <span class="s-t-index-3"></span>
+    <div class="container-register">
+    <div class="form-register">
+    <div class="form-b-register">
+    {{ form_start(form) }}
+
+    {{ form_label(form.firstname) }}
+    {{ form_errors(form.firstname) }}
+    {{ form_widget(form.firstname) }}
+
+    {{ form_label(form.lastname) }}
+    {{ form_errors(form.lastname) }}
+    {{ form_widget(form.lastname) }}
+
+    {{ form_label(form.account_type) }}
+    {{ form_errors(form.account_type) }}
+    {{ form_widget(form.account_type) }}
+
+    {{ form_label(form.email) }}
+    {{ form_errors(form.email) }}
+    {{ form_widget(form.email) }}
+
+
+    {{ form_errors(form.password) }}
+    {{ form_widget(form.password) }}
+    <button type="submit" class="btn-register">Créer mon compte</button>
+    {{ form_end(form) }}
+
+    </div>
+    </div>
+    </div>
 {% endblock %}
