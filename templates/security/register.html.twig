@@ -1,8 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Register</h1>
-
+    <h1 class="t-index-3">INSCRIPTION</h1>
+    <span class="s-t-index-3"></span>
+    <div class="container-register">
+    <div class="form-register">
+    <div class="form-b-register">
     {{ form_start(form) }}
 
     {{ form_label(form.firstname) }}
@@ -21,10 +24,13 @@
     {{ form_errors(form.email) }}
     {{ form_widget(form.email) }}
 
-    {{ form_label(form.password) }}
+
     {{ form_errors(form.password) }}
     {{ form_widget(form.password) }}
-
-    <button type="submit">Créer mon compte</button>
+    <button type="submit" class="btn-register">Créer mon compte</button>
     {{ form_end(form) }}
+
+    </div>
+    </div>
+    </div>
 {% endblock %}

@@ -3,29 +3,47 @@
 {% block title %} Répertoire {% endblock %}
 
 {% block body %}
-	<h1>Répertoire</h1>
-	<section>
-		<a href="{{ path('repertory') }}">All</a> {% for l in 'a'..'z' %} | <a href="{{ path('repertory_by_letter', {'letter': l}) }}">{{l}}</a> {% endfor %}
+	<div class="parallax-2">
+    <div></div>
+    <div class="nao-flottant-2"><p>REPERTOIRE</p></div>
+    <div></div>
+    </div>
+	<section class="repertoire-selection">
 
-		<form action="{{ path('repertory') }}" method="post">
+		<div class="al">
+		<a href="{{ path('repertory') }}" class="al">All</a> {% for l in 'a'..'z' %} | <a href="{{ path('repertory_by_letter', {'letter': l}) }}">{{l}}</a> {% endfor %}
+		</div>
+
+		<form action="{{ path('repertory') }}" method="post" class="letter-region">
 			<select name="letter" id="letter">
 				<option disabled selected value="">Lettre</option>
             	{% for l in 'a'..'z' %}
 					<option value="{{ l }}">{{ l }}</option>
             	{% endfor %}
 			</select>
-			<select name="region" id="region">
+			<select name="region" id="region" class="repertoire-btn-region">
 				<option disabled selected value="">Région</option>
                 {% for region in regions %}
 					<option value="{{ region.nom|lower }}">{{ region.nom }}</option>
                 {% endfor %}
 			</select>
-			<button type="submit">Rechercher</button>
+			<button type="submit" class="btn-repertoire">Rechercher</button>
 		</form>
+
 	</section>
     {% if birds is defined %}
+		<div class="container-repertoire">
         {% for bird in birds %}
-			<div>
+
+			<div class="oiseau">
+				<div class="photo-oiseau-repertoire">
+				{% if bird.imageThumbnail is not null %}
+					<img src="{{ bird.imageThumbnail }}" alt="">
+                {% else %}
+					<img src="{{ asset('default/bird_default.jpg') }}" alt="">
+                {% endif %}
+				</div>
+				<div class="nom-oiseau">
 				<a href="{{ path('bird', {id: bird.id}) }}">
                     {% if bird.vernacularname == false %}
                         {{ bird.validname }}
@@ -33,13 +51,11 @@
                         {{ bird.vernacularname }} - {{ bird.validname }}
                     {% endif %}
 				</a>
-                {% if bird.imageThumbnail is not null %}
-					<img src="{{ bird.imageThumbnail }}" alt="" height="30">
-                {% else %}
-					<img src="{{ asset('default/bird_default.jpg') }}" alt="" height="30">
-                {% endif %}
+				</div>
 			</div>
         {% endfor %}
+		</div>
+
     {% endif %}
 		<div class="pagination-repertoire">
 			<ul>
@@ -56,24 +72,20 @@
 					</p>
 				{% endif %}
 				{% for i in 1..nbRepertoryPages %}
-					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %} 
-	   						{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} 
-	   							<p> ... </p>
-	   						{% endif %}
-							<li {% if page == i %} class="active" {% endif %}>
-							{% if letter is defined %}
-   								<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
-   							{% elseif region is defined  %}
-								<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a> 
-   							{% else %}
-								<a href="/repertoire/{{i}}"> {{i}} </a> 
-							{% endif %}
-	   					</li>
-	   					{% if i == 1 and page > 6 %}
-	   						<p> ... </p>
-	   					{% endif %}
-	   				{% endif %}
-				{% endfor %}
+					{% if i == 1 or ((page-5) < i and i < (page + 5)) or i == nbRepertoryPages %}
+					{% if i == nbRepertoryPages and page < (nbRepertoryPages - 5) %} <p> ... </p> {% endif %}
+					<li {% if page == i %} class="active" {% endif %}>
+						{% if letter is defined %}
+							<a href="/repertoire/{{letter}}/{{i}}"> {{i}} </a>
+						{% elseif region is defined  %}
+							<a href="/resultat-recherche-oiseaux/{{region}}/{{i}}"> {{i}} </a>
+						{% else %}
+							<a href="/repertoire/{{i}}"> {{i}} </a>
+						{% endif %}
+					</li>
+					{% if i == 1 and page > 6 %} <p>...</p> {% endif %}
+					{% endif %}
+	   			{% endfor %}
 	    		<p>
 	    			{% if nextPage <= nbRepertoryPages %}
 	    				{% if letter is defined %}

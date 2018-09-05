@@ -1,0 +1,40 @@
+{# templates/admin/next_elements.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %} Espace d'administration - {{subtitle}} {% endblock %}
+{% block stylesheets %} {% endblock %}
+{% block body %} 
+	<h1 class="t-index-4">Espace administration</h1>
+	<span class="s-t-index-4"></span>
+	<h2 class="subtitle-admin">{{subtitle}}</h2>
+
+	<section>
+		{{ include(template)}}
+		<div class="nav-content-admin">
+			{% if nbElementsPages > 1 %}
+				<p> 
+					<a href="{{ path('admin_space') }}"> Retour </a> 
+				</p>
+				{% if previousPage > 0 %}
+				<p> 
+					<a href="{{ path(url, {page: previousPage}) }}"> << </a> 
+				</p>
+				{% endif %}
+				{% for i in 1..nbElementsPages %}
+					<ul>
+						<li {% if page == i %} class="active" {% endif %}>
+   							<a href="{{ path(url, {page: i}) }}"> {{i}} </a>
+   						</li>
+   					</ul>
+   				{% endfor %}
+    			<p>
+    				{% if nextPage <= nbElementsPages %}
+    					<a href="{{ path(url, {page: nextPage}) }}"> >> </a>
+    				{% endif %}
+    			</p> 
+    		{% endif %}
+		</div>
+	</section>
+{% endblock %}
+{% block javascripts %} {% endblock %}

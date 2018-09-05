@@ -12,9 +12,9 @@ $( function() {
                     pageSize: 1,
                     totalNumber: data[0].regions[i].numberOfBirds,
                     autoHidePrevious: true,
-                    autoHideNext: true,  
                     autoHideNext: true,
-                    callback: function(data, pagination) {
+
+                    callback: function(data) {
                         var numberOfBirds = data[0].regions[i].numberOfBirds;
                         var region = data[0].regions[i];
                         var currentPage = $('#statisticsByRegion'+ i+'').data('pagination').model.pageNumber;
@@ -36,6 +36,7 @@ $( function() {
                         {
                             birds += '<p> Aucune espèce d\'oiseau observée</p>';
                         }
+
                         if (numberOfBirds > 0)
                         {
                             birds += '<ul>';

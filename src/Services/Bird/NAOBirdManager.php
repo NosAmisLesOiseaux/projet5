@@ -99,11 +99,11 @@ class NAOBirdManager
         {
             $values = explode(";", $line[$i]);
             $bird = new Bird();
-            $bird->setBirdOrder(utf8_encode($values[3]));
-            $bird->setFamily(utf8_encode($values[4]));
-            $bird->setCdName(utf8_encode($values[5]));
-            $bird->setValidname(utf8_encode($values[9]));
-            $bird->setVernacularname(utf8_encode($values[13]));
+            $bird->setBirdOrder($values[3]);
+            $bird->setFamily($values[4]);
+            $bird->setCdName($values[5]);
+            $bird->setValidname($values[9]);
+            $bird->setVernacularname($values[13]);
             $this->naoManager->getEm()->persist($bird);
         }
         $this->naoManager->getEm()->flush();

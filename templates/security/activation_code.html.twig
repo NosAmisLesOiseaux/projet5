@@ -1,10 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Code validation</h1>
+    <h1 class="t-index-2">Code validation</h1>
+    <span class="s-t-index-2"></span>  
 
-    <form action="{{ path('activation_code') }}" method="post">
+    <div class="container-f-code">
+    <div class="form-code">
+    <form action="{{ path('activation_code') }}" method="post" class="form-b-code">
         <input type="text" name="activation_code" placeholder="Code d'activation">
-        <button type="submit">Valider le code</button>
+        <button type="submit" class="btn-code">Valider le code</button>
     </form>
+    </div>
+    </div>
 {% endblock %}

@@ -34,7 +34,7 @@ class CaptureFixtures extends Fixture implements DependentFixtureInterface
             $capture->setLongitude('0.7');
             $capture->setNaturalistComment("Naturalist Comment");
             $capture->setRegion("Region $i");
-            $capture->setStatus(1);
+            $capture->setStatus("waiting_for_validation");
             $user = $this->getReference('user'.rand(1,5));
             $capture->setUser($user);
             //$capture->setValidatedBy($user);

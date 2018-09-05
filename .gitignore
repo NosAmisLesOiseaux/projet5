@@ -1,9 +1,10 @@
 ###> symfony/framework-bundle ###
-.idea
-.env
+/.idea/
+/.env
 /public/bundles/
 /var/
 /vendor/
+/Oiseaux
 ###< symfony/framework-bundle ###
 ###> symfony/web-server-bundle ###
 /.web-server-pid
@@ -13,5 +14,3 @@
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-Supprimerait .idea/codeStyles/
-Supprimerait .idea/inspectionProfiles/

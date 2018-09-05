@@ -91,6 +91,6 @@ class ApiController extends Controller
     {
         $regions = json_decode(file_get_contents("https://geo.api.gouv.fr/regions"), true);
 
-        return $naoDataStatistics->formatBirdsByRegions($regions, $year);
+        return $naoDataStatistics->formatBirdsByRegions($year);
     }
 }

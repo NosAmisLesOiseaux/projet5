@@ -31,6 +31,9 @@ $( function() {
                 html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';
                 html += '</form>';
                 html += '</li>';
+                html += '<form action="/signaler-commentaire/' + data[i].id +'/" method="get">';                 
+                html += '<input id="reportcomment" type="submit" value="Signaler le commentaire">';                 
+                html += '</form>';
             }
             $('#comment').html(html);
 

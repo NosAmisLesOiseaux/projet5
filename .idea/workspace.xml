@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dba9c5fc-c2c8-4c57-868b-63d014df03aa" name="Default" comment="">
+    <list default="true" id="dba9c5fc-c2c8-4c57-868b-63d014df03aa" name="Default" comment="Add image form or add image link to validate capture">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/image-accueil.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo-classic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascript/statistics/btn_page_admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bird/3d139e5981ba759a1ffe1a88f5784641.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bird/5b9f3d107622c0e3f33138fbbdedb314.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bird/910950ceb36e2c42d422563c8d035a2b.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bird/9d1451a185a2f13c701e086e5481a16b.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/next_elements.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/capture/form_capture.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascript/geolocation/geolocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascript/geolocation/geolocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Backend/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Backend/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascript/comments/commentspagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascript/comments/commentspagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascript/statistics/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascript/statistics/statistics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Backend/CaptureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Backend/CaptureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Backend/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Backend/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/CaptureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/CaptureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Capture/NaturalistCaptureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Capture/NaturalistCaptureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Capture/ValidateCaptureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Capture/ValidateCaptureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Image/ImageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Image/ImageManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/User/NAOUserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/User/NAOUserManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/adminspace.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_space.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/publishedCaptures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/published_captures.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/publishedCapturesModel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/publishedComments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/published_comments.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/publishedCommentsModel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/reportedComments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/reported_comments.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/reportedCommentsModel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/waitingCaptures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/waiting_captures.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/AdminSpace/waitingCapturesModel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Bird/bird.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/bird.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Bird/repertory.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/repertory.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Capture/addImageOnCapture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Capture/addOrModifyCapture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/add_or_modify_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Capture/showCapture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_capture.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Capture/showCaptures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_captures.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Capture/validate_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Frontend/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CaptureFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CaptureFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/CaptureFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/CommentFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/Fixtures/UserFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Statistics/NAODataStatistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Statistics/NAODataStatistics.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/account.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/account.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/biography_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/biography_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/change_avatar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/change_avatar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_space.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_space.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bird/bird.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/bird.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bird/repertory.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bird/repertory.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/capture/show_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_capture.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/capture/show_captures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/show_captures.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/password/lost_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/password/lost_password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/password/reinitialisation_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/password/reinitialisation_password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/activation_code.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/activation_code.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/statistics/statistics.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistics/statistics.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,36 +65,63 @@
     <session id="123087866">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="env" value="1" />
-          <entry key="js" value="1" />
-          <entry key="php" value="31" />
-          <entry key="twig" value="20" />
+          <entry key="dist" value="4" />
+          <entry key="env" value="7" />
+          <entry key="gitignore" value="6" />
+          <entry key="js" value="3" />
+          <entry key="php" value="58" />
+          <entry key="twig" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="1" />
-          <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="31" />
-          <entry key="Twig" value="20" />
+          <entry key=".env file" value="7" />
+          <entry key="Git file" value="6" />
+          <entry key="JavaScript" value="3" />
+          <entry key="PHP" value="58" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Twig" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="env" value="9" />
-          <entry key="js" value="3" />
-          <entry key="php" value="1085" />
-          <entry key="twig" value="1269" />
-          <entry key="txt" value="147" />
+          <entry key="env" value="55" />
+          <entry key="gitignore" value="1" />
+          <entry key="js" value="5" />
+          <entry key="php" value="1896" />
+          <entry key="twig" value="1809" />
+          <entry key="txt" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="9" />
-          <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="1085" />
-          <entry key="PLAIN_TEXT" value="147" />
-          <entry key="Twig" value="1269" />
+          <entry key=".env file" value="55" />
+          <entry key="Git file" value="1" />
+          <entry key="JavaScript" value="5" />
+          <entry key="PHP" value="1896" />
+          <entry key="PLAIN_TEXT" value="277" />
+          <entry key="Twig" value="1809" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.compare" value="1" />
+          <entry key="git.branch.delete.local" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -136,58 +178,11 @@
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="app" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Backend/CaptureController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="206" column="71" lean-forward="true" selection-start-line="206" selection-start-column="71" selection-end-line="206" selection-end-column="71" />
-              <folding>
-                <element signature="e#42#65#0#PHP" expanded="true" />
-                <element signature="e#2721#2762#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/capture/add_or_modify_capture.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascript/geolocation/geolocation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/account/account.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="118" lean-forward="true" selection-start-line="36" selection-start-column="118" selection-end-line="36" selection-end-column="118" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-                <element signature="e#1730#1744#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -211,25 +206,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/AdminSpace/publishedComments.html.twig" />
-        <option value="$PROJECT_DIR$/templates/AdminSpace/adminspace.html.twig" />
-        <option value="$PROJECT_DIR$/templates/AdminSpace/publishedCapturesModel.html.twig" />
-        <option value="$PROJECT_DIR$/templates/AdminSpace/waitingCapturesModel.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Capture/validate_capture.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Capture/showCapture.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Capture/addModifyOrValidateCapture.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Capture/addImageOnCapture.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Capture/addOrModifyCapture.html.twig" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/templates/Capture/showCaptures.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/Image.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Message.php" />
-        <option value="$PROJECT_DIR$/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Repository/BirdRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/CaptureRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/CommentRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-        <option value="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" />
         <option value="$PROJECT_DIR$/src/Services/Bird/NAOCountBirds.php" />
         <option value="$PROJECT_DIR$/src/Services/Capture/NAOCaptureManager.php" />
         <option value="$PROJECT_DIR$/src/Services/Capture/NAOCountCaptures.php" />
@@ -253,15 +230,33 @@
         <option value="$PROJECT_DIR$/templates/capture/validate_capture.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/Capture/ValidateCaptureType.php" />
         <option value="$PROJECT_DIR$/src/Controller/Backend/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" />
         <option value="$PROJECT_DIR$/src/Controller/Frontend/CaptureController.php" />
         <option value="$PROJECT_DIR$/src/Controller/Backend/AccountController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php" />
         <option value="$PROJECT_DIR$/config/packages/framework.yaml" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/public/javascript/geolocation/geolocation.js" />
+        <option value="$PROJECT_DIR$/src/Entity/Bird.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Frontend/BirdController.php" />
+        <option value="$PROJECT_DIR$/templates/bird/bird.html.twig" />
+        <option value="$PROJECT_DIR$/templates/capture/add_or_modify_capture.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/Backend/CaptureController.php" />
+        <option value="$PROJECT_DIR$/public/javascript/comments/commentspagination.js" />
+        <option value="$PROJECT_DIR$/templates/bird/repertory.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Frontend/ApiController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php" />
+        <option value="$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php" />
         <option value="$PROJECT_DIR$/templates/account/account.html.twig" />
+        <option value="$PROJECT_DIR$/templates/account/biography_form.html.twig" />
+        <option value="$PROJECT_DIR$/templates/account/change_avatar.html.twig" />
+        <option value="$PROJECT_DIR$/templates/contact/contact.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/password/lost_password.html.twig" />
+        <option value="$PROJECT_DIR$/templates/security/register.html.twig" />
+        <option value="$PROJECT_DIR$/templates/statistics/statistics.html.twig" />
+        <option value="$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
       </list>
     </option>
   </component>
@@ -381,15 +376,102 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="665" />
-    <option name="width" value="1240" />
-    <option name="height" value="1045" />
+    <option name="width" value="1222" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>BashSupport</id>
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code SmellPHP</id>
+          </State>
+          <State>
+            <id>Code StylePHP</id>
+          </State>
+          <State>
+            <id>Code style issuesCSS</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Invalid elementsCSS</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>Probable bugsCSS</id>
+          </State>
+          <State>
+            <id>Probable bugsPHP</id>
+          </State>
+          <State>
+            <id>Quality toolsPHP</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>YAML</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CssMissingSemicolon</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="app" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="capture" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -430,17 +512,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SearchEverywhereHistoryKey" value="AbstractContro&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="/var/www/OC/NAO/app/.env" />
+    <property name="add_unversioned_files" value="/var/www/OC/NAO/app/.env&#10;true" />
     <property name="last_opened_file_path" value="$USER_HOME$/louvre" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -466,6 +548,9 @@
       <updated>1533215307288</updated>
       <workItem from="1533215309678" duration="16739000" />
       <workItem from="1535142701045" duration="8316000" />
+      <workItem from="1535392064389" duration="5051000" />
+      <workItem from="1535445726728" duration="11456000" />
+      <workItem from="1536152706448" duration="849000" />
     </task>
     <task id="LOCAL-00001" summary="Fix relations to User -&gt; user &amp; validated_by">
       <created>1535109520779</created>
@@ -509,33 +594,76 @@
       <option name="project" value="LOCAL" />
       <updated>1535122854788</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed temp code to add images on birds from INPI API">
+      <created>1535400319914</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1535400319914</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add image to bird in view">
+      <created>1535400351246</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1535400351246</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add image to bird in view">
+      <created>1535400362267</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1535400362267</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add upload bird csv function">
+      <created>1535446333643</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1535446333643</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add bird csv feature in admin">
+      <created>1535446352906</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1535446352906</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37303000" />
+    <option name="totallyTimeSpent" value="61044000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="-1" width="1920" height="1046" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1670224" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945712" visible="true" weight="0.17182498" />
+      <window_info id="Structure" order="1" sideWeight="0.5005429" side_tool="true" weight="0.16862327" />
+      <window_info id="Favorites" order="2" sideWeight="0.5005429" side_tool="true" weight="0.16862327" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32832617" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="NativeScript" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="RNConsole" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4994664" weight="0.56008583" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4994664" weight="0.4549403" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053364" side_tool="true" weight="0.24919094" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32899022" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -547,6 +675,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -555,198 +709,18 @@
     <MESSAGE value="Fix relations to Capture -&gt; captures" />
     <MESSAGE value="Controller ok" />
     <MESSAGE value="Add image form or add image link to validate capture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add image form or add image link to validate capture" />
+    <MESSAGE value="Removed temp code to add images on birds from INPI API" />
+    <MESSAGE value="Add image to bird in view" />
+    <MESSAGE value="Add upload bird csv function" />
+    <MESSAGE value="Add bird csv feature in admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add bird csv feature in admin" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="256" height="888" key="Git.Branch.Popup" />
+    <state width="256" height="888" key="Git.Branch.Popup/1920.1080" />
+    <state width="256" height="888" key="Git.Branch.Popup@1920.1080" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Services/User/NAOUserManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Image/ImageManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Mail/Mailer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
-          <folding>
-            <element signature="e#904#941#0#PHP" expanded="true" />
-            <element signature="e#1524#1559#0#PHP" expanded="true" />
-            <element signature="e#2121#2153#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Map/NAOShowMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Pagination/NAOPagination.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/AbstractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/admin_space.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/_published_captures_model.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/_published_comments_model.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/_reported_comments_model.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/_waiting_captures_model.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Capture/NaturalistCaptureType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/capture/validate_capture.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Capture/ValidateCaptureType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/BirdController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="126" column="73" selection-start-line="126" selection-start-column="73" selection-end-line="126" selection-end-column="73" />
-          <folding>
-            <element signature="e#1582#1608#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#2609#2638#0#PHP" expanded="true" />
-            <element signature="e#4533#4569#0#PHP" expanded="true" />
-            <element signature="e#6115#6149#0#PHP" expanded="true" />
-            <element signature="e#7684#7720#0#PHP" expanded="true" />
-            <element signature="e#9183#9218#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="53" column="46" lean-forward="true" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
-          <folding>
-            <element signature="e#3586#3613#0#PHP" expanded="true" />
-            <element signature="e#5292#5325#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/validator.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/routing.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -772,9 +746,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -792,21 +764,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -815,48 +778,263 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/geolocation/geolocation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/capture/add_or_modify_capture.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/CaptureController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-408">
           <caret line="88" column="69" lean-forward="true" selection-start-line="88" selection-start-column="69" selection-end-line="88" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Bird.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/geolocation/geolocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-779">
+          <caret line="12" column="75" lean-forward="true" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Capture/ParticularCaptureType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1860" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/comments/commentspagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Capture/NaturalistCaptureType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bird/bird.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Frontend/BirdController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/BirdRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/Bird/NAOBirdManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1161">
+          <caret line="53" column="46" lean-forward="true" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/AdminSpaceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="219" column="56" selection-start-line="219" selection-start-column="56" selection-end-line="219" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/account/change_avatar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding>
-            <element signature="e#43#66#0#PHP" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/account/biography_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contact/contact.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/password/lost_password.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/statistics/statistics.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#28#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ControllersTests/Backend/AdminSpaceControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Backend/PasswordController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/Capture/NAOCaptureManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="96" column="46" lean-forward="true" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Backend/CaptureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="206" column="71" lean-forward="true" selection-start-line="206" selection-start-column="71" selection-end-line="206" selection-end-column="71" />
+        <state relative-caret-position="234">
+          <caret line="48" column="66" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
           <folding>
             <element signature="e#42#65#0#PHP" expanded="true" />
-            <element signature="e#2721#2762#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/capture/add_image_on_capture.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/capture/add_or_modify_capture.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Capture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5122">
+          <caret line="292" column="20" selection-start-line="292" selection-start-column="20" selection-end-line="292" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bird/repertory.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/account.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="118" lean-forward="true" selection-start-line="36" selection-start-column="118" selection-end-line="36" selection-end-column="118" />
+        <state relative-caret-position="1058">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/admin_space.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-250" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/capture/form_capture.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-            <element signature="e#1730#1744#0#Twig" expanded="true" />
+            <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

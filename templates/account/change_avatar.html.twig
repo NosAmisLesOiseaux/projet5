@@ -1,14 +1,20 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+    <div class="container-avatar">
+    <div class="form-avatar">
+    <div class="form-b-form">
     {% if app.user.avatar != null %}
         <img src="{{ asset('uploads/avatar/' ~ app.user.avatar.filename) }}" alt="" height="150">
     {% endif %}
+    <form class="-avatar">
         {{ form_start(form) }}
-        {{ form_label(form.image) }}
-        {{ form_errors(form.image) }}
-        {{ form_widget(form.image) }}
-        <button type="submit">Mettre à jour mon avatar</button>
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn-avatar">Mettre à jour mon avatar</button>
         {{ form_end(form) }}
     </form>
+    </div>
+    </div>
+    </div>
 {% endblock %}
