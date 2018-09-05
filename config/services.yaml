@@ -58,3 +58,48 @@ services:
             - '@App\Services\Mail\Mailer'
             - '@session'
             - '@App\Services\NAOManager'
+
+    app.nao_manager:
+        class: App\Services\NAOManager
+        autowire: true
+        public: true
+
+    app.nao_pagination:
+        class: App\Services\Pagination\NAOPagination
+        autowire: true
+        public: true
+
+    app.nao_bird_manager:
+        class: App\Services\Bird\NAOBirdManager
+        autowire: true
+        public: true
+
+    app.nao_count_birds:
+        class: App\Services\Bird\NAOCountBirds
+        autowire: true
+        public: true
+
+    app.nao_capture_manager:
+        class: App\Services\Capture\NAOCaptureManager
+        autowire: true
+        public: true
+
+    app.nao_count_captures:
+        class: App\Services\Capture\NAOCountCaptures
+        autowire: true
+        public: true
+
+    app.nao_comment_manager:
+        class: App\Services\Comment\NAOCommentManager
+        autowire: true
+        public: true
+
+    app.nao_count_comments:
+        class: App\Services\Comment\NAOCountComments
+        autowire: true
+        public: true
+
+    app.nao_show_map:
+        class: App\Services\Map\NAOShowMap
+        autowire: true
+        public: true
