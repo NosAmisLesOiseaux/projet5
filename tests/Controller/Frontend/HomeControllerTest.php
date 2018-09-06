@@ -14,15 +14,14 @@ class HomeControllerTest extends WebTestCase
 {
     private $client;
 
-    /*public function __construct(?string $name = null, array $data = [], string $dataName = '')
+    public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
         $this->client = static::createClient();
-    }*/
+    }
 
     public function testShowHome()
     {
-        $client = static::createClient();
         $crawler = $client->request('GET', "/");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('p:contains("Nos amis les oiseaux")')->count() > 0);

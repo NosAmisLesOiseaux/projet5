@@ -13,6 +13,7 @@ class CaptureControllerTest extends WebTestCase
 {
     private $entityManager;
     private $user;
+    private $client;
 
     /**
      * {@inheritDoc}
@@ -22,35 +23,29 @@ class CaptureControllerTest extends WebTestCase
         $kernel = self::bootKernel();
 
         $this->entityManager = $kernel->getContainer()->get('doctrine')->getManager();
-
         $this->user = $this->entityManager->getRepository(User::class)->findOneById('3');
+        $this->client = static::createClient();
     }
 
     public function testShowCapture()
     {
-        $client = static::createClient();
+        $crawler = $this->client->request('GET', '/observation/1');
 
-        $crawler = $client->request('GET', '/observation/1');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('h1:contains(\'"Epervier bicolore "\')')->count() > 0);
     }
 
     public function testShowCaptures()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/observations');
 
-        $client->request('GET', '/observations');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testShowCapturesPageTwo()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/observations/2');
 
-        $client->request('GET', '/observations/2');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 }
