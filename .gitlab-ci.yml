@@ -1,11 +1,11 @@
 # This file is a template, and might need editing before it works on your project.
 # Select image from https://hub.docker.com/_/php/
-image: php:7.2.0
+image: php:7.2.9
 
 # Select what we should cache between builds
 cache:
   paths:
-  - var/
+  - vendor/
 
 before_script:
 - apt-get update -yqq
@@ -18,6 +18,8 @@ before_script:
 # Install and run Composer
 - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
+- php ./bin/console doctrine:database:create
+- php ./bin/console doctrine:schema:create
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ce/ci/services/README.html for examples.
@@ -29,9 +31,25 @@ variables:
   # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
   MYSQL_DATABASE: nao_app
   MYSQL_ROOT_PASSWORD: mysql_strong_password
+stages:
+- test
+- deploy
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
+  stage: test
   script:
   - ./bin/phpunit
+  
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - #echo "Deployment in progress"
+    - #scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
+    - #ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
+    - #ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
+    - #ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
+    - #echo "var and log folders deleted and access rights applicated"
