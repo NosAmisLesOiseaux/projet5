@@ -29,7 +29,7 @@ services:
 # Set any variables we need
 variables:
   # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
-  MYSQL_DATABASE: nao_app
+  MYSQL_DATABASE: mysql_database
   MYSQL_ROOT_PASSWORD: mysql_strong_password
 stages:
 - test
@@ -47,9 +47,9 @@ deploy:
   only:
     - master
   script:
-    - #echo "Deployment in progress"
-    - #scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
-    - #ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
-    - #ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
-    - #ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
-    - #echo "var and log folders deleted and access rights applicated"
+  - echo "Deployment in progress"
+  - scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
+  - ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
+  - ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
+  - echo "var and log folders deleted and access rights applicated"
