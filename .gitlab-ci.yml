@@ -18,8 +18,6 @@ before_script:
 # Install and run Composer
 - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
-- php ./bin/console doctrine:database:create
-- php ./bin/console doctrine:schema:create
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ce/ci/services/README.html for examples.
@@ -50,6 +48,8 @@ deploy:
   - echo "Deployment in progress"
   - scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
   - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:database:create"
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:schema:create"
   - ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
   - ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
   - echo "var and log folders deleted and access rights applicated"
