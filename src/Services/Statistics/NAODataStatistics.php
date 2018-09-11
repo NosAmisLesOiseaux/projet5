@@ -40,6 +40,20 @@ class NAODataStatistics
         return $this->regions;
     }
 
+    public function getNumberOfBirdsByRegion($year)
+    {
+        $regions = $this->regions;
+        $numberOfBirdsRegions = [];
+
+        foreach ($regions as $region)
+        {
+            $regionName = $region['nom'];
+            $numberOfBirdsRegions[] = $this->naoCountBirds->countSearchBirdsByRegionAndDate($regionName, $year);
+        }
+        
+        return $numberOfBirdsRegions;
+    }
+
 	public function formatBirdsByRegions($year)
 	{
         $numberOfPublishedCaptures = $this->naoCountCaptures->countPublishedCapturesByYear($year);
