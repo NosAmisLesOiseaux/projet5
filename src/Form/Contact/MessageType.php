@@ -26,14 +26,14 @@ class MessageType extends AbstractType
                 'lastname',
                 TextType::class,
                 array(
-                    'label' => "Votre Prénom"
+                    'label' => "Votre NOM"
                 )
             )
             ->add(
                 'email',
                 EmailType::class,
                 array(
-                    'label' => "Votre NOM"
+                    'label' => "Votre e-mail"
                 )
             )
             ->add(

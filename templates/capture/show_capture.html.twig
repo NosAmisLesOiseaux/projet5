@@ -104,11 +104,13 @@
 		<ul id="comment">
 		</ul>
 	</section>
-	{{ form_start(form, {'attr': {'class': "form-page-observation"}}) }}
-	{{ form_errors(form) }}
-	{{ form_widget(form) }}
-	<button type="submit">Commenter</button>
-	{{ form_end(form) }}
+        {% if is_granted('ROLE_USER') %}
+            {{ form_start(form, {'attr': {'class': "form-page-observation"}}) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+			<button type="submit">Commenter</button>
+            {{ form_end(form) }}
+        {% endif %}
 	</div>
 	</div>
 	</div>
