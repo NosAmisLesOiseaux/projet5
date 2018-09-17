@@ -4,10 +4,16 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <h1>Contact</h1>
-    <form action="{{ path('contact') }}" method="post">
+    <h1 class="t-index-3">CONTACT</h1>
+    <span class="s-t-index-3"></span>
+    <div class="c-contact">
+    <div class="b-f-contact">
+    <h3 class="t-contact">Formulaire de contact</h3>
+    <form action="{{ path('contact') }}" method="post" class="form-contact">
        {{ form_errors(form) }}
        {{ form_widget(form) }}
-        <button type="submit">Envoyer</button>
+        <button type="submit" class="btn-contact">Envoyer</button>
     </form>
+    </div>
+    </div>
 {% endblock %}

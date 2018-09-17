@@ -6,7 +6,7 @@
  * Time: 16:01
  */
 
-namespace App\Tests\EntitiesTests;
+namespace App\Tests\Entity;
 
 
 use App\Entity\Message;

@@ -3,29 +3,42 @@
 {% block title %}Statistiques{% endblock %}
 
 {% block body %}
-	<h1>Quelques données</h1>
+	<h1 class="t-index-2">QUELQUES DONNEES</h1>
+	<span class="s-t-index-2"></span>
+	<div class="container-qd">
 	<section>
-		<h2>En général</h2>
+		<h2 class="h2-qd">En général</h2>
+		<div class="form-qd1">
     	<p>Nombre d'oiseaux : {{numberOfBirds}}</p>
     	<p>Nombre total d'observations publiées : {{numberOfPublishedCaptures}}</p>
+		</div>
     </section>
     <section>
-    	<h2>Années</h2>
+    	<h2 class="h2-qd">Années</h2>
     	{% for year in years %}
-    		<ul>
+    		<ul class="ul-year">
     			<li><a href="{{ path('statistics', {year: year}) }}">{{year}}</a></li>
     		</ul>
     	{% endfor %}
     </section>
-    <section>
-    	<h3 id="year" data-year="{{year}}">{{year}}</h3>
+    <section class="container-year">
+		<div class="h3-year">
+    	<h3 id="year" data-year="{{year}}">{{year}} |</h3>
+		</div>
+		<div class="form-qd2">
     	<p> Nombre total d'observations publiées : {{nbOfYearPublishedCaptures}}</p>
-    	<h2>Régions</h2>
+		</div>
     </section>
-    <section id="statisticsByYear">
-    	<div id="statisticsData"></div>
-    	<div id="statisticsBirds"></div>
-    </section>
+	<h2 class="h2-qd">Régions</h2>
+   {% set i = 0 %}
+        {% for region in regions %}
+            <section id="statisticsByRegion{{i}}" class="regionStats">
+                <h3 class="h3-stats">{{ region.nom }}</h3>
+                <div id="data{{i}}"></div>
+            </section>
+            {% set i = i + 1 %}
+        {% endfor %}
+	</div>
 {% endblock %}
 
 {% block paginationJavascripts %}

@@ -9,6 +9,7 @@
 namespace App\Services\Mail;
 
 
+use App\Entity\Message;
 use App\Entity\User;
 use Psr\Container\ContainerInterface;
 
@@ -35,7 +36,7 @@ class Mailer
     public function sendConfirmationEmail(User $user, string $code)
     {
         $message = (new \Swift_Message("Activation de votre compte NAO"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/account_activation.html.twig', ['user' => $user, 'code' => $code])
@@ -54,7 +55,7 @@ class Mailer
     public function sendConfirmationPasswordChanged(User $user)
     {
         $message = (new \Swift_Message("Changement de votre mot de passe"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/password_changed.html.twig', ['user' => $user])
@@ -73,7 +74,7 @@ class Mailer
     public function sendLostPasswordEmail(User $user)
     {
         $message = (new \Swift_Message("Réinitialisation de votre mot de passe"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/lost_password.html.twig', ['user' => $user])
@@ -92,10 +93,29 @@ class Mailer
     public function sendPasswordReinitialisationSuccessEmail(User $user)
     {
         $message = (new \Swift_Message("Mot de passe réinitialisé avec succès !"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/password_reinitialisation_success.html.twig')
+            );
+        $this->mailer->send($message);
+        return true;
+    }
+
+    /**
+     * @param Message $message
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendContactMessage(Message $message)
+    {
+        $message = (new \Swift_Message($message->getSubject()))
+            ->setFrom($message->getEmail())
+            ->setTo('contact@road-web.fr')
+            ->setBody(
+                $this->container->get('twig')->render('emails/send_message.html.twig', ['message' => $message])
             );
         $this->mailer->send($message);
         return true;

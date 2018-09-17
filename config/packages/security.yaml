@@ -4,11 +4,9 @@ security:
             algorithm: bcrypt
             cost: 12
     providers:
-        in_memory: { memory: ~ }
         nao_app:
             entity:
                 class: App\Entity\User
-                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -28,9 +26,8 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/account, roles: ROLE_USER }
-        - { path: ^/naturalist, roles: ROLE_NATURALIST }
-        - { path: ^/administration, roles: ROLE_ADMIN }
+        - { path: ^/mon-compte, roles: ROLE_USER }
+        - { path: ^/espace-administration, roles: ROLE_NATURALIST }
 
     role_hierarchy:
         ROLE_NATURALIST: ROLE_USER

@@ -26,17 +26,6 @@ class Image
     private $path;
 
     /**
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(name="file", type="string", length=255)
-     * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg", "image/gif" })
-     */
-    private $file;
-
-    /**
      * @ORM\Column(name="file_name", type="string", length=255)
      */
     private $file_name;
@@ -47,12 +36,12 @@ class Image
     private $slug;
 
     /**
-     * @ORM\Column(name="extension", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $extension;
 
     /**
-     * @ORM\Column(name="mime_type", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $mime_type;
 
@@ -66,16 +55,26 @@ class Image
      */
     private $alt;
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getPath(): ?string
     {
         return $this->path;
     }
 
+    /**
+     * @param string $path
+     * @return Image
+     */
     public function setPath(string $path): self
     {
         $this->path = $path;
@@ -83,50 +82,36 @@ class Image
         return $this;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     /**
-     * @return mixed
+     * @return string
      */
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    /**
-     * @param mixed $file
-     */
-    public function setFile($file): void
-    {
-        $this->file = $file;
-    }
-
     public function getFileName() :string
     {
         return $this->file_name;
     }
 
+    /**
+     * @param string $file_name
+     * @return Image
+     */
     public function setFileName(string $file_name): self
     {
         $this->file_name = $file_name;
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getSlug(): ?string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string $slug
+     * @return Image
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
@@ -134,11 +119,18 @@ class Image
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getExtension(): ?string
     {
         return $this->extension;
     }
 
+    /**
+     * @param string $extension
+     * @return Image
+     */
     public function setExtension(string $extension): self
     {
         $this->extension = $extension;
@@ -146,11 +138,18 @@ class Image
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getMimeType(): ?string
     {
         return $this->mime_type;
     }
 
+    /**
+     * @param string $mime_type
+     * @return Image
+     */
     public function setMimeType(string $mime_type): self
     {
         $this->mime_type = $mime_type;
@@ -158,11 +157,18 @@ class Image
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getSize(): ?float
     {
         return $this->size;
     }
 
+    /**
+     * @param float $size
+     * @return Image
+     */
     public function setSize(float $size): self
     {
         $this->size = $size;

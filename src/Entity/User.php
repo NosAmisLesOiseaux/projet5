@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -18,7 +20,7 @@ class User implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25, unique=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $username;
 
@@ -28,7 +30,7 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=254, unique=true)
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $email;
 
@@ -58,12 +60,12 @@ class User implements UserInterface, \Serializable
     private $date_register;
 
     /**
-     * @ORM\Column(name="token", type="string", unique=true, nullable=true)
+     * @ORM\Column(name="token", type="string", unique=true, nullable=true, length=50)
      */
     private $token;
 
     /**
-     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true)
+     * @ORM\Column(name="activation_code", type="string", unique=true, nullable=true, length=50)
      */
     private $activation_code;
 
@@ -84,19 +86,47 @@ class User implements UserInterface, \Serializable
      */
     private $biography;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Capture", mappedBy="user")
+     */
+    private $captures;
+
     public function __construct()
     {
         $this->active = false;
         $this->roles = array("ROLE_USER");
         $this->date_register = new \DateTime('now');
         $this->activation_code = md5(uniqid('code_', false));
+        $this->captures = new ArrayCollection();
     }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
     public function getUsername() :string
     {
         return $this->username;
     }
 
+    /**
+     * @param $username
+     */
     public function setUsername($username) :void
     {
         $this->username = $username;
@@ -109,63 +139,96 @@ class User implements UserInterface, \Serializable
         return null;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @param $password
+     * @return $this
+     */
     public function setPassword($password)
     {
         $this->password = $password;
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * @param $email
+     * @return $this
+     */
     public function setEmail($email)
     {
         $this->email = $email;
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getActive() :bool
     {
         return $this->active;
     }
 
+    /**
+     * @param $active
+     */
     public function setActive($active) :void
     {
         $this->active = $active;
     }
 
+    /**
+     * @return array
+     */
     public function getRoles() :array
     {
         return $this->roles;
     }
 
-    public function setRole($role) :void
+    /**
+     * @param $roles
+     */
+    public function setRoles($roles) :void
     {
-        if (!in_array($this->roles, $role)) {
-            $this->roles[] = $role;
-        }
+        $this->roles[] = $roles;
     }
 
-    public function addRole($role) :void
+    /**
+     * @param string $role
+     * @return array
+     */
+    public function addRole(string $role) :array
     {
         if (!in_array($role, $this->roles)) {
             $this->roles[] = $role;
         }
+        return $this->roles;
     }
 
-    public function removeRole($role) :array
+    /**
+     * @param string $role
+     * @return array
+     */
+    public function removeRole(string $role) :array
     {
         if (in_array($role, $this->roles)) {
             unset($role);
-            return $this->roles;
         }
+        return $this->roles;
     }
 
     /**
@@ -232,16 +295,25 @@ class User implements UserInterface, \Serializable
         $this->token = $token;
     }
 
+    /**
+     * @return string
+     */
     public function getActivationCode() :string
     {
         return $this->activation_code;
     }
 
+    /**
+     * @param $activation_code
+     */
     public function setActivationCode($activation_code) :void
     {
         $this->activation_code = $activation_code;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAccountType()
     {
         return $this->account_type;
@@ -266,9 +338,11 @@ class User implements UserInterface, \Serializable
     public function setAvatar($avatar): void
     {
         $this->avatar = $avatar;
-    }/**
- * @return mixed
- */
+    }
+
+    /**
+     * @return mixed
+     */
     public function getBiography()
     {
         return $this->biography;
@@ -308,5 +382,44 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    /**
+     * @return Collection|Capture[]
+     */
+    public function getCaptures(): Collection
+    {
+        return $this->captures;
+    }
+
+    /**
+     * @param Capture $capture
+     * @return User
+     */
+    public function addCapture(Capture $capture): self
+    {
+        if (!$this->captures->contains($capture)) {
+            $this->captures[] = $capture;
+            $capture->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Capture $capture
+     * @return User
+     */
+    public function removeCapture(Capture $capture): self
+    {
+        if ($this->captures->contains($capture)) {
+            $this->captures->removeElement($capture);
+            // set the owning side to null (unless already changed)
+            if ($capture->getUser() === $this) {
+                $capture->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -23,10 +23,7 @@ class BirdFixtures extends Fixture
         for ($i = 1; $i <= 10; $i++) {
             $bird = new Bird();
             $bird->setBirdOrder("Order$i");
-            $bird->setClass("Class$i");
             $bird->setFamily("Family$i");
-            $bird->setPhylum("Phylum$i");
-            $bird->setReign("Reign$i");
             $bird->setValidname("Validname$i");
             $bird->setVernacularname("Vernacularname$i");
             $this->addReference('bird'.$i, $bird);
