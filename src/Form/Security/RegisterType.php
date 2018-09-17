@@ -42,6 +42,7 @@ class RegisterType extends AbstractType
                 'account_type',
                 ChoiceType::class,
                 array(
+                    'label' => "Choisissez votre compte",
                     'choices' => array(
                         "Je suis un passionné" => 'particular',
                         "Je suis ornithologue" => 'naturalist'
