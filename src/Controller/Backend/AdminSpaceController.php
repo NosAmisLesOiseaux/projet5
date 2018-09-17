@@ -87,16 +87,22 @@ class AdminSpaceController extends Controller
         $publishedCaptures = $naoCaptureManager->getPublishedCapturesPerPage($page, $numberOfPublishedCaptures, $numberOfElementsPerPage);
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
+        $subtitle = 'Observations publiées';
+        $template = 'admin/_published_captures_model.html.twig';
+        $url = 'admin_space_published_captures';
 
         return $this->render(
-            'admin/published_captures.html.twig',
+            'admin/next_elements.html.twig',
             array(
                 'publishedcaptures' => $publishedCaptures,
                 'numberOfPublishedCaptures' => $numberOfPublishedCaptures,
                 'page' => $page,
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
-                'nbPublishedCapturesPages' => $nbPublishedCapturesPages
+                'nbElementsPages' => $nbPublishedCapturesPages,
+                'subtitle' => $subtitle,
+                'template' => $template,
+                'url' => $url
             )
         );
     }
@@ -117,15 +123,21 @@ class AdminSpaceController extends Controller
         $waitingForValidationCaptures = $naoCaptureManager->getWaintingForValidationCapturesPerPage($page, $numberOfWaitingForValidationCaptures, $numberOfElementsPerPage);
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
+        $subtitle = 'Observations en attente de validation';
+        $template = 'admin/_waiting_captures_model.html.twig';
+        $url = 'admin_space_waiting_captures';
         return $this->render(
-            'admin\waiting_captures.html.twig',
+            'admin\next_elements.html.twig',
             array(
                 'waitingforvalidationcaptures' => $waitingForValidationCaptures,
                 'numberOfWaitingforvalidationCaptures' => $numberOfWaitingForValidationCaptures,
                 'page' => $page,
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
-                'nbWaitingForValidationCapturesPages' => $nbWaitingForValidationCapturesPages
+                'nbElementsPages' => $nbWaitingForValidationCapturesPages,
+                'subtitle' => $subtitle,
+                'template' => $template,
+                'url' => $url
             )
         );
     }
@@ -146,15 +158,21 @@ class AdminSpaceController extends Controller
         $publishedComments = $naoCommentManager->getPublishedCommentsPerPage($page, $numberOfPublishedComments, $numberOfElementsPerPage);
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
+        $subtitle = 'Commentaires publiés';
+        $template = 'admin/_published_comments_model.html.twig';
+        $url = 'admin_space_published_comments';
         return $this->render(
-            'admin\published_comments.html.twig',
+            'admin\next_elements.html.twig',
             array(
                 'publishedcomments' => $publishedComments,
                 'numberOfPublishedComments' => $numberOfPublishedComments,
                 'page' => $page,
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
-                'nbPublishedCommentsPages' => $nbPublishedCommentsPages
+                'nbElementsPages' => $nbPublishedCommentsPages,
+                'subtitle' => $subtitle,
+                'template' => $template,
+                'url' => $url
             )
         );
     }
@@ -175,15 +193,21 @@ class AdminSpaceController extends Controller
         $reportedComments = $naoCommentManager->getReportedCommentsPerPage($page, $numberOfReportedComments, $numberOfElementsPerPage);
         $nextPage = $naoPagination->getNextPage($page);
         $previousPage = $naoPagination->getPreviousPage($page);
+        $subtitle = 'Commentaires signalés';
+        $template = 'admin/_reported_comments_model.html.twig';
+        $url = 'admin_space_reported_comments';
         return $this->render(
-            'admin\reported_comments.html.twig',
+            'admin\next_elements.html.twig',
             array(
                 'reportedcomments' => $reportedComments,
                 'numberOfReportedComments' => $numberOfReportedComments,
                 'page' => $page,
                 'nextPage' => $nextPage,
                 'previousPage' => $previousPage,
-                'nbReportedCommentsPages' => $nbReportedCommentsPages
+                'nbElementsPages' => $nbReportedCommentsPages,
+                'subtitle' => $subtitle,
+                'template' => $template,
+                'url' => $url
             )
         );
     }
