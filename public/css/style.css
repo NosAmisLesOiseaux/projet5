@@ -1036,7 +1036,7 @@ a:hover
 
 .page-div{
   color: white;
- 
+  padding-bottom: 100px;
 }
 
 .page-compte .active {
@@ -1334,6 +1334,7 @@ a:hover
   flex-direction: column;
   align-items: center;
   padding-top: 41px;
+  padding-bottom: 100px;
 }
 
 
