@@ -35,7 +35,7 @@ class Mailer
     public function sendConfirmationEmail(User $user, string $code)
     {
         $message = (new \Swift_Message("Activation de votre compte NAO"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/account_activation.html.twig', ['user' => $user, 'code' => $code])
@@ -54,7 +54,7 @@ class Mailer
     public function sendConfirmationPasswordChanged(User $user)
     {
         $message = (new \Swift_Message("Changement de votre mot de passe"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/password_changed.html.twig', ['user' => $user])
@@ -73,7 +73,7 @@ class Mailer
     public function sendLostPasswordEmail(User $user)
     {
         $message = (new \Swift_Message("Réinitialisation de votre mot de passe"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/lost_password.html.twig', ['user' => $user])
@@ -92,7 +92,7 @@ class Mailer
     public function sendPasswordReinitialisationSuccessEmail(User $user)
     {
         $message = (new \Swift_Message("Mot de passe réinitialisé avec succès !"))
-            ->setFrom("sent@nao.fr")
+            ->setFrom("sent@road-web.fr")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/password_reinitialisation_success.html.twig')
