@@ -1,15 +1,15 @@
 $( function() {
     var currentYear = year.dataset.year;
 
-    $.getJSON('http://road-web.fr/api/datastatistics/'+ currentYear +'/', function( data ) {
+    $.getJSON('https://road-web.fr/api/datastatistics/'+ currentYear +'/', function( data ) {
 
             $("button").click(function(e)
             { 
                 var val = this.dataset.valbutton; 
-                $(this).hide();      
+                $(this).hide();
 
                 $('#statisticsByRegion'+ val+'').pagination({
-                    dataSource: 'http://road-web.fr/api/datastatistics/'+ currentYear +'/',
+                    dataSource: 'https://road-web.fr/api/datastatistics/'+ currentYear +'/',
                     locator: 'items',
                     pageSize: 1,
                     totalNumber: data[0].regions[val].numberOfBirds,
