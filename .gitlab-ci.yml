@@ -52,10 +52,10 @@ deploy:
     - master
   script:
   - echo "Deployment in progress"
-  - scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
-  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
-  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:database:create"
-  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:schema:create"
-  - ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
-  - ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
+  - scp -r ./* $server_user@$server_host:/var/www/vhosts/road-web.fr/httpdocs/
+  - ssh $server_user@$server_host "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
+  - ssh $server_user@$server_host "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:database:create"
+  - ssh $server_user@$server_host "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:schema:create"
+  - ssh $server_user@$server_host "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
+  - ssh $server_user@$server_host "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
   - echo "var and log folders deleted and access rights applicated"
