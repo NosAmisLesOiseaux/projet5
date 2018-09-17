@@ -645,7 +645,7 @@ a:hover
 .container-register{
   display: flex;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .form-b-register form{
@@ -1420,6 +1420,7 @@ a:hover
 .form-page-observation{
   display: flex;
   flex-direction: column;
+  padding-bottom: 100px;
 }
 
 .container-partie-1-2{
