@@ -1,0 +1,55 @@
+# This file is a template, and might need editing before it works on your project.
+# Select image from https://hub.docker.com/_/php/
+image: php:7.2.9
+
+# Select what we should cache between builds
+cache:
+  paths:
+  - vendor/
+
+before_script:
+- apt-get update -yqq
+- apt-get install -yqq git libmcrypt-dev libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev
+# Install PHP extensions
+- docker-php-ext-install mbstring pdo_pgsql curl json intl gd xml zip bz2 opcache
+# Install & enable Xdebug for code coverage reports
+- pecl install xdebug
+- docker-php-ext-enable xdebug
+# Install and run Composer
+- curl -sS https://getcomposer.org/installer | php
+- php composer.phar install
+
+# Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
+# See http://docs.gitlab.com/ce/ci/services/README.html for examples.
+services:
+  - mysql:5.7
+
+# Set any variables we need
+variables:
+  # Configure mysql environment variables (https://hub.docker.com/r/_/mysql/)
+  MYSQL_DATABASE: mysql_database
+  MYSQL_ROOT_PASSWORD: mysql_strong_password
+stages:
+- test
+- deploy
+
+# Run our tests
+# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
+test:
+  stage: test
+  script:
+  - ./bin/phpunit
+  
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+  - echo "Deployment in progress"
+  - scp -r ./* $SERVER_USER@$SERVER_HOST:/var/www/vhosts/road-web.fr/httpdocs/
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && composer install --no-dev --optimize-autoloader"
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:database:create"
+  - ssh $SERVER_USER@$SERVER_HOST "cd /var/www/vhosts/road-web.fr/httpdocs/ && php bin/console doctrine:schema:create"
+  - ssh $SERVER_USER@$SERVER_HOST "rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/cache && rm -rf /var/www/vhosts/road-web.fr/httpdocs/var/log"
+  - ssh $SERVER_USER@$SERVER_HOST "chmod -R 777 /var/www/vhosts/road-web.fr/httpdocs/var"
+  - echo "var and log folders deleted and access rights applicated"
