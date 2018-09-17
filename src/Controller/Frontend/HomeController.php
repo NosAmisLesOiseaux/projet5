@@ -46,7 +46,8 @@ class HomeController extends Controller
         $numberOfPublishedCaptures = $naoCountCaptures->countPublishedCaptures();
         $numberOfBirds = $naoCountBirds->countBirds();
         $nbOfYearPublishedCaptures = $naoCountCaptures->countPublishedCapturesByYear($year);
-        $regions=$naoDataStatistics->getRegions();
+        $regions = $naoDataStatistics->getRegions();
+        $numberOfBirdsRegions =  $naoDataStatistics->getNumberOfBirdsByRegion($year);
         return $this->render(
             'statistics/statistics.html.twig',
             array(
@@ -56,6 +57,7 @@ class HomeController extends Controller
                     'year' => $year,
                     'nbOfYearPublishedCaptures' => $nbOfYearPublishedCaptures,
                     'regions' => $regions,
+                    'numberOfBirdsRegions' => $numberOfBirdsRegions,
                 )
         );
     }
