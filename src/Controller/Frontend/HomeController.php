@@ -7,6 +7,7 @@ use App\Entity\Message;
 use App\Form\Contact\MessageType;
 use App\Services\Bird\NAOCountBirds;
 use App\Services\Capture\NAOCountCaptures;
+use App\Services\Mail\Mailer;
 use App\Services\NAOManager;
 use App\Services\Capture\NAOCaptureManager;
 use App\Services\Statistics\NAODataStatistics;
@@ -62,9 +63,13 @@ class HomeController extends Controller
     /**
      * @Route("/contact", name="contact")
      * @param Request $request
-     * @return Response
+     * @param Mailer $mailer
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
-    public function contact(Request $request)
+    public function contact(Request $request, Mailer $mailer)
     {
         $message = new Message();
         $message_form = $this->createForm(MessageType::class, $message);
@@ -74,8 +79,13 @@ class HomeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('success', "Message envoyé");
-            return $this->redirectToRoute('contact');
+            if ($mailer->sendContactMessage($message)) {
+                $this->addFlash('success', "Message envoyé.");
+                return $this->redirectToRoute('contact');
+            } else {
+                $this->addFlash('error', "Un problème est survenu.");
+                return $this->redirectToRoute('contact');
+            }
         }
         return $this->render(
             'contact/contact.html.twig',

@@ -9,6 +9,7 @@
 namespace App\Services\Mail;
 
 
+use App\Entity\Message;
 use App\Entity\User;
 use Psr\Container\ContainerInterface;
 
@@ -96,6 +97,25 @@ class Mailer
             ->setTo($user->getEmail())
             ->setBody(
                 $this->container->get('twig')->render('emails/password_reinitialisation_success.html.twig')
+            );
+        $this->mailer->send($message);
+        return true;
+    }
+
+    /**
+     * @param Message $message
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function sendContactMessage(Message $message)
+    {
+        $message = (new \Swift_Message($message->getSubject()))
+            ->setFrom($message->getEmail())
+            ->setTo('contact@road-web.fr')
+            ->setBody(
+                $this->container->get('twig')->render('emails/send_message.html.twig', ['message' => $message])
             );
         $this->mailer->send($message);
         return true;

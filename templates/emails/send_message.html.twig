@@ -1,0 +1,14 @@
+{% extends "base_email.html.twig" %}
+{% block email_subject %}Nouveau message{% endblock %}
+{% block email_style %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/email/activation_compte.css')) }}">
+{% endblock %}
+{% block email_body %}
+    <div class="row center">
+        <h2>Nouveau message de {{ message.firstname }} {{ message.lastname }}</h2>
+        <p>Envoyé le {{ message.sentAt|date('d/m/y') }} à {{ message.sentAt|date('H:i') }}</p>
+        <p>
+            Contenu : {{ message.message }}
+        </p>
+    </div>
+{% endblock %}

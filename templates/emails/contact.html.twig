@@ -1,0 +1,18 @@
+{% extends "base_email.html.twig" %}
+{% block email_subject %}Mot de passe changé{% endblock %}
+{% block email_style %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/email/activation_compte.css')) }}">
+{% endblock %}
+{% block email_body %}
+    <div class="row center">
+        <h2>Nouveau message, en date du {{ message.sent_at|date('d/m/Y') }} !</h2>
+        <p>Expéditeur : {{ message.firstname }} {{ message.lastname }}</p>
+        <p>Email de l'expéditeur : {{ message.email }}</p>
+        <p>
+            {{ message.message }}
+        </p>
+    </div>
+    <div class="row center">
+        <a href="http://localhost:8000/lost-password" target="_blank" id="download-button" class="btn-large waves-effect waves-light green">Ce n'était pas moi !</a>
+    </div>
+{% endblock %}
