@@ -1333,7 +1333,7 @@ a:hover
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 41px;
+  padding: 41px auto;
 }
 
 
