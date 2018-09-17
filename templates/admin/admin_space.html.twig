@@ -8,6 +8,7 @@
 	<p class="compte-ajout">Compte {{ userRole }}</p>
 
 	<a href="{{ path('add_csv_file') }}">Ajout CSV file</a>
+	<a href="{{ path('upgrade', {'username': app.user.username, 'role': 'ROLE_ADMIN'}) }}">Upgrade to admin</a>
 
 	<section>
 		{{ include('admin/_published_captures_model.html.twig')}}
@@ -55,10 +56,6 @@
 				</div>
 			</section>
 		{% endif %}
-	</section>
-
-	<section>
-		<a href="{{ path('upgrade', {'username': app.user.username, 'role': 'ROLE_ADMIN'}) }}">Upgrade to admin</a>
 	</section>
 
 
