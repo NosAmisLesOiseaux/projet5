@@ -28,9 +28,9 @@ class ReinitialisationPasswordType extends AbstractType
                 array(
                     'type' => PasswordType::class,
                     'required' => true,
-                    'invalid_message' => 'The password fields must match.',
-                    'first_options' => array('label' => "Enter password"),
-                    'second_options' => array('label' => "Repeat password")
+                    'invalid_message' => 'Les mots de passe doivent correspondre.',
+                    'first_options' => array('label' => "Entrez le nouveau mot de passe"),
+                    'second_options' => array('label' => "Confirmez le nouveau mot de passe")
                 )
             )
             ->add(

@@ -12,9 +12,9 @@
     <div class="container-f-login">
         <div class="form-login">
             <form action="{{ path('login') }}" method="post" class="b-form-login">
-                <label for="username">Username:</label>
+                <label for="username">Votre e-mail:</label>
                 <input type="text" id="username" name="_username" value="{{ last_username }}" />
-                <label for="password">Password:</label>
+                <label for="password">Votre mot de passe:</label>
                 <input type="password" id="password" name="_password" />
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <input type="hidden" name="_target_path" value="/"/>

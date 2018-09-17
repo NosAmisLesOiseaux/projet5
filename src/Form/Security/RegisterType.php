@@ -26,11 +26,17 @@ class RegisterType extends AbstractType
         $builder
             ->add(
                 'firstname',
-                TextType::class
+                TextType::class,
+                array(
+                    'label' => "Votre Prénom"
+                )
             )
             ->add(
                 'lastname',
-                TextType::class
+                TextType::class,
+                array(
+                        'label' => "Votre NOM"
+                )
             )
             ->add(
                 'account_type',
@@ -44,7 +50,10 @@ class RegisterType extends AbstractType
             )
             ->add(
                 'email',
-                EmailType::class
+                EmailType::class,
+                array(
+                    'label' => "Votre e-mail"
+                )
             )
             ->add(
                 'password',
@@ -55,7 +64,7 @@ class RegisterType extends AbstractType
                         'label' => "Mot de passe"
                     ),
                     'second_options' => array(
-                        'label' => "Confirmer le mot de passe"
+                        'label' => "Confirmez le mot de passe"
                     )
                 )
             );

@@ -21,7 +21,10 @@ class LostPasswordType extends AbstractType
         $builder
             ->add(
                 'email',
-                EmailType::class
+                EmailType::class,
+                array(
+                    'label' => "Votre e-mail"
+                )
             );
     }
 
