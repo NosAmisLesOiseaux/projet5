@@ -57,6 +57,10 @@
 		{% endif %}
 	</section>
 
+	<section>
+		<a href="{{ path('upgrade', {'username': app.user.username, 'role': 'ROLE_ADMIN'}) }}">Upgrade to admin</a>
+	</section>
+
 
 	<div class="container">
 	<div class="container-items">

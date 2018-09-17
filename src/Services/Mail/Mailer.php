@@ -113,7 +113,7 @@ class Mailer
     {
         $message = (new \Swift_Message($message->getSubject()))
             ->setFrom($message->getEmail())
-            ->setTo('contact@road-web.fr')
+            ->setTo('sent@road-web.fr')
             ->setBody(
                 $this->container->get('twig')->render('emails/send_message.html.twig', ['message' => $message])
             );
