@@ -2,7 +2,7 @@
 
 // tests/ServicesTests/NAOManagerTest.php
 
-namespace App\Tests\ServicesTests;
+namespace App\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -2,7 +2,7 @@
 
 // tests/ServicesTests/Comment/NAOCommentManagerTest.php
 
-namespace App\Tests\ServicesTests\Comment;
+namespace App\Tests\Services\Comment;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

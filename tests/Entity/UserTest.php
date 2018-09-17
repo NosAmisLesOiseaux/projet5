@@ -6,7 +6,7 @@
  * Time: 16:35
  */
 
-namespace App\Tests\Entity;
+namespace App\Tests\EntitiesTests;
 
 
 use App\Entity\User;
