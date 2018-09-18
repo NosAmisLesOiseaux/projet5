@@ -6,8 +6,6 @@
 	<h1 class="t-index-4">Espace administration</h1>
 	<span class="s-t-index-4"></span>
 	<p class="compte-ajout">Compte {{ userRole }}</p>
-
-	<a href="{{ path('add_csv_file') }}">Ajout CSV file</a>
 	<a href="{{ path('upgrade', {'username': app.user.username, 'role': 'ROLE_ADMIN'}) }}">Upgrade to admin</a>
 
 	<section>
