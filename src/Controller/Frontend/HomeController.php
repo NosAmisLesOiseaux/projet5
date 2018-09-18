@@ -96,4 +96,15 @@ class HomeController extends Controller
             )
         );
     }
+
+    /**
+     * @Route(path="/mentions-legales", name="mentions")
+     * @return Response
+     */
+    public function mentionsLegales()
+    {
+        return $this->render(
+            'home/mentions.html.twig'
+        );
+    }
 }
