@@ -1,0 +1,36 @@
+<nav role="navigation" class="navigation">
+    <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            <li><a href="{{ path('repertory') }}">Répertoire</a></li>
+            <li><a href="{{ path('captures') }}">Observations</a></li>
+            <li><a href="{{ path('add_capture') }}">Ajouter une observation</a></li>
+            <li><a href="{{ path('statistics') }}">Quelques données</a></li>
+            <li><a href="{{ path('contact') }}">Contact</a></li>
+            {% if is_granted('ROLE_NATURALIST') %}
+                <li><a href="{{ path('admin_space') }}">Administration</a></li>
+                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% elseif is_granted('ROLE_USER') %}
+                <li><a href="{{ path('user_account') }}">Mon compte</a></li>
+                <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('login') }}">Connexion</a></li>
+                <li><a href="{{ path('register') }}">Inscription</a></li>
+                <li><a href="{{ path('lost_password') }}">Mot de passe perdu</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="logo">
+        <span>
+            <a href="{{ path('home') }}"><img src="{{ asset('images/logo-classic.png') }}"></a>
+        </span>
+    </div>
+    <div class="icon-recherche">
+        <a href="{{ path('user_account') }}"><i class=" one fa fa-user fa-2x"></i></a>
+    </div>
+</nav>
