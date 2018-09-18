@@ -67,8 +67,6 @@ $( function() {
 			var complement = $('#'+ roles +'_capture_complement').val();
 			var city = $('#'+ roles +'_capture_city').val();
 			$.getJSON('https://nominatim.openstreetmap.org/search?q='+ address + ' ' + complement +  ' ' + city +'&format=json&polygon=1&addressdetails=1',  function( data ) {
-				console.log(data);
-				console.log(data[0].lat);
 				var latitude = data[0].lat;
 				var longitude = data[0].lon;
 				$('#'+ roles +'_capture_latitude').val(latitude);
