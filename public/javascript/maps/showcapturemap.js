@@ -13,7 +13,7 @@ $( function() {
     }
 
 	function initMap() {
-        $.getJSON('http://road-web.fr/api/'+url+'/', function( data ) {
+        $.getJSON('https://road-web.fr/api/'+url+'/', function( data ) {
             for (i = 0; i < data.length; i++)
             {
                 macarte = L.map('map'+i).setView([ data[i].latitude, data[i].longitude], 7);

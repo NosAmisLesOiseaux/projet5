@@ -16,7 +16,7 @@ $( function() {
 	}
 	
 	function initMap() {
-		$.getJSON('http://road-web.fr/api/'+ url +'/', function( data ) {
+		$.getJSON('https://road-web.fr/api/'+ url +'/', function( data ) {
 			var captures = data;
 			var markers = []; 
 	        myMap = L.map('map').setView([lat, lon], 11);
@@ -37,7 +37,7 @@ $( function() {
 	        		bird = captures[i].bird + ' - ' + captures[i].birdValidName;
 	        	}
 				var marker = L.marker([captures[i].latitude, captures[i].longitude]);
-				marker.bindPopup('<a href="http://road-web.fr/observation/' + captures[i].id + '">' + bird + '</a>' + '<br/> ' + captures[i].address + ' ' + captures[i].zipcode + ' ' + captures[i].city);
+				marker.bindPopup('<a href="https://road-web.fr/observation/' + captures[i].id + '">' + bird + '</a>' + '<br/> ' + captures[i].address + ' ' + captures[i].zipcode + ' ' + captures[i].city);
 				markerClusters.addLayer(marker); 
 				markers.push(marker);
 			} 

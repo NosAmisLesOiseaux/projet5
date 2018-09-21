@@ -2,7 +2,7 @@ $( function() {
     var id = map0.dataset.identifiant;
     var numberComments = numbercomments.dataset.number;
     $('#comments').pagination({
-        dataSource: 'http://road-web.fr/api/capturepublishedcomments/'+ id +'/',
+        dataSource: 'https://road-web.fr/api/capturepublishedcomments/'+ id +'/',
         locator: 'items',
         pageSize: 1,
         totalNumber: numberComments,
