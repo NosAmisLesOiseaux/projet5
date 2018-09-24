@@ -22,6 +22,11 @@ $( function() {
 			$('#'+ roles +'_capture_zipcode').val(zipcode);
 			$('#'+ roles +'_capture_city').val(town);
 			$('#'+ roles +'_capture_region').val(region);
+
+			$('#'+ roles +'_capture_address').prop('readonly', true);
+			$('#'+ roles +'_capture_zipcode').prop('readonly', true);
+			$('#'+ roles +'_capture_city').prop('readonly', true);
+			$('#'+ roles +'_capture_region').prop('readonly', true);
 		});
 	}
 
