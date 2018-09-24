@@ -16,7 +16,13 @@ $( function() {
 		$.getJSON('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '', function( data ) {
 			var address = data.address.house_number + ' ' + data.address.road;
 			var zipcode = data.address.postcode;
-			var town = town ? data.address.town : data.address.village;
+			if (typeof(data.address.town) != "undefined"){
+				var town = data.address.town;
+			}
+			else 
+			{
+				var town = data.address.village;
+			}
 			var region = data.address.state;
 			$('#'+ roles +'_capture_address').val(address);
 			$('#'+ roles +'_capture_zipcode').val(zipcode);
@@ -26,7 +32,6 @@ $( function() {
 			$('#'+ roles +'_capture_address').prop('readonly', true);
 			$('#'+ roles +'_capture_zipcode').prop('readonly', true);
 			$('#'+ roles +'_capture_city').prop('readonly', true);
-			$('#'+ roles +'_capture_region').prop('readonly', true);
 		});
 	}
 
