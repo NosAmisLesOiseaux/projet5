@@ -66,26 +66,33 @@ class NAODataStatistics
             $numberOfBirds = $this->naoCountBirds->countSearchBirdsByRegionAndDate($regionName, $year);
             $birds = $this->naoBirdManager->searchBirdsByregionAndDate($regionName, $year);
 
-            $birdsName = [];
+            $birdsData = [];
             foreach ($birds as $bird) {
-            if ($bird->getVernacularname() != null)
-            {
-                $birdsName[] = $bird->getVernacularname().' - '.$bird->getValidname();
-                }
-                else 
+                $numberCapturesByBirdAndRegionAndYear = $this->naoCountCaptures->countCapturesByBirdAndRegionAndYear($bird, $regionName, $year);
+                if ($bird->getVernacularname() != null)
                 {
-                    $birdsName[] = $bird->getValidname();
+                    $birdsData[] = [
+                            'birdName' => $bird->getVernacularname().' - '.$bird->getValidname(),
+                            'observations' => $numberCapturesByBirdAndRegionAndYear,
+                        ];
+                    }
+                    else 
+                    {
+                        $birdsData[] = [
+                            'birdName' => $bird->getValidname(),
+                            'observations' => $numberCapturesByBirdAndRegionAndYear,
+                        ];
+                    }
                 }
-            }
         
-
+            
             $regionsData[] = [
                 'region' => $regionName,
                 'numberOfBirds' => $numberOfBirds,
-                'birds' => $birdsName
+                'birds' => $birdsData
             ];
         }
-
+        
         $formatted = [];
         $formatted[] = [
             'year' => $year,

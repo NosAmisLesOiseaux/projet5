@@ -126,4 +126,15 @@ class NAOCountCaptures
 			return $numberSearchCapturesByBirdAndRegion = $this->naoManager->getEm()->getRepository(Capture::class)->countSearchCapturesByBirdAndRegion($bird, $region, $this->draftStatus, $this->waitingStatus);
 		}
 	}
+
+	/**
+     * @param $bird
+     * @param $region
+     * @param $year
+     * @return mixed
+     */
+	public function countCapturesByBirdAndRegionAndYear($bird, $region, $year)
+	{
+		return $numberCapturesByBirdAndRegionAndYear = $this->naoManager->getEm()->getRepository(Capture::class)->countCapturesByBirdAndRegionAndYear($bird, $region, $year, $this->draftStatus, $this->waitingStatus);
+	}
 }

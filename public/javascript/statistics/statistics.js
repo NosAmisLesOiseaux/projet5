@@ -38,7 +38,13 @@ $( function() {
                         for (t = start; t < limit; t++)
                         {
                             birds += '<li>';
-                            birds += region.birds[t];
+                            birds += region.birds[t].birdName + ' ('+ region.birds[t].observations;
+                            if (region.birds[t].observations <= 1) {
+                                birds += ' observation)';
+                            } 
+                            else {
+                                birds += ' observations)';
+                            };                                
                             birds += '</li>';
                         }
                         birds += '</ul>';

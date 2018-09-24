@@ -352,6 +352,32 @@ class CaptureRepository extends ServiceEntityRepository
     /**
      * @param $bird
      * @param $region
+     * @param $year
+     * @param $draftStatus
+     * @param $waitingStatus
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countCapturesByBirdAndRegionAndYear($bird, $region, $year, $draftStatus, $waitingStatus)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('count(c.id)');
+        $qb->where('c.bird = :bird');
+        $qb->setParameter('bird', $bird);
+        $qb->andWhere('c.region = :region');
+        $qb->setParameter('region', $region);
+        $qb->andWhere('c.status != :status1');
+        $qb->setParameter('status1', $draftStatus);
+        $qb->andWhere('c.status != :status2');
+        $qb->setParameter('status2', $waitingStatus);
+        $qb->andWhere('c.created_date LIKE \''.$year.'%\'');
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    /**
+     * @param $bird
+     * @param $region
      * @param $numberOfElementsPerPage
      * @param $firstEntrance
      * @param $draftStatus
