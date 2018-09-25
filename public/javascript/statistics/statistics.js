@@ -20,7 +20,7 @@ $( function() {
                     var numberOfBirds = data[0].regions[val].numberOfBirds;
                     var region = data[0].regions[val];
                     var currentPage = $('#statisticsByRegion'+ val+'').data('pagination').model.pageNumber;
-                    var pageSize = $('#statisticsByRegion'+ val+'').data('pagination').model.pageSize
+                    var pageSize = $('#statisticsByRegion'+ val+'').data('pagination').model.pageSize;
                     var start = (currentPage * pageSize) - pageSize;
                     var limit = start + pageSize;
                     var totalPage = Math.ceil(numberOfBirds / pageSize);
