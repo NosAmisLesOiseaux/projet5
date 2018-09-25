@@ -2,7 +2,7 @@
 
 <section class="content-shared-admin">
 	<h2 class="h2-ob-partage">
-		{% if numberOfWaitingforvalidationCaptures == 1 %}
+		{% if numberOfWaitingforvalidationCaptures <= 1 %}
 			{{numberOfWaitingforvalidationCaptures}}  observation en attente :
 		{% elseif numberOfWaitingforvalidationCaptures > 1 %}
 			{{numberOfWaitingforvalidationCaptures}}  observations en attentes

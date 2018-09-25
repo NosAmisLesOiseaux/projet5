@@ -4,7 +4,7 @@
 
 <section class="content-shared-admin">
     <h2 class="h2-comment-shared">
-    	{% if numberOfPublishedComments == 1 %}
+    	{% if numberOfPublishedComments <= 1 %}
     		{{numberOfPublishedComments}}  commentaire publié :
     	{% elseif numberOfPublishedComments > 1 %}
     		{{numberOfPublishedComments}}  commentaires publiés :

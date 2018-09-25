@@ -2,7 +2,7 @@
 
 <section class="content-shared-admin">
     <h2 class="h2-comment-shared">
-	{% if numberOfReportedComments == 1 %}
+	{% if numberOfReportedComments <= 1 %}
 		{{numberOfReportedComments}}  commentaire signalé :
 	{% elseif numberOfReportedComments > 1 %}
 		{{numberOfReportedComments}} commentaires signalés :

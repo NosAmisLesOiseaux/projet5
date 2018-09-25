@@ -2,7 +2,7 @@
 
 <section class="content-shared-admin">
     <h2 class="h2-ob-partage">
-        {% if numberOfPublishedCaptures == 1 %}
+        {% if numberOfPublishedCaptures <= 1 %}
         	{{numberOfPublishedCaptures}} observation publiée : 
         {% elseif numberOfPublishedCaptures > 1 %}
        		{{numberOfPublishedCaptures}} observations publiées : 
